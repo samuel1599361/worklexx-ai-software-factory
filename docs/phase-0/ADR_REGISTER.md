@@ -1389,6 +1389,9 @@ This register must remain consistent with:
 - `DEVELOPMENT_ROADMAP.md`
 - `RISK_REGISTER.md`
 - `PHASE_0_INSPECTION_REPORT.md`
+- `TESTING_STRATEGY.md`
+- `MONITORING_AND_OBSERVABILITY.md`
+- `COST_AND_SCALABILITY.md`
 
 Where an ADR conflicts with another architecture document, the conflict must be recorded and resolved through the authorised change-control process.
 
