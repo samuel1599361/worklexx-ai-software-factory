@@ -415,7 +415,7 @@ Their final hosting topology, scaling configuration, network boundaries, and res
 
 The platform requires a model-provider abstraction to support model selection, routing, usage measurement, provider credentials, and provider-specific integration.
 
-This capability is logically assigned to the approved backend architecture and must not be introduced as an undocumented seventh deployable service.
+This capability is logically assigned within the proposed backend architecture and must not be introduced as an undocumented seventh deployable service.
 
 Its exact deployment placement, interfaces, and ownership must be defined consistently in the system architecture and service-boundary documents.
 
