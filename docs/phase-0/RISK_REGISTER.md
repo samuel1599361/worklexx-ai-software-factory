@@ -14,7 +14,7 @@
 | Repository | https://github.com/samuel1599361/worklexx-ai-software-factory |
 | Parent Phase | Phase 0 — Architecture and Planning |
 | Document Owner | Project Owner — appointment/confirmation pending |
-| Risk Acceptance Authority | Pending explicit designation |
+| Risk Acceptance Authority | Project Owner — sole risk acceptance authority during the initial governance phase; no delegation currently authorised (HD-07, 2026-11-19) |
 | Review Frequency | At least monthly during active implementation, and after material changes or incidents |
 | Related Documents | Architecture Overview, System Architecture, Technology Stack, Repository Structure, Agent Ecosystem, Service Boundaries, Database Architecture, Security Architecture, Deployment Architecture, Development Roadmap, ADR Register, Phase 0 Inspection Report, Testing Strategy, Monitoring and Observability, Cost and Scalability |
 | Approval Status | Not formally approved |
@@ -184,9 +184,22 @@ Each risk should have:
 - A residual-risk assessment.
 - An authorised acceptance record where acceptance is required.
 
-The Project Owner's risk acceptance authority has not yet been formally confirmed. The organisation must explicitly identify who may accept Low, Medium, High, and Critical residual risks and whether any categories require additional approval.
+The Project Owner is the sole risk acceptance authority during the initial Worklexx AI Software Factory governance phase, as approved under HD-07 on 2026-11-19. No delegated risk acceptance authority is currently established. This does not prevent written delegation of risk assessment, investigation, control ownership, mitigation execution, monitoring, or reporting; such delegation does not include accepting residual risk or approving a gated activity.
 
-Until that authority is established, risk acceptance remains pending.
+### 7.1 Risk Acceptance Authority and Limits
+
+- **Low (score 1–5):** The Project Owner may accept documented residual risk after reviewing the assessment, controls, evidence, rationale, and review date.
+- **Medium (score 6–11):** The Project Owner may accept documented residual risk with a mitigation plan, accountable owners, monitoring conditions, and a review date.
+- **High (score 12–19):** Acceptance is reserved to the Project Owner and requires written justification, documented alternatives, and relevant independent specialist review (for example, security, privacy, legal, financial, safety, or operational review as applicable) before a decision.
+- **Critical (score 20–25):** No routine residual-risk acceptance is authorised under this initial model. The affected activity must be stopped, suspended, or not started while the risk is escalated. Prioritise avoidance, elimination, or substantial reduction. Any proposed exceptional governance route requires a separate explicit human decision and cannot waive mandatory legal, regulatory, security, or safety obligations.
+
+The following matters require escalation and specialist review regardless of numerical score where applicable: suspected or actual regulatory breach; unlawful processing or cross-border transfer; personal-data exposure; cross-tenant data leakage; financial ledger corruption or unauthorised balance mutation; sandbox escape or production-credential compromise; unauthorised privileged access or approval-control circumvention; material customer safety risk; and irreversible data loss or failure to preserve legally required records.
+
+Every risk acceptance record must identify the risk; inherent and residual likelihood, impact, and scores; implemented controls and evidence; affected stakeholders; mitigation alternatives; rationale for acceptance; accepting person's identity and authority; decision date; expiry or review date; conditions and monitoring; and triggers for withdrawal or reassessment. Acceptance must be time-limited and revisited after material incidents, architecture or threat changes, changes in legal obligations, or evidence that controls are ineffective.
+
+Risk acceptance is distinct from activity authorisation and gate approval. Accepting residual risk does not authorise or bypass Phase 1, production deployment, protected GitHub operations, database migrations, external integrations, financial commitments, or any other controlled activity. Applicable approval gates and separate authorisations remain mandatory.
+
+AI agents may identify, assess, summarise, recommend, monitor, and prepare risk records. They must not accept risk, approve an exception, or impersonate an authorised human decision-maker.
 
 ## 8. Risk Register Summary
 
