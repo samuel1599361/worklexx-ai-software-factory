@@ -16,7 +16,7 @@
 | Document Owner | Project Owner — appointment/confirmation pending |
 | Decision Authority | Pending explicit confirmation |
 | Review Frequency | At each material architecture change and phase gate |
-| Related Documents | Architecture Overview, System Architecture, Technology Stack, Repository Structure, Agent Ecosystem, Service Boundaries, Database Architecture, Security Architecture, Deployment Architecture, Development Roadmap, Risk Register, Phase 0 Inspection Report |
+| Related Documents | Architecture Overview, System Architecture, Technology Stack, Repository Structure, Agent Ecosystem, Service Boundaries, Database Architecture, Security Architecture, Deployment Architecture, Development Roadmap, Risk Register, Phase 0 Inspection Report, Testing Strategy, Monitoring and Observability, Cost and Scalability |
 | Approval Status | Not formally approved |
 
 ---
@@ -1002,7 +1002,7 @@ Controls authorisation to perform designated protected GitHub operations.
 
 The two gates must remain independent and must not be treated as interchangeable.
 
-The definitions of GATE-01, GATE-02, GATE-05, and GATE-06 remain pending explicit human decisions.
+GATE-05 is intended to govern designated destructive or materially consequential database operations, including destructive schema migrations and incompatible data transformations. GATE-06 is intended to govern designated consequential external integrations and live-account actions with material external, financial, operational, or customer impact. Their complete scope, exceptions, approval authority, enforcement, and evidence requirements remain subject to explicit Project Owner confirmation. GATE-01 and GATE-02 remain pending formal definition.
 
 ### 17.3 Approval-Binding Requirements
 
