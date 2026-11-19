@@ -1341,7 +1341,7 @@ The following decisions require explicit human resolution.
 
 | Decision ID | Decision Required | Related ADRs | Status |
 |---|---|---|---|
-| HD-01 | Select the managed or internally operated identity-provider approach | ADR-001, ADR-005, ADR-011 | Pending |
+| HD-01 | Select the managed or internally operated identity-provider approach | ADR-001, ADR-005, ADR-011 | **Approved — managed approach** |
 | HD-02 | Select Temporal Cloud or self-hosted deployment | ADR-003, ADR-012 | Pending |
 | HD-03 | Approve primary and disaster-recovery regions | ADR-002, ADR-007, ADR-008, ADR-012 | Pending |
 | HD-04 | Confirm the six-deployable backend service topology | ADR-001, ADR-006, ADR-013 | Pending |
@@ -1350,7 +1350,16 @@ The following decisions require explicit human resolution.
 | HD-07 | Designate risk acceptance authority and approval delegation | ADR-011 | Pending |
 | HD-08 | Define GATE-01 through GATE-06 and their approval requirements | ADR-011 | Pending |
 
-These decisions must be recorded with the decision-maker, date, rationale, evidence, and any conditions.
+### HD-01 — Managed Identity-Provider Approach
+
+- **Decision:** Approved — use a managed identity-provider approach rather than internally operating identity infrastructure.
+- **Decision-maker:** Project Owner.
+- **Decision date:** 2026-11-19.
+- **Rationale:** Reduce the operational and security-maintenance burden of operating identity infrastructure; use established provider capabilities for authentication, MFA, account recovery, federation, and session security; retain Worklexx ownership of application-level authorisation and tenant isolation.
+- **Conditions:** Keep the integration provider-independent; do not infer application permissions from successful authentication; services must enforce resource-level authorisation and tenant boundaries; sensitive operations remain subject to their applicable approval gates.
+- **Scope limitation:** This decision does not select a specific identity-provider vendor, contract, hosting region, or deployment configuration. Those details require separate evaluation and approval.
+
+All other human decisions remain subject to separate explicit resolution. Decisions must be recorded with the decision-maker, date, rationale, evidence, and any conditions.
 
 ## 22. ADR Approval and Change-Control Procedure
 
@@ -1428,7 +1437,7 @@ An Accepted ADR establishes an architectural decision only within its approved s
 
 **Decision status:** Proposed pending authorised human review and approval.
 
-**Human decisions:** HD-01 through HD-08 remain pending.
+**Human decisions:** HD-01 is approved as the managed identity-provider approach. HD-02 through HD-08 remain pending.
 
 **Repository status:** Existing `main` branch remains the baseline. The proposed five-tier branch strategy has not been adopted.
 
