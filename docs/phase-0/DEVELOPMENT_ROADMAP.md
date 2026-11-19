@@ -1249,8 +1249,8 @@ These are related but not interchangeable.
 | GATE-02 | Pending formal definition | Must not be assumed |
 | GATE-03 | Production deployment approval | Required before production deployment |
 | GATE-04 | Protected GitHub operations approval | Required for operations within its approved scope |
-| GATE-05 | Destructive database operations and migrations; detailed scope and enforcement pending owner confirmation | Apply only after the complete control is confirmed; do not infer unapproved scope |
-| GATE-06 | Consequential external integrations and live-account actions; detailed scope and enforcement pending owner confirmation | Apply only after the complete control is confirmed; do not infer unapproved scope |
+| GATE-05 | Destructive database operations and migrations; detailed scope and enforcement pending owner confirmation | Do not perform designated destructive operations without explicit Project Owner authorization while the full gate policy is being confirmed |
+| GATE-06 | Consequential external integrations and live-account actions; detailed scope and enforcement pending owner confirmation | Do not activate designated consequential external actions or live accounts without explicit Project Owner authorization while the full gate policy is being confirmed |
 
 GATE-05 is intended to govern designated destructive or materially consequential database operations, including destructive schema migrations and incompatible data transformations. GATE-06 is intended to govern designated consequential external integrations and live-account actions with material external, financial, operational, or customer impact. Their complete scope, exceptions, approval authority, enforcement, and evidence requirements remain subject to explicit Project Owner confirmation. GATE-01 and GATE-02 remain pending formal definition.
 
