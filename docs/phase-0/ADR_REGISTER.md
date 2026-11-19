@@ -1347,7 +1347,7 @@ The following decisions require explicit human resolution.
 | HD-04 | Confirm the six-deployable backend service topology | ADR-001, ADR-006, ADR-013 | **Approved — retain six logical deployables, physical topology validation remains pending (2026-11-19)** |
 | HD-05 | Confirm the initial vector-storage approach and model-specific embedding-dimension policy | ADR-007 | **Approved — PostgreSQL with pgvector preferred initially; dimensions remain model/use-case specific; POC-05 required (2026-11-19)** |
 | HD-06 | Approve platform RPO and RTO targets | ADR-007, ADR-008, ADR-012 | **Approved — tiered architectural recovery objectives; POC-15 and operational validation required (2026-11-19)** |
-| HD-07 | Designate risk acceptance authority and approval delegation | ADR-011 | Pending |
+| HD-07 | Designate risk acceptance authority and approval delegation | ADR-011 | **Approved — Project Owner is sole risk acceptance authority during the initial governance phase; no delegation (2026-11-19)** |
 | HD-08 | Define GATE-01 through GATE-06 and their approval requirements | ADR-011 | Pending |
 
 ### HD-01 — Managed Identity-Provider Approach
@@ -1388,6 +1388,19 @@ HD-02 — Temporal Cloud Preferred Initial Approach
 - **Conditions:** These values are planning objectives, not verified capabilities, contractual service levels, or availability guarantees. POC-15 must measure actual recovery performance and validate full-platform restoration and regional recovery. Recovery scope must include PostgreSQL and pgvector, financial records, Temporal workflow state, object storage, Git repositories and build artifacts, identity-provider configuration, KMS and secrets, DNS, infrastructure configuration, and required external dependencies. Financial recovery must preserve ledger integrity and reconcile against payment-provider and other authoritative records, including idempotency and duplicate-side-effect controls. Backup design must address encryption, restricted access, retention, geographic separation, integrity verification, restoration testing, and immutability where appropriate. Restored data must be reconciled against valid deletion requests, anonymisation, legal holds, revoked credentials, access changes, and tenant deactivation before normal access is restored.
 - **Validation:** POC-15 must document test environment, recovery scenarios, dependency ordering, measured data-loss window, measured restoration time, integrity and reconciliation results, limitations, and remediation actions. Targets must be reviewed if evidence shows they cannot be achieved safely or economically.
 - **Scope limitation:** This decision records architectural objectives only. It does not approve backup frequency or retention configuration, a replication mechanism, database or storage configuration, infrastructure provisioning, subscriptions, production failover, a production recovery commitment, or Phase 1 implementation. Those require separate validation and authorization.
+
+### HD-07 — Project Owner-Led Risk Acceptance Authority
+
+- **Decision:** Approved — the Project Owner is the sole risk acceptance authority during the initial Worklexx AI Software Factory governance phase. No delegated risk acceptance authority is introduced at this stage.
+- **Decision-maker:** Project Owner.
+- **Decision date:** 2026-11-19.
+- **Delegation boundary:** Risk assessment, investigation, control ownership, mitigation execution, monitoring, and reporting may be delegated in writing. Such delegation does not confer authority to accept residual risk, approve exceptions, or authorise gated activities.
+- **Risk-level treatment:** The Project Owner may accept documented Low (1–5) and Medium (6–11) residual risks subject to recorded controls, rationale, conditions, and review dates. High (12–19) residual-risk acceptance is reserved to the Project Owner and requires written justification and relevant independent specialist review. Critical (20–25) risks are not eligible for routine acceptance under this model; the affected activity must be stopped, suspended, or not started while the risk is escalated and addressed. Any exceptional governance route would require a separate explicit human decision and cannot waive mandatory legal, regulatory, security, or safety obligations.
+- **Mandatory escalation:** Relevant specialist review is required regardless of numerical score for matters such as regulatory breach, unlawful processing or cross-border transfer, personal-data exposure, cross-tenant leakage, ledger corruption or unauthorised balance mutation, sandbox escape or production-credential compromise, privileged-access abuse, approval-control circumvention, material customer safety risk, or irreversible data loss.
+- **Acceptance record:** Each acceptance must record the risk ID; inherent and residual assessment; implemented controls and evidence; affected stakeholders; alternatives; rationale; accepting person's identity and authority; decision date; expiry/review date; conditions, monitoring, and withdrawal triggers. Acceptance is time-limited and must be reassessed after material incidents, changes, or evidence of ineffective controls.
+- **Separation of authority:** Risk acceptance is not activity authorisation or gate approval. It does not authorise or bypass Phase 1, production deployment, protected GitHub operations, database migrations, external integrations, financial commitments, or other controlled activities.
+- **AI boundary:** AI agents may support assessment and recommendations but must not accept risk, approve exceptions, or impersonate a human approver.
+- **Scope limitation:** This is a governance decision only. It does not establish delegation to any other person, approve an activity, waive a gate, or authorise Phase 1 or production operations.
 
 ### HD-05 — PostgreSQL and pgvector Vector-Storage Direction
 
@@ -1478,11 +1491,11 @@ An Accepted ADR establishes an architectural decision only within its approved s
 
 **Decision status:** Proposed pending authorised human review and approval.
 
-**Human decisions:** HD-01 is approved as the managed identity-provider approach. HD-02 is approved as the conditional preferred initial Temporal Cloud approach. HD-03 is approved as the regional architecture direction, subject to legal, security, POC, and operational validations. HD-04 is approved as the six-logical-deployable topology, with physical deployment subject to validation. HD-05 is approved as the initial PostgreSQL/pgvector vector-storage direction with model- and use-case-specific dimensions, subject to POC-05 and the stated validations. HD-06 through HD-08 remain pending.
+**Human decisions:** HD-01 is approved as the managed identity-provider approach. HD-02 is approved as the conditional preferred initial Temporal Cloud approach. HD-03 is approved as the regional architecture direction, subject to legal, security, POC, and operational validations. HD-04 is approved as the six-logical-deployable topology, with physical deployment subject to validation. HD-05 is approved as the initial PostgreSQL/pgvector vector-storage direction with model- and use-case-specific dimensions, subject to POC-05 and the stated validations. HD-06 is approved as the tiered architectural recovery objectives, subject to POC-15 and operational validation. HD-07 is approved: the Project Owner is the sole risk acceptance authority during the initial governance phase, with no delegated risk acceptance authority; assessment and mitigation work may be delegated without transferring acceptance authority. HD-08 remains pending.
 
 **Repository status:** Existing `main` branch remains the baseline. The proposed five-tier branch strategy has not been adopted.
 
-**Approval authority:** Pending explicit confirmation.
+**Approval authority:** For risk acceptance, the Project Owner is the sole authority during the initial governance phase under HD-07; no delegation is authorised. Other approval authorities and gate-specific requirements remain subject to their respective decisions.
 
 **Implementation authority:** This document does not authorise Phase 1 or any implementation, protected GitHub operation, or production deployment.
 
