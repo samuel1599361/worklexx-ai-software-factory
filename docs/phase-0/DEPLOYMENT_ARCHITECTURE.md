@@ -1820,11 +1820,30 @@ Object storage recovery must address versioning, retention, deletion, and access
 
 Git recovery must preserve repository history and protected-branch integrity.
 
-### 27.7 Recovery Objectives
+### 27.7 Approved Tiered Recovery Objectives — HD-06
 
-The final Recovery Point Objective (RPO) and Recovery Time Objective (RTO) remain pending formal human decisions.
+The Project Owner has approved the following tiered RPO and RTO values as architectural recovery objectives on 2026-11-19:
 
-They must be based on business impact analysis and demonstrated recovery testing.
+| Workload / data class | RPO | RTO |
+|---|---:|---:|
+| Financial ledger, payment and credit records | ≤ 5 minutes | ≤ 1 hour |
+| Core platform database and tenant/business records | ≤ 15 minutes | ≤ 2 hours |
+| Durable agent and workflow state | ≤ 5 minutes | ≤ 1 hour |
+| Core API and essential user access | Not applicable to service availability itself; persistent state follows its data-class RPO | ≤ 1 hour |
+| Multimodal processing and sandbox workloads | ≤ 1 hour for recoverable workload state; original uploads and completed customer artifacts require separately classified protection | ≤ 4 hours |
+| Analytics, reporting and non-critical derived data | ≤ 24 hours | ≤ 24 hours |
+
+These are architectural planning objectives, not verified capabilities, contractual service levels, or availability guarantees. POC-15 and operational validation are mandatory before the platform claims that the targets are achievable.
+
+Validation must measure full-platform restoration and regional recovery, including databases, pgvector, financial records, Temporal workflow state, object storage, Git repositories and build artifacts, identity-provider configuration, KMS and secrets, DNS, infrastructure configuration, and required external dependencies.
+
+Financial recovery must preserve ledger integrity and reconcile against payment-provider and other authoritative records. Recovery must prevent duplicate charges, settlements, or other external side effects through idempotency and reconciliation controls.
+
+The backup and recovery design must address encryption, restricted access, retention, geographic separation, integrity verification, restoration testing, and immutability where appropriate. Restored data must be reconciled against valid deletion requests, anonymisation, legal holds, revoked credentials, access changes, and tenant deactivation before normal access is restored.
+
+POC-15 must record the test environment, scenarios, dependency ordering, measured data-loss window, measured restoration time, integrity and reconciliation results, limitations, and remediation actions. Targets must be reviewed if evidence shows they cannot be achieved safely or economically.
+
+This decision does not approve backup frequency or retention configuration, a replication mechanism, database or storage configuration, infrastructure provisioning, subscriptions, production failover, a production recovery commitment, or Phase 1 implementation. Those require separate validation and authorization.
 
 ### 27.8 Backup Restoration and Deletion
 
