@@ -1343,7 +1343,7 @@ The following decisions require explicit human resolution.
 |---|---|---|---|
 | HD-01 | Select the managed or internally operated identity-provider approach | ADR-001, ADR-005, ADR-011 | **Approved — managed approach** |
 | HD-02 | Select Temporal Cloud or self-hosted deployment | ADR-003, ADR-012 | **Approved — Temporal Cloud preferred initial approach (conditional)** |
-| HD-03 | Approve primary and disaster-recovery regions | ADR-002, ADR-007, ADR-008, ADR-012 | Pending |
+| HD-03 | Approve primary and disaster-recovery regions | ADR-002, ADR-007, ADR-008, ADR-012 | **Approved — AWS primary Cape Town (`af-south-1`), Ireland DR (`eu-west-1`), and Temporal Cloud Ireland (`aws-eu-west-1`), architectural direction only, subject to validation (2026-11-19)** |
 | HD-04 | Confirm the six-deployable backend service topology | ADR-001, ADR-006, ADR-013 | Pending |
 | HD-05 | Validate pgvector configuration and the proposed 3072 embedding dimension | ADR-007 | Pending |
 | HD-06 | Approve platform RPO and RTO targets | ADR-007, ADR-008, ADR-012 | Pending |
@@ -1447,7 +1447,7 @@ An Accepted ADR establishes an architectural decision only within its approved s
 
 **Decision status:** Proposed pending authorised human review and approval.
 
-**Human decisions:** HD-01 is approved as the managed identity-provider approach. HD-02 is approved as the conditional preferred initial Temporal Cloud approach. HD-03 through HD-08 remain pending.
+**Human decisions:** HD-01 is approved as the managed identity-provider approach. HD-02 is approved as the conditional preferred initial Temporal Cloud approach. HD-03 is approved as the regional architecture direction, subject to legal, security, POC, and operational validations. HD-04 through HD-08 remain pending.
 
 **Repository status:** Existing `main` branch remains the baseline. The proposed five-tier branch strategy has not been adopted.
 
@@ -1456,3 +1456,14 @@ An Accepted ADR establishes an architectural decision only within its approved s
 **Implementation authority:** This document does not authorise Phase 1 or any implementation, protected GitHub operation, or production deployment.
 
 The ADR Register provides the traceable foundation for recording, reviewing, approving, and maintaining the architectural decisions of the Worklexx AI Software Factory.
+
+## HD-03 — Approved Regional Architecture Direction (2026-11-19)
+
+- **Cloud provider:** Amazon Web Services (AWS).
+- **Primary hosting region:** South Africa (Cape Town), AWS region `af-south-1`.
+- **Disaster-recovery region:** Ireland (Dublin), AWS region `eu-west-1`.
+- **Temporal Cloud preferred region:** Ireland, Temporal Cloud region identifier `aws-eu-west-1`, subject to POC-06 and due diligence.
+- **Scope:** Architectural direction only. No subscription, contract, payment, account configuration, resource provisioning, or production deployment is authorised.
+- **Conditions:** Complete legal and privacy assessment (including Nigerian data-protection and cross-border-transfer requirements), security review, service availability and compatibility validation, POC and operational readiness, cost review, and recovery design/testing. Confirm the required data-residency, backup, retention, encryption, key-management, monitoring and incident-response controls.
+- **Lagos Local Zone:** Any use is optional and separately evaluated; it is not treated as an independent AWS Region or as proof of full Nigerian data residency.
+- **Reversibility:** Region and provider selection may be revisited based on validation evidence or requirements changes.

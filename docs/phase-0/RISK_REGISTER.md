@@ -1394,8 +1394,8 @@ The following decisions remain unresolved and must be addressed by the appropria
 | Decision ID | Decision Required | Why It Matters | Status |
 |---|---|---|---|
 | HD-01 | Select the identity-provider approach | Determines identity ownership, MFA, session, and recovery architecture | Pending |
-| HD-02 | Select Temporal Cloud or self-hosted deployment | Determines workflow operations, availability, cost, and recovery | Pending |
-| HD-03 | Approve primary and disaster-recovery regions | Determines data residency, latency, and recovery design | Pending |
+| HD-02 | Select Temporal Cloud or self-hosted deployment | Determines workflow operations, availability, cost, and recovery | Approved — Temporal Cloud preferred initially, conditional |
+| HD-03 | Approve primary and disaster-recovery regions | Determines data residency, latency, and recovery design | Approved architectural direction — AWS Cape Town primary, Ireland DR; validations pending |
 | HD-04 | Confirm the six-deployable backend topology | Establishes the approved deployment boundary | Pending |
 | HD-05 | Validate pgvector embedding dimension and configuration | Affects storage, indexing, retrieval, and compatibility | Pending |
 | HD-06 | Approve platform RPO and RTO | Determines backup and disaster-recovery requirements | Pending |

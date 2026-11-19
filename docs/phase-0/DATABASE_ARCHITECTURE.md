@@ -479,7 +479,7 @@ The implementation must define valid transitions and enforce them through the wo
 
 Temporal is the preferred candidate, subject to proof of concept.
 
-The final choice between Temporal Cloud and self-hosted Temporal remains unresolved.
+Temporal Cloud is approved as the preferred initial hosting approach, subject to POC-06 and due diligence; self-hosted Temporal remains a future alternative.
 
 Temporal persistence must be treated as workflow-engine state, not as a replacement for the authoritative business records owned by other services.
 
@@ -1423,7 +1423,7 @@ The following decisions remain open.
 | HD-DB-04 | Service schema ownership | Confirm schemas, roles, and migration ownership |
 | HD-DB-05 | pgvector configuration | Approve version, index strategy, dimensions, and performance criteria |
 | HD-DB-06 | Embedding model | Approve model and versioning strategy |
-| HD-DB-07 | Database regions | Select primary and disaster-recovery regions |
+| HD-DB-07 | Database regions | HD-03 approved architectural direction: AWS Cape Town (`af-south-1`) primary and Ireland (`eu-west-1`) DR, subject to validation |
 | HD-DB-08 | Backup retention | Approve backup schedule and retention |
 | HD-DB-09 | RPO and RTO | Approve tested recovery objectives |
 | HD-DB-10 | Data retention | Approve data-category retention and deletion policies |

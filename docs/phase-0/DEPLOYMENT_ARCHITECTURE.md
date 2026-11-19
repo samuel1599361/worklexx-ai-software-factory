@@ -2078,7 +2078,7 @@ The following decisions remain open and require formal review.
 |---|---|---|
 | HD-01 | Select the managed or internally operated identity provider | **Approved — managed approach (2026-11-19)** |
 | HD-02 | Select Temporal Cloud or self-hosted Temporal | **Approved — Temporal Cloud preferred initial approach, conditional on POC-06 and due diligence (2026-11-19)** |
-| HD-03 | Confirm primary and disaster-recovery regions | Pending |
+| HD-03 | Confirm primary and disaster-recovery regions | **Approved — AWS primary Cape Town (`af-south-1`), Ireland DR (`eu-west-1`), and Temporal Cloud Ireland (`aws-eu-west-1`), architectural direction only, subject to validation (2026-11-19)** |
 | HD-04 | Approve the six-service deployment topology and hosting boundaries | Pending |
 | HD-05 | Confirm embedding dimensions and pgvector configuration, including the proposed 3072-dimensional requirement | Pending |
 | HD-06 | Approve platform-wide RPO and RTO | Pending |
@@ -2199,3 +2199,14 @@ The architecture remains subject to formal review, cross-document consistency ve
 **Phase 1 Authorization:** Not granted.
 
 **End of Document WLX-ARCH-009.**
+
+## HD-03 — Approved Regional Architecture Direction (2026-11-19)
+
+- **Cloud provider:** Amazon Web Services (AWS).
+- **Primary hosting region:** South Africa (Cape Town), AWS region `af-south-1`.
+- **Disaster-recovery region:** Ireland (Dublin), AWS region `eu-west-1`.
+- **Temporal Cloud preferred region:** Ireland, Temporal Cloud region identifier `aws-eu-west-1`, subject to POC-06 and due diligence.
+- **Scope:** Architectural direction only. No subscription, contract, payment, account configuration, resource provisioning, or production deployment is authorised.
+- **Conditions:** Complete legal and privacy assessment (including Nigerian data-protection and cross-border-transfer requirements), security review, service availability and compatibility validation, POC and operational readiness, cost review, and recovery design/testing. Confirm the required data-residency, backup, retention, encryption, key-management, monitoring and incident-response controls.
+- **Lagos Local Zone:** Any use is optional and separately evaluated; it is not treated as an independent AWS Region or as proof of full Nigerian data residency.
+- **Reversibility:** Region and provider selection may be revisited based on validation evidence or requirements changes.
