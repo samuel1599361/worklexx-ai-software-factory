@@ -1077,7 +1077,7 @@ Redis Pub/Sub may be used as an ephemeral messaging or notification mechanism wh
 
 It must not be treated as the authoritative durable record of a business event, financial transaction, workflow state, or approval.
 
-Temporal is a candidate for durable workflow orchestration, subject to a proof of concept and an explicit Cloud versus self-hosted decision.
+Temporal is the selected candidate for durable workflow orchestration, with Temporal Cloud approved as the preferred initial hosting approach subject to POC-06 and due diligence; self-hosted Temporal remains a future alternative.
 
 ### 18.3 Messaging Responsibilities
 
@@ -1126,7 +1126,7 @@ Ephemeral communication and durable workflow execution serve different purposes.
 
 - Redis Pub/Sub cannot be the sole record of a critical business event.
 - Workflow state must be durable and recoverable.
-- Temporal deployment model remains unresolved.
+- Temporal Cloud is the approved preferred initial hosting approach, subject to POC-06 and due diligence; self-hosted Temporal remains a future alternative. The approval does not authorise a subscription, contract, production deployment, or region selection.
 - Messaging delivery and retry semantics must be documented.
 - External side effects require idempotency and reconciliation.
 
