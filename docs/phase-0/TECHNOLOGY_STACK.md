@@ -474,7 +474,7 @@ Potential responsibilities include:
 
 ### 10.2 Cloud versus self-hosted deployment
 
-The choice between Temporal Cloud and self-hosted Temporal remains unresolved.
+Temporal Cloud is approved as the preferred initial hosting approach, subject to POC-06 and due diligence. Self-hosted Temporal remains a future alternative; this approval does not authorise a subscription, contract, production deployment, or region selection.
 
 The decision must consider:
 
@@ -489,7 +489,7 @@ The decision must consider:
 - Disaster recovery.
 - Vendor dependency.
 
-The choice requires an explicit human decision.
+The preferred approach has received Project Owner approval dated 2026-11-19. POC-06 and the due-diligence conditions above must be completed and documented before implementation planning treats Temporal Cloud as validated. Any subscription, contract, production deployment, or region selection requires separate approval.
 
 ### 10.3 Workflow reliability
 
@@ -1117,8 +1117,8 @@ The following decisions require explicit human review and approval.
 
 | Decision ID | Decision | Current status |
 |---|---|---|
-| HD-01 | Managed external identity provider versus internally operated identity platform | Pending |
-| HD-02 | Temporal Cloud versus self-hosted Temporal | Pending |
+| HD-01 | Managed external identity provider versus internally operated identity platform | **Approved — managed approach (2026-11-19)** |
+| HD-02 | Temporal Cloud versus self-hosted Temporal | **Approved — Temporal Cloud preferred initial approach, conditional on POC-06 and due diligence (2026-11-19)** |
 | HD-03 | Primary and disaster-recovery regions | Pending |
 | HD-04 | Final deployment topology for the six backend service units | Pending |
 | HD-05 | Confirmation of PostgreSQL and pgvector support for the required 3,072-dimensional vector workload | Pending POC |
