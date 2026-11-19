@@ -454,7 +454,7 @@ A proof of concept must validate:
 - Backup and restore.
 - Operational cost.
 
-The choice between Temporal Cloud and self-hosted Temporal remains unresolved.
+Temporal Cloud is approved as the preferred initial hosting approach, subject to POC-06 and due diligence. Self-hosted Temporal remains a future alternative. This architectural preference does not authorise a subscription, contract, production deployment, account configuration, or region selection.
 
 ### 9.3 Workflow Lifecycle
 
@@ -2076,8 +2076,8 @@ The following decisions remain open and require formal review.
 
 | ID | Decision | Current Status |
 |---|---|---|
-| HD-01 | Select the managed or internally operated identity provider | Pending |
-| HD-02 | Select Temporal Cloud or self-hosted Temporal | Pending |
+| HD-01 | Select the managed or internally operated identity provider | **Approved — managed approach (2026-11-19)** |
+| HD-02 | Select Temporal Cloud or self-hosted Temporal | **Approved — Temporal Cloud preferred initial approach, conditional on POC-06 and due diligence (2026-11-19)** |
 | HD-03 | Confirm primary and disaster-recovery regions | Pending |
 | HD-04 | Approve the six-service deployment topology and hosting boundaries | Pending |
 | HD-05 | Confirm embedding dimensions and pgvector configuration, including the proposed 3072-dimensional requirement | Pending |
