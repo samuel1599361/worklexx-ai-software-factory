@@ -49,7 +49,7 @@ The deployment architecture must remain consistent with:
 The deployment architecture has the following objectives:
 
 1. Provide a reliable hosting model for all five frontend applications.
-2. Deploy the six approved backend service units without introducing undocumented additional deployable services.
+2. Deploy the six defined backend deployable units without introducing undocumented additional deployable services.
 3. Support independent scaling of frontend and backend workloads where justified.
 4. Enforce separation between development, staging, and production environments.
 5. Protect tenant data, source code, uploaded files, credentials, and generated artifacts.
@@ -73,7 +73,7 @@ Frontend delivery, backend application processing, workflow orchestration, data 
 
 ### 3.2 Six-Service Deployment Boundary
 
-The approved backend deployment baseline consists of six deployable service units:
+The proposed backend deployment baseline consists of six deployable service units:
 
 1. `api-gateway`
 2. `agent-orchestrator`
@@ -84,7 +84,7 @@ The approved backend deployment baseline consists of six deployable service unit
 
 The 23 AI agents are logical modules managed within the platform's agent architecture. They are not 23 independently deployed microservices.
 
-The AI Gateway and model-routing capability are logical capabilities within the approved deployment topology. They must not become an undocumented seventh deployable backend service.
+The AI Gateway and model-routing capability are logical capabilities within the proposed deployment topology. They must not become an undocumented seventh deployable backend service.
 
 Any proposed change to the six-service boundary requires an architecture decision and formal approval.
 
@@ -517,7 +517,7 @@ These approvals must be separate and independently bound to the requested action
 
 Material changes must invalidate an approval where the approved action or artifact has changed.
 
-Definitions for GATE-01, GATE-02, GATE-05, and GATE-06 remain pending.
+GATE-05 is intended to govern designated destructive or materially consequential database operations, including destructive schema migrations and incompatible data transformations. GATE-06 is intended to govern designated consequential external integrations and live-account actions with material external, financial, operational, or customer impact. Their complete scope, exceptions, approval authority, enforcement, and evidence requirements remain subject to explicit Project Owner confirmation. GATE-01 and GATE-02 remain pending formal definition.
 
 No AI agent may bypass the required approval process.
 
@@ -1546,7 +1546,7 @@ Where external AI or media-processing providers are used, the platform must asse
 
 ## 24. AdTech Deployment and Data Separation
 
-The `adtech-service` is a separate approved backend deployable.
+The `adtech-service` is a separate proposed backend deployable unit.
 
 It must not become an unrestricted data-access layer for the rest of the platform.
 
