@@ -1077,7 +1077,7 @@ Redis Pub/Sub may be used as an ephemeral messaging or notification mechanism wh
 
 It must not be treated as the authoritative durable record of a business event, financial transaction, workflow state, or approval.
 
-Temporal is a candidate for durable workflow orchestration, subject to a proof of concept and an explicit Cloud versus self-hosted decision.
+Temporal is the selected candidate for durable workflow orchestration, with Temporal Cloud approved as the preferred initial hosting approach subject to POC-06 and due diligence; self-hosted Temporal remains a future alternative.
 
 ### 18.3 Messaging Responsibilities
 
@@ -1126,7 +1126,7 @@ Ephemeral communication and durable workflow execution serve different purposes.
 
 - Redis Pub/Sub cannot be the sole record of a critical business event.
 - Workflow state must be durable and recoverable.
-- Temporal deployment model remains unresolved.
+- Temporal Cloud is the approved preferred initial hosting approach, subject to POC-06 and due diligence; self-hosted Temporal remains a future alternative. The approval does not authorise a subscription, contract, production deployment, or region selection.
 - Messaging delivery and retry semantics must be documented.
 - External side effects require idempotency and reconciliation.
 
@@ -1342,7 +1342,7 @@ The following decisions require explicit human resolution.
 | Decision ID | Decision Required | Related ADRs | Status |
 |---|---|---|---|
 | HD-01 | Select the managed or internally operated identity-provider approach | ADR-001, ADR-005, ADR-011 | **Approved — managed approach** |
-| HD-02 | Select Temporal Cloud or self-hosted deployment | ADR-003, ADR-012 | Pending |
+| HD-02 | Select Temporal Cloud or self-hosted deployment | ADR-003, ADR-012 | **Approved — Temporal Cloud preferred initial approach (conditional)** |
 | HD-03 | Approve primary and disaster-recovery regions | ADR-002, ADR-007, ADR-008, ADR-012 | Pending |
 | HD-04 | Confirm the six-deployable backend service topology | ADR-001, ADR-006, ADR-013 | Pending |
 | HD-05 | Validate pgvector configuration and the proposed 3072 embedding dimension | ADR-007 | Pending |
@@ -1358,6 +1358,16 @@ The following decisions require explicit human resolution.
 - **Rationale:** Reduce the operational and security-maintenance burden of operating identity infrastructure; use established provider capabilities for authentication, MFA, account recovery, federation, and session security; retain Worklexx ownership of application-level authorisation and tenant isolation.
 - **Conditions:** Keep the integration provider-independent; do not infer application permissions from successful authentication; services must enforce resource-level authorisation and tenant boundaries; sensitive operations remain subject to their applicable approval gates.
 - **Scope limitation:** This decision does not select a specific identity-provider vendor, contract, hosting region, or deployment configuration. Those details require separate evaluation and approval.
+
+HD-02 — Temporal Cloud Preferred Initial Approach
+
+- **Decision:** Approved — use Temporal Cloud as the preferred initial workflow-orchestration hosting approach.
+- **Decision-maker:** Project Owner.
+- **Decision date:** 2026-11-19.
+- **Rationale:** Prefer a managed workflow service initially to reduce the operational burden of running and maintaining the orchestration control plane, subject to validation that the managed service meets Worklexx requirements.
+- **Conditions:** Complete POC-06 and due diligence covering total cost of ownership, operational support, availability and service commitments, data residency, security, network architecture, backup and restoration, upgrades, disaster recovery, and vendor dependency. Record evidence and material limitations before implementation planning relies on this approach.
+- **Alternative retained:** Self-hosted Temporal remains a future alternative if validation, commercial terms, regulatory/data-residency constraints, or operational requirements make it preferable.
+- **Scope limitation:** This is an architectural preference only. It does not authorise a Temporal Cloud subscription, contract, payment, production deployment, account configuration, region selection, or final production service commitment. Those require separate evaluation and explicit approval.
 
 All other human decisions remain subject to separate explicit resolution. Decisions must be recorded with the decision-maker, date, rationale, evidence, and any conditions.
 
@@ -1437,7 +1447,7 @@ An Accepted ADR establishes an architectural decision only within its approved s
 
 **Decision status:** Proposed pending authorised human review and approval.
 
-**Human decisions:** HD-01 is approved as the managed identity-provider approach. HD-02 through HD-08 remain pending.
+**Human decisions:** HD-01 is approved as the managed identity-provider approach. HD-02 is approved as the conditional preferred initial Temporal Cloud approach. HD-03 through HD-08 remain pending.
 
 **Repository status:** Existing `main` branch remains the baseline. The proposed five-tier branch strategy has not been adopted.
 

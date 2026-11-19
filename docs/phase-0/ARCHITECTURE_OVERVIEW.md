@@ -1054,7 +1054,7 @@ The architecture identifies candidate technologies but does not convert every ca
 | Backend | Python and FastAPI | Architectural direction; dependency versions must be pinned |
 | Primary database | PostgreSQL | Architectural direction; hosting and configuration require approval |
 | Vector database capability | pgvector | Conditional on compatibility and performance PoC |
-| Workflow orchestration | Temporal | Candidate; Cloud versus self-hosted remains unresolved |
+| Workflow orchestration | Temporal | Temporal Cloud preferred initially, subject to POC-06 and due diligence; self-hosted retained as a future alternative |
 | Event transport | Google Cloud Pub/Sub | Candidate; delivery and recovery semantics must be specified |
 | Cache | Redis | Ephemeral cache and coordination role |
 | Object storage | Cloud object storage | Candidate; provider, region, retention, and recovery require approval |
@@ -1075,7 +1075,7 @@ The following decisions must be resolved by the Project Owner or the appropriate
 | ID | Decision | Current status |
 |---|---|---|
 | HD-01 | Managed identity provider versus internally operated identity solution | **Approved — managed approach (2026-11-19)** |
-| HD-02 | Temporal Cloud versus self-hosted Temporal | Pending |
+| HD-02 | Temporal Cloud versus self-hosted Temporal | **Approved — Temporal Cloud preferred initial approach, conditional on POC-06 and due diligence (2026-11-19)** |
 | HD-03 | Primary and disaster-recovery cloud regions | Pending |
 | HD-04 | Final deployment topology for the six backend deployables | Pending |
 | HD-05 | pgvector strategy for multiple embedding dimensions, including 3072-dimensional vectors | Pending PoC |
