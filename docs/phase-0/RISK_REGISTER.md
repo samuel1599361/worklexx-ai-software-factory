@@ -16,7 +16,7 @@
 | Document Owner | Project Owner — appointment/confirmation pending |
 | Risk Acceptance Authority | Pending explicit designation |
 | Review Frequency | At least monthly during active implementation, and after material changes or incidents |
-| Related Documents | Architecture Overview, System Architecture, Technology Stack, Repository Structure, Agent Ecosystem, Service Boundaries, Database Architecture, Security Architecture, Deployment Architecture, Development Roadmap, ADR Register |
+| Related Documents | Architecture Overview, System Architecture, Technology Stack, Repository Structure, Agent Ecosystem, Service Boundaries, Database Architecture, Security Architecture, Deployment Architecture, Development Roadmap, ADR Register, Phase 0 Inspection Report, Testing Strategy, Monitoring and Observability, Cost and Scalability |
 | Approval Status | Not formally approved |
 
 ---
