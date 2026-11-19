@@ -1094,6 +1094,7 @@ The following decisions remain pending explicit human review and approval.
 | HD-REP-05 | Final generated-project repository isolation model | Pending |
 | HD-REP-06 | Final service-owned migration organization | Pending |
 | HD-REP-07 | Final repository backup and recovery strategy | Pending |
+
 These repository-specific decisions use the `HD-REP-` prefix to distinguish them from platform-wide `HD-01` through `HD-08`, which are maintained in the architecture documents and ADR register. Platform-wide `HD-08` remains the authoritative decision for final approval-gate definitions and approval authority.
 
 These decisions must be reconciled with the ADR register and the remaining Phase 0 architecture documents.
