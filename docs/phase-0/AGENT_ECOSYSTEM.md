@@ -2063,6 +2063,9 @@ This specification must be reviewed together with:
 - `RISK_REGISTER.md`
 - `ADR_REGISTER.md`
 - `PHASE_0_INSPECTION_REPORT.md`
+- `TESTING_STRATEGY.md`
+- `MONITORING_AND_OBSERVABILITY.md`
+- `COST_AND_SCALABILITY.md`
 
 Any conflict involving service count, agent authority, approval gates, tenant isolation, or financial control must be resolved through the cross-document review and formal decision process.
 
