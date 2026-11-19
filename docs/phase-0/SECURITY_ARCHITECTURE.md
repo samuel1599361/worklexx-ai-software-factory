@@ -2600,7 +2600,7 @@ The following security-related decisions require formal resolution before the re
 | ID | Decision | Status |
 |---|---|---|
 | HD-01 | Managed identity provider versus internally managed identity architecture | **Approved — managed approach (2026-11-19)** |
-| HD-02 | Temporal Cloud versus self-hosted Temporal | Pending |
+| HD-02 | Temporal Cloud versus self-hosted Temporal | **Approved — Temporal Cloud preferred initial approach, conditional on POC-06 and due diligence (2026-11-19)** |
 | HD-03 | Primary and disaster-recovery regions | Pending |
 | HD-04 | Final six-deployable topology and operational deployment model | Pending |
 | HD-05 | Vector embedding dimension and pgvector implementation details | Pending |
@@ -2610,7 +2610,7 @@ The following security-related decisions require formal resolution before the re
 
 Additional security implementation decisions shall be recorded through the appropriate ADRs or controlled architecture decision process.
 
-HD-01 is approved only at the architectural approach level; it does not constitute vendor selection. All other pending decisions shall not be treated as approved.
+HD-01 is approved only at the architectural approach level; it does not constitute identity-provider vendor selection. HD-02 approves Temporal Cloud only as the preferred initial hosting approach, subject to POC-06 and due diligence; it does not authorise a subscription, contract, production deployment, or region selection. HD-03 through HD-08 remain pending and shall not be treated as approved.
 
 ---
 
