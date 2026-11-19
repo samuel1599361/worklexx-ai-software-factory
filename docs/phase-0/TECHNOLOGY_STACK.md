@@ -1119,7 +1119,7 @@ The following decisions require explicit human review and approval.
 |---|---|---|
 | HD-01 | Managed external identity provider versus internally operated identity platform | **Approved — managed approach (2026-11-19)** |
 | HD-02 | Temporal Cloud versus self-hosted Temporal | **Approved — Temporal Cloud preferred initial approach, conditional on POC-06 and due diligence (2026-11-19)** |
-| HD-03 | Primary and disaster-recovery regions | Pending |
+| HD-03 | Primary and disaster-recovery regions | **Approved — AWS primary Cape Town (`af-south-1`), Ireland DR (`eu-west-1`), and Temporal Cloud Ireland (`aws-eu-west-1`), architectural direction only, subject to validation (2026-11-19)** |
 | HD-04 | Final deployment topology for the six backend service units | Pending |
 | HD-05 | Confirmation of PostgreSQL and pgvector support for the required 3,072-dimensional vector workload | Pending POC |
 | HD-06 | Final platform RPO and RTO targets | Pending |
@@ -1218,3 +1218,14 @@ It defines the technology responsibilities, six backend deployable boundaries, t
 It does not claim that every proposed technology has passed a proof of concept or received final procurement and implementation approval.
 
 **Phase 0 remains subject to final document verification and explicit Project Owner approval. Phase 1 is not authorized by this document.**
+
+## HD-03 — Approved Regional Architecture Direction (2026-11-19)
+
+- **Cloud provider:** Amazon Web Services (AWS).
+- **Primary hosting region:** South Africa (Cape Town), AWS region `af-south-1`.
+- **Disaster-recovery region:** Ireland (Dublin), AWS region `eu-west-1`.
+- **Temporal Cloud preferred region:** Ireland, Temporal Cloud region identifier `aws-eu-west-1`, subject to POC-06 and due diligence.
+- **Scope:** Architectural direction only. No subscription, contract, payment, account configuration, resource provisioning, or production deployment is authorised.
+- **Conditions:** Complete legal and privacy assessment (including Nigerian data-protection and cross-border-transfer requirements), security review, service availability and compatibility validation, POC and operational readiness, cost review, and recovery design/testing. Confirm the required data-residency, backup, retention, encryption, key-management, monitoring and incident-response controls.
+- **Lagos Local Zone:** Any use is optional and separately evaluated; it is not treated as an independent AWS Region or as proof of full Nigerian data residency.
+- **Reversibility:** Region and provider selection may be revisited based on validation evidence or requirements changes.
