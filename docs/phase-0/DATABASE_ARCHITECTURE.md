@@ -1282,9 +1282,28 @@ Recovery planning must include relevant dependencies, including:
 - Infrastructure configuration.
 - Required external provider integrations.
 
-### 22.5 RPO and RTO
+### 22.5 Approved Tiered RPO and RTO Objectives — HD-06
 
-Final Recovery Point Objective (RPO) and Recovery Time Objective (RTO) values remain pending human approval and full-platform recovery testing.
+The Project Owner approved the following tiered values as architectural recovery objectives on 2026-11-19:
+
+| Workload / data class | RPO | RTO |
+|---|---:|---:|
+| Financial ledger, payment and credit records | ≤ 5 minutes | ≤ 1 hour |
+| Core platform database and tenant/business records | ≤ 15 minutes | ≤ 2 hours |
+| Durable agent and workflow state | ≤ 5 minutes | ≤ 1 hour |
+| Core API and essential user access | Not applicable to service availability itself; persistent state follows its data-class RPO | ≤ 1 hour |
+| Multimodal processing and sandbox workloads | ≤ 1 hour for recoverable workload state; original uploads and completed customer artifacts require separately classified protection | ≤ 4 hours |
+| Analytics, reporting and non-critical derived data | ≤ 24 hours | ≤ 24 hours |
+
+These are planning objectives only. They are not evidence of current capability, contractual service levels, or guaranteed recovery performance. POC-15 and operational validation must measure the actual recovery point and recovery time before any claim of achievement.
+
+Validation must cover PostgreSQL and pgvector, financial records, Temporal workflow state, object storage, Git repositories and build artifacts, identity configuration, KMS and secrets, infrastructure configuration, and required external dependencies. Financial recovery must preserve ledger integrity and reconcile authoritative payment-provider records while preventing duplicate external side effects.
+
+Backup and recovery controls must address encryption, access restrictions, retention, geographic separation, integrity verification, restoration testing, and immutability where appropriate. Before normal access resumes, restored data must be reconciled against valid deletion requests, anonymisation, legal holds, revoked credentials, access changes, and tenant deactivation.
+
+POC-15 must record the test environment, scenarios, dependency ordering, measured data-loss window, measured restoration time, integrity and reconciliation results, limitations, and remediation actions. The objectives must be reviewed if evidence shows they cannot be achieved safely or economically.
+
+This approval does not select a backup frequency, retention period, replication mechanism, database or storage configuration, or authorize infrastructure provisioning, subscriptions, production failover, a production recovery commitment, or Phase 1 implementation. Those remain subject to separate validation and authorization.
 
 ### 22.6 Restored data and deletion requests
 
