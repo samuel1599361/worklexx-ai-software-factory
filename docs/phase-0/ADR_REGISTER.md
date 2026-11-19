@@ -1342,7 +1342,7 @@ The following decisions require explicit human resolution.
 | Decision ID | Decision Required | Related ADRs | Status |
 |---|---|---|---|
 | HD-01 | Select the managed or internally operated identity-provider approach | ADR-001, ADR-005, ADR-011 | **Approved — managed approach** |
-| HD-02 | Select Temporal Cloud or self-hosted deployment | ADR-003, ADR-012 | Pending |
+| HD-02 | Select Temporal Cloud or self-hosted deployment | ADR-003, ADR-012 | **Approved — Temporal Cloud preferred initial approach (conditional)** |
 | HD-03 | Approve primary and disaster-recovery regions | ADR-002, ADR-007, ADR-008, ADR-012 | Pending |
 | HD-04 | Confirm the six-deployable backend service topology | ADR-001, ADR-006, ADR-013 | Pending |
 | HD-05 | Validate pgvector configuration and the proposed 3072 embedding dimension | ADR-007 | Pending |
@@ -1359,7 +1359,7 @@ The following decisions require explicit human resolution.
 - **Conditions:** Keep the integration provider-independent; do not infer application permissions from successful authentication; services must enforce resource-level authorisation and tenant boundaries; sensitive operations remain subject to their applicable approval gates.
 - **Scope limitation:** This decision does not select a specific identity-provider vendor, contract, hosting region, or deployment configuration. Those details require separate evaluation and approval.
 
-All other human decisions remain subject to separate explicit resolution. Decisions must be recorded with the decision-maker, date, rationale, evidence, and any conditions.
+HD-02 — Temporal Cloud Preferred Initial Approach\n\n- **Decision:** Approved — use Temporal Cloud as the preferred initial workflow-orchestration hosting approach.\n- **Decision-maker:** Project Owner.\n- **Decision date:** 2026-11-19.\n- **Rationale:** Prefer a managed workflow service initially to reduce the operational burden of running and maintaining the orchestration control plane, subject to validation that the managed service meets Worklexx requirements.\n- **Conditions:** Complete POC-06 and due diligence covering total cost of ownership, operational support, availability and service commitments, data residency, security, network architecture, backup and restoration, upgrades, disaster recovery, and vendor dependency. Record evidence and material limitations before implementation planning relies on this approach.\n- **Alternative retained:** Self-hosted Temporal remains a future alternative if validation, commercial terms, regulatory/data-residency constraints, or operational requirements make it preferable.\n- **Scope limitation:** This is an architectural preference only. It does not authorise a Temporal Cloud subscription, contract, payment, production deployment, account configuration, region selection, or final production service commitment. Those require separate evaluation and explicit approval.\n\nAll other human decisions remain subject to separate explicit resolution. Decisions must be recorded with the decision-maker, date, rationale, evidence, and any conditions.
 
 ## 22. ADR Approval and Change-Control Procedure
 
@@ -1437,7 +1437,7 @@ An Accepted ADR establishes an architectural decision only within its approved s
 
 **Decision status:** Proposed pending authorised human review and approval.
 
-**Human decisions:** HD-01 is approved as the managed identity-provider approach. HD-02 through HD-08 remain pending.
+**Human decisions:** HD-01 is approved as the managed identity-provider approach. HD-02 is approved as the conditional preferred initial Temporal Cloud approach. HD-03 through HD-08 remain pending.
 
 **Repository status:** Existing `main` branch remains the baseline. The proposed five-tier branch strategy has not been adopted.
 
