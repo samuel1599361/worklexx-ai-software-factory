@@ -1630,7 +1630,7 @@ The following decisions must be resolved by the Project Owner or appropriately d
 | HD-01 | Managed identity provider versus internally operated identity solution | Pending |
 | HD-02 | Temporal Cloud versus self-hosted Temporal | Pending |
 | HD-03 | Primary and disaster-recovery cloud regions | Pending |
-| HD-04 | Final deployment topology for the six backend deployables | Pending |
+| HD-04 | Final deployment topology for the six backend deployables | **Approved — six logical deployables; physical topology validation pending (2026-11-19)** |
 | HD-05 | pgvector strategy for multiple embedding dimensions, including 3072-dimensional vectors | Pending proof of concept |
 | HD-06 | Final RPO and RTO | Pending recovery validation and approval |
 | HD-07 | Risk acceptance authority and delegation | Pending |

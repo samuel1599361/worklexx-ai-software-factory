@@ -1344,7 +1344,7 @@ The following decisions require explicit human resolution.
 | HD-01 | Select the managed or internally operated identity-provider approach | ADR-001, ADR-005, ADR-011 | **Approved — managed approach** |
 | HD-02 | Select Temporal Cloud or self-hosted deployment | ADR-003, ADR-012 | **Approved — Temporal Cloud preferred initial approach (conditional)** |
 | HD-03 | Approve primary and disaster-recovery regions | ADR-002, ADR-007, ADR-008, ADR-012 | **Approved — AWS primary Cape Town (`af-south-1`), Ireland DR (`eu-west-1`), and Temporal Cloud Ireland (`aws-eu-west-1`), architectural direction only, subject to validation (2026-11-19)** |
-| HD-04 | Confirm the six-deployable backend service topology | ADR-001, ADR-006, ADR-013 | Pending |
+| HD-04 | Confirm the six-deployable backend service topology | ADR-001, ADR-006, ADR-013 | **Approved — retain six logical deployables, physical topology validation remains pending (2026-11-19)** |
 | HD-05 | Validate pgvector configuration and the proposed 3072 embedding dimension | ADR-007 | Pending |
 | HD-06 | Approve platform RPO and RTO targets | ADR-007, ADR-008, ADR-012 | Pending |
 | HD-07 | Designate risk acceptance authority and approval delegation | ADR-011 | Pending |
@@ -1447,7 +1447,7 @@ An Accepted ADR establishes an architectural decision only within its approved s
 
 **Decision status:** Proposed pending authorised human review and approval.
 
-**Human decisions:** HD-01 is approved as the managed identity-provider approach. HD-02 is approved as the conditional preferred initial Temporal Cloud approach. HD-03 is approved as the regional architecture direction, subject to legal, security, POC, and operational validations. HD-04 through HD-08 remain pending.
+**Human decisions:** HD-01 is approved as the managed identity-provider approach. HD-02 is approved as the conditional preferred initial Temporal Cloud approach. HD-03 is approved as the regional architecture direction, subject to legal, security, POC, and operational validations. HD-04 is approved as the six-logical-deployable topology, with physical deployment subject to validation. HD-05 through HD-08 remain pending.
 
 **Repository status:** Existing `main` branch remains the baseline. The proposed five-tier branch strategy has not been adopted.
 
@@ -1467,3 +1467,11 @@ The ADR Register provides the traceable foundation for recording, reviewing, app
 - **Conditions:** Complete legal and privacy assessment (including Nigerian data-protection and cross-border-transfer requirements), security review, service availability and compatibility validation, POC and operational readiness, cost review, and recovery design/testing. Confirm the required data-residency, backup, retention, encryption, key-management, monitoring and incident-response controls.
 - **Lagos Local Zone:** Any use is optional and separately evaluated; it is not treated as an independent AWS Region or as proof of full Nigerian data residency.
 - **Reversibility:** Region and provider selection may be revisited based on validation evidence or requirements changes.
+
+
+## HD-04 — Approved Six-Deployable Backend Topology (2026-11-19)
+
+- **Decision:** Retain six logical backend deployable service units: `api-gateway`, `agent-orchestrator`, `multimodal-service`, `sandbox-runner`, `billing-ledger`, and `adtech-service`.
+- **Scope:** These are logical deployable boundaries, not a requirement for six separate physical infrastructures. AI model routing remains a capability within the designated architecture and must not introduce an undocumented seventh deployable service.
+- **Conditions:** Physical deployment, resource allocation, infrastructure consolidation or separation, network design and implementation remain subject to validation and approval.
+- **Implementation authority:** This decision does not authorise Phase 1, infrastructure provisioning or production deployment.

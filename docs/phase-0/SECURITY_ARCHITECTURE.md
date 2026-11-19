@@ -2602,7 +2602,7 @@ The following security-related decisions require formal resolution before the re
 | HD-01 | Managed identity provider versus internally managed identity architecture | **Approved — managed approach (2026-11-19)** |
 | HD-02 | Temporal Cloud versus self-hosted Temporal | **Approved — Temporal Cloud preferred initial approach, conditional on POC-06 and due diligence (2026-11-19)** |
 | HD-03 | Primary and disaster-recovery regions | **Approved — AWS primary Cape Town (`af-south-1`), Ireland DR (`eu-west-1`), and Temporal Cloud Ireland (`aws-eu-west-1`), architectural direction only, subject to validation (2026-11-19)** |
-| HD-04 | Final six-deployable topology and operational deployment model | Pending |
+| HD-04 | Final six-deployable topology and operational deployment model | **Approved — six logical deployables; physical topology remains subject to validation (2026-11-19)** |
 | HD-05 | Vector embedding dimension and pgvector implementation details | Pending |
 | HD-06 | Final platform RPO and RTO | Pending |
 | HD-07 | Risk acceptance authority and delegation | Pending |
@@ -2610,7 +2610,7 @@ The following security-related decisions require formal resolution before the re
 
 Additional security implementation decisions shall be recorded through the appropriate ADRs or controlled architecture decision process.
 
-HD-01 is approved only at the architectural approach level; it does not constitute identity-provider vendor selection. HD-02 approves Temporal Cloud only as the preferred initial hosting approach, subject to POC-06 and due diligence. HD-03 approves AWS as the cloud provider direction, Cape Town (`af-south-1`) as primary, Ireland (`eu-west-1`) as disaster-recovery region, and Temporal Cloud Ireland (`aws-eu-west-1`) as the preferred Temporal Cloud region, subject to legal, security, POC, and operational validations. These decisions do not authorise subscriptions, contracts, payments, account configuration, infrastructure provisioning, or production deployment. HD-04 through HD-08 remain pending.
+HD-01 is approved only at the architectural approach level; it does not constitute identity-provider vendor selection. HD-02 approves Temporal Cloud only as the preferred initial hosting approach, subject to POC-06 and due diligence. HD-03 approves AWS as the cloud provider direction, Cape Town (`af-south-1`) as primary, Ireland (`eu-west-1`) as disaster-recovery region, and Temporal Cloud Ireland (`aws-eu-west-1`) as the preferred Temporal Cloud region, subject to legal, security, POC, and operational validations. These decisions do not authorise subscriptions, contracts, payments, account configuration, infrastructure provisioning, or production deployment. HD-04 is approved as the six-logical-deployable topology, with physical deployment subject to validation. HD-05 through HD-08 remain pending.
 
 ---
 
