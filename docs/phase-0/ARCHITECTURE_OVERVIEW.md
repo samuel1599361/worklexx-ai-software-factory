@@ -602,7 +602,7 @@ The platform should provide concise explanations, status information, and verifi
 
 The platform requires six human-in-the-loop governance gates.
 
-The final definitions and meanings of GATE-01, GATE-02, and GATE-06 remain subject to Project Owner approval.
+The six gates and their initial approval authority have been approved under HD-08. During the initial governance phase, the Project Owner is the sole approval authority for all six gates; specialists may assess and advise but do not approve on the Project Owner's behalf.
 
 The following distinctions are mandatory.
 
@@ -639,37 +639,31 @@ GATE-04 is separate from production deployment approval.
 
 Permission to merge or publish code does not automatically authorize production deployment.
 
-### 7.3 Gate enforcement principles
+### 7.3 GATE-01, GATE-02, GATE-05 and GATE-06
 
-All approval gates must use deterministic authorization controls.
+- **GATE-01 — Product and architecture change:** Material changes to product scope, platform architecture, service boundaries, security design, technology choices or approved architectural decisions.
+- **GATE-02 — Financial and resource commitment:** Cloud/infrastructure commitments, AI model/API commitments, paid licences, vendor contracts or recurring subscriptions, and material budget increases. No spending thresholds or delegated financial limits are established.
+- **GATE-05 — Destructive database operations and migrations:** Irreversible destruction, invalidation or material transformation of persistent data or database structures, including destructive schema changes, incompatible transformations, bulk deletion and production resets/restores that overwrite existing data. Require verified backups, impact analysis, execution plan and rollback/recovery strategy.
+- **GATE-06 — Consequential external integrations and live-account actions:** External integrations or live actions with material financial, operational, customer, legal or security consequences, including live payments, production identity-provider activation, live customer messaging and consequential financial, insurance or logistics actions. Require due diligence, permission review, test evidence, data-protection assessment and rollback/suspension plan.
 
-Approval records must be:
+### 7.4 Gate enforcement principles
 
-- Authenticated.
-- Auditable.
-- Bound to the requested action.
-- Bound to the applicable project and environment.
-- Time-limited where appropriate.
-- Revocable before execution.
-- Protected against replay.
-- Invalidated when material conditions change.
+All gates require authenticated human approval enforced by deterministic controls outside the AI model. Approval must be explicit, action- and context-bound, auditable, time-limited, revocable and protected against replay. Records must bind the approver, decision, scope, project/tenant, environment and affected resource or artifact as applicable, evidence, timestamp, expiry and revocation state.
 
-An AI agent must not approve its own restricted action.
+Material changes require invalidation or reassessment. The system must fail closed when approval is absent, invalid, expired, revoked or unverifiable. Silence, prior approvals, general project approval, technical permissions, administrator status or risk acceptance do not constitute approval. AI agents may prepare requests and evidence but may not approve, impersonate an approver or override controls.
 
-An administrator role must not automatically imply authority to approve every protected action.
+The gates are independent and cumulative where applicable. GATE-03 production deployment and GATE-04 protected GitHub operations remain separate. Architecture approval does not authorise implementation; financial approval does not authorise production deployment; risk acceptance is not gate approval. Emergency procedures require separate documentation and approval and may not create an undocumented bypass.
 
-### 7.4 Gate decision register
+### 7.5 Gate decision register
 
-| Gate | Intended control area | Current status |
+| Gate | Approved control area | Authority and key evidence |
 |---|---|---|
-| GATE-01 | Product or architecture authorization | Detailed meaning pending Project Owner confirmation |
-| GATE-02 | Financial or resource authorization | Thresholds, currency, and decision logic pending |
-| GATE-03 | Production deployment | Separate production approval requirement established |
-| GATE-04 | Protected GitHub operations | Separate repository approval requirement established; exact scope pending |
-| GATE-05 | Destructive database operations and migrations | Intended control area identified; complete scope, exceptions, authority, enforcement, and evidence requirements pending Project Owner confirmation |
-| GATE-06 | Consequential external integrations and live-account actions | Intended control area identified; complete scope, exceptions, authority, enforcement, and evidence requirements pending Project Owner confirmation |
-
-This table is not a substitute for the authoritative gate policy. The final meanings must be recorded in the relevant governance documents.
+| GATE-01 | Product and architecture change | Project Owner; specialist assessment for material security, legal, privacy or infrastructure changes |
+| GATE-02 | Financial and resource commitment | Project Owner; no spending thresholds or delegated financial limits established |
+| GATE-03 | Production deployment | Project Owner; bind approved artifact/commit, target environment, action, validation evidence and rollback plan |
+| GATE-04 | Protected GitHub operations | Project Owner; bind repository, branch/protected resource, operation and relevant PR/commit; distinct from PR review |
+| GATE-05 | Destructive database operations and migrations | Project Owner; verified backups, impact analysis, migration/execution plan and rollback/recovery strategy |
+| GATE-06 | Consequential external integrations and live-account actions | Project Owner; provider due diligence, permissions review, test evidence, data-protection assessment and rollback/suspension plan |
 
 ---
 
@@ -1077,9 +1071,9 @@ The following decisions must be resolved by the Project Owner or the appropriate
 | HD-03 | Primary and disaster-recovery cloud regions | **Approved — AWS primary Cape Town (`af-south-1`), Ireland DR (`eu-west-1`), and Temporal Cloud Ireland (`aws-eu-west-1`), architectural direction only, subject to validation (2026-11-19)** |
 | HD-04 | Final deployment topology for the six backend deployables | **Approved — six logical deployables; physical topology validation pending (2026-11-19)** |
 | HD-05 | PostgreSQL/pgvector initial vector-storage approach and model-specific embedding dimensions | **Approved — preferred initial approach; POC-05 and configuration validation required (2026-11-19)** |
-| HD-06 | Final RPO and RTO | Pending recovery validation and approval |
-| HD-07 | Risk acceptance authority and delegation | Pending |
-| HD-08 | Final definitions and scope of GATE-01 through GATE-06 | Pending |
+| HD-06 | Final RPO and RTO | **Approved — tiered architectural objectives; POC-15 and operational validation required (2026-11-19)** |
+| HD-07 | Risk acceptance authority and delegation | **Approved — Project Owner sole risk acceptance authority during initial governance phase; no delegation (2026-11-19)** |
+| HD-08 | Definitions, authority and enforcement for GATE-01 through GATE-06 | **Approved — six-gate human approval framework; Project Owner sole gate approval authority during initial governance phase (2026-11-19)** |
 
 Additional decisions requiring explicit resolution include:
 
