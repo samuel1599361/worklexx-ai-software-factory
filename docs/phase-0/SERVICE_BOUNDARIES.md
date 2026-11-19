@@ -45,7 +45,7 @@ A service may expose an API to other services, but it must not allow other servi
 
 ### 2.2 Six deployable backend service units
 
-The approved architectural baseline contains six deployable backend service units:
+The Project Owner approved the six logical backend deployable boundaries on 2026-11-19. Physical topology and consolidation remain subject to implementation validation. The six deployable backend service units are:
 
 1. `api-gateway`
 2. `agent-orchestrator`
