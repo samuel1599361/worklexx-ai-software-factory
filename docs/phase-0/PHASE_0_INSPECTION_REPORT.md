@@ -689,7 +689,7 @@ The following actions remain necessary before a final Phase 0 acceptance recomme
 
 | Action ID | Required Action | Expected Output | Status |
 |---|---|---|---|
-| ACT-001 | Complete the final check of this inspection report | Verified Document 13 | Pending |
+| ACT-001 | Complete the final check of this inspection report | Verified Phase 0 Inspection Report | Pending |
 | ACT-002 | Review all 16 current Phase 0 documents together | Cross-document consistency matrix | Pending |
 | ACT-003 | Resolve material contradictions | Updated documents and correction records | Pending |
 | ACT-004 | Confirm the complete repository path inventory | Revised path manifest | Pending |
@@ -834,8 +834,6 @@ All approval-sensitive activities must remain subject to their designated author
 
 **Current Status:** Draft — Pending Final Verification and Project Owner Approval
 
-**End of Document.**
-
 ## 23. Controlled Cross-Document Correction Addendum — 19 November 2026
 
 This addendum records the controlled Phase 0 documentation correction pass on the dedicated branch `phase-0/controlled-corrections-2026-11-19`. It does not alter the historical fact that the original document inventory contained 13 files; the current inventory contains 16.
@@ -849,3 +847,5 @@ The correction pass addresses:
 5. Deployment terminology that distinguishes the six defined logical backend deployables from a final, still-pending physical deployment topology.
 
 The addendum records intended corrections, not proof that the full architecture is technically correct or that security, performance, deployment, or operational testing has occurred. The branch changes require subsequent diff review, structural checks, and Project Owner review. Phase 0 acceptance and Phase 1 authorization remain pending.
+
+**End of Document.**
