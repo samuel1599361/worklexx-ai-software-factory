@@ -923,9 +923,17 @@ This selection does not collapse independent applications or backend services in
 
 ### 19.2 Python
 
-Python services and packages remain independently managed projects. The final Python dependency-management and lockfile tool is reserved for HD-REP-02.
+**Approved architectural direction — HD-REP-02 (2026-11-19):** Adopt Astral uv as the preferred Python dependency-management, lockfile, and project-environment tool for Worklexx AI Software Factory.
 
-The selected tool must support reproducible installation, dependency resolution, environment management, and CI integration. Python workspace grouping does not itself provide runtime isolation.
+Python backend services and shared packages remain independently managed projects with explicit dependency ownership. Each independently managed service project must maintain its own `pyproject.toml` and committed `uv.lock`, together with a documented Python-version policy and appropriate dependency groups. Shared Python packages must define their own project metadata and development/test dependencies; a package's development lockfile must not be treated as the dependency lockfile of every consuming service.
+
+Do not require a single Python workspace across all six backend services. Any future workspace grouping requires technical justification and separate approval. Workspace grouping does not provide runtime isolation; runtime isolation remains the responsibility of appropriate processes, containers, service boundaries, and permissions.
+
+CI must use lockfile-enforced installation (for example, `uv sync --locked`) and fail when project metadata and the committed lockfile are inconsistent. Pin the uv tool version and control supported Python runtime versions through repository-managed configuration. Exclude local virtual environments and caches from source control.
+
+Dependency governance must include approved package-source and private-index controls, review of direct URL and Git dependencies, vulnerability scanning, package integrity and provenance review, controlled dependency updates, license review, and SBOM generation for release artifacts. Credentials must be supplied through approved secrets-management mechanisms and must never be embedded in project metadata or lockfiles.
+
+Validate Windows developer workflows, Linux CI, Python 3.12 compatibility, deterministic resolution, service-independent lockfiles, Docker integration, private package sources, security scanning, SBOM generation, upgrades, and rollback before implementation.
 
 ### 19.3 Cross-language contracts
 
