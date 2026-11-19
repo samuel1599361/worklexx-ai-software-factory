@@ -1092,9 +1092,9 @@ A directory tree alone does not demonstrate that service boundaries, authorizati
 
 ---
 
-## 28. Human Decisions Pending
+## 28. Human Repository Decisions and Status
 
-The following decisions remain pending explicit human review and approval.
+The following table records the approval status of repository architecture decisions. Items marked Pending remain subject to explicit human review and approval.
 
 | Decision ID | Decision | Status |
 |---|---|---|
