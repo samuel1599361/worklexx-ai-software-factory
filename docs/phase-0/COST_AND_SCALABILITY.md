@@ -611,7 +611,7 @@ The architecture must account for the previously established messaging principle
 - Dead-letter queues should support failed-message investigation.
 - Reconciliation must address incomplete or inconsistent operations.
 
-The workflow-orchestration technology decision, including Temporal Cloud versus self-hosted Temporal, remains pending the required proof of concept and architecture decision.
+Temporal Cloud is approved as the preferred initial approach, subject to POC-06 and due diligence; self-hosted Temporal remains a future alternative.
 
 ## 20. Autoscaling and Capacity Limits
 
@@ -974,8 +974,8 @@ The following matters remain unresolved and require Project Owner decisions or s
 | Decision ID | Outstanding Decision | Required Resolution |
 |---|---|---|
 | HD-01 | Identity provider | Select and approve the identity architecture |
-| HD-02 | Temporal Cloud versus self-hosted Temporal | Complete proof of concept and cost evaluation |
-| HD-03 | Primary and disaster recovery regions | Evaluate latency, residency, resilience and cost |
+| HD-02 | Temporal Cloud versus self-hosted Temporal | Temporal Cloud preferred initially, subject to POC-06 and due diligence |
+| HD-03 | Primary and disaster recovery regions | Approved architectural direction: AWS Cape Town primary, Ireland DR and Temporal Cloud Ireland; validations pending |
 | HD-04 | Six-service deployment topology | Confirm hosting and deployment arrangements |
 | HD-05 | pgvector embedding dimension | Validate model requirements and database impact |
 | HD-06 | RPO and RTO | Establish business-approved recovery targets |
