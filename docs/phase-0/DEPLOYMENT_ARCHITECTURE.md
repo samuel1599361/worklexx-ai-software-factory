@@ -15,7 +15,7 @@
 | Repository Branch | main |
 | Document Path | docs/phase-0/DEPLOYMENT_ARCHITECTURE.md |
 | Architecture Phase | Phase 0 — Architecture and Specification |
-| Related Documents | WLX-ARCH-001 through WLX-ARCH-008 |
+| Related Documents | WLX-ARCH-001 through WLX-ARCH-016, excluding this document |
 | Approval Status | Pending formal Project Owner approval |
 | Implementation Status | Not implemented or independently verified by this document |
 
@@ -2153,6 +2153,9 @@ This document must be interpreted together with the following architecture docum
 | WLX-ARCH-011 | RISK_REGISTER.md |
 | WLX-ARCH-012 | ADR_REGISTER.md |
 | WLX-ARCH-013 | PHASE_0_INSPECTION_REPORT.md |
+| WLX-ARCH-014 | TESTING_STRATEGY.md |
+| WLX-ARCH-015 | MONITORING_AND_OBSERVABILITY.md |
+| WLX-ARCH-016 | COST_AND_SCALABILITY.md |
 
 Where a deployment decision conflicts with another architecture document, the conflict must be recorded and resolved through the architecture decision process.
 
