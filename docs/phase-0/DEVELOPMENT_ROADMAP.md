@@ -1835,6 +1835,9 @@ This roadmap must be read together with:
 | Risk Register | WLX-ARCH-011 |
 | ADR Register | WLX-ARCH-012 |
 | Phase 0 Inspection Report | WLX-ARCH-013 |
+| Testing Strategy | WLX-ARCH-014 |
+| Monitoring and Observability | WLX-ARCH-015 |
+| Cost and Scalability | WLX-ARCH-016 |
 
 If a roadmap statement conflicts with an approved architecture decision, the conflict must be reviewed and resolved through the appropriate governance process. This document does not silently supersede other architecture documents.
 
