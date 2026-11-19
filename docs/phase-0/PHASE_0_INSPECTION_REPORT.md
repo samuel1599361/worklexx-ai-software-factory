@@ -846,6 +846,6 @@ The correction pass addresses:
 4. Separation of repository-specific decision identifiers `HD-REP-01` through `HD-REP-07` from platform-wide `HD-01` through `HD-08`.
 5. Deployment terminology that distinguishes the six defined logical backend deployables from a final, still-pending physical deployment topology.
 
-The addendum records intended corrections, not proof that the full architecture is technically correct or that security, performance, deployment, or operational testing has occurred. The branch changes require subsequent diff review, structural checks, and Project Owner review. Phase 0 acceptance and Phase 1 authorization remain pending.
+The addendum records intended corrections, not proof that the full architecture is technically correct or that security, performance, deployment, or operational testing has occurred. The correction branch has been compared against `main`, and targeted document-structure, placeholder, encoding, and cross-document consistency scans have been run across the 16-document set. The draft pull request remains subject to detailed human review and Project Owner approval. Phase 0 acceptance and Phase 1 authorization remain pending.
 
 **End of Document.**
