@@ -883,9 +883,13 @@ The monorepo is a source-control and workspace organisation strategy. It does no
 
 ### 20.2 Python
 
-Python services and packages remain independently managed projects with their own dependency declarations and lockfiles as determined by HD-REP-02.
+**Approved direction — HD-REP-02 (2026-11-19):** Use Astral uv as the preferred Python dependency-management, lockfile, and project-environment tool.
 
-Python workspace grouping does not automatically provide runtime isolation. Actual runtime isolation must be provided through appropriate processes, containers, service boundaries, and permissions.
+Python backend services and shared packages remain independently managed projects. Each independently managed service project must maintain its own `pyproject.toml` and committed `uv.lock`, with explicit dependency ownership, dependency groups, and a documented supported Python-version policy. Shared Python packages must define their own project metadata and development/test dependencies; their development lockfiles do not replace the lockfiles of consuming services.
+
+Do not require a single Python workspace across the six backend services. Any future workspace grouping requires technical justification and separate approval. Python workspace grouping does not provide runtime isolation. Actual runtime isolation must be provided through appropriate processes, containers, service boundaries, and permissions.
+
+CI must enforce lockfile consistency and reproducible installation (for example, `uv sync --locked`), pin the uv tool version, and fail rather than silently rewrite committed lockfiles. Exclude local virtual environments and caches from source control. Apply approved package-source controls, private-index credential handling, dependency integrity/provenance review, vulnerability and license scanning, controlled updates, and SBOM generation. Validate Windows development, Linux CI, Python 3.12, Docker integration, independent service lockfiles, private package sources, upgrades, and rollback before implementation.
 
 ### 20.3 Cross-language dependencies
 
@@ -1095,7 +1099,7 @@ The following decisions remain pending explicit human review and approval.
 | Decision ID | Decision | Status |
 |---|---|---|
 | HD-REP-01 | Final monorepo tooling and workspace strategy | Approved — architectural direction only (2026-11-19) |
-| HD-REP-02 | Final Python dependency and lockfile tooling | Pending |
+| HD-REP-02 | Final Python dependency and lockfile tooling | Approved — architectural direction only (2026-11-19) |
 | HD-REP-03 | Final five-tier branching and release strategy | Pending |
 | HD-REP-04 | Final ownership and approval rules for protected repositories | Pending |
 | HD-REP-05 | Final generated-project repository isolation model | Pending |
