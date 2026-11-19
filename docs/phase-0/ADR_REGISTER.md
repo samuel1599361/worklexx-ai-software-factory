@@ -1345,7 +1345,7 @@ The following decisions require explicit human resolution.
 | HD-02 | Select Temporal Cloud or self-hosted deployment | ADR-003, ADR-012 | **Approved — Temporal Cloud preferred initial approach (conditional)** |
 | HD-03 | Approve primary and disaster-recovery regions | ADR-002, ADR-007, ADR-008, ADR-012 | **Approved — AWS primary Cape Town (`af-south-1`), Ireland DR (`eu-west-1`), and Temporal Cloud Ireland (`aws-eu-west-1`), architectural direction only, subject to validation (2026-11-19)** |
 | HD-04 | Confirm the six-deployable backend service topology | ADR-001, ADR-006, ADR-013 | **Approved — retain six logical deployables, physical topology validation remains pending (2026-11-19)** |
-| HD-05 | Validate pgvector configuration and the proposed 3072 embedding dimension | ADR-007 | Pending |
+| HD-05 | Confirm the initial vector-storage approach and model-specific embedding-dimension policy | ADR-007 | **Approved — PostgreSQL with pgvector preferred initially; dimensions remain model/use-case specific; POC-05 required (2026-11-19)** |
 | HD-06 | Approve platform RPO and RTO targets | ADR-007, ADR-008, ADR-012 | Pending |
 | HD-07 | Designate risk acceptance authority and approval delegation | ADR-011 | Pending |
 | HD-08 | Define GATE-01 through GATE-06 and their approval requirements | ADR-011 | Pending |
@@ -1368,6 +1368,17 @@ HD-02 — Temporal Cloud Preferred Initial Approach
 - **Conditions:** Complete POC-06 and due diligence covering total cost of ownership, operational support, availability and service commitments, data residency, security, network architecture, backup and restoration, upgrades, disaster recovery, and vendor dependency. Record evidence and material limitations before implementation planning relies on this approach.
 - **Alternative retained:** Self-hosted Temporal remains a future alternative if validation, commercial terms, regulatory/data-residency constraints, or operational requirements make it preferable.
 - **Scope limitation:** This is an architectural preference only. It does not authorise a Temporal Cloud subscription, contract, payment, production deployment, account configuration, region selection, or final production service commitment. Those require separate evaluation and explicit approval.
+
+### HD-05 — PostgreSQL and pgvector Vector-Storage Direction
+
+- **Decision:** Approved — retain PostgreSQL with pgvector as the preferred initial vector-storage and similarity-search approach. Do not introduce a separate vector-database deployment at this stage.
+- **Decision-maker:** Project Owner.
+- **Decision date:** 2026-11-19.
+- **Rationale:** Reuse the approved PostgreSQL platform direction and avoid introducing another independently operated database platform before workload evidence demonstrates a need.
+- **Embedding dimensions:** Do not impose 3,072 dimensions as a platform-wide requirement. Select dimensions according to the chosen embedding model and use case. Record model/provider, model version, vector dimension, source version, tenant, access scope, and lifecycle metadata. Incompatible models or dimensions must not be mixed in a logical index without an explicitly validated compatibility strategy.
+- **Conditions:** Complete POC-05 before implementation relies on the selected configuration. Evaluate supported PostgreSQL/pgvector versions, full-precision and half-precision options where relevant, exact and approximate search, index compatibility, recall and retrieval quality, query latency, index/storage/memory requirements, writes and deletes, concurrency, tenant and metadata filtering, re-embedding, backup/restore, and recovery. Test 3,072-dimensional workloads where a selected model requires them; do not assume half-precision retrieval is acceptable without quality measurements. Tenant isolation, authorization filtering, and deletion/access-revocation propagation are mandatory acceptance criteria.
+- **Alternative retained:** A separately operated vector database may be reconsidered only if measured workload, scale, latency, recall, isolation, or operational requirements show that PostgreSQL/pgvector is insufficient, through a separate documented decision.
+- **Scope limitation:** This is an architectural direction only. It does not approve a specific PostgreSQL or pgvector version, embedding provider/model, index configuration, database hosting arrangement, schema, migration, subscription, infrastructure provisioning, or production deployment. POC-05 and subsequent implementation approvals remain required.
 
 All other human decisions remain subject to separate explicit resolution. Decisions must be recorded with the decision-maker, date, rationale, evidence, and any conditions.
 
@@ -1447,7 +1458,7 @@ An Accepted ADR establishes an architectural decision only within its approved s
 
 **Decision status:** Proposed pending authorised human review and approval.
 
-**Human decisions:** HD-01 is approved as the managed identity-provider approach. HD-02 is approved as the conditional preferred initial Temporal Cloud approach. HD-03 is approved as the regional architecture direction, subject to legal, security, POC, and operational validations. HD-04 is approved as the six-logical-deployable topology, with physical deployment subject to validation. HD-05 through HD-08 remain pending.
+**Human decisions:** HD-01 is approved as the managed identity-provider approach. HD-02 is approved as the conditional preferred initial Temporal Cloud approach. HD-03 is approved as the regional architecture direction, subject to legal, security, POC, and operational validations. HD-04 is approved as the six-logical-deployable topology, with physical deployment subject to validation. HD-05 is approved as the initial PostgreSQL/pgvector vector-storage direction with model- and use-case-specific dimensions, subject to POC-05 and the stated validations. HD-06 through HD-08 remain pending.
 
 **Repository status:** Existing `main` branch remains the baseline. The proposed five-tier branch strategy has not been adopted.
 

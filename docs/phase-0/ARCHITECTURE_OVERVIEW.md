@@ -732,9 +732,7 @@ Embedding records must preserve metadata sufficient to identify:
 - Data classification.
 - Retention and deletion status.
 
-Dimensions such as 768, 1536, and 3072 must not be mixed in an incompatible vector index.
-
-The selected PostgreSQL and pgvector configuration requires a proof of concept covering index compatibility, search quality, performance, tenant filtering, and migration strategy.
+Embedding dimensions must be selected according to the chosen model and use case; dimensions such as 768, 1,536, and 3,072 must not be mixed in an incompatible logical index. PostgreSQL with pgvector is the approved preferred initial vector-storage approach, subject to POC-05. The POC must validate index compatibility, exact and approximate retrieval quality, relevant full-precision and half-precision options, performance, tenant filtering, lifecycle, and migration strategy. A 3,072-dimensional configuration is not a platform-wide requirement.
 
 ---
 
@@ -1053,7 +1051,7 @@ The architecture identifies candidate technologies but does not convert every ca
 | Frontend hosting | Vercel | Hosting direction; exact runtime and ingress design require validation |
 | Backend | Python and FastAPI | Architectural direction; dependency versions must be pinned |
 | Primary database | PostgreSQL | Architectural direction; hosting and configuration require approval |
-| Vector database capability | pgvector | Conditional on compatibility and performance PoC |
+| Vector database capability | PostgreSQL with pgvector | Approved preferred initial approach; specific configuration subject to POC-05 |
 | Workflow orchestration | Temporal | Temporal Cloud preferred initially, subject to POC-06 and due diligence; self-hosted retained as a future alternative |
 | Event transport | Google Cloud Pub/Sub | Candidate; delivery and recovery semantics must be specified |
 | Cache | Redis | Ephemeral cache and coordination role |
@@ -1078,7 +1076,7 @@ The following decisions must be resolved by the Project Owner or the appropriate
 | HD-02 | Temporal Cloud versus self-hosted Temporal | **Approved — Temporal Cloud preferred initial approach, conditional on POC-06 and due diligence (2026-11-19)** |
 | HD-03 | Primary and disaster-recovery cloud regions | **Approved — AWS primary Cape Town (`af-south-1`), Ireland DR (`eu-west-1`), and Temporal Cloud Ireland (`aws-eu-west-1`), architectural direction only, subject to validation (2026-11-19)** |
 | HD-04 | Final deployment topology for the six backend deployables | **Approved — six logical deployables; physical topology validation pending (2026-11-19)** |
-| HD-05 | pgvector strategy for multiple embedding dimensions, including 3072-dimensional vectors | Pending PoC |
+| HD-05 | PostgreSQL/pgvector initial vector-storage approach and model-specific embedding dimensions | **Approved — preferred initial approach; POC-05 and configuration validation required (2026-11-19)** |
 | HD-06 | Final RPO and RTO | Pending recovery validation and approval |
 | HD-07 | Risk acceptance authority and delegation | Pending |
 | HD-08 | Final definitions and scope of GATE-01 through GATE-06 | Pending |

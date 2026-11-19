@@ -9,7 +9,7 @@
 - **Target Repository:** `https://github.com/samuel1599361/worklexx-ai-software-factory`
 - **Classification:** Enterprise Technical Specification
 - **Primary Database:** PostgreSQL
-- **Vector Search:** pgvector (subject to proof of concept)
+- **Vector Search:** PostgreSQL with pgvector preferred initial approach; configuration subject to POC-05
 - **Related Documents:** WLX-ARCH-001 through WLX-ARCH-016, excluding this document
 
 ---
@@ -142,9 +142,9 @@ Migrations must:
 
 ### 3.4 pgvector
 
-pgvector is the preferred candidate for PostgreSQL-based vector storage and similarity search.
+PostgreSQL with pgvector is the approved preferred initial approach for vector storage and similarity search. A separate vector-database deployment is not proposed at this stage.
 
-Its version, index types, supported dimensions, performance, and operational characteristics require a proof of concept.
+The selected PostgreSQL and pgvector versions, index types, supported dimensions, performance, tenant-filtering behaviour, and operational characteristics require POC-05 before implementation relies on a specific configuration.
 
 ### 3.5 Database hosting
 
@@ -876,9 +876,9 @@ Sensitive audit queries must be logged where appropriate.
 
 ### 15.1 pgvector
 
-pgvector is the preferred candidate for vector storage and similarity search within PostgreSQL.
+PostgreSQL with pgvector is the approved preferred initial approach for vector storage and similarity search. A separate vector-database deployment is not proposed at this stage.
 
-The final design requires a proof of concept.
+POC-05 must validate the selected PostgreSQL and pgvector versions, index types, supported dimensions, retrieval quality, tenant-filtering behaviour, performance, and operational characteristics before implementation relies on a specific configuration.
 
 ### 15.2 Embedding metadata
 
@@ -913,7 +913,7 @@ The architecture must record the model and dimension used to create each vector.
 
 ### 15.5 Index strategy
 
-The proof of concept must compare suitable exact and approximate search strategies.
+POC-05 must compare suitable exact and approximate search strategies and, where applicable, full-precision and half-precision representations.
 
 It must evaluate:
 
@@ -929,9 +929,9 @@ It must evaluate:
 
 ### 15.6 Dimension decision
 
-A 3072-dimensional embedding configuration has been considered, but it is not yet an approved final architecture decision.
+A 3,072-dimensional embedding configuration is not a platform-wide requirement. Embedding dimensions must be selected according to the chosen model and use case, and recorded with model/provider and version metadata. Model- or dimension-incompatible vectors must not be mixed in a logical index without a validated compatibility strategy.
 
-The final dimension must be selected based on the chosen model, storage cost, performance, and retrieval quality.
+POC-05 must test 3,072-dimensional workloads where required by a selected model, including relevant full-precision and half-precision storage/index options. It must measure retrieval quality against exact-search baselines as well as latency, index size, memory, filtering behaviour, and operational cost. No precision or index configuration is approved solely by this architectural decision.
 
 ### 15.7 Re-embedding
 
