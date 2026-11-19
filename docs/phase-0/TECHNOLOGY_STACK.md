@@ -338,9 +338,9 @@ RLS must be combined with authenticated tenant context, restricted database perm
 
 ### 8.3 Vector database capability
 
-**Proposed candidate:** pgvector within PostgreSQL.
+**Approved preferred initial approach:** pgvector within PostgreSQL. A separate vector-database deployment is not proposed at this stage.
 
-The candidate may support vector storage and similarity search without introducing another database deployment.
+This is an architectural direction, not approval of a specific extension version, index configuration, embedding model, or production deployment. POC-05 remains mandatory before implementation relies on a selected configuration.
 
 The following require proof-of-concept validation:
 
@@ -356,7 +356,7 @@ The following require proof-of-concept validation:
 - Metadata filtering.
 - Re-embedding and model migration procedures.
 
-A 3,072-dimensional vector requirement must not be treated as production-approved until the selected PostgreSQL and pgvector versions demonstrate compatibility and acceptable performance.
+A 3,072-dimensional vector is not a platform-wide requirement. Dimensions must be model- and use-case-specific, with incompatible models or dimensions kept in separate logical indexes unless a compatibility strategy is validated. POC-05 must test 3,072-dimensional workloads where required by a selected model, including relevant full-precision and half-precision options and measured retrieval-quality trade-offs.
 
 ### 8.4 Object storage
 
@@ -1121,7 +1121,7 @@ The following decisions require explicit human review and approval.
 | HD-02 | Temporal Cloud versus self-hosted Temporal | **Approved — Temporal Cloud preferred initial approach, conditional on POC-06 and due diligence (2026-11-19)** |
 | HD-03 | Primary and disaster-recovery regions | **Approved — AWS primary Cape Town (`af-south-1`), Ireland DR (`eu-west-1`), and Temporal Cloud Ireland (`aws-eu-west-1`), architectural direction only, subject to validation (2026-11-19)** |
 | HD-04 | Final deployment topology for the six backend service units | Pending |
-| HD-05 | Confirmation of PostgreSQL and pgvector support for the required 3,072-dimensional vector workload | Pending POC |
+| HD-05 | Initial vector-storage approach and model-specific embedding-dimension policy | **Approved — PostgreSQL/pgvector preferred initially; dimensions model/use-case specific; POC-05 required (2026-11-19)** |
 | HD-06 | Final platform RPO and RTO targets | Pending |
 | HD-07 | Risk acceptance authority and delegated responsibilities | Pending |
 | HD-08 | Final definitions and approval authority for GATE-01 through GATE-06 | Pending |
