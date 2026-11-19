@@ -1199,6 +1199,9 @@ This document must be reviewed alongside:
 10. `RISK_REGISTER.md`
 11. `ADR_REGISTER.md`
 12. `PHASE_0_INSPECTION_REPORT.md`
+13. `TESTING_STRATEGY.md`
+14. `MONITORING_AND_OBSERVABILITY.md`
+15. `COST_AND_SCALABILITY.md`
 
 The final review must identify and resolve material inconsistencies between these documents.
 
