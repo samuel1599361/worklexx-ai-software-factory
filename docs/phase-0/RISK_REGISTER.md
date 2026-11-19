@@ -614,7 +614,7 @@ The initial priority column is a planning classification, not a completed risk a
 
 **Status:** Open — mitigation planned.
 
-**Assessment:** Formal scoring pending. RPO and RTO remain human decisions.
+**Assessment:** Formal scoring pending. Tiered architectural RPO/RTO objectives were approved under HD-06 on 2026-11-19; achievement remains unverified and depends on POC-15, operational validation, and tested recovery controls.
 
 ### RSK-11 — Software Supply-Chain and Dependency Compromise
 
