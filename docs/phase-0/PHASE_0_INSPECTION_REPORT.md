@@ -690,7 +690,7 @@ The following actions remain necessary before a final Phase 0 acceptance recomme
 | Action ID | Required Action | Expected Output | Status |
 |---|---|---|---|
 | ACT-001 | Complete the final check of this inspection report | Verified Document 13 | Pending |
-| ACT-002 | Review all 13 documents together | Cross-document consistency matrix | Pending |
+| ACT-002 | Review all 16 current Phase 0 documents together | Cross-document consistency matrix | Pending |
 | ACT-003 | Resolve material contradictions | Updated documents and correction records | Pending |
 | ACT-004 | Confirm the complete repository path inventory | Revised path manifest | Pending |
 | ACT-005 | Generate revised SHA-256 hashes | Revised hash manifest | Pending |
