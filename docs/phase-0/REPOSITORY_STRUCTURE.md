@@ -868,37 +868,44 @@ The existence of a proposed branch name in a roadmap does not create that branch
 
 ## 20. Dependency and Monorepo Governance
 
-If a monorepo approach is adopted, it must support controlled dependency management across applications, services, agents, and shared packages.
+**Approved direction — HD-REP-01 (2026-11-19):** Adopt a controlled Git monorepo for Worklexx AI Software Factory platform-owned source code. Use pnpm workspaces for JavaScript/TypeScript dependency and package management, with Turborepo for dependency-aware task orchestration and caching. Maintain independently managed Python service and package projects; the Python dependency and lockfile tool is reserved for HD-REP-02.
+
+The monorepo is a source-control and workspace organisation strategy. It does not collapse the five frontend applications or six backend deployable service units into one runtime or deployment unit. Each backend service must remain independently buildable, testable, versionable, and deployable.
 
 ### 20.1 JavaScript and TypeScript
 
-The selected package manager must use committed lockfiles.
-
-The repository must define:
-
-- Package ownership.
-- Workspace boundaries.
-- Versioning.
-- Dependency policies.
-- Build ordering.
-- Test execution.
-- Release behavior.
+- **Package manager/workspaces:** pnpm workspaces.
+- **Task orchestration:** Turborepo.
+- Commit the pnpm lockfile and pin the package-manager and build-tool versions through repository-controlled configuration.
+- Define package ownership, workspace boundaries, dependency policies, build ordering, test execution, versioning, and release behavior.
+- Use dependency-aware task execution and caching; cache access and contents must not expose secrets, private artifacts, or tenant data.
+- CI must validate the affected workspaces and run required repository-wide security and compatibility checks.
 
 ### 20.2 Python
 
-Python dependencies must be reproducible and pinned through an approved dependency-management and lockfile approach.
+Python services and packages remain independently managed projects with their own dependency declarations and lockfiles as determined by HD-REP-02.
 
-Python workspaces or package grouping do not automatically provide runtime isolation.
-
-Actual runtime isolation must be provided through appropriate processes, containers, service boundaries, and permissions.
+Python workspace grouping does not automatically provide runtime isolation. Actual runtime isolation must be provided through appropriate processes, containers, service boundaries, and permissions.
 
 ### 20.3 Cross-language dependencies
 
-Python and TypeScript components must communicate through explicit contracts.
+Python and TypeScript components must communicate through explicit, versioned API and event contracts, including OpenAPI and event-schema definitions where applicable.
 
-Duplicated schemas and business rules must be minimized.
+Duplicated schemas and business rules must be minimized. Contract generation and compatibility tests should be used where practical.
 
-Contract generation and compatibility tests should be used where practical.
+### 20.4 Shared package and service boundaries
+
+Shared packages must have explicit ownership, documented interfaces, compatibility rules, and tests. Shared packages must not depend on application-specific or service-specific implementation code. Service-specific business logic, authorization decisions, financial controls, and database ownership remain within their authoritative service boundaries.
+
+The approved six-service topology remains unchanged. Shared packages, agents, contracts, build tasks, and workspace groupings must not silently create additional backend deployable services.
+
+### 20.5 Generated-project boundary
+
+Customer- or tenant-generated projects and artifacts are not ordinary platform workspace packages. Their repository and artifact isolation model remains subject to HD-REP-05. The platform monorepo must not become a shared location through which one tenant, user, or agent can access another tenant's generated source or artifacts.
+
+### 20.6 Decision scope and implementation boundary
+
+HD-REP-01 records an architectural tooling and workspace direction only. It does not authorise repository restructuring, tool installation, lockfile creation or modification, CI/CD changes, branch changes, infrastructure provisioning, production deployment, or Phase 1 implementation. Tool versions, compatibility, security, licensing, cache configuration, and CI integration must be validated before implementation under the applicable approvals.
 
 ---
 
@@ -1087,7 +1094,7 @@ The following decisions remain pending explicit human review and approval.
 
 | Decision ID | Decision | Status |
 |---|---|---|
-| HD-REP-01 | Final monorepo tooling and workspace strategy | Pending |
+| HD-REP-01 | Final monorepo tooling and workspace strategy | Approved — architectural direction only (2026-11-19) |
 | HD-REP-02 | Final Python dependency and lockfile tooling | Pending |
 | HD-REP-03 | Final five-tier branching and release strategy | Pending |
 | HD-REP-04 | Final ownership and approval rules for protected repositories | Pending |

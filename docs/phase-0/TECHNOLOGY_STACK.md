@@ -913,17 +913,25 @@ Security scanners reduce risk but cannot guarantee that software contains zero v
 
 ### 19.1 JavaScript and TypeScript
 
-Use a consistent package manager and committed lockfile across the relevant repositories.
+**Approved architectural direction — HD-REP-01 (2026-11-19):** Use pnpm workspaces as the JavaScript/TypeScript package manager and workspace mechanism, with Turborepo for dependency-aware task orchestration and caching in the platform monorepo.
 
-The final package manager and version must be documented.
+The pnpm lockfile must be committed. Package-manager and build-tool versions must be pinned through repository-controlled configuration. Workspace boundaries, package ownership, dependency policies, build ordering, tests, versioning, and release behavior must be explicit. CI must validate affected workspaces and retain required repository-wide security and compatibility checks.
+
+Turborepo caching must be configured so that secrets, private artifacts, tenant data, and other protected material are not exposed through shared or remote caches. Tool versions, compatibility, licensing, security posture, cache behavior, and CI integration require validation before implementation.
+
+This selection does not collapse independent applications or backend services into one deployment unit. It does not authorise installation, lockfile creation, CI/CD modification, repository restructuring, or Phase 1.
 
 ### 19.2 Python
 
-Use a consistent Python dependency-management and lockfile strategy.
+Python services and packages remain independently managed projects. The final Python dependency-management and lockfile tool is reserved for HD-REP-02.
 
-The selected tool must support reproducible installation, dependency resolution, environment management, and CI integration.
+The selected tool must support reproducible installation, dependency resolution, environment management, and CI integration. Python workspace grouping does not itself provide runtime isolation.
 
-### 19.3 Dependency policy
+### 19.3 Cross-language contracts
+
+Python and TypeScript components must communicate through explicit, versioned API and event contracts. OpenAPI and event-schema definitions should be used where applicable, with generation and compatibility tests where practical.
+
+### 19.4 Dependency policy
 
 All production dependencies must have:
 
