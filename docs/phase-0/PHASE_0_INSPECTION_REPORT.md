@@ -154,7 +154,7 @@ Matching file paths do not establish matching file contents.
 
 ## 5. Phase 0 Document Register
 
-The following 13 documents constitute the principal Phase 0 architecture and governance document set.
+The original Phase 0 architecture and governance inventory comprised 13 documents. The baseline has since been expanded to 16 documents by adding WLX-ARCH-014 through WLX-ARCH-016; the current review and acceptance baseline is therefore 16 documents.
 
 | No. | Document ID | Filename | Subject |
 |---:|---|---|---|
@@ -171,6 +171,9 @@ The following 13 documents constitute the principal Phase 0 architecture and gov
 | 11 | WLX-ARCH-011 | `RISK_REGISTER.md` | Risk register |
 | 12 | WLX-ARCH-012 | `ADR_REGISTER.md` | Architecture decision register |
 | 13 | WLX-ARCH-013 | `PHASE_0_INSPECTION_REPORT.md` | Phase 0 inspection report |
+| 14 | WLX-ARCH-014 | `TESTING_STRATEGY.md` | Testing and verification strategy |
+| 15 | WLX-ARCH-015 | `MONITORING_AND_OBSERVABILITY.md` | Monitoring and observability |
+| 16 | WLX-ARCH-016 | `COST_AND_SCALABILITY.md` | Cost and scalability |
 
 The files are expected to be located in:
 
@@ -201,6 +204,9 @@ The status descriptions are deliberately limited to the checks actually reported
 | 11 | Risk Register | Sections 1–19 checked | Passed | Passed | Passed |
 | 12 | ADR Register | 25 sections checked | Passed | Passed | Passed |
 | 13 | Phase 0 Inspection Report | Pending | Pending | Pending | Pending |
+| 14 | Testing Strategy | 33 numbered sections checked | Reported clean | Reported clean | URL verified |
+| 15 | Monitoring and Observability | 33 numbered sections checked | Reported clean | Reported clean | URL verified |
+| 16 | Cost and Scalability | 41 numbered sections checked | Reported clean | Reported clean | URL verified |
 
 ### 6.1 Interpretation of the Results
 
@@ -228,7 +234,7 @@ Full semantic and cross-document verification remains necessary.
 
 ## 7. Architecture Baseline for Cross-Document Review
 
-The following baseline is to be used when reviewing consistency across the 13 documents.
+The following baseline is to be used when reviewing consistency across the current 16-document Phase 0 set.
 
 ### 7.1 Application Domains
 
@@ -622,7 +628,7 @@ Phase 0 may be recommended for acceptance only when the following conditions hav
 
 | No. | Completion Criterion | Required Evidence |
 |---:|---|---|
-| 1 | All 13 principal documents are saved at their intended paths | Document inventory |
+| 1 | All 16 current Phase 0 documents are saved at their intended paths | Document inventory |
 | 2 | Document metadata and identifiers are consistent | Document review |
 | 3 | Required document structures are present | Structure verification |
 | 4 | Placeholder and encoding checks are completed | Verification records |
@@ -683,8 +689,8 @@ The following actions remain necessary before a final Phase 0 acceptance recomme
 
 | Action ID | Required Action | Expected Output | Status |
 |---|---|---|---|
-| ACT-001 | Complete the final check of this inspection report | Verified Document 13 | Pending |
-| ACT-002 | Review all 13 documents together | Cross-document consistency matrix | Pending |
+| ACT-001 | Complete the final check of this inspection report | Verified Phase 0 Inspection Report | Pending |
+| ACT-002 | Review all 16 current Phase 0 documents together | Cross-document consistency matrix | Pending |
 | ACT-003 | Resolve material contradictions | Updated documents and correction records | Pending |
 | ACT-004 | Confirm the complete repository path inventory | Revised path manifest | Pending |
 | ACT-005 | Generate revised SHA-256 hashes | Revised hash manifest | Pending |
@@ -764,6 +770,7 @@ Acceptance of Phase 0 does not automatically authorise Phase 1. Phase 1 requires
 | Version | Date | Description | Status |
 |---|---|---|---|
 | 1.0 | 19 November 2026 | Initial Phase 0 inspection report prepared | Draft — Pending Verification and Approval |
+| 1.1 | 19 November 2026 | Updated current inventory to 16 documents; recorded cross-document consistency corrections for review; clarified gate and decision-ID references | Proposed — Pending verification and Project Owner approval |
 
 Future revisions must record the reason for the change, affected sections, source of the change, reviewer, and approval where required.
 
@@ -826,5 +833,19 @@ All approval-sensitive activities must remain subject to their designated author
 **Document:** `PHASE_0_INSPECTION_REPORT.md`
 
 **Current Status:** Draft — Pending Final Verification and Project Owner Approval
+
+## 26. Controlled Cross-Document Correction Addendum — 19 November 2026
+
+This addendum records the controlled Phase 0 documentation correction pass on the dedicated branch `phase-0/controlled-corrections-2026-11-19`. It does not alter the historical fact that the original document inventory contained 13 files; the current inventory contains 16.
+
+The correction pass addresses:
+
+1. The current 16-document inventory and corresponding document cross-references.
+2. The proposed, not yet approved, status of the architecture baseline; no ADR is represented as Accepted or Conditionally Accepted.
+3. Consistent intended control areas for GATE-05 (designated destructive database operations and migrations) and GATE-06 (designated consequential external integrations and live-account actions), while retaining Project Owner confirmation of their complete scope, exceptions, authority, enforcement, and evidence requirements.
+4. Separation of repository-specific decision identifiers `HD-REP-01` through `HD-REP-07` from platform-wide `HD-01` through `HD-08`.
+5. Deployment terminology that distinguishes the six defined logical backend deployables from a final, still-pending physical deployment topology.
+
+The addendum records intended corrections, not proof that the full architecture is technically correct or that security, performance, deployment, or operational testing has occurred. The correction branch has been compared against `main`, and targeted document-structure, placeholder, encoding, and cross-document consistency scans have been run across the 16-document set. The draft pull request remains subject to detailed human review and Project Owner approval. Phase 0 acceptance and Phase 1 authorization remain pending.
 
 **End of Document.**

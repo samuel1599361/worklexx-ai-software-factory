@@ -232,7 +232,7 @@ The Phase 0 architecture baseline comprises:
 
 Phase 0 is eligible for approval when:
 
-- All 13 documents are present.
+- All 16 Phase 0 documents are present.
 - Document identifiers and versions are consistent.
 - The six-service topology is consistent throughout the architecture.
 - The 23-agent model is consistently represented.
@@ -1249,10 +1249,10 @@ These are related but not interchangeable.
 | GATE-02 | Pending formal definition | Must not be assumed |
 | GATE-03 | Production deployment approval | Required before production deployment |
 | GATE-04 | Protected GitHub operations approval | Required for operations within its approved scope |
-| GATE-05 | Pending formal definition | Must not be assumed |
-| GATE-06 | Pending formal definition | Must not be assumed |
+| GATE-05 | Destructive database operations and migrations; detailed scope and enforcement pending owner confirmation | Do not perform designated destructive operations without explicit Project Owner authorization while the full gate policy is being confirmed |
+| GATE-06 | Consequential external integrations and live-account actions; detailed scope and enforcement pending owner confirmation | Do not activate designated consequential external actions or live accounts without explicit Project Owner authorization while the full gate policy is being confirmed |
 
-The definitions and enforcement details of GATE-01, GATE-02, GATE-05, and GATE-06 remain subject to formal decision.
+GATE-05 is intended to govern designated destructive or materially consequential database operations, including destructive schema migrations and incompatible data transformations. GATE-06 is intended to govern designated consequential external integrations and live-account actions with material external, financial, operational, or customer impact. Their complete scope, exceptions, approval authority, enforcement, and evidence requirements remain subject to explicit Project Owner confirmation. GATE-01 and GATE-02 remain pending formal definition.
 
 ### 15.2 GATE-03 and GATE-04 separation
 
@@ -1835,6 +1835,9 @@ This roadmap must be read together with:
 | Risk Register | WLX-ARCH-011 |
 | ADR Register | WLX-ARCH-012 |
 | Phase 0 Inspection Report | WLX-ARCH-013 |
+| Testing Strategy | WLX-ARCH-014 |
+| Monitoring and Observability | WLX-ARCH-015 |
+| Cost and Scalability | WLX-ARCH-016 |
 
 If a roadmap statement conflicts with an approved architecture decision, the conflict must be reviewed and resolved through the appropriate governance process. This document does not silently supersede other architecture documents.
 

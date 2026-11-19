@@ -16,7 +16,7 @@
 | Document Owner | Project Owner — appointment/confirmation pending |
 | Risk Acceptance Authority | Pending explicit designation |
 | Review Frequency | At least monthly during active implementation, and after material changes or incidents |
-| Related Documents | Architecture Overview, System Architecture, Technology Stack, Repository Structure, Agent Ecosystem, Service Boundaries, Database Architecture, Security Architecture, Deployment Architecture, Development Roadmap, ADR Register |
+| Related Documents | Architecture Overview, System Architecture, Technology Stack, Repository Structure, Agent Ecosystem, Service Boundaries, Database Architecture, Security Architecture, Deployment Architecture, Development Roadmap, ADR Register, Phase 0 Inspection Report, Testing Strategy, Monitoring and Observability, Cost and Scalability |
 | Approval Status | Not formally approved |
 
 ---
@@ -1438,6 +1438,9 @@ This register must remain consistent with:
 - `DEVELOPMENT_ROADMAP.md`
 - `ADR_REGISTER.md`
 - `PHASE_0_INSPECTION_REPORT.md`
+- `TESTING_STRATEGY.md`
+- `MONITORING_AND_OBSERVABILITY.md`
+- `COST_AND_SCALABILITY.md`
 
 Where a risk identifies an architecture weakness, the relevant architecture document or ADR should be updated through the approved change-control process.
 

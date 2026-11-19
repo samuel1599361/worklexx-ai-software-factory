@@ -9,7 +9,7 @@
 - **Target Repository:** `https://github.com/samuel1599361/worklexx-ai-software-factory`
 - **Classification:** Enterprise Technical Specification
 - **Architecture Scope:** Six deployable backend service units and their logical modules
-- **Related Documents:** WLX-ARCH-001 through WLX-ARCH-005, WLX-ARCH-007 through WLX-ARCH-013
+- **Related Documents:** WLX-ARCH-001 through WLX-ARCH-016
 
 ---
 
@@ -1088,8 +1088,10 @@ Two known approval boundaries must remain separate:
 
 - **GATE-03:** Production deployment approval.
 - **GATE-04:** Protected GitHub operations approval.
+- **GATE-05:** Designated destructive database operations and migrations; complete scope and enforcement pending Project Owner confirmation.
+- **GATE-06:** Designated consequential external integrations and live-account actions; complete scope and enforcement pending Project Owner confirmation.
 
-Neither gate automatically satisfies the other.
+GATE-01 and GATE-02 remain pending formal definition. GATE-05 and GATE-06 have identified intended control areas, but their complete scope, exceptions, approval authority, enforcement, and evidence requirements remain subject to explicit Project Owner confirmation. No gate automatically satisfies another.
 
 ### 14.4 Approval binding
 
@@ -1472,6 +1474,9 @@ Such activities require their own explicit authorization and applicable approval
 | WLX-ARCH-011 | RISK_REGISTER.md |
 | WLX-ARCH-012 | ADR_REGISTER.md |
 | WLX-ARCH-013 | PHASE_0_INSPECTION_REPORT.md |
+| WLX-ARCH-014 | TESTING_STRATEGY.md |
+| WLX-ARCH-015 | MONITORING_AND_OBSERVABILITY.md |
+| WLX-ARCH-016 | COST_AND_SCALABILITY.md |
 
 ## 23. Final Status
 

@@ -56,7 +56,7 @@ The architecture must support both individual users and organizational tenants w
 
 ### 1.3 Architecture status
 
-This document describes a proposed and partially conditionally accepted architecture baseline.
+This document describes a proposed architecture baseline pending Project Owner review and explicit approval. No ADR is recorded as Accepted or Conditionally Accepted at this revision.
 
 It does not establish that:
 
@@ -415,7 +415,7 @@ Their final hosting topology, scaling configuration, network boundaries, and res
 
 The platform requires a model-provider abstraction to support model selection, routing, usage measurement, provider credentials, and provider-specific integration.
 
-This capability is logically assigned to the approved backend architecture and must not be introduced as an undocumented seventh deployable service.
+This capability is logically assigned within the proposed backend architecture and must not be introduced as an undocumented seventh deployable service.
 
 Its exact deployment placement, interfaces, and ownership must be defined consistently in the system architecture and service-boundary documents.
 
@@ -666,8 +666,8 @@ An administrator role must not automatically imply authority to approve every pr
 | GATE-02 | Financial or resource authorization | Thresholds, currency, and decision logic pending |
 | GATE-03 | Production deployment | Separate production approval requirement established |
 | GATE-04 | Protected GitHub operations | Separate repository approval requirement established; exact scope pending |
-| GATE-05 | Security or other controlled approval | Final definition pending confirmation |
-| GATE-06 | External or other restricted actions | Detailed meaning pending Project Owner confirmation |
+| GATE-05 | Destructive database operations and migrations | Intended control area identified; complete scope, exceptions, authority, enforcement, and evidence requirements pending Project Owner confirmation |
+| GATE-06 | Consequential external integrations and live-account actions | Intended control area identified; complete scope, exceptions, authority, enforcement, and evidence requirements pending Project Owner confirmation |
 
 This table is not a substitute for the authoritative gate policy. The final meanings must be recorded in the relevant governance documents.
 
@@ -1157,7 +1157,7 @@ This architecture document does not authorize:
 
 Phase 1 may commence only after:
 
-1. All 13 Phase 0 documents have undergone final review.
+1. All 16 Phase 0 documents have undergone final review.
 2. Cross-document inconsistencies have been resolved or formally accepted.
 3. Required human decisions have been recorded.
 4. The Project Owner has explicitly approved Phase 0.
@@ -1183,6 +1183,9 @@ This document must be read together with:
 | `RISK_REGISTER.md` | WLX-ARCH-011 | Enterprise risk management |
 | `ADR_REGISTER.md` | WLX-ARCH-012 | Architecture decisions |
 | `PHASE_0_INSPECTION_REPORT.md` | WLX-ARCH-013 | Baseline and revision evidence |
+| `TESTING_STRATEGY.md` | WLX-ARCH-014 | Verification and test approach |
+| `MONITORING_AND_OBSERVABILITY.md` | WLX-ARCH-015 | Monitoring, metrics, logs, and traces |
+| `COST_AND_SCALABILITY.md` | WLX-ARCH-016 | Cost, capacity, and scalability |
 
 Where a detailed document defines an implementation-level requirement, it must remain consistent with the architectural principles and boundaries in this overview.
 

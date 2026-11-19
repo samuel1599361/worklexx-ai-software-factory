@@ -1087,14 +1087,15 @@ The following decisions remain pending explicit human review and approval.
 
 | Decision ID | Decision | Status |
 |---|---|---|
-| HD-01 | Final monorepo tooling and workspace strategy | Pending |
-| HD-02 | Final Python dependency and lockfile tooling | Pending |
-| HD-03 | Final five-tier branching and release strategy | Pending |
-| HD-04 | Final ownership and approval rules for protected repositories | Pending |
-| HD-05 | Final generated-project repository isolation model | Pending |
-| HD-06 | Final service-owned migration organization | Pending |
-| HD-07 | Final repository backup and recovery strategy | Pending |
-| HD-08 | Final GATE-01 through GATE-06 definitions and approval authority | Pending |
+| HD-REP-01 | Final monorepo tooling and workspace strategy | Pending |
+| HD-REP-02 | Final Python dependency and lockfile tooling | Pending |
+| HD-REP-03 | Final five-tier branching and release strategy | Pending |
+| HD-REP-04 | Final ownership and approval rules for protected repositories | Pending |
+| HD-REP-05 | Final generated-project repository isolation model | Pending |
+| HD-REP-06 | Final service-owned migration organization | Pending |
+| HD-REP-07 | Final repository backup and recovery strategy | Pending |
+
+These repository-specific decisions use the `HD-REP-` prefix to distinguish them from platform-wide `HD-01` through `HD-08`, which are maintained in the architecture documents and ADR register. Platform-wide `HD-08` remains the authoritative decision for final approval-gate definitions and approval authority.
 
 These decisions must be reconciled with the ADR register and the remaining Phase 0 architecture documents.
 
@@ -1142,6 +1143,9 @@ This document must be reviewed alongside:
 10. `RISK_REGISTER.md`
 11. `ADR_REGISTER.md`
 12. `PHASE_0_INSPECTION_REPORT.md`
+13. `TESTING_STRATEGY.md`
+14. `MONITORING_AND_OBSERVABILITY.md`
+15. `COST_AND_SCALABILITY.md`
 
 The final review must identify and resolve material inconsistencies across these documents.
 

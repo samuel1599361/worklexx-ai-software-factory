@@ -10,7 +10,7 @@
 - **Classification:** Enterprise Technical Specification
 - **Primary Database:** PostgreSQL
 - **Vector Search:** pgvector (subject to proof of concept)
-- **Related Documents:** WLX-ARCH-001 through WLX-ARCH-006 and WLX-ARCH-008 through WLX-ARCH-013
+- **Related Documents:** WLX-ARCH-001 through WLX-ARCH-016, excluding this document
 
 ---
 
@@ -1479,6 +1479,9 @@ All such activities require separate explicit authorization and applicable appro
 | WLX-ARCH-011 | RISK_REGISTER.md |
 | WLX-ARCH-012 | ADR_REGISTER.md |
 | WLX-ARCH-013 | PHASE_0_INSPECTION_REPORT.md |
+| WLX-ARCH-014 | TESTING_STRATEGY.md |
+| WLX-ARCH-015 | MONITORING_AND_OBSERVABILITY.md |
+| WLX-ARCH-016 | COST_AND_SCALABILITY.md |
 
 ## 29. Final Status
 

@@ -419,7 +419,7 @@ They must not receive unrestricted credentials to infrastructure, databases, pay
 
 ### 6.4 AI Gateway and model routing
 
-AI Gateway functionality is a logical capability within the approved backend architecture.
+AI Gateway functionality is a logical capability within the proposed backend architecture.
 
 It must not become an undocumented seventh backend deployable.
 
@@ -1692,6 +1692,9 @@ Phase 1 may commence only after the complete Phase 0 documentation set has under
 | `RISK_REGISTER.md` | WLX-ARCH-011 | Enterprise risk register |
 | `ADR_REGISTER.md` | WLX-ARCH-012 | Architecture decision register |
 | `PHASE_0_INSPECTION_REPORT.md` | WLX-ARCH-013 | Phase 0 inspection evidence |
+| `TESTING_STRATEGY.md` | WLX-ARCH-014 | Verification and testing approach |
+| `MONITORING_AND_OBSERVABILITY.md` | WLX-ARCH-015 | Monitoring and observability |
+| `COST_AND_SCALABILITY.md` | WLX-ARCH-016 | Cost and scalability |
 
 Where detailed documents define implementation-level requirements, they must remain consistent with the architecture and authority boundaries established in this document.
 
