@@ -1346,7 +1346,7 @@ The following decisions require explicit human resolution.
 | HD-03 | Approve primary and disaster-recovery regions | ADR-002, ADR-007, ADR-008, ADR-012 | **Approved — AWS primary Cape Town (`af-south-1`), Ireland DR (`eu-west-1`), and Temporal Cloud Ireland (`aws-eu-west-1`), architectural direction only, subject to validation (2026-11-19)** |
 | HD-04 | Confirm the six-deployable backend service topology | ADR-001, ADR-006, ADR-013 | **Approved — retain six logical deployables, physical topology validation remains pending (2026-11-19)** |
 | HD-05 | Confirm the initial vector-storage approach and model-specific embedding-dimension policy | ADR-007 | **Approved — PostgreSQL with pgvector preferred initially; dimensions remain model/use-case specific; POC-05 required (2026-11-19)** |
-| HD-06 | Approve platform RPO and RTO targets | ADR-007, ADR-008, ADR-012 | Pending |
+| HD-06 | Approve platform RPO and RTO targets | ADR-007, ADR-008, ADR-012 | **Approved — tiered architectural recovery objectives; POC-15 and operational validation required (2026-11-19)** |
 | HD-07 | Designate risk acceptance authority and approval delegation | ADR-011 | Pending |
 | HD-08 | Define GATE-01 through GATE-06 and their approval requirements | ADR-011 | Pending |
 
@@ -1368,6 +1368,26 @@ HD-02 — Temporal Cloud Preferred Initial Approach
 - **Conditions:** Complete POC-06 and due diligence covering total cost of ownership, operational support, availability and service commitments, data residency, security, network architecture, backup and restoration, upgrades, disaster recovery, and vendor dependency. Record evidence and material limitations before implementation planning relies on this approach.
 - **Alternative retained:** Self-hosted Temporal remains a future alternative if validation, commercial terms, regulatory/data-residency constraints, or operational requirements make it preferable.
 - **Scope limitation:** This is an architectural preference only. It does not authorise a Temporal Cloud subscription, contract, payment, production deployment, account configuration, region selection, or final production service commitment. Those require separate evaluation and explicit approval.
+
+### HD-06 — Tiered Recovery Point and Recovery Time Objectives
+
+- **Decision:** Approved — adopt the tiered RPO and RTO targets below as platform architectural recovery objectives.
+- **Decision-maker:** Project Owner.
+- **Decision date:** 2026-11-19.
+- **Approved objectives:**
+
+  | Workload / data class | RPO | RTO |
+  |---|---:|---:|
+  | Financial ledger, payment and credit records | ≤ 5 minutes | ≤ 1 hour |
+  | Core platform database and tenant/business records | ≤ 15 minutes | ≤ 2 hours |
+  | Durable agent and workflow state | ≤ 5 minutes | ≤ 1 hour |
+  | Core API and essential user access | Not applicable to service availability itself; persistent state follows its data-class RPO | ≤ 1 hour |
+  | Multimodal processing and sandbox workloads | ≤ 1 hour for recoverable workload state; original uploads and completed customer artifacts require separately classified protection | ≤ 4 hours |
+  | Analytics, reporting and non-critical derived data | ≤ 24 hours | ≤ 24 hours |
+
+- **Conditions:** These values are planning objectives, not verified capabilities, contractual service levels, or availability guarantees. POC-15 must measure actual recovery performance and validate full-platform restoration and regional recovery. Recovery scope must include PostgreSQL and pgvector, financial records, Temporal workflow state, object storage, Git repositories and build artifacts, identity-provider configuration, KMS and secrets, DNS, infrastructure configuration, and required external dependencies. Financial recovery must preserve ledger integrity and reconcile against payment-provider and other authoritative records, including idempotency and duplicate-side-effect controls. Backup design must address encryption, restricted access, retention, geographic separation, integrity verification, restoration testing, and immutability where appropriate. Restored data must be reconciled against valid deletion requests, anonymisation, legal holds, revoked credentials, access changes, and tenant deactivation before normal access is restored.
+- **Validation:** POC-15 must document test environment, recovery scenarios, dependency ordering, measured data-loss window, measured restoration time, integrity and reconciliation results, limitations, and remediation actions. Targets must be reviewed if evidence shows they cannot be achieved safely or economically.
+- **Scope limitation:** This decision records architectural objectives only. It does not approve backup frequency or retention configuration, a replication mechanism, database or storage configuration, infrastructure provisioning, subscriptions, production failover, a production recovery commitment, or Phase 1 implementation. Those require separate validation and authorization.
 
 ### HD-05 — PostgreSQL and pgvector Vector-Storage Direction
 
