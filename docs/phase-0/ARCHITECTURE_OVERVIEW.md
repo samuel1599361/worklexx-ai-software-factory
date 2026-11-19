@@ -247,7 +247,7 @@ Host-only secure cookies and appropriate backend-for-frontend (BFF) session patt
 
 Token handling must address expiry, revocation, refresh-token rotation, reuse detection, key rotation, and session termination.
 
-The final identity provider and hosting arrangement remain subject to human approval.
+The managed identity-provider approach has been approved. Selection of a specific provider and its hosting arrangement remain subject to separate evaluation and human approval. The integration should remain provider-independent where practicable, and Worklexx services must continue to enforce application-level authorisation, tenant isolation, and resource-level access controls.
 
 ### Tenet 5 — Durable, recoverable workflow orchestration
 
@@ -1074,7 +1074,7 @@ The following decisions must be resolved by the Project Owner or the appropriate
 
 | ID | Decision | Current status |
 |---|---|---|
-| HD-01 | Managed identity provider versus internally operated identity solution | Pending |
+| HD-01 | Managed identity provider versus internally operated identity solution | **Approved — managed approach (2026-11-19)** |
 | HD-02 | Temporal Cloud versus self-hosted Temporal | Pending |
 | HD-03 | Primary and disaster-recovery cloud regions | Pending |
 | HD-04 | Final deployment topology for the six backend deployables | Pending |
