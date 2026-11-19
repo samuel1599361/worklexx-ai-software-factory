@@ -419,7 +419,7 @@ They must not receive unrestricted credentials to infrastructure, databases, pay
 
 ### 6.4 AI Gateway and model routing
 
-AI Gateway functionality is a logical capability within the approved backend architecture.
+AI Gateway functionality is a logical capability within the proposed backend architecture.
 
 It must not become an undocumented seventh backend deployable.
 
