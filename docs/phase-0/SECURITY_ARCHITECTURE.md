@@ -873,14 +873,20 @@ Sensitive operations shall use deterministic approval enforcement.
 
 AI agents may recommend or request approval but shall not independently authorize their own sensitive actions.
 
-### 13.2 Approval gates
+### 13.2 Six-gate approval framework
 
-The architecture recognizes:
+All six gates are human approval controls. During the initial governance phase, the Project Owner is the sole approval authority for all six gates. No approval authority is delegated at this stage. Relevant technical, security, privacy, legal, financial or operational specialists may assess, advise, review evidence and recommend a decision, but such participation does not transfer approval authority.
 
-- GATE-03: Production deployment approval.
-- GATE-04: Protected GitHub operations approval.
+- **GATE-01 — Product and architecture change approval:** Required for material changes to product scope, platform architecture, service boundaries, security design, technology choices or approved architectural decisions. Material security, legal, privacy or infrastructure changes require relevant specialist assessment before the Project Owner decides.
+- **GATE-02 — Financial and resource commitment approval:** Required for cloud subscriptions or infrastructure commitments, AI model/API commitments, paid licences, vendor contracts or recurring subscriptions, and material budget increases. No spending thresholds, currency limits or delegated financial limits are established by this decision; these require a separate explicit decision.
+- **GATE-03 — Production deployment approval:** Required to deploy a specific approved artifact to a specific production environment. The approval must bind the project, tenant where applicable, environment, target, artifact or commit digest, requested deployment action, validation evidence and rollback plan.
+- **GATE-04 — Protected GitHub operations approval:** Required for designated protected repository operations, including protected-branch changes, protected releases or tags, and other explicitly restricted GitHub actions. The approval must bind the repository, branch or protected resource, operation, and relevant PR, commit or artifact. PR review/approval and permission to perform a protected operation are distinct controls.
+- **GATE-05 — Destructive database operations and migrations approval:** Required for operations that irreversibly destroy, invalidate or materially transform persistent data or database structures, including dropping databases, tables or columns; destructive schema migrations; incompatible data transformations; bulk deletion or irreversible correction; and production resets or restores that overwrite existing data. Evidence must include verified backups, impact analysis, migration/execution plan, and rollback or recovery strategy.
+- **GATE-06 — Consequential external integrations and live-account actions approval:** Required to activate external integrations or perform live-account actions with material financial, operational, customer, legal or security consequences, including live payments, production identity-provider activation, live messaging/customer notifications, and consequential financial, insurance, logistics or other external actions on customers' behalf. Evidence must include provider due diligence, permission review, test evidence, data-protection assessment, and rollback or suspension plan.
 
-The definitions, policies and operational requirements for GATE-01, GATE-02, GATE-05 and GATE-06 remain pending formal determination.
+The gates are independent and cumulative where an action engages more than one control area. For example, activating a live payment integration may require GATE-01 for a material architecture change, GATE-02 for a financial commitment, GATE-06 for the live external integration, and GATE-03 for production deployment. Other gates apply when the specific action also affects protected repository operations or persistent data.
+
+No spending threshold or exception is implied. Emergency procedures, if required, must be documented and approved separately; they must not create an undocumented bypass.
 
 ### 13.3 GATE-03
 
@@ -919,33 +925,34 @@ The approval shall be bound to the applicable:
 
 Material changes to the approved operation or target shall invalidate the approval.
 
-### 13.5 Approval security controls
+### 13.5 Common approval enforcement requirements
 
-Approval controls shall include:
+Every gate shall use deterministic controls enforced outside the AI model. An approval record must include, as applicable:
 
-- Approver authentication.
-- Authorization verification.
-- Approval scope.
-- Single-use or replay-resistant approval where applicable.
-- Expiration.
-- Revocation.
-- Tamper-resistant audit records.
-- Change invalidation.
-- Separation of duties where appropriate.
-- Explicit confirmation.
-- Enforcement outside the AI model.
+- Authenticated human approver identity and verified authority.
+- Explicit decision, scope and requested action.
+- Project and tenant, where applicable.
+- Environment, resource, account, repository, database, transaction or other affected context.
+- Artifact, commit, configuration or transaction digest where applicable.
+- Supporting evidence and applicable conditions.
+- Approval timestamp, expiry and revocation status.
+- Audit record and, after execution, the execution result.
+
+Approvals must be time-limited, revocable before execution, protected against replay, and invalidated or reassessed when a material change affects the approved action, context, artifact, scope or conditions. The system shall fail closed if approval is absent, expired, revoked, ambiguous or cannot be verified.
+
+Silence, prior approvals, general project approval, technical permissions, administrator status or risk acceptance must never be treated as implied approval. A gate approval satisfies only that gate and does not satisfy another applicable gate.
 
 ### 13.6 Approval bypass prevention
 
-The platform shall not permit AI-generated claims of approval to authorize protected operations.
+The platform shall not permit AI-generated claims of approval to authorize protected operations. AI agents may prepare approval requests, assemble evidence and recommend decisions, but shall not approve their own actions, impersonate a human approver or override deterministic enforcement.
 
 Approval status shall be determined by the authoritative approval service or approved deterministic mechanism.
 
-### 13.7 Administrative authority
+### 13.7 Approval authority and separation
 
-Administrator status shall not automatically imply authority to approve every gate.
+During the initial governance phase, the Project Owner is the sole approval authority for GATE-01 through GATE-06. No gate approval authority is delegated. Specialists may provide assessment and independent review where required, but do not approve on the Project Owner's behalf.
 
-Approval authority shall be defined by an approved permission model.
+Risk acceptance under HD-07 is separate from gate approval and does not authorise an activity or waive a gate. Architecture approval does not authorise implementation; financial approval does not authorise production deployment; GATE-04 does not satisfy GATE-03. Emergency procedures require a separately documented and approved process and may not introduce an undocumented bypass.
 
 ---
 
@@ -2603,14 +2610,14 @@ The following security-related decisions require formal resolution before the re
 | HD-02 | Temporal Cloud versus self-hosted Temporal | **Approved — Temporal Cloud preferred initial approach, conditional on POC-06 and due diligence (2026-11-19)** |
 | HD-03 | Primary and disaster-recovery regions | **Approved — AWS primary Cape Town (`af-south-1`), Ireland DR (`eu-west-1`), and Temporal Cloud Ireland (`aws-eu-west-1`), architectural direction only, subject to validation (2026-11-19)** |
 | HD-04 | Final six-deployable topology and operational deployment model | **Approved — six logical deployables; physical topology remains subject to validation (2026-11-19)** |
-| HD-05 | Vector embedding dimension and pgvector implementation details | Pending |
-| HD-06 | Final platform RPO and RTO | Pending |
-| HD-07 | Risk acceptance authority and delegation | Pending |
-| HD-08 | Final definitions and policies for GATE-01 through GATE-06 | Pending |
+| HD-05 | Vector embedding dimension and pgvector implementation details | **Approved — PostgreSQL/pgvector preferred initially; POC-05 and validation required (2026-11-19)** |
+| HD-06 | Final platform RPO and RTO | **Approved — tiered architectural objectives; POC-15 and operational validation required (2026-11-19)** |
+| HD-07 | Risk acceptance authority and delegation | **Approved — Project Owner sole risk acceptance authority during initial governance phase; no delegation (2026-11-19)** |
+| HD-08 | Definitions, authority and enforcement for GATE-01 through GATE-06 | **Approved — six-gate human approval framework; Project Owner sole approval authority during initial governance phase (2026-11-19)** |
 
 Additional security implementation decisions shall be recorded through the appropriate ADRs or controlled architecture decision process.
 
-HD-01 is approved only at the architectural approach level; it does not constitute identity-provider vendor selection. HD-02 approves Temporal Cloud only as the preferred initial hosting approach, subject to POC-06 and due diligence. HD-03 approves AWS as the cloud provider direction, Cape Town (`af-south-1`) as primary, Ireland (`eu-west-1`) as disaster-recovery region, and Temporal Cloud Ireland (`aws-eu-west-1`) as the preferred Temporal Cloud region, subject to legal, security, POC, and operational validations. These decisions do not authorise subscriptions, contracts, payments, account configuration, infrastructure provisioning, or production deployment. HD-04 is approved as the six-logical-deployable topology, with physical deployment subject to validation. HD-05 through HD-08 remain pending.
+HD-01 is approved only at the architectural approach level; it does not constitute identity-provider vendor selection. HD-02 approves Temporal Cloud only as the preferred initial hosting approach, subject to POC-06 and due diligence. HD-03 approves AWS as the cloud provider direction, Cape Town (`af-south-1`) as primary, Ireland (`eu-west-1`) as disaster-recovery region, and Temporal Cloud Ireland (`aws-eu-west-1`) as the preferred Temporal Cloud region, subject to legal, security, POC, and operational validations. These decisions do not authorise subscriptions, contracts, payments, account configuration, infrastructure provisioning, or production deployment. HD-04 is approved as the six-logical-deployable topology, with physical deployment subject to validation. HD-05 is approved as the PostgreSQL/pgvector initial vector-storage direction, subject to POC-05 and validation. HD-06 is approved as tiered architectural recovery objectives, subject to POC-15 and operational validation. HD-07 is approved with the Project Owner as sole risk acceptance authority during the initial governance phase. HD-08 is approved as the six-gate human approval and enforcement framework, with the Project Owner as sole gate approval authority during the initial governance phase; the approval does not authorise implementation or gated activity.
 
 ---
 
