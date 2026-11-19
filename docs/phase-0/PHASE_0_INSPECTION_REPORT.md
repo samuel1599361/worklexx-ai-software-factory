@@ -834,7 +834,7 @@ All approval-sensitive activities must remain subject to their designated author
 
 **Current Status:** Draft — Pending Final Verification and Project Owner Approval
 
-## 23. Controlled Cross-Document Correction Addendum — 19 November 2026
+## 26. Controlled Cross-Document Correction Addendum — 19 November 2026
 
 This addendum records the controlled Phase 0 documentation correction pass on the dedicated branch `phase-0/controlled-corrections-2026-11-19`. It does not alter the historical fact that the original document inventory contained 13 files; the current inventory contains 16.
 
