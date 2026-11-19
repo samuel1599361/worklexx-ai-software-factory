@@ -24,7 +24,7 @@
 | Security Model | Defence in depth, least privilege, zero trust, risk-based controls |
 | Target Platform | Worklexx AI Software Factory |
 | Repository | https://github.com/samuel1599361/worklexx-ai-software-factory |
-| Related Documents | WLX-ARCH-001 through WLX-ARCH-007; WLX-ARCH-009 through WLX-ARCH-013 |
+| Related Documents | WLX-ARCH-001 through WLX-ARCH-016, excluding this document |
 | Implementation Status | Not implemented or independently verified |
 | Approval Status | Pending formal review and approval |
 
@@ -2654,6 +2654,9 @@ Security implementation shall begin only after the appropriate Phase 0 review, a
 | WLX-ARCH-011 | RISK_REGISTER.md |
 | WLX-ARCH-012 | ADR_REGISTER.md |
 | WLX-ARCH-013 | PHASE_0_INSPECTION_REPORT.md |
+| WLX-ARCH-014 | TESTING_STRATEGY.md |
+| WLX-ARCH-015 | MONITORING_AND_OBSERVABILITY.md |
+| WLX-ARCH-016 | COST_AND_SCALABILITY.md |
 
 ---
 
