@@ -291,7 +291,9 @@ Internal network access shall not automatically confer unrestricted service auth
 
 A dedicated identity provider shall manage authentication and identity-related security functions.
 
-The final identity provider remains a Human Decision Pending.
+The architectural approach is approved: Worklexx shall use a managed identity provider rather than internally operating identity infrastructure. Selection of a specific provider, contract, hosting arrangement, and configuration remains pending separate evaluation and approval.
+
+The integration shall remain provider-independent where practicable. Worklexx services shall retain responsibility for application-level authorisation, organisation membership, tenant isolation, and resource-level access control. Successful authentication alone shall not authorise sensitive application actions.
 
 The selected identity provider shall support, as applicable:
 
@@ -2597,7 +2599,7 @@ The following security-related decisions require formal resolution before the re
 
 | ID | Decision | Status |
 |---|---|---|
-| HD-01 | Managed identity provider versus internally managed identity architecture | Pending |
+| HD-01 | Managed identity provider versus internally managed identity architecture | **Approved — managed approach (2026-11-19)** |
 | HD-02 | Temporal Cloud versus self-hosted Temporal | Pending |
 | HD-03 | Primary and disaster-recovery regions | Pending |
 | HD-04 | Final six-deployable topology and operational deployment model | Pending |
@@ -2608,7 +2610,7 @@ The following security-related decisions require formal resolution before the re
 
 Additional security implementation decisions shall be recorded through the appropriate ADRs or controlled architecture decision process.
 
-Pending decisions shall not be treated as approved.
+HD-01 is approved only at the architectural approach level; it does not constitute vendor selection. All other pending decisions shall not be treated as approved.
 
 ---
 
