@@ -1597,3 +1597,25 @@ Required test scenarios and retained evidence:
 
 This strategy records architectural test requirements only; it does not authorise backup configuration, infrastructure provisioning, spending, repository permission changes, customer account connections, backup/restore/migration execution, CI/CD activation, production implementation or Phase 1. Applicable HD-08 approvals remain mandatory.\n\nA successful scheduled backup is not sufficient evidence of recoverability. Record test date, scope, source/recovery point, environment, method, integrity results, measured RPO/RTO, defects, limitations, reviewer and remediation. Tests must not use production data or perform consequential production restoration without the applicable approvals.
 
+## 35. Build Integrity and Software Supply-Chain Validation — HD-REP-08
+
+The following proof-of-concept validations are required before production reliance on the approved architecture. Each test must record scope, environment, method, expected result, actual result, evidence, limitations, defects, remediation and reviewer. No test is considered passed merely because it is specified here.
+
+| Validation ID | Required validation |
+|---|---|
+| POC-REP-08-01 | Verify workflow permissions are least-privilege, read-only by default and narrowly scoped per job |
+| POC-REP-08-02 | Demonstrate isolation of untrusted pull-request code from privileged secrets and trusted release workflows |
+| POC-REP-08-03 | Verify lockfile enforcement, dependency integrity and pinned tool/action versions |
+| POC-REP-08-04 | Demonstrate vulnerability, secret and licence scanning, with risk-based triage |
+| POC-REP-08-05 | Generate and validate machine-readable SBOMs in SPDX or CycloneDX format |
+| POC-REP-08-06 | Verify artifact checksums, signatures, provenance and source-to-artifact traceability |
+| POC-REP-08-07 | Test build environment, filesystem, network, credential and cache isolation |
+| POC-REP-08-08 | Test Factory/customer-project separation and cross-tenant negative access scenarios |
+| POC-REP-08-09 | Demonstrate credential minimisation, short-lived access where supported, protection and revocation |
+| POC-REP-08-10 | Verify separate validation, build, release approval, publication and deployment permissions |
+| POC-REP-08-11 | Simulate compromised dependency, malicious workflow and untrusted build-script scenarios |
+| POC-REP-08-12 | Verify audit records, provenance retention, artifact recovery and end-to-end traceability |
+
+Tests must cover Worklexx platform source, Worklexx-managed customer projects and customer-managed repositories within authorised scope. Build caches, artifacts, credentials and execution jobs must be checked for tenant/project isolation. Signing-key custody and recovery must be tested without exposing private keys in source or ordinary workflow configuration.
+
+These are validation requirements only. They do not authorise CI/CD activation, repository setting changes, credential creation, paid services, production builds, publication, release creation, deployment or Phase 1. Applicable HD-08 gates remain mandatory.
