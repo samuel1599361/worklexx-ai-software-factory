@@ -2019,3 +2019,13 @@ Add a documentation and future-validation workstream for controlled application 
 The workstream must define immutable artifact identity and provenance, SBOM and dependency evidence, release readiness, four logical environments (Development, Testing, Staging, Production), promotion criteria, separate build/release/deployment permissions, exact-scope human approvals, deployment identity, compatibility checks, post-deployment verification, rollback/forward-fix decisions, emergency release procedure and customer-project deployment isolation.
 
 Track POC-REP-19-01 through POC-REP-19-26 as unexecuted acceptance requirements. Assign owners and record scope, environment, preconditions, expected results, evidence, outcome, defects and retests before claiming validation. Add RSK-39; formal risk scores pending. This roadmap entry authorises no CI/CD activation, environment provisioning, release publication, deployment, rollback, paid services, customer integration, database migration or Phase 1.
+
+
+
+## HD-REP-20 — Production Operations, Reliability and Continuity Workstream
+
+Add a Phase 0/forward-validation workstream defining service ownership, service-level indicators and objectives, operational telemetry, incident severity and escalation, incident command responsibilities, authorised containment/recovery, post-incident reviews, capacity management, operational change control, runbooks, third-party dependency resilience and business continuity.
+
+Preserve HD-06 RPO/RTO targets; do not represent them as achieved or contractual. Proposed availability and incident-response targets remain unverified planning assumptions. Define evidence requirements and owners for POC-REP-20-01 through POC-REP-20-28. All tests remain unexecuted. Add RSK-40, with formal likelihood, impact, inherent and residual scores pending.
+
+This roadmap entry authorises documentation and future validation planning only. It does not authorise production activation, monitoring, staffing/on-call commitments, SLAs, infrastructure, subscriptions/spending, database/configuration changes, automated remediation, recovery execution or Phase 1.
