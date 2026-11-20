@@ -1558,3 +1558,30 @@ The following remain unresolved:
 **Testing status:** Acceptance requirements defined; execution evidence outstanding.
 
 **Phase 1 authorization:** Not granted.
+
+
+## Customer Data Isolation, Privacy Boundaries and Data Governance — HD-REP-11
+
+The Project Owner approved HD-REP-11 on 2026-11-20. Database and data-access design must support a privacy-by-design, tenant- and project-scoped architecture across all Factory services and customer projects.
+
+### Data classification and authoritative scope
+
+Classify records as Public, Internal, Confidential or Restricted according to sensitivity and applicable legal/contractual requirements. Every material data object and processing activity must have an authoritative tenant/project association where applicable, a documented purpose, permitted access, retention/deletion rule and audit context. Tenant identity must be established by trusted authentication and authorisation; a client-supplied tenant identifier is never sufficient authority.
+
+### PostgreSQL, RLS and pgvector controls
+
+Preserve HD-REP-06 service-owned schema and migration boundaries and HD-05's PostgreSQL/pgvector direction. Enforce tenant-aware service authorisation and database policies, including RLS where appropriate. Runtime roles remain least-privileged and distinct from migration identities. RLS is defence in depth, not a replacement for service-layer authorisation. Cross-tenant negative tests must cover joins, indirect object references, alternate query paths, background jobs, caches and administrative paths. Vector retrieval must enforce tenant/project scope before results are exposed to an agent or user; record model/index identity and handle deletion/revocation of embeddings and derived representations.
+
+### Data lifecycle and derived information
+
+The governed data inventory includes customer records, source code, files, prompts, images, audio, video, transcripts, embeddings, metadata, AI outputs, workflow state, logs and derived copies. Access, retention, export and deletion controls must consider associated object storage, Git/LFS, search indexes, vectors, caches, temporary files, queues/jobs, replicas and backups. Apply record-class retention and legal holds; no universal duration is approved. Align deletion and restoration with HD-REP-07 and HD-REP-10 so deleted or restricted information is not silently reintroduced from backups.
+
+### External processing and regional data flows
+
+Do not grant external AI providers or subprocessors unrestricted database or repository access. Before data is transmitted, document purpose, categories, location, retention, human access, onward disclosure, training-use restrictions, deletion and contractual safeguards. Customer data must not be used to train/improve general-purpose external models absent a specific lawful and authorised arrangement. HD-03's Cape Town/Ireland and Temporal Ireland choices do not themselves establish legal authority for international transfers; jurisdictional, localisation and transfer assessments are prerequisites to live processing.
+
+### Privacy, security and validation
+
+Apply encryption in transit/at rest to confidential and restricted data, separate keys/secrets from application data, and govern key access, rotation, revocation and recovery. Support applicable data-subject access, correction, export, erasure, restriction, objection and consent-withdrawal workflows. Align audit redaction and privacy incident evidence with HD-REP-09. Require POC-REP-11-01 through POC-REP-11-15, including classification, tenant/RLS isolation, vector filtering/deletion, agent permissions, multimodal handling, provider controls, key management, cross-border assessment, rights/export, deletion/backup, log redaction and end-to-end privacy/security testing. Add RSK-31; formal risk scores remain pending.
+
+**Governance boundary:** HD-07 and HD-08 apply. This is an architectural decision only; it does not authorise live data processing, customer/provider connections, schema or database changes, credential/key creation, infrastructure, spending, migrations, deletion/restoration, production deployment or Phase 1. Unexecuted validation is not passed.
