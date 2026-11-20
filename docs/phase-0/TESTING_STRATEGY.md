@@ -1784,3 +1784,37 @@ All 24 validations required by HD-REP-15 are test requirements, not evidence of 
 - POC-REP-15-24 adversarial testing and independent security review.
 
 Include cross-tenant negative tests, race/concurrency tests, failure injection and end-to-end traces. All tests remain unexecuted until results and evidence are recorded and reviewed.
+
+
+## HD-REP-16 — API Security, Secrets and Cryptographic Controls Validation (Required; Not Executed)
+
+Track each test individually with owner, scope, environment, preconditions, expected result, evidence, outcome, defects and retest. Required tests:
+
+- POC-REP-16-01 secret storage and retrieval security.
+- POC-REP-16-02 absence of secrets in source code, Git history and frontend bundles.
+- POC-REP-16-03 secret-scanning coverage and detection accuracy.
+- POC-REP-16-04 workload identity and service authentication.
+- POC-REP-16-05 token issuer, audience, expiry and signature validation.
+- POC-REP-16-06 API key scope, tenant binding and revocation.
+- POC-REP-16-07 refresh-token rotation and reuse detection.
+- POC-REP-16-08 secret rotation without unintended service interruption.
+- POC-REP-16-09 key generation, separation and lifecycle controls.
+- POC-REP-16-10 key-management access-control enforcement.
+- POC-REP-16-11 encryption in transit.
+- POC-REP-16-12 encryption at rest and backup protection.
+- POC-REP-16-13 certificate issuance, renewal and revocation.
+- POC-REP-16-14 artifact and provenance signature verification.
+- POC-REP-16-15 webhook authenticity and replay protection.
+- POC-REP-16-16 cross-service authentication and authorisation.
+- POC-REP-16-17 tenant and project credential isolation.
+- POC-REP-16-18 agent secret-access restrictions.
+- POC-REP-16-19 prompt-injection attempts to extract secrets.
+- POC-REP-16-20 secret redaction in logs and error responses.
+- POC-REP-16-21 credential compromise and revocation propagation.
+- POC-REP-16-22 key compromise, recovery and replacement.
+- POC-REP-16-23 cryptographic integrity and tampering detection.
+- POC-REP-16-24 backup restoration and key availability.
+- POC-REP-16-25 security monitoring and incident evidence.
+- POC-REP-16-26 adversarial testing and independent security review.
+
+All tests remain unexecuted until results and evidence are recorded and reviewed.
