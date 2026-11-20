@@ -1596,7 +1596,6 @@ The Risk Register is intended to provide a traceable foundation for risk assessm
 **Validation evidence required:** Workflow permission tests; untrusted PR isolation results; dependency/action pinning and integrity evidence; vulnerability/secret/licence scan results; SBOM validation; artifact checksum/signature/provenance verification; build/cache/tenant isolation negative tests; credential revocation evidence; compromised dependency/workflow exercises; and audit/recovery traceability.
 
 **Risk status:** Identified — likelihood, impact and residual score require formal assessment. Proposed controls do not reduce residual risk until implemented and evidenced. Risk acceptance remains exclusively with the Project Owner under HD-07.
-undefined
 
 ### RSK-29 — Incomplete, Altered, Exposed or Inadequately Monitored Audit Evidence
 
