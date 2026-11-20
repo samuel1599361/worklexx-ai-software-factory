@@ -1668,3 +1668,31 @@ The following proof-of-concept validations are required before operational relia
 Tests must distinguish export from ownership transfer, suspension from deletion, and repository hosting administration from project ownership. Provider/API limitations and customer-managed responsibility boundaries must be documented. Retention periods and legal-hold behaviour must be validated against approved legal, regulatory and contractual requirements; no universal duration is assumed.
 
 **Governance and scope:** Apply HD-07 and HD-08, including GATE-02, GATE-03, GATE-04, GATE-05 and GATE-06 according to the operation. These are validation requirements only; they do not authorise customer provisioning, account connections, OAuth installation, repository/ownership transfer, live customer suspension/deletion, production migration, backup/retention configuration, infrastructure, spending, CI/CD activation, production deployment or Phase 1.
+
+
+
+## 38. Customer Data Isolation, Privacy Boundaries and Data Governance Validation — HD-REP-11
+
+The following proof-of-concept validations are required before operational reliance on the approved HD-REP-11 architecture. Each test must record scope, synthetic/controlled dataset, environment, method, expected and actual results, evidence, limitations, defects, remediation and reviewer. A listed validation is a requirement, not evidence that the test has been executed or passed. Do not use live customer or personal data without separate authorisation and applicable legal/security approvals.
+
+| Validation ID | Required validation |
+|---|---|
+| POC-REP-11-01 | Verify data classification, processing inventory, purpose, data minimisation and ownership/controller/processor mapping |
+| POC-REP-11-02 | Test tenant/project isolation across all six backend services, APIs, storage, jobs, queues, caches, artifacts, exports and administrative paths, including negative cross-tenant cases |
+| POC-REP-11-03 | Validate PostgreSQL row-level security, service-layer authorisation, joins, indirect references, runtime-role restrictions and bypass resistance |
+| POC-REP-11-04 | Verify tenant/project-scoped pgvector filtering, retrieval authorisation, embedding provenance and deletion/revocation |
+| POC-REP-11-05 | Test agent least privilege, task scope, duration, context isolation and prohibited access/permission-expansion actions |
+| POC-REP-11-06 | Simulate prompt injection and malicious/untrusted instructions in documents, source code, prompts, web content and multimodal transcripts; verify policy and authorisation cannot be overridden |
+| POC-REP-11-07 | Validate secure upload, processing, temporary-file handling, transcript/metadata controls, derivative tracking and deletion for images, audio and video |
+| POC-REP-11-08 | Verify external model/subprocessor due diligence controls, data minimisation, location, retention, human access, onward processing, training-use restrictions and deletion terms |
+| POC-REP-11-09 | Validate encryption in transit/at rest, key separation, least privilege, rotation, revocation, recovery and secret non-disclosure |
+| POC-REP-11-10 | Validate data-flow mapping, applicable jurisdictional assessment, cross-border transfer safeguards, localisation and provider/support/backup locations |
+| POC-REP-11-11 | Exercise applicable data-subject/customer access, correction, export, erasure, restriction, objection and consent-withdrawal workflows with authority checks |
+| POC-REP-11-12 | Verify record-class retention, legal holds, deletion and non-reintroduction across primary data, Git/LFS, object storage, indexes, embeddings, caches, jobs, replicas and backups |
+| POC-REP-11-13 | Test privacy-aware audit coverage, sensitive-data redaction, audit integrity, incident detection, escalation and evidence handling aligned with HD-REP-09 |
+| POC-REP-11-14 | Verify Worklexx-managed versus customer-managed hosting, data responsibility, provider visibility and contractual boundary controls |
+| POC-REP-11-15 | Conduct end-to-end privacy/security assessment, including cross-tenant negative testing, external transfer controls, derived-data lifecycle and recovery behaviour |
+
+Tests must cover prompts, source code, documents, images, audio, video, transcripts, embeddings, metadata, generated outputs and derived copies. Validate that tenant identity comes from trusted authentication/authorisation rather than client-supplied identifiers. RLS supplements service-layer authorisation. External provider training restrictions must be verified contractually and technically where possible. No universal retention duration is assumed; test the approved record-class schedule and applicable legal holds.
+
+**Governance and scope:** Add RSK-31 for customer data exposure, unlawful processing and privacy control failure; formal likelihood/impact/residual scoring remains pending. Apply HD-07 and HD-08, including GATE-01/02/03/04/05/06 according to the activity. These validation requirements do not authorise live personal/customer-data processing, customer/provider integrations, infrastructure/database/storage changes, credentials/keys, spending, production monitoring/workflows, migrations, deletion/restoration, deployment or Phase 1.
