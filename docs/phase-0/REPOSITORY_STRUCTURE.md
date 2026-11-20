@@ -1102,7 +1102,7 @@ The following table records the approval status of repository architecture decis
 | HD-REP-02 | Final Python dependency and lockfile tooling | Approved — architectural direction only (2026-11-19) |
 | HD-REP-03 | Branching, integration and release strategy | Approved — architectural direction only (2026-11-20) |
 | HD-REP-04 | Final ownership and approval rules for protected repositories | Approved — architectural direction only (2026-11-20) |
-| HD-REP-05 | Final generated-project repository isolation model | Pending |
+| HD-REP-05 | Final generated-project repository isolation model | Approved — architectural direction only (2026-11-20) |
 | HD-REP-06 | Final service-owned migration organization | Pending |
 | HD-REP-07 | Final repository backup and recovery strategy | Pending |
 
@@ -1187,3 +1187,16 @@ The proposed directory structure is an architectural target, not evidence that t
 ## HD-REP-04 — Approved Repository Ownership and Governance Direction (2026-11-20)
 
 The Project Owner approved the organisation-owned repository model when Worklexx's GitHub organisation is established and repository transfer is separately authorised. Until then, the repository remains in its current location. Access shall follow least privilege, with minimum necessary administrators, scoped collaborators and automation, no shared credentials, and periodic access review. Protect `main` from direct routine pushes, force pushes and deletion; require PRs, independent human review, designated CODEOWNERS review for critical paths and mandatory CI checks once implemented. Prefer squash merging and dismiss stale approvals after material changes. AI agents cannot approve their own changes, accept risks, modify governance settings, grant access or bypass protections. Project Owner remains sole initial governance approval authority, subject to HD-08. This is architectural approval only and does not authorise organisation creation, repository transfer, settings changes, invitations, CI/CD, production deployment or Phase 1.
+
+
+## HD-REP-05 — Approved Generated-Project Repository Isolation Model (2026-11-20)
+
+The Project Owner approved a hybrid, provider-independent architecture using one isolated Git repository per generated customer project. The Factory platform-source repository remains separate from all customer-generated project repositories. Support Worklexx-managed private hosting and customer-managed hosting integrations; a customer need not have a Git hosting account merely to use the Factory.
+
+Each project must have a unique project identity and repository mapping, private-by-default visibility, tenant- and project-scoped authorization, independent credentials and access controls, audit records, lifecycle and retention/deletion controls, backup/recovery, and customer export/portability. Isolation must also be enforced across API authorization, storage, Git credentials, background jobs, caches, agent execution, and artifact delivery; repository separation alone is insufficient.
+
+Repository access is mediated by a permission-controlled layer. Agents receive only task- and project-scoped minimum permissions for inspection, code changes, pull requests, and approved sandbox testing. No cross-tenant access or implicit secret access is permitted. Agents cannot alter ownership or visibility, delete repositories, or perform protected operations without applicable human authorization and approval.
+
+Generated customer software must be distinguished from Worklexx proprietary platform source, reusable platform components/templates, and third-party licensed components. Customer export, hosting connection/transfer, disconnection, and revocation must be authenticated, authorized, audited, and validated.
+
+**Scope limitation:** Architectural approval only. No repository provisioning, customer-account connection, OAuth/app installation, subscription/spending, migration, production implementation, Factory repository change beyond this controlled documentation update, or Phase 1 execution is authorized. Provider integration, isolation, permissions, security, portability, legal/licensing, backup and recovery controls require validation and applicable separate approvals.
