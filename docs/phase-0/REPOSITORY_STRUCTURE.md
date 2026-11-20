@@ -1106,6 +1106,11 @@ The following table records the approval status of repository architecture decis
 | HD-REP-05 | Final generated-project repository isolation model | Approved — architectural direction only (2026-11-20) |
 | HD-REP-06 | Service-owned schema and migration governance across six deployable services | Approved — architectural direction only (2026-11-20) |
 | HD-REP-07 | Final repository backup and recovery strategy | Approved — architectural direction only (2026-11-20) |
+| HD-REP-08 | Repository automation, build integrity and software supply-chain security governance | Approved — architectural direction only (2026-11-20) |
+| HD-REP-09 | Repository observability, audit logging and security-event monitoring governance | Approved — architectural direction only (2026-11-20) |
+| HD-REP-10 | Customer project lifecycle, ownership, portability and exit governance | Approved — architectural direction only (2026-11-20) |
+| HD-REP-11 | Customer data isolation, privacy boundaries and data governance | Approved — architectural direction only (2026-11-20) |
+| HD-REP-12 | Customer identity, authentication, authorisation and access lifecycle governance | Approved — architectural direction only (2026-11-20) |
 
 These repository-specific decisions use the `HD-REP-` prefix to distinguish them from platform-wide `HD-01` through `HD-08`, which are maintained in the architecture documents and ADR register. Platform-wide `HD-08` remains the authoritative decision for final approval-gate definitions and approval authority.
 
@@ -1276,3 +1281,25 @@ Protect confidential/restricted information in transit and at rest, separate key
 Distinguish Worklexx-managed and customer-managed hosting responsibilities, customer information, generated project content, Worklexx proprietary components and third-party licensed materials. Add RSK-31 for customer data exposure, unlawful processing and privacy control failure; formal risk scores remain pending. Require POC-REP-11-01 through POC-REP-11-15 before operational reliance. Apply HD-07/HD-08 and GATE-01 through GATE-06 as relevant.
 
 **Scope limitation:** Architectural and documentation approval only. No live customer/personal-data processing, external provider/customer integration, OAuth/app installation, infrastructure/storage/database provisioning or modification, credential/key creation, paid services, GitHub settings/permission changes, production monitoring/workflow activation, migration, deletion/restoration, production deployment or Phase 1 is authorised. Validation and separate applicable approvals remain mandatory.
+
+
+
+## HD-REP-12 — Approved Customer Identity, Authentication, Authorisation and Access Lifecycle Governance (2026-11-20)
+
+The Project Owner approved HD-REP-12 on 2026-11-20. Adopt a centralised managed-identity integration model with Worklexx-controlled application authorisation and service-enforced tenant, project and resource boundaries. HD-01's managed identity-provider direction remains in force; authentication does not itself grant application or resource access.
+
+Distinguish individual users, organisations, organisation memberships, project identities/memberships, AI-agent identities, backend service identities, workload identities and external integration identities. Users may belong to multiple organisations with different permissions. Organisation administration does not automatically confer project ownership; HD-REP-10 remains authoritative for project ownership, transfer and exit.
+
+Use configurable RBAC, contextual ABAC and explicit resource-level permissions. Services must derive trusted tenant/project context from server-side identity and membership records; client-supplied identifiers are never proof of authority. RLS supplements, but does not replace, service-layer authorisation. Preserve the six approved backend deployables and HD-REP-06 service-owned schema boundaries.
+
+Provide controlled registration, verification, invitations, membership and role changes, access reviews, suspension, recovery, revocation, deprovisioning and account closure. Distinguish ordinary, privileged and emergency access. Require stronger authentication and scoped, time-limited privileged access where practicable. Emergency access must remain attributable, reviewed and subject to HD-08; it is not an approval bypass.
+
+Each agent invocation must have a distinct attributable identity and explicit task-, tenant-, project-, operation- and time-scoped delegation. Do not inherit a user's blanket authority. The six backend deployables require distinct service identities and least-privilege service-to-service permissions. Prefer short-lived workload credentials. API keys/tokens require ownership, purpose, scope, expiry where practicable, rotation, revocation and audit; do not expose privileged credentials in frontend bundles or ordinary logs.
+
+Revocation and permission changes must propagate across sessions/tokens, all six services, PostgreSQL/RLS, pgvector, object storage, Git/repository integrations, Temporal workflows/queues, agent contexts, build environments, artifacts, caches and external integrations. Define and measure propagation objectives through POC; sensitive operations must not rely solely on stale cached decisions and must fail closed when current authority cannot be established.
+
+Identity information is subject to HD-REP-11 minimisation, purpose limitation, privacy, rights, retention and legal-hold controls. Identity and access events must be attributable and protected under HD-REP-09. Never log passwords, token values, private keys, recovery secrets or authentication secret values.
+
+**Required validation:** POC-REP-12-01 through POC-REP-12-20 cover provider portability; identity mapping; multi-organisation isolation; RBAC/ABAC; cross-tenant/project denial; ownership boundaries; MFA/passkeys/SSO; session lifecycle; account recovery/compromise; agent delegation; service/workload identities; API key/token lifecycle; revocation propagation; privileged/emergency access; audit attribution; lifecycle/deprovisioning; privacy; provider outage/recovery; approval-gate fail-closed behaviour; and concurrent permission changes/stale caches. Unexecuted POCs are not passed. RSK-32 records identity compromise, excessive privilege and access-control failure; likelihood, impact and residual scores remain pending formal assessment.
+
+**Governance and scope limitation:** HD-07/HD-08 remain authoritative. Applicable gates include GATE-01 through GATE-06 according to the actual operation. Architectural and documentation approval only: no identity-provider selection/connection, customer account creation, SSO/OAuth configuration, permission changes, live credential issuance, infrastructure/database changes, paid services, GitHub permission changes, production authentication activation, migrations, production deployment or Phase 1 is authorised. Separate validation and applicable approvals remain mandatory.

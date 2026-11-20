@@ -1683,3 +1683,33 @@ undefined
 **Status:** Identified — assessment and control implementation pending.
 
 **Related decisions:** HD-07, HD-08, HD-03, HD-05, HD-REP-05, HD-REP-06, HD-REP-07, HD-REP-09, HD-REP-10 and HD-REP-11.
+
+
+### RSK-32 — Identity Compromise, Excessive Privilege and Access-Control Failure
+
+**Category:** Security, Privacy, Customer Trust, Governance and Operational Resilience
+
+**Risk statement:** A human, agent, service or workload identity may be compromised, misidentified, overprivileged, incorrectly associated with a tenant/project, or inadequately revoked, resulting in unauthorised access or consequential actions across customer data, generated projects, repositories, workflows, financial records or platform administration.
+
+**Potential causes:** Weak authentication or account recovery; compromised credentials/sessions; incomplete MFA or federation controls; incorrect organisation/project membership; excessive or stale role/attribute permissions; reliance on client-supplied tenant identifiers; service identity sharing; agent authority inherited from initiating users; long-lived or exposed API keys; incomplete revocation propagation; stale caches or queued workflows; inadequate privileged-access controls; identity-provider outage; or insufficient audit attribution.
+
+**Potential consequences:** Cross-tenant or cross-project data exposure; unauthorised source/repository changes; fraudulent financial or billing actions; privilege escalation; unauthorised ownership or access changes; misuse of agent or service identities; failure to contain compromised accounts; privacy/regulatory/contractual consequences; service disruption and loss of customer trust.
+
+**Proposed controls:**
+- Retain HD-01 managed identity-provider direction and separate authentication from Worklexx application authorisation.
+- Enforce trusted tenant/project/resource scope server-side using least-privilege RBAC, ABAC and explicit resource permissions; client-supplied identifiers are not authority.
+- Separate human, organisation, membership, project, agent, service, workload and external integration identities.
+- Require scoped, task- and time-limited agent delegation; prevent agents from self-granting access, approving their own access or bypassing HD-08.
+- Use distinct service identities, short-lived workload credentials where practicable, and controlled API-key/token issuance, expiry, rotation and revocation.
+- Govern registration, invitations, membership, role changes, access reviews, suspension, recovery, deprovisioning and privileged/emergency access.
+- Propagate revocation across sessions, all six services, databases/RLS, pgvector, storage, repositories, workflows, agent contexts, caches and integrations; fail closed for sensitive operations when current authority cannot be established.
+- Protect identity data and secrets, minimise collection, and align retention/rights with HD-REP-11 and audit attribution with HD-REP-09.
+- Complete POC-REP-12-01 through POC-REP-12-20, including cross-tenant negative tests, compromised-account scenarios, concurrent permission changes and revocation validation.
+
+**Risk assessment:** Likelihood, impact, inherent score and residual score are **Pending formal assessment**. Proposed controls do not reduce residual risk until implemented and evidenced. No numeric score is inferred.
+
+**Risk owner:** Project Owner pending assignment of operational control owners.
+
+**Status:** Identified — assessment and control implementation pending.
+
+**Related decisions:** HD-01, HD-07, HD-08, HD-REP-05, HD-REP-06, HD-REP-09, HD-REP-10 and HD-REP-11.
