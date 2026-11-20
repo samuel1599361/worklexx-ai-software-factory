@@ -1696,3 +1696,35 @@ The following proof-of-concept validations are required before operational relia
 Tests must cover prompts, source code, documents, images, audio, video, transcripts, embeddings, metadata, generated outputs and derived copies. Validate that tenant identity comes from trusted authentication/authorisation rather than client-supplied identifiers. RLS supplements service-layer authorisation. External provider training restrictions must be verified contractually and technically where possible. No universal retention duration is assumed; test the approved record-class schedule and applicable legal holds.
 
 **Governance and scope:** Add RSK-31 for customer data exposure, unlawful processing and privacy control failure; formal likelihood/impact/residual scoring remains pending. Apply HD-07 and HD-08, including GATE-01/02/03/04/05/06 according to the activity. These validation requirements do not authorise live personal/customer-data processing, customer/provider integrations, infrastructure/database/storage changes, credentials/keys, spending, production monitoring/workflows, migrations, deletion/restoration, deployment or Phase 1.
+
+
+## 39. Customer Identity, Authentication, Authorisation and Access Lifecycle Validation — HD-REP-12
+
+The following proof-of-concept validations are required before operational reliance on the approved HD-REP-12 architecture. Each test must record scope, synthetic/controlled dataset, environment, method, expected and actual results, evidence, limitations, defects, remediation and reviewer. A listed validation is a requirement, not evidence that it has been executed or passed. Do not create live customer accounts, connect identity providers or process live personal data without separate authorisation and applicable legal/security approvals.
+
+| Validation ID | Required validation |
+|---|---|
+| POC-REP-12-01 | Verify managed identity-provider integration, standards interoperability and provider-independent identity mapping |
+| POC-REP-12-02 | Verify user, organisation, membership, project, agent, service, workload and external-integration identity mapping |
+| POC-REP-12-03 | Test multi-organisation membership and strict tenant isolation for users with different roles in different organisations |
+| POC-REP-12-04 | Validate RBAC, ABAC and resource-level policy enforcement, including policy precedence and deny behaviour |
+| POC-REP-12-05 | Conduct cross-tenant and cross-project negative-access tests using guessed, altered and client-supplied identifiers |
+| POC-REP-12-06 | Verify separation of organisation administration, project ownership, hosting administration and transfer authority |
+| POC-REP-12-07 | Evaluate MFA, phishing-resistant methods/passkeys, SSO and federation, including recovery and fallback controls |
+| POC-REP-12-08 | Test session creation, renewal, expiry, concurrent sessions, logout and revocation |
+| POC-REP-12-09 | Exercise account recovery, lost-device and compromised-account containment without unauthorised takeover |
+| POC-REP-12-10 | Verify distinct agent identity, task/tenant/project/operation/time scope and prohibition on inherited blanket human authority |
+| POC-REP-12-11 | Verify distinct service/workload identities and least-privilege service-to-service permissions across all six deployables |
+| POC-REP-12-12 | Test API-key/token ownership, purpose, scope, expiry, storage, rotation, revocation and secret redaction |
+| POC-REP-12-13 | Measure revocation propagation across sessions, services, RLS, pgvector, storage, Git, workflows, agent contexts, caches and integrations |
+| POC-REP-12-14 | Test privileged access, stronger authentication, time limits, emergency access, evidence and post-event review |
+| POC-REP-12-15 | Verify complete and tamper-evident audit attribution for authentication, membership, permissions, delegation, recovery and revocation |
+| POC-REP-12-16 | Test invitation, acceptance, role changes, periodic access review, suspension, restoration and deprovisioning lifecycle |
+| POC-REP-12-17 | Validate identity-data minimisation, access restrictions, correction/export/erasure and retention/legal-hold handling |
+| POC-REP-12-18 | Simulate identity-provider outage, degraded operation, recovery and safe handling of cached authentication/authorisation state |
+| POC-REP-12-19 | Verify HD-08 approval-gate enforcement, human attribution, action/resource binding, expiry, revocation and fail-closed behaviour |
+| POC-REP-12-20 | Test concurrent role/membership changes, stale permission caches, queued workflows and race conditions; prove revoked authority cannot be reused |
+
+Tests must distinguish authentication from authorisation and prove that a valid login or token does not grant access beyond the identity's current tenant, project and resource permissions. Test all six backend services and supporting systems. Agent and service identities must be independently attributable. Define and measure revocation propagation objectives; do not assume instantaneous invalidation. Provider/API limitations, recovery dependencies and failure modes must be recorded.
+
+**Governance and scope:** Add RSK-32 for identity compromise, excessive privilege and access-control failure; formal likelihood/impact/residual scoring remains pending. Apply HD-07 and HD-08, including GATE-01/02/03/04/05/06 according to the actual activity. These validation requirements do not authorise identity-provider connection, live account creation, SSO/OAuth configuration, permission changes, credential issuance, infrastructure/database changes, paid services, GitHub settings changes, production authentication activation, migrations, production deployment or Phase 1.
