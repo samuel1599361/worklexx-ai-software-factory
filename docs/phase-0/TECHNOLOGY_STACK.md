@@ -863,7 +863,7 @@ GitHub is the proposed repository hosting and collaboration platform.
 
 The repository strategy must be approved before introducing new branches or changing the existing branch structure.
 
-The current repository's `main` branch must not be silently replaced by a proposed branching convention.
+The approved branching direction under HD-REP-03 is trunk-based development with protected `main` and short-lived branches. GitHub protection configuration and implementation remain unauthorised pending separate approvals.
 
 ### 18.2 CI/CD
 
@@ -1245,3 +1245,10 @@ It does not claim that every proposed technology has passed a proof of concept o
 - **Conditions:** Complete legal and privacy assessment (including Nigerian data-protection and cross-border-transfer requirements), security review, service availability and compatibility validation, POC and operational readiness, cost review, and recovery design/testing. Confirm the required data-residency, backup, retention, encryption, key-management, monitoring and incident-response controls.
 - **Lagos Local Zone:** Any use is optional and separately evaluated; it is not treated as an independent AWS Region or as proof of full Nigerian data residency.
 - **Reversibility:** Region and provider selection may be revisited based on validation evidence or requirements changes.
+
+
+## 29. Approved Branching and Release Direction — HD-REP-03
+
+**Approved architectural direction (2026-11-20):** Adopt trunk-based development using `main` as the permanent protected integration branch and short-lived feature, fix, and hotfix branches. Require pull requests, automated validation, and independent human review; prohibit direct pushes, force pushes, and routine protection bypasses. Prefer squash merges. Independently version the six backend deployable services and five frontend applications, with component-specific release tags, release notes, artifact provenance, and compatibility controls. Use Semantic Versioning where applicable. Release branches are temporary and justified only for stabilisation, certification, coordinated releases, or maintenance. Hotfixes must be reconciled into `main`.
+
+Release automation/tool selection, CI/CD implementation, GitHub protection configuration, actual release creation and deployment require further validation and approvals. This decision does not authorise Phase 1, implementation, production deployment, or provisioning.
