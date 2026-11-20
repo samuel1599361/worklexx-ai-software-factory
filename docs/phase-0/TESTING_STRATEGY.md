@@ -1925,3 +1925,42 @@ The following validation requirements are mandatory acceptance criteria for the 
 | POC-REP-19-26 | Independent adversarial deployment and recovery review |
 
 Each test record must identify owner, scope, environment, preconditions, expected result, evidence, outcome, defects and retest. Align with HD-REP-08 through HD-REP-18. Automated checks do not replace independent human approval or security assurance.
+
+
+
+## HD-REP-20 — Production Operations, Reliability and Continuity Validation
+
+The following are required validation cases, not evidence of completed tests. All remain unexecuted.
+
+| Test ID | Required validation |
+|---|---|
+| POC-REP-20-01 | Service ownership and operational accountability |
+| POC-REP-20-02 | SLI/SLO measurement accuracy |
+| POC-REP-20-03 | Availability and correctness monitoring |
+| POC-REP-20-04 | Error-budget calculation and policy enforcement |
+| POC-REP-20-05 | Metrics, logs and distributed-trace correlation |
+| POC-REP-20-06 | Privacy-aware telemetry and secret redaction |
+| POC-REP-20-07 | Security and business-integrity alert coverage |
+| POC-REP-20-08 | Alert quality, deduplication and escalation |
+| POC-REP-20-09 | Incident detection and declaration |
+| POC-REP-20-10 | SEV-1 through SEV-5 classification consistency |
+| POC-REP-20-11 | Incident commander and role accountability |
+| POC-REP-20-12 | Incident containment authorization |
+| POC-REP-20-13 | Security and privacy incident response |
+| POC-REP-20-14 | Credential compromise and revocation response |
+| POC-REP-20-15 | Customer impact and notification assessment |
+| POC-REP-20-16 | Incident evidence integrity and retention |
+| POC-REP-20-17 | Post-incident review and corrective-action tracking |
+| POC-REP-20-18 | HD-06 RPO/RTO recovery objective measurement |
+| POC-REP-20-19 | Regional outage and disaster recovery exercise |
+| POC-REP-20-20 | Database, pgvector and financial ledger recovery |
+| POC-REP-20-21 | Temporal workflow and durable-state recovery |
+| POC-REP-20-22 | Backup integrity and restoration verification |
+| POC-REP-20-23 | Capacity forecasting and overload handling |
+| POC-REP-20-24 | Resource quota and financial consumption controls |
+| POC-REP-20-25 | Operational change and maintenance governance |
+| POC-REP-20-26 | Runbook completeness and execution safety |
+| POC-REP-20-27 | Third-party dependency failure and continuity |
+| POC-REP-20-28 | Independent adversarial operational resilience review |
+
+Each test record must identify owner, scope, environment, preconditions, expected result, evidence, outcome, defects and retest. Preserve HD-06 recovery objectives and align tests with HD-REP-07 through HD-REP-19. Automated monitoring or recovery checks do not replace independent human approval.

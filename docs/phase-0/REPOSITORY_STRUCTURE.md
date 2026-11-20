@@ -1385,3 +1385,19 @@ Release evidence includes source commit/PR review, build identity, artifact chec
 Deployment execution verifies artifact, provenance, approval, environment and compatibility, then records results and performs independent health/integrity checks. Blue-green, canary, rolling and maintenance-window strategies are options, not universal mandates. Recovery must assess schema/data/workflow compatibility; code rollback does not reverse migrations or financial transactions. Use forward-fix when rollback is unsafe. Emergency changes require a separately approved HD-08-consistent procedure.
 
 Agents may prepare evidence and recommendations but cannot approve or execute unauthorised releases, deployments or recovery. Customer-managed deployment remains customer-controlled absent a separately authorised supported integration. Require POC-REP-19-01 through -26; all unexecuted. Add RSK-39, unscored. No CI/CD, environment, release, deployment, credential, infrastructure, migration, customer integration, rollback or Phase 1 activity is authorised.
+
+
+
+## HD-REP-20 — Production Operations and Reliability Governance
+
+Production operations architecture covers the five frontend applications, six approved backend deployables and 23 logical agent modules without adding a deployable. Every production component requires an accountable service owner and controlled operational runbooks. Operational assignments do not delegate Project Owner risk-acceptance or HD-08 approval authority.
+
+The operating model measures availability, correctness and integrity through service-specific SLIs/SLOs, metrics, logs, distributed traces and business-integrity signals. Proposed availability planning targets (not SLAs or guarantees): core API and agent orchestration 99.9%; billing/ledger 99.95%; multimodal and sandbox 99.5%; analytics/noncritical derived services 99.0%. Billing/ledger objectives also include idempotency, durable acknowledgement, transaction integrity and reconciliation.
+
+Incident lifecycle: detection, triage/classification, declaration, containment, investigation, recovery, verification, closure and learning. Severity levels are SEV-1 Critical through SEV-5 Informational. Incident roles coordinate response but cannot approve gated operations or accept risk. Proposed response objectives are planning assumptions only and require staffing/coverage validation.
+
+Business continuity retains HD-06 RPO/RTO targets; no new target supersedes them. Recovery must validate data, tenant isolation, revocation, financial reconciliation, workflow/event consistency, deletion/retention and key availability. Capacity management covers all six services and dependencies. Material operational changes require traceable ownership, risk and compatibility assessment, approval, recovery plan and verification. Maintain controlled runbooks, dependency records, incident evidence and post-incident corrective actions.
+
+Production agents may analyse authorised telemetry and prepare recommendations, but cannot self-approve, accept risk, alter audit evidence, grant access, perform destructive operations or bypass HD-08. Monitoring, automated remediation and production changes remain separately authorised activities.
+
+Require POC-REP-20-01 through -28 (unexecuted). Add RSK-40; formal risk scores pending. This decision is documentation-only and authorises no production activation, staffing, SLA, infrastructure, subscription/spend, database/configuration change, external integration, live customer-data processing, recovery execution or Phase 1.

@@ -1804,3 +1804,18 @@ Project Owner remains sole initial risk acceptance and approval authority under 
 **Proposed controls:** Immutable artifact identity/checksum and provenance; SBOM and dependency evidence; independent build/release/deployment identities; environment promotion controls; exact-scope, time-bound and revocable human approval; GATE-03 and other applicable HD-08 gates; deployment least privilege; compatibility checks; post-deployment health/integrity verification; safe rollback/forward-fix assessment; protected audit and incident evidence; independent adversarial validation.
 
 **Assessment status:** Likelihood, impact, inherent risk and residual risk scores are pending formal assessment. Proposed or unimplemented controls do not reduce residual risk. POC-REP-19-01 through -26 remain unexecuted. Risk acceptance remains subject to HD-07; consequential actions remain subject to HD-08. This entry authorises no implementation or deployment.
+
+
+
+## RSK-40 — Production Operational Failure, Inadequate Incident Response and Business Continuity Failure
+
+**Risk statement:** Inadequate service monitoring, operational ownership, incident response, capacity management or recovery capability may cause prolonged outages, security incidents, customer-data exposure, financial-integrity failures or inability to maintain essential business services.
+
+**Potential consequences:** Extended service disruption; delayed detection or containment; unauthorised operational changes; failure to recover within intended RPO/RTO; financial and ledger inconsistencies; customer trust and reputational damage; regulatory and contractual consequences; excessive provider and infrastructure costs.
+
+**Proposed controls:** Accountable service ownership; measurable SLI/SLO framework; integrated operational and security monitoring; documented incident severity and escalation; authorised containment and recovery; tested continuity plans; capacity and resource governance; controlled runbooks and maintenance; independent recovery validation; post-incident corrective-action tracking; protected audit evidence.
+
+**Assessment status:** Likelihood, impact, inherent risk and residual risk scores are pending formal assessment. Proposed or unimplemented controls do not reduce residual risk. POC-REP-20-01 through -28 remain unexecuted. Risk acceptance remains subject to HD-07; consequential actions remain subject to HD-08. This entry authorises no production operations or implementation.
+
+
+**Architecture traceability:** RSK-40 is introduced by the approved HD-REP-20 — Production Operations, Service Reliability, Incident Management and Business Continuity Governance decision. Associated operational validation requirements are POC-REP-20-01 through POC-REP-20-28 in TESTING_STRATEGY.md.
