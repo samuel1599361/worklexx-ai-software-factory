@@ -2003,3 +2003,44 @@ The following acceptance requirements are mandatory for future validation. All r
 | POC-REP-21-28 | Independent adversarial customer-support security review |
 
 Each test record must identify owner, scope, environment, preconditions, expected result, evidence, outcome, defects and retest. Align with HD-REP-05 and HD-REP-07 through HD-REP-20. Support priority must not be conflated with HD-REP-20 incident severity. Automated support responses do not replace independent human approval for consequential actions.
+
+
+
+## HD-REP-22 — Customer Onboarding, Organisation, Subscription and Entitlement Validation (Required; Not Executed)
+
+The following 30 proof-of-concept and validation requirements are introduced by HD-REP-22. They are requirements only; none is represented as executed or passed.
+
+| Validation ID | Required validation |
+|---|---|
+| POC-REP-22-01 | Individual registration and identity lifecycle |
+| POC-REP-22-02 | Organisation account creation and isolation |
+| POC-REP-22-03 | One identity belonging to multiple organisations |
+| POC-REP-22-04 | Personal and organisational workspace separation |
+| POC-REP-22-05 | Organisation verification and evidence handling |
+| POC-REP-22-06 | Organisation membership invitation and acceptance |
+| POC-REP-22-07 | Role and permission enforcement |
+| POC-REP-22-08 | Organisation ownership and succession controls |
+| POC-REP-22-09 | Membership suspension, restoration and revocation |
+| POC-REP-22-10 | Workspace and project access isolation |
+| POC-REP-22-11 | Subscription state-transition integrity |
+| POC-REP-22-12 | Entitlement creation, versioning and enforcement |
+| POC-REP-22-13 | Cross-service entitlement consistency |
+| POC-REP-22-14 | Usage metering accuracy and idempotency |
+| POC-REP-22-15 | Customer usage visibility and allowance calculation |
+| POC-REP-22-16 | Usage threshold and overage notification correctness |
+| POC-REP-22-17 | Payment verification and webhook authenticity |
+| POC-REP-22-18 | Duplicate payment and replay protection |
+| POC-REP-22-19 | Billing, invoice and ledger reconciliation |
+| POC-REP-22-20 | Refund and financial adjustment authorisation |
+| POC-REP-22-21 | Upgrade, downgrade, renewal and cancellation |
+| POC-REP-22-22 | Expiry and grace-period behaviour |
+| POC-REP-22-23 | Account restriction, suspension and restoration |
+| POC-REP-22-24 | Project and repository preservation after expiry |
+| POC-REP-22-25 | Customer export and account closure |
+| POC-REP-22-26 | Account recovery and privileged role protection |
+| POC-REP-22-27 | AI onboarding and entitlement authority boundaries |
+| POC-REP-22-28 | Notification accuracy, privacy and preference controls |
+| POC-REP-22-29 | Jurisdictional, privacy and contractual compliance assessment |
+| POC-REP-22-30 | Independent adversarial onboarding and commercial-integrity review |
+
+For every validation, record accountable owner, scope, environment, preconditions, expected result, test data classification, evidence, actual outcome, defects, severity, remediation and retest status. Include negative and adversarial scenarios for cross-tenant access, multi-organisation membership, stale entitlements, forged/replayed payment events, duplicate metering, privileged account recovery and unsafe account closure. All requirements remain unexecuted until evidence is produced and independently reviewed.
