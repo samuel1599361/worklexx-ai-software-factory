@@ -1794,3 +1794,13 @@ Project Owner remains sole initial risk acceptance and approval authority under 
 **Proposed controls:** Logical environment isolation; configuration classification and ownership; schema validation and safe failure; configuration-as-code review and integrity; secret/reference separation; controlled feature flags; deployment provenance; drift detection; recoverable versions; audit/redaction; tenant/project isolation; independent review.
 
 **Assessment status:** Likelihood, impact, inherent risk and residual risk scores are pending formal assessment. Proposed or unimplemented controls do not reduce residual risk. Exceptions remain subject to HD-07; actions remain subject to HD-08. No implementation is authorised by this risk-register entry.
+
+## RSK-39 — Unauthorised Deployment, Release Integrity Failure and Unsafe Recovery
+
+**Risk statement:** An unverified, compromised, incompatible or unauthorised release or deployment may disrupt service, expose customer data, compromise security, corrupt business records or make recovery unsafe.
+
+**Potential consequences:** Production interruption; malicious or vulnerable software publication; unauthorised customer-facing functionality; cross-tenant exposure; billing/ledger inconsistency; workflow failure; unsafe rollback; regulatory, contractual or reputational harm.
+
+**Proposed controls:** Immutable artifact identity/checksum and provenance; SBOM and dependency evidence; independent build/release/deployment identities; environment promotion controls; exact-scope, time-bound and revocable human approval; GATE-03 and other applicable HD-08 gates; deployment least privilege; compatibility checks; post-deployment health/integrity verification; safe rollback/forward-fix assessment; protected audit and incident evidence; independent adversarial validation.
+
+**Assessment status:** Likelihood, impact, inherent risk and residual risk scores are pending formal assessment. Proposed or unimplemented controls do not reduce residual risk. POC-REP-19-01 through -26 remain unexecuted. Risk acceptance remains subject to HD-07; consequential actions remain subject to HD-08. This entry authorises no implementation or deployment.
