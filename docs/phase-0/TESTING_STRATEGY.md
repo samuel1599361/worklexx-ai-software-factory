@@ -1749,3 +1749,7 @@ Project Owner remains sole initial risk acceptance and approval authority under 
 
 ### POC-REP-13 — Agent Governance Validation
 All 24 tests described in HD-REP-13 are required; test cases are requirements, not evidence of completion. Include negative, adversarial, race-condition and end-to-end checks, with traceable results and evidence. Do not represent them as passed before execution.
+
+
+### POC-REP-14 — API Contracts, Inter-Service Communication and Integration Validation
+All 24 validations required by HD-REP-14 are test requirements, not evidence of completion. Track POC-REP-14-01 through -24 individually with owner, scope, environment, preconditions, expected result, evidence, outcome, defects and retest. Coverage: OpenAPI, JSON Schema, AsyncAPI, consumer/provider conformance, compatibility and breaking-change detection, contract ownership, service boundaries, authentication/authorization, tenant/project isolation, safe errors/redaction, idempotency, event duplication/order/replay, retries/timeouts/failure containment, dead-letter/recovery, Temporal replay and cancellation, agent-tool permissions, independent approval/gate binding, external schema drift/provider failure, webhook authenticity/replay, SSRF/destination/payload security, billing/ledger integrity and end-to-end audit/release traceability. Include negative, adversarial, concurrency and failure-injection cases. All POCs remain unexecuted until evidence is recorded and reviewed.
