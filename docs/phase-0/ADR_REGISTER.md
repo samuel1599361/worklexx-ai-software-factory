@@ -1267,11 +1267,11 @@ The Worklexx AI Software Factory requires a controlled Git workflow that support
 
 The current repository has an existing `main` branch.
 
-A proposed five-tier branch strategy has been discussed but has not been formally approved or adopted.
+HD-REP-03 approved trunk-based development using protected `main` and short-lived branches on 2026-11-20; actual configuration and implementation remain separately controlled.
 
 ### 20.2 Decision Statement
 
-A five-tier Git branching strategy is proposed for evaluation.
+Trunk-based development using protected `main` and short-lived branches is the approved architectural direction under HD-REP-03; configuration and implementation are not authorised by that decision.
 
 The strategy must be reviewed against the existing repository structure and actual engineering workflow before adoption.
 
@@ -1511,7 +1511,7 @@ An Accepted ADR establishes an architectural decision only within its approved s
 
 **Human decisions:** HD-01 is approved as the managed identity-provider approach. HD-02 is approved as the conditional preferred initial Temporal Cloud approach. HD-03 is approved as the regional architecture direction, subject to legal, security, POC, and operational validations. HD-04 is approved as the six-logical-deployable topology, with physical deployment subject to validation. HD-05 is approved as the initial PostgreSQL/pgvector vector-storage direction with model- and use-case-specific dimensions, subject to POC-05 and the stated validations. HD-06 is approved as the tiered architectural recovery objectives, subject to POC-15 and operational validation. HD-07 is approved: the Project Owner is the sole risk acceptance authority during the initial governance phase, with no delegated risk acceptance authority; assessment and mitigation work may be delegated without transferring acceptance authority. HD-08 is approved as the six-gate human approval and enforcement framework, with the Project Owner as sole gate approval authority during the initial governance phase; specialist review is advisory and does not transfer approval authority.
 
-**Repository status:** Existing `main` branch remains the baseline. The proposed five-tier branch strategy has not been adopted.
+**Repository status:** Existing `main` branch remains the baseline. HD-REP-03 approves trunk-based development with protected `main` and short-lived branches as architectural direction only; no branch-protection settings have been configured.
 
 **Approval authority:** For risk acceptance, the Project Owner is the sole authority during the initial governance phase under HD-07; no delegation is authorised. The Project Owner is the sole approval authority for GATE-01 through GATE-06 during the initial governance phase under HD-08; no gate approval authority is delegated. Specialist assessment and recommendations do not transfer approval authority.
 
@@ -1565,3 +1565,14 @@ The ADR Register provides the traceable foundation for recording, reviewing, app
 - **Architecture constraints:** Preserve the six approved backend deployable service units and independently managed Python service boundaries. This decision does not introduce a seventh deployable service or require a shared Python runtime environment.
 - **Scope limitation:** This is an architectural tooling decision only. It does not authorise tool installation, dependency changes, lockfile creation or modification, repository restructuring, CI/CD changes, infrastructure provisioning, production deployment, or Phase 1 implementation. Applicable approvals and validation remain required.
 
+
+
+### HD-REP-03 — Approved Branching, Integration and Release Strategy
+
+- **Decision:** Approved — trunk-based development using `main` as the permanent protected integration branch, with short-lived feature, fix, and hotfix branches. Require PRs, automated validation, and independent human review. Prohibit direct pushes, force pushes, and routine bypasses. Prefer squash merging.
+- **Decision-maker:** Project Owner.
+- **Decision date:** 2026-11-20.
+- **Release strategy:** Independently version the six backend deployable services and five frontend applications, with component-specific release tags, release notes, artifact provenance, and compatibility controls. Use Semantic Versioning where applicable.
+- **Release branches and hotfixes:** Release branches are temporary and justified only for stabilisation, certification, coordinated releases or maintenance. Hotfixes must be reconciled into `main`.
+- **Further validation:** Release automation/tool selection, CI/CD implementation, protection configuration, tagging and release procedures require validation and separate approval.
+- **Scope limitation:** Architecture only. No branch protection configuration, implementation, release creation, production deployment, infrastructure provisioning or Phase 1 authorisation.
