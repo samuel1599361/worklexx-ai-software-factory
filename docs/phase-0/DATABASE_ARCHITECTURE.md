@@ -1623,3 +1623,10 @@ Project Owner remains sole initial risk acceptance and approval authority under 
 
 ### Agent governance testing
 Track POC-REP-13-01 through POC-REP-13-24 individually with test owner, scope, environment, preconditions, expected result, evidence, outcome, issue references and retest. Include tier-boundary, cross-tenant, injection, sandbox, delegation, revocation, human gate, cost/loop, audit and failure/recovery tests. These POCs remain unexecuted.
+
+
+## HD-REP-14 — API and Event Data Contracts: Database Architecture Implications (Approved 2026-11-20)
+
+Service-owned API, event and workflow contracts must not undermine HD-REP-06 authoritative schema ownership. A contract describing a data structure does not grant a consumer direct database access or permission to modify another service's schema. Cross-service data exchange must use authorised service interfaces, events or explicitly governed read models; no shared-table coupling or cross-service DDL is implied. Contract payloads must identify authoritative producer/owner and define identifiers, invariants, classification, version and compatibility expectations.
+
+Tenant/project context must be derived from trusted server-side identity and authorization under HD-REP-11/12; payload-supplied tenant/project identifiers are not authority. Apply minimisation to event and API payloads, avoid secrets and unnecessary personal/customer data, and align retention, deletion, legal holds and audit with HD-REP-09/11. Event replay, duplicate delivery and delayed messages must not resurrect deleted data, bypass revocation or duplicate financial effects. Billing-ledger contracts require idempotency, immutable financial history, double-entry invariants and reconciliation. Contract changes do not authorise schema creation/modification, migration, data processing, credentials or production rollout. Require POC-REP-14-01 through -24; all remain unexecuted.
