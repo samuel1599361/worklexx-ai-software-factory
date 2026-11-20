@@ -1407,3 +1407,17 @@ Use Development, Testing, Staging and Production as logical environments under H
 Separate build, release, deployment and recovery identities/permissions. Production deployment requires explicit GATE-03 authorization and all other applicable HD-08 gates. Deployment strategies may include blue-green, canary, rolling and maintenance-window deployment, selected according to component state, compatibility, risk and recovery capability.
 
 Post-deployment verification and rollback/forward-fix decisions must preserve database, ledger, workflow, credential-revocation, deletion, tenant-isolation and audit integrity. Code rollback must never be assumed to reverse data/schema changes. Require POC-REP-19-01 through -26; all unexecuted. No tool/vendor selection, CI/CD activation, infrastructure, environment provisioning, artifact publication, release, deployment, credential change or Phase 1 is authorised.
+
+
+
+## HD-REP-20 — Production Operations and Reliability Architecture (Approved 2026-11-21)
+
+The technology architecture must support service-specific SLIs/SLOs, operational metrics, structured and privacy-aware logs, distributed traces, security/business-integrity signals, incident evidence, capacity measurements and recovery verification. These are capability requirements, not a selection of a monitoring, SIEM, paging, incident-management or APM vendor.
+
+Proposed planning availability objectives (unverified; not SLAs): core API/essential access and agent orchestration/durable workflows 99.9%; billing/ledger 99.95%; multimodal and sandbox 99.5%; analytics/noncritical derived services 99.0%. Service objectives must also measure correctness and integrity, particularly ledger reconciliation, idempotency, tenant isolation and workflow durability. Error budgets inform reliability prioritisation but do not grant authority to bypass gates.
+
+Operational telemetry must correlate metrics, logs and traces while respecting HD-REP-09 audit integrity and HD-REP-11 minimisation/redaction. Monitor all six backend deployables and critical dependencies, including PostgreSQL/pgvector, Temporal, storage, identity, external providers, backups and regional recovery. Do not log secrets or unnecessary sensitive customer content.
+
+The operational architecture must support incident lifecycle/severity management, role assignment, escalation, authorised containment, post-incident reviews, capacity forecasting, controlled runbooks, dependency records and continuity exercises. Preserve HD-06 recovery objectives and verify them through tests before claiming operational capability. No specific monitoring, alerting, paging, incident-management, SIEM or observability technology is selected by HD-REP-20.
+
+Require POC-REP-20-01 through -28; all unexecuted. This decision does not activate monitoring, select or procure tools, create infrastructure, establish staffing/on-call commitments, establish SLAs, change production configuration, or authorise production deployment or Phase 1.
