@@ -203,7 +203,7 @@ AI agents may identify, assess, summarise, recommend, monitor, and prepare risk 
 
 ## 8. Risk Register Summary
 
-The following 25 risks form the initial Phase 0 register.
+The following 28 risks form the current Phase 0 register, including subsequent additions RSK-26 through RSK-28.
 
 | ID | Risk | Category | Initial Priority |
 |---|---|---|---|
@@ -232,6 +232,9 @@ The following 25 risks form the initial Phase 0 register.
 | RSK-23 | Privacy, regulatory, and cross-border data-transfer non-compliance | Compliance and Legal | To be assessed |
 | RSK-24 | Ledger inconsistency or unauthorised financial balance mutation | Financial and Data | To be assessed |
 | RSK-25 | Insider threat and privileged-access abuse | Security and Operational | To be assessed |
+| RSK-26 | Uncontrolled or unsafe database schema migration | Data Integrity and Operational | To be assessed |
+| RSK-27 | Repository backup failure, incomplete recovery, or cross-tenant restoration | Operational Resilience and Security | To be assessed |
+| RSK-28 | Compromised build workflow, dependency, credential or untrusted artifact | Supply Chain and Security | To be assessed |
 
 The initial priority column is a planning classification, not a completed risk assessment. RSK-15 retains its previously identified score of 10, which maps to Medium under the scoring method in Section 5. Any decision to apply a higher severity override must be explicitly documented and approved.
 
@@ -1528,7 +1531,7 @@ The existence of this register does not establish that the platform is secure, c
 
 **Version:** 1.0.
 
-**Risk baseline:** 27 identified risks, RSK-01 through RSK-27.
+**Risk baseline:** 28 identified risks, RSK-01 through RSK-28.
 
 **Risk acceptance authority:** Project Owner — sole risk acceptance authority during the initial governance phase under HD-07; no delegation.
 
@@ -1566,3 +1569,28 @@ The Risk Register is intended to provide a traceable foundation for risk assessm
 
 **Risk status:** Identified — residual likelihood, impact and score require formal assessment. Proposed controls do not reduce residual risk until implemented and evidenced. Risk acceptance remains exclusively with the Project Owner under HD-07.
 
+
+
+### RSK-28 — Compromised Build Workflow, Dependency, Credential or Untrusted Artifact
+
+**Category:** Software Supply Chain, Security and Operational Integrity
+
+**Risk statement:** Malicious or compromised source, workflow actions, dependencies, build scripts, automation credentials, caches or build infrastructure may introduce unauthorised code, expose secrets or customer data, corrupt artifacts, or cause an unverified or compromised release to be published or deployed.
+
+**Potential causes:** Over-privileged CI workflows; unpinned third-party actions; untrusted pull-request code accessing secrets; compromised direct or transitive dependencies; unverified downloads; shared build caches; weak tenant/project isolation; long-lived credentials; exposed signing keys; missing SBOM/provenance; insufficient artifact integrity checks; or conflation of successful builds with release/deployment approval.
+
+**Potential consequences:** Supply-chain compromise, malicious software distribution, Factory or customer source compromise, credential theft, cross-tenant disclosure, integrity loss, financial or operational harm, regulatory/contractual exposure and loss of customer trust.
+
+**Proposed controls:**
+- Apply HD-REP-08 least-privilege workflow permissions, short-lived credentials where supported, immutable action pinning and reviewed workflow definitions.
+- Separate untrusted PR validation from trusted release builds and prevent untrusted code from accessing privileged secrets.
+- Enforce lockfiles, pinned tooling, dependency integrity, vulnerability/secret/licence scanning, dependency review, SAST/applicable DAST and SBOM generation.
+- Isolate build environments, caches, credentials, jobs and artifacts by trust boundary, tenant and project.
+- Verify artifact checksums/signatures and retain source-to-artifact provenance; protect signing keys through approved key management.
+- Keep build, verification, release approval, publication and deployment as separate permissioned activities under HD-08.
+- Exercise POC-REP-08-01 through POC-REP-08-12 and retain reproducible evidence; remediate findings before production reliance.
+
+**Validation evidence required:** Workflow permission tests; untrusted PR isolation results; dependency/action pinning and integrity evidence; vulnerability/secret/licence scan results; SBOM validation; artifact checksum/signature/provenance verification; build/cache/tenant isolation negative tests; credential revocation evidence; compromised dependency/workflow exercises; and audit/recovery traceability.
+
+**Risk status:** Identified — likelihood, impact and residual score require formal assessment. Proposed controls do not reduce residual risk until implemented and evidenced. Risk acceptance remains exclusively with the Project Owner under HD-07.
+undefined
