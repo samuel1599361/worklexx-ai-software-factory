@@ -1316,3 +1316,20 @@ The data scope includes prompts, source code, documents, images, audio, video, t
 **Required validation:** POC-REP-11-01 through POC-REP-11-15. Add RSK-31 for customer data exposure, unlawful processing and privacy control failure; risk scores remain pending formal assessment. Apply HD-07/HD-08, including GATE-01/02/03/04/05/06 as relevant.
 
 **Authorisation boundary:** No live personal/customer-data processing, external model/subprocessor/customer integration, infrastructure or database provisioning/modification, credentials or keys, paid service, production monitoring/workflow activation, migration, deletion/restoration, deployment or Phase 1 is authorised. Architecture approval and documentation do not constitute implementation approval.
+
+
+## Identity, Authentication and Authorisation Technology Requirements — HD-REP-12
+
+HD-REP-12 was approved as an architectural direction on 2026-11-20. Retain HD-01's managed identity-provider approach, but do not select or connect a specific provider through this decision. Worklexx retains application-level authorisation and each service enforces its own tenant-, project- and resource-scoped permissions.
+
+The architecture should support standards-based identity integration and federation, including OIDC and appropriate SSO protocols where validated; MFA and phishing-resistant authentication/passkeys where supported; secure session and account-recovery lifecycle; and provider-independent mapping to Worklexx user, organisation and project identities. Protocol and provider choices require compatibility, security, privacy, regional, contractual and commercial due diligence.
+
+Use a policy model combining RBAC for organisation/project role assignments, ABAC for contextual conditions, and explicit resource-level permissions for sensitive operations. Policy enforcement must be server-side. Browser/mobile state, API gateway token validation or a role claim alone is not sufficient authorisation. Services must establish trusted tenant/project context and deny access when current authority cannot be established.
+
+The six approved backend deployables retain distinct service identities. Agent invocations require distinct, scoped, time-limited delegated identities. Prefer short-lived workload credentials and narrowly scoped service-to-service permissions. API keys/tokens, where required, need ownership, purpose, scope, expiry where practicable, rotation, revocation and audit. Do not expose privileged credentials in frontend bundles, customer project source or ordinary logs.
+
+Identity and access technology must integrate with the existing PostgreSQL/pgvector, Temporal, repository, storage, build and audit boundaries without introducing a seventh backend deployable. Revocation and policy changes must propagate to sessions, services, database/RLS, vector retrieval, storage, Git integrations, workflows, agent contexts, build environments, artifacts, caches and external integrations. Define measurable propagation objectives through POC rather than assuming instantaneous invalidation.
+
+No specific IAM product, policy engine, SSO vendor, MFA product, secrets platform or paid service is selected. Evaluate interoperability, provider portability, tenant isolation, policy consistency, auditability, recovery, regional processing, subprocessor terms, cost and operational burden. Align identity telemetry and protected audit records with HD-REP-09 and identity-data minimisation with HD-REP-11.
+
+**Validation:** POC-REP-12-01 through POC-REP-12-20 must be completed before operational reliance. Architectural approval does not authorise provider selection/connection, account creation, OAuth installation, credentials, paid services, infrastructure, schema changes, production identity activation or Phase 1. Applicable HD-08 approvals remain mandatory.
