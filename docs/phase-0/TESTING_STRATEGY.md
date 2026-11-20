@@ -1577,3 +1577,23 @@ Phase 1 remains unauthorised until the applicable Phase 0 review, human decision
 ---
 
 **End of Document — WLX-ARCH-014**
+
+## 34. Repository Backup and Disaster-Recovery Verification
+
+Under approved HD-REP-07, repository recovery testing must cover the distinct classes of Factory platform source, Worklexx-managed customer projects, customer-managed connected repositories (within authorised scope), and supporting development records/artifacts.
+
+Required test scenarios and retained evidence:
+
+1. Restore Git objects, complete reachable history, branches, tags and references; verify repository integrity.
+2. Restore Git LFS objects and confirm object availability and checksums.
+3. Recover supported issues, pull requests, reviews, comments, labels, milestones, releases and governance metadata; record provider/API limitations.
+4. Recover release/build artifacts and verify checksums, provenance and associated source references.
+5. Demonstrate tenant/project isolation, including negative tests for cross-tenant backup discovery, restore, credentials, jobs, caches and artifact access.
+6. Simulate accidental deletion, compromised ordinary repository credentials and ransomware; demonstrate protected-copy availability and clean recovery-point selection.
+7. Restore into an isolated compatible environment or independent provider and verify export/portability without silently overwriting newer customer work.
+8. Verify encryption-key recovery, backup identity separation, access logging, retention expiry and legal-hold preservation.
+9. Validate customer-managed hosting responsibility boundaries and the exact scope of customer-authorised Worklexx copies.
+10. Measure actual RPO and RTO for each data class and compare with HD-REP-07 objectives and HD-06/POC-15 requirements.
+
+A successful scheduled backup is not sufficient evidence of recoverability. Record test date, scope, source/recovery point, environment, method, integrity results, measured RPO/RTO, defects, limitations, reviewer and remediation. Tests must not use production data or perform consequential production restoration without the applicable approvals.
+
