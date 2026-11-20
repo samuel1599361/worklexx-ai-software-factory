@@ -1911,3 +1911,17 @@ The Factory platform repository, Worklexx-managed customer projects and customer
 **Required POCs:** POC-REP-08-01 through POC-REP-08-12 cover workflow permissions, untrusted PR isolation, dependency integrity, scanning, SBOMs, artifact integrity/provenance, build/cache isolation, tenant isolation, credential protection, release/publication separation, compromised dependency/workflow scenarios and audit traceability.
 
 **Scope limitation:** Architectural direction only. No CI/CD activation, repository configuration, credentials, signing keys, paid services, infrastructure, production builds, artifact publication, releases, deployments or Phase 1 work is authorised. Applicable HD-08 gates remain mandatory.
+
+## HD-REP-09 — Approved Repository Observability and Audit Governance (2026-11-20)
+
+The Project Owner approved a provider-independent observability, audit logging and security-event monitoring architecture. Future implementation planning must provide attributable, tamper-evident and tenant-scoped evidence for repository access and changes, pull requests, approvals/merges, workflow and build execution, agent actions, releases/artifacts, integrations, backup/restore and governance events.
+
+The architecture must separate event sources, collection/normalisation, protected audit storage, security monitoring and governed investigation/response. Standard event records should identify actor, tenant/project/repository, action/resource/outcome, event and ingestion time, source/workflow, correlation identifiers and relevant authorisation/approval references. Sensitive prompts, source fragments, personal information, secrets and credentials must be minimised or redacted.
+
+Protect audit records through independent administrative controls, append-only or tamper-evident storage, cryptographic integrity checks, encryption, restricted deletion, independent audit of audit-system access and recovery aligned with HD-REP-07. Preserve separate trust boundaries for Factory source, Worklexx-managed customer projects and customer-managed hosting. Customer-visible audit/export access must be scoped to the customer's own available records; provider-side audit responsibility for customer-managed hosting remains with the customer.
+
+Define detection, severity, alert ownership, escalation and investigation evidence for suspicious authentication, privilege escalation, cross-tenant access, unusual exports/deletions, workflow/credential compromise, untrusted builds, artifact provenance failures, backup failures and approval-gate bypass attempts. AI agents may monitor and prepare evidence but may not approve actions, alter protected records, change retention or disable monitoring.
+
+**Required POCs:** POC-REP-09-01 through POC-REP-09-12 must validate event coverage, attribution/time, tamper evidence, tenant isolation, privacy, detection effectiveness, escalation, retention/legal holds/export/deletion, backup/restore, customer-managed provider coverage, agent boundaries and end-to-end traceability.
+
+**Scope limitation:** Architectural approval only. No telemetry or audit configuration, SIEM subscription, infrastructure, credentials, customer connections, repository settings, CI/CD, production monitoring/incident automation or Phase 1 is authorised. HD-07/HD-08 gates remain mandatory.
