@@ -1861,3 +1861,37 @@ Require POC-REP-18-01 through POC-REP-18-24, all unexecuted: environment isolati
 Add RSK-38 — Configuration Exposure, Environment Contamination and Deployment Misconfiguration. Formal likelihood, impact, inherent and residual scores remain pending; no risk reduction is claimed before implementation and evidence.
 
 Project Owner remains sole initial risk-acceptance and approval authority under HD-07/HD-08. This is an architectural/documentation decision only. It authorises no environment provisioning, configuration store, application/deployment setting change, credentials/keys, provider connection, GitHub settings/permissions, CI/CD activation, live feature-flag change, database modification/migration, paid service, live customer-data processing, production deployment or Phase 1.
+
+## HD-REP-19 — Application Deployment, Release Promotion and Rollback Governance
+
+**Status:** Approved architectural decision; documentation-only. Approval does not authorise implementation, CI/CD activation, environment provisioning, release publication, deployment, rollback execution or Phase 1.
+
+**Decision:** Adopt a controlled, evidence-based, environment-aware release-promotion and deployment architecture. Keep build, validation, artifact verification, release approval, deployment approval, production deployment and recovery as distinct activities. A successful build or workflow is not release or deployment approval.
+
+**Scope:** Five frontend applications, six approved backend deployables (`api-gateway`, `agent-orchestrator`, `multimodal-service`, `sandbox-runner`, `billing-ledger`, `adtech-service`), shared packages, 23 logical agent modules and customer-generated projects. No seventh deployable is introduced. Preserve independent component release identities and HD-REP-05 customer repository isolation.
+
+**Environments and promotion:** Retain the four logical environments defined by HD-REP-18: Development, Testing, Staging and Production. Promotion is explicit and evidence-based; success in one environment does not automatically approve the next. Prefer promotion of the same verified immutable artifact across environments. Environment configuration remains separately governed. A rebuild creates a new artifact identity and requires applicable revalidation.
+
+**Release evidence:** Record release/component identity and version, source repository and commit, PR/review evidence, build identity, immutable artifact identifier and checksum, signature verification where supported, dependency lockfiles, SBOM, provenance, test/security results, known defects and vulnerabilities, API/event/workflow compatibility, database migration compatibility, configuration version, deployment/recovery plan, exceptions and approval references. Block promotion on failed mandatory checks, unverified integrity/provenance, unauthorised workflow/source changes, exposed secrets, failed tenant isolation, incompatible contracts/workflows/migrations, missing/expired/revoked approval or mandatory legal/regulatory/contractual prohibition.
+
+**Authorization separation:** Build permission, release approval, environment deployment approval, production deployment approval and rollback/recovery approval are distinct. Approval binds the approving person, exact action, component, release/artifact checksum, target environment, deployment plan, configuration/migration versions, risk/exception references, timestamp and expiry/revocation state. An approval for one artifact or scope cannot authorise a materially different one.
+
+**HD-08 gates:** Apply GATE-01 through GATE-06 as relevant. Production deployment requires GATE-03. Protected GitHub operations, destructive database migrations, financial/resource commitments and live external integrations require their respective gates. Project Owner remains the sole initial approval authority under HD-07/HD-08. Agents and automation cannot self-approve or infer approval from successful checks.
+
+**Execution and strategies:** Deployment identities are distinct from build identities and least-privileged. Execution verifies identity, artifact, provenance, approval scope, target environment, configuration and compatibility before applying a change, then records results and performs health/integrity checks. Blue-green, canary, rolling and controlled maintenance strategies may be selected case by case; none is mandated universally. Internal service authorization remains authoritative.
+
+**Verification and recovery:** Post-deployment verification covers health/readiness, critical functionality, authentication/authorization, tenant isolation, databases, ledger reconciliation, durable workflows, multimodal processing, agent boundaries, integrations, errors/latency, resource consumption and security monitoring. Before deployment, define failure triggers, known-good artifact, configuration reference, data/schema/workflow compatibility, safe rollback or forward-fix, approvals and communications. Never assume code rollback reverses schema/data changes. Preserve financial history, workflow state, revoked credentials, deletion controls and audit evidence. Prefer a verified forward-fix where rollback is unsafe.
+
+**Emergency releases:** Emergency response is documented, scoped, risk-assessed, minimally changed, independently authorised under a separately approved route consistent with HD-08, verified proportionately and reviewed afterward. No new emergency approval authority or agent bypass is created by this decision.
+
+**Customer projects:** Distinguish Factory, Worklexx-managed and customer-managed deployments. Require project-specific entitlement, permissions, customer authorisation and isolated release evidence. Do not silently deploy to an external customer account. Customer-managed hosting remains under customer control except where a separately authorised supported integration agreement applies.
+
+**Agent boundary:** Agents may prepare release evidence, notes, readiness assessments, deployment plans, monitoring summaries and recovery recommendations. They may not approve releases/deployments, grant permissions, override blockers, select unauthorised artifacts, execute unauthorised recovery or bypass HD-08.
+
+**Audit:** Record source/artifact/provenance, validation, SBOM, configuration/migration references, target environment, deployment identity, human approval, strategy, timestamps, outcome, health checks, exceptions, incident and recovery evidence under HD-REP-09 and HD-REP-11.
+
+**Validation:** Require POC-REP-19-01 through POC-REP-19-26 as recorded in TESTING_STRATEGY.md. All remain unexecuted. No control effectiveness or risk reduction is claimed before implementation and evidence.
+
+**Risk:** Add RSK-39 — Unauthorised Deployment, Release Integrity Failure and Unsafe Recovery. Formal likelihood, impact, inherent and residual scores remain pending. Proposed controls do not reduce residual risk.
+
+**Authority and boundaries:** Project Owner remains sole initial risk-acceptance and approval authority. This is documentation-only. No CI/CD activation, environment provisioning, artifact publication, release tagging, deployment, credential/permission change, infrastructure, paid service, customer hosting connection, database migration, traffic/DNS change, rollback/recovery execution or Phase 1 is authorised.

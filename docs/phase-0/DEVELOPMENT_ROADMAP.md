@@ -2011,3 +2011,11 @@ Track POC-REP-17-01 through POC-REP-17-24 in TESTING_STRATEGY.md. All remain une
 ## HD-REP-18 — Configuration and Environment Governance (Approved 2026-11-21)
 
 Add configuration and environment governance as a Phase 0 architecture validation workstream. The intended logical environments are Development, Testing, Staging and Production, with independent configuration and access boundaries. Before Phase 1, define configuration ownership/contracts, classification, schema validation, secret references, feature-flag controls, deployment provenance, drift detection, rollback/recovery and customer-project isolation. Track POC-REP-18-01 through POC-REP-18-24 as unexecuted acceptance requirements, with owners, scope, preconditions, expected results, evidence, outcomes, defects and retest records. No environment provisioning, configuration application, CI/CD activation, paid service, production deployment or Phase 1 implementation is authorised by this decision.
+
+## HD-REP-19 — Release, Deployment and Recovery Governance Workstream
+
+Add a documentation and future-validation workstream for controlled application release promotion, environment deployment, post-deployment verification and safe recovery. Preserve independent release identities for five frontend applications and six backend deployables; no seventh deployable is introduced.
+
+The workstream must define immutable artifact identity and provenance, SBOM and dependency evidence, release readiness, four logical environments (Development, Testing, Staging, Production), promotion criteria, separate build/release/deployment permissions, exact-scope human approvals, deployment identity, compatibility checks, post-deployment verification, rollback/forward-fix decisions, emergency release procedure and customer-project deployment isolation.
+
+Track POC-REP-19-01 through POC-REP-19-26 as unexecuted acceptance requirements. Assign owners and record scope, environment, preconditions, expected results, evidence, outcome, defects and retests before claiming validation. Add RSK-39; formal risk scores pending. This roadmap entry authorises no CI/CD activation, environment provisioning, release publication, deployment, rollback, paid services, customer integration, database migration or Phase 1.
