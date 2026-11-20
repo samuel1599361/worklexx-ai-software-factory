@@ -1539,7 +1539,7 @@ The following remain unresolved:
 
 - PostgreSQL version and hosting.
 - Physical database topology.
-- Final service schema ownership and migration-history ownership.
+- Final physical database/schema topology and service deployment connectivity.
 - pgvector version and configuration.
 - Embedding model and dimension.
 - Database regions.
