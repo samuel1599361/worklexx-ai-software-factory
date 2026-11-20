@@ -1818,3 +1818,40 @@ Track each test individually with owner, scope, environment, preconditions, expe
 - POC-REP-16-26 adversarial testing and independent security review.
 
 All tests remain unexecuted until results and evidence are recorded and reviewed.
+
+
+
+## HD-REP-17 — Application Security and Secure SDLC Validation Requirements (Approved 2026-11-20)
+
+The following proof-of-concept and validation requirements apply across five frontend applications, six backend deployables, shared packages, 23 logical agent modules and generated customer projects. They are requirements only; all tests are unexecuted until separately authorised and performed. Record owner, scope, environment, preconditions, expected result, evidence, outcome, issue references and retest for each.
+
+| ID | Validation requirement |
+|---|---|
+| POC-REP-17-01 | Secure SDLC traceability from requirements to release evidence. |
+| POC-REP-17-02 | Threat-modelling completeness and review process. |
+| POC-REP-17-03 | Secure coding standards applicability across supported languages. |
+| POC-REP-17-04 | SAST coverage and finding accuracy. |
+| POC-REP-17-05 | Direct and transitive dependency vulnerability detection and prioritisation. |
+| POC-REP-17-06 | Secret detection across source, Git history and artifacts. |
+| POC-REP-17-07 | DAST suitability and authorised testing boundaries. |
+| POC-REP-17-08 | API authentication and resource-authorisation testing. |
+| POC-REP-17-09 | Frontend security and browser attack-surface testing. |
+| POC-REP-17-10 | Input validation, output encoding and injection resistance. |
+| POC-REP-17-11 | Tenant and project isolation under adversarial conditions. |
+| POC-REP-17-12 | File-upload and multimodal-processing security. |
+| POC-REP-17-13 | Agent-generated code security and execution restrictions. |
+| POC-REP-17-14 | Vulnerability severity classification consistency. |
+| POC-REP-17-15 | Critical and high vulnerability escalation procedures. |
+| POC-REP-17-16 | Remediation deadlines, exception expiry and overdue escalation. |
+| POC-REP-17-17 | Independent remediation verification and regression testing. |
+| POC-REP-17-18 | Security testing authorisation and scope enforcement. |
+| POC-REP-17-19 | False-positive review and vulnerability closure evidence. |
+| POC-REP-17-20 | Security exceptions and Project Owner risk acceptance. |
+| POC-REP-17-21 | Generated customer project security evidence and disclosures. |
+| POC-REP-17-22 | Security evidence integrity and audit traceability. |
+| POC-REP-17-23 | Security incident and vulnerability disclosure coordination. |
+| POC-REP-17-24 | Independent application security assessment and adversarial review. |
+
+**Vulnerability remediation objectives (proposed, not SLAs):** Critical 24 hours; High 7 calendar days; Medium 30 calendar days; Low 90 calendar days. Validate triage, contextual prioritisation, escalation, compensating controls, exception expiry, overdue handling and retest. Active exploitation or material exposure may require immediate action. Critical findings require immediate escalation and assessment of suspension/containment. Do not downgrade severity to meet a target.
+
+**Execution boundary:** Testing must be explicitly authorised and scoped. No live penetration testing, external target testing, production scanning, live customer-data processing or production changes are authorised by this architecture decision. Tool selection, installation, subscriptions and CI/CD activation remain separately gated. All POC-REP-17 tests remain **Not Run**.
