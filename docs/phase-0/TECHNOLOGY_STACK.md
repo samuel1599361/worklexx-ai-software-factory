@@ -1300,3 +1300,19 @@ Agents may prepare inventories, exports and recommendations but cannot transfer 
 **Required validation:** POC-REP-10-01 through POC-REP-10-15. Do not treat any unexecuted validation as passed. RSK-30 covers ownership disputes, incomplete portability and improper suspension, transfer or deletion; formal risk scores remain pending.
 
 **Authorisation boundary:** This is an architectural decision only. No customer provisioning, live account/repository connection, OAuth installation, transfer, live project suspension/deletion, production migration, backup/retention configuration, infrastructure, paid services, GitHub permission/settings changes, CI/CD activation, production deployment or Phase 1 is authorised.
+
+
+
+## Customer Data Governance and Privacy Technology Requirements — HD-REP-11
+
+HD-REP-11 was approved as an architectural direction on 2026-11-20. It is provider-independent: no specific privacy platform, data-loss-prevention product, consent-management tool, key-management service, SIEM or external AI provider is selected or authorised by this decision.
+
+Technology candidates and designs must support a common Public/Internal/Confidential/Restricted classification; data inventory and purpose records; tenant/project-scoped authorisation across all six backend deployables; PostgreSQL RLS and pgvector tenant-aware retrieval; encryption in transit/at rest; controlled key and secret lifecycle; privacy-aware audit and redaction; retention/legal holds; customer-scoped export and deletion; and end-to-end traceability of derived multimodal data.
+
+External model providers and subprocessors require due diligence and documented terms for permitted purpose, data categories, processing/storage locations, retention, human access, onward processors, model-training use, deletion and incident notification. Customer data must not be used for general-purpose provider training or improvement unless a specific lawful and authorised arrangement permits it. No provider receives unrestricted database or repository credentials.
+
+The data scope includes prompts, source code, documents, images, audio, video, transcripts, embeddings, metadata, outputs and derived copies. Data residency and cross-border controls must assess applicable jurisdictions and transfer safeguards; the approved HD-03 Cape Town/Ireland and Temporal Ireland architecture is not itself legal transfer approval. No universal retention duration is selected. Privacy rights workflows and deletion must cover indexes, vectors, caches, jobs, replicas and backups, aligned with HD-REP-07/10. Agents must receive task-scoped least privilege and treat external content as untrusted; prompt injection cannot alter policy or access boundaries.
+
+**Required validation:** POC-REP-11-01 through POC-REP-11-15. Add RSK-31 for customer data exposure, unlawful processing and privacy control failure; risk scores remain pending formal assessment. Apply HD-07/HD-08, including GATE-01/02/03/04/05/06 as relevant.
+
+**Authorisation boundary:** No live personal/customer-data processing, external model/subprocessor/customer integration, infrastructure or database provisioning/modification, credentials or keys, paid service, production monitoring/workflow activation, migration, deletion/restoration, deployment or Phase 1 is authorised. Architecture approval and documentation do not constitute implementation approval.

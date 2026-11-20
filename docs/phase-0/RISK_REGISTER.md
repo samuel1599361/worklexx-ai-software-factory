@@ -1651,3 +1651,35 @@ undefined
 **Status:** Identified — assessment and control implementation pending.
 
 **Related decisions:** HD-07, HD-08, HD-REP-05, HD-REP-07, HD-REP-08, HD-REP-09 and HD-REP-10.
+
+
+
+### RSK-31 — Customer Data Exposure, Unlawful Processing and Privacy Control Failure
+
+**Category:** Security, Privacy, Legal and Regulatory Compliance, Customer Trust, Data Governance and Operational Resilience
+
+**Risk statement:** Customer or personal information may be exposed, processed without appropriate authority, transferred unlawfully, retained longer than permitted, incompletely deleted or used for an unauthorised purpose because tenant/project isolation, data classification, purpose limitation, agent permissions, external provider controls, regional transfer safeguards, derived-data lifecycle controls or privacy monitoring are incomplete or ineffective.
+
+**Potential causes:** Cross-tenant access through APIs, databases, RLS gaps, pgvector, caches, jobs or agent context; excessive agent permissions; prompt injection or untrusted content; unauthorised model-provider training or onward disclosure; inadequate minimisation or processing records; unassessed cross-border flows; exposed multimodal data, transcripts or embeddings; incomplete deletion across indexes, replicas and backups; sensitive content in logs; unclear controller/processor and customer/provider responsibilities.
+
+**Potential consequences:** Harm to individuals or customers; confidentiality breach; regulatory investigation, enforcement or notification obligations; contractual breach, claims or litigation; operational disruption; loss of customer trust and reputation; financial loss; suspension of processing or service.
+
+**Proposed controls:**
+- Implement HD-REP-11 data classification, processing inventory, purpose limitation, minimisation and documented legal/contractual authority.
+- Enforce trusted tenant/project identity and least-privilege authorisation across all services, databases/RLS, vector retrieval, storage, indexes, caches, jobs, agent context, multimodal processing, builds, artifacts, backups and exports.
+- Apply agent task scoping, untrusted-content handling and prompt-injection controls; agents cannot expand permissions or transfer data to unauthorised providers.
+- Complete external model/subprocessor due diligence for data scope, location, retention, human access, onward processing, training use, deletion and incident terms. Prohibit general-purpose model training on customer data absent a specific lawful and authorised arrangement.
+- Assess applicable jurisdictional, localisation and cross-border transfer requirements before live processing; HD-03 regional selection is not legal transfer approval.
+- Protect confidential/restricted data through encryption, key/secret separation, controlled key lifecycle and privacy-aware logging/redaction.
+- Establish applicable access, correction, export, erasure, restriction, objection and consent-withdrawal processes; define record-class retention and legal holds without assuming a universal duration.
+- Verify deletion across primary, derived, vector, cache, job, replica and backup data; prevent backup restoration from silently reintroducing deleted/restricted data, aligned with HD-REP-07/10.
+- Align privacy audit events, incident detection and evidence with HD-REP-09; define containment, investigation, remediation and legally required notification procedures.
+- Complete POC-REP-11-01 through POC-REP-11-15, including cross-tenant negative tests and end-to-end privacy/security assessment.
+
+**Risk assessment:** Likelihood, impact, inherent score and residual score are **Pending formal assessment**. Proposed controls do not reduce residual risk until implemented and evidenced. No numeric score is inferred.
+
+**Risk owner:** Project Owner pending assignment of operational control owners.
+
+**Status:** Identified — assessment and control implementation pending.
+
+**Related decisions:** HD-07, HD-08, HD-03, HD-05, HD-REP-05, HD-REP-06, HD-REP-07, HD-REP-09, HD-REP-10 and HD-REP-11.
