@@ -269,20 +269,13 @@ ORM-level filtering alone is not an adequate tenant-isolation control.
 
 ### 7.3 Database migrations
 
-**Proposed direction:** Alembic for SQLAlchemy-compatible schema migrations.
+**Proposed tool direction:** Alembic for SQLAlchemy-compatible schema migrations, subject to per-service compatibility and operational validation.
 
-Migration responsibilities include:
+Under approved HD-REP-06, each of the six deployable backend services maintains its own migration scripts, independent migration history/metadata, immutable migration identifiers and checksums, and migration lifecycle. Each migration identity is restricted to its service-owned schema; runtime credentials have no DDL privileges. A shared PostgreSQL cluster remains possible and does not imply shared migration ownership.
 
-- Version-controlled schema changes.
-- Upgrade and downgrade planning.
-- Migration testing.
-- Backup and recovery considerations.
-- Controlled deployment.
-- Compatibility with application releases.
+Migration practices must include ordered and reproducible upgrades, expand-and-contract changes where practicable, migration locks and bounded timeouts, transactional execution where supported, compatibility across rolling application versions, integrity checks, and documented rollback or forward-fix/recovery plans. A code rollback does not automatically reverse a schema/data migration.
 
-Each service must have clearly defined ownership of its database schema and migration responsibilities.
-
-No service may modify another service's owned schema through undocumented direct database access.
+Cross-service schema changes require explicit coordination of affected services, contracts, consumers, compatibility windows and deployment order. Prefer authorised APIs, events and controlled read models to direct cross-service schema coupling. Destructive migrations are subject to GATE-05; production migration execution also requires applicable GATE-03 authorization. These are architectural requirements only; no migration tool installation, credential creation, pipeline activation or migration execution is authorised.
 
 ### 7.4 API contracts
 
