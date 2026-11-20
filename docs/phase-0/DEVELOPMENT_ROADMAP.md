@@ -1891,3 +1891,12 @@ The roadmap must be updated when approved decisions or verified implementation e
 **Next Governance Step:** Complete Phase 0 cross-document review and obtain formal Project Owner approval.
 
 **End of Document — WLX-ARCH-010**
+
+## HD-REP-07 — Approved Repository Backup and Recovery Direction (2026-11-20)
+
+The Project Owner approved layered, provider-independent protection for Factory source, Worklexx-managed customer repositories, customer-managed repositories within authorised scope, and supporting development records/artifacts. Protect Git history/refs/LFS, repository metadata, artifacts, project mappings and audit records as distinct recovery components. Use independent off-site and immutable/deletion-resistant copies, separate backup identities and key custody, encryption, least privilege, audit, tenant isolation, integrity verification, retention and portability. Worklexx-managed and customer-managed backup responsibilities must be contractually distinguished.
+
+Initial objectives include daily full plus incremental/event-based Factory source capture; continuous/frequent Git replication and daily metadata backup for Worklexx-managed projects; and customer-managed synchronisation only within authorised scope. Proposed retention: 90 days daily / 12 months monthly. Proposed RPO/RTO: critical Factory source 15 minutes/4 hours; active customer source 1 hour/8 hours; metadata 4 hours/24 hours; historical/noncritical artifacts 24 hours/48 hours. These objectives are not verified SLAs and require technical, legal, cost, contractual and operational validation, including HD-06/POC-15 alignment. Actual restoration exercises and evidence are mandatory; a successful backup job alone is insufficient.
+
+**Scope limitation:** Architectural direction only. No backup configuration, infrastructure provisioning, subscriptions/spending, repository settings/permission changes, customer account connections, backup/restore/migration execution, CI/CD activation, production implementation or Phase 1 is authorised. Applicable HD-08 gates remain in force.
+
