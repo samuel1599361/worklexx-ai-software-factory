@@ -1819,3 +1819,17 @@ Project Owner remains sole initial risk acceptance and approval authority under 
 
 
 **Architecture traceability:** RSK-40 is introduced by the approved HD-REP-20 — Production Operations, Service Reliability, Incident Management and Business Continuity Governance decision. Associated operational validation requirements are POC-REP-20-01 through POC-REP-20-28 in TESTING_STRATEGY.md.
+
+
+
+## RSK-41 — Customer Support Failure, Unauthorised Support Access and Inaccurate Customer Communications
+
+**Risk statement:** Inadequate customer support processes, inappropriate access to customer information, poor escalation, inaccurate communications or uncontrolled AI-assisted support may cause customer harm, privacy violations, unresolved service issues, financial disputes, reputational damage or regulatory consequences.
+
+**Potential consequences:** Unauthorised disclosure of customer data; improper modification of customer accounts or projects; incorrect billing/support decisions; delayed security-incident escalation; misleading communications; unresolved complaints; loss of customer confidence; regulatory or contractual consequences.
+
+**Proposed controls:** Verified identity and request authority; least-privilege and time-limited support access; tenant/project isolation; auditable access and revocation; controlled ticket lifecycle and escalation; separate production incident process; independent complaint review; human oversight of consequential actions; bounded AI support permissions; privacy-aware knowledge management; accurate customer communications; accessibility and multilingual review; support continuity and recovery validation.
+
+**Assessment status:** Likelihood, impact, inherent risk and residual risk scores are pending formal assessment. Proposed or unimplemented controls do not reduce residual risk. POC-REP-21-01 through POC-REP-21-28 remain unexecuted. Risk acceptance remains subject to HD-07; consequential actions remain subject to HD-08. This entry authorises no support operation or implementation.
+
+**Architecture traceability:** RSK-41 is introduced by the approved HD-REP-21 — Customer Support, Service Desk, Customer Communications and Service Escalation Governance decision. Associated validation requirements are recorded in TESTING_STRATEGY.md.
