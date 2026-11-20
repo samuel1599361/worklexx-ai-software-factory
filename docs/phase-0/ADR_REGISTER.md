@@ -1576,3 +1576,14 @@ The ADR Register provides the traceable foundation for recording, reviewing, app
 - **Release branches and hotfixes:** Release branches are temporary and justified only for stabilisation, certification, coordinated releases or maintenance. Hotfixes must be reconciled into `main`.
 - **Further validation:** Release automation/tool selection, CI/CD implementation, protection configuration, tagging and release procedures require validation and separate approval.
 - **Scope limitation:** Architecture only. No branch protection configuration, implementation, release creation, production deployment, infrastructure provisioning or Phase 1 authorisation.
+
+
+## HD-REP-04 — Approved Repository Ownership and Governance Direction (2026-11-20)
+
+- **Decision:** Adopt an organisation-owned repository model when the Worklexx GitHub organisation is established and repository transfer is separately authorised. Until then, the repository remains in its current location.
+- **Access:** Least-privilege role-based access; minimum necessary human administrators; external collaborators and automation identities are scoped and periodically reviewed. No shared credentials.
+- **Protected integration branch:** Protect `main` from direct routine pushes, force pushes and deletion. Require PRs, independent human review, designated CODEOWNERS review for critical paths, and mandatory CI checks when implemented. Prefer squash merging and dismiss stale approvals when material changes occur.
+- **AI and automation:** Agents may assist with analysis, tests and PR preparation under scoped permissions, but may not approve their own changes, accept risk, alter governance settings, grant access or bypass protections.
+- **Governance:** Project Owner remains sole initial governance approval authority. HD-08 and its approval gates remain authoritative; PR review is not gate approval.
+- **Scope:** Architectural direction only. Organisation creation, repository transfer, ruleset/branch protection configuration, invitations, permission changes, CI/CD implementation and other consequential operations require separate authorisation as applicable. No Phase 1 or production implementation authorised.
+- **Approval:** Project Owner explicitly approved this decision on 2026-11-20.
