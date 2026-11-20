@@ -1855,3 +1855,38 @@ The following proof-of-concept and validation requirements apply across five fro
 **Vulnerability remediation objectives (proposed, not SLAs):** Critical 24 hours; High 7 calendar days; Medium 30 calendar days; Low 90 calendar days. Validate triage, contextual prioritisation, escalation, compensating controls, exception expiry, overdue handling and retest. Active exploitation or material exposure may require immediate action. Critical findings require immediate escalation and assessment of suspension/containment. Do not downgrade severity to meet a target.
 
 **Execution boundary:** Testing must be explicitly authorised and scoped. No live penetration testing, external target testing, production scanning, live customer-data processing or production changes are authorised by this architecture decision. Tool selection, installation, subscriptions and CI/CD activation remain separately gated. All POC-REP-17 tests remain **Not Run**.
+
+---
+
+## HD-REP-18 — Configuration and Environment Governance Validation
+
+Track the following acceptance requirements individually. All are **unexecuted**; inclusion does not constitute test evidence or a pass.
+
+| ID | Required validation |
+|---|---|
+| POC-REP-18-01 | Logical separation of DEV, TEST, STAGING and PRODUCTION |
+| POC-REP-18-02 | Environment-specific configuration ownership and access control |
+| POC-REP-18-03 | Configuration classification and sensitivity enforcement |
+| POC-REP-18-04 | Configuration schema validation and invalid-value rejection |
+| POC-REP-18-05 | Safe handling of missing or incompatible configuration |
+| POC-REP-18-06 | Secret-reference isolation and disclosure prevention |
+| POC-REP-18-07 | Production credential protection from lower environments |
+| POC-REP-18-08 | Configuration-as-code review and integrity verification |
+| POC-REP-18-09 | Configuration versioning and change attribution |
+| POC-REP-18-10 | Environment-specific configuration compatibility |
+| POC-REP-18-11 | Feature-flag authorisation and secure defaults |
+| POC-REP-18-12 | Prevention of feature flags bypassing security or approvals |
+| POC-REP-18-13 | Deployment configuration provenance and traceability |
+| POC-REP-18-14 | Detection of unauthorised configuration drift |
+| POC-REP-18-15 | Configuration rollback and recovery integrity |
+| POC-REP-18-16 | Compatibility with database and workflow versions |
+| POC-REP-18-17 | Configuration isolation across six backend deployables |
+| POC-REP-18-18 | Frontend configuration and privileged-secret exposure prevention |
+| POC-REP-18-19 | Agent configuration permissions and delegation restrictions |
+| POC-REP-18-20 | Customer project and tenant configuration isolation |
+| POC-REP-18-21 | Customer configuration export and portability |
+| POC-REP-18-22 | Audit completeness and sensitive-value redaction |
+| POC-REP-18-23 | Configuration recovery during regional or service failure |
+| POC-REP-18-24 | Independent security review and adversarial configuration testing |
+
+Test records must identify owner, scope, environment, preconditions, expected result, evidence, outcome, defects and retest. Align testing with HD-REP-08 through HD-REP-17 and preserve the rule that automated validation is not independent security assurance.
