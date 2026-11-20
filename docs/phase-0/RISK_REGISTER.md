@@ -1621,3 +1621,33 @@ undefined
 **Status:** Identified — assessment and control implementation pending.
 
 **Related decisions:** HD-07, HD-08, HD-REP-05, HD-REP-07, HD-REP-08 and HD-REP-09.
+
+
+### RSK-30 — Customer Project Ownership Disputes, Incomplete Portability or Improper Suspension, Transfer or Deletion
+
+**Category:** Customer Trust, Data and Privacy, Compliance and Legal, Security, Operational Governance and Project Delivery
+
+**Risk statement:** A customer may lose control of, be unable to retrieve, or experience unauthorised access, transfer, suspension, archival or deletion of a generated project because project ownership and authority are ambiguous, lifecycle transitions are inadequately controlled, exports are incomplete, hosting responsibilities are misunderstood, retention/legal holds are not enforced, or customer exit and integration-disconnection processes fail.
+
+**Potential causes:** Missing or mutable project identity/ownership mapping; confusion between repository hosting administration and project ownership; unclear generated-code/IP/licence terms; cross-tenant authorisation defects; incomplete Git history/LFS/metadata/artifact exports; secret leakage in exports; unauthorised transfer or collaborator changes; automatic deletion following entitlement expiry; inconsistent retention and backup expiry; restoration of deleted data; inadequate legal-hold checks; provider API/portability limitations; or agents performing prohibited lifecycle actions.
+
+**Potential consequences:** Customer source or business-data loss; ownership disputes; unauthorised disclosure or transfer; inability to migrate to another provider; contractual, privacy, regulatory or intellectual-property disputes; prolonged service disruption; accidental reintroduction of deleted data; financial/reputational harm; and loss of customer trust.
+
+**Proposed controls:**
+- Enforce HD-REP-05 one-repository-per-project isolation and immutable project identity with explicit customer/tenant, owner/controller, hosting and repository mapping.
+- Distinguish project ownership from hosting administration; disclose customer-generated code, Worklexx platform/reusable components and third-party licence boundaries in applicable agreements and project records.
+- Implement authenticated lifecycle state transitions, separation of export/transfer/disconnection/deletion, least-privilege collaborator access and explicit owner/required-party transfer authorisation.
+- Provide customer-scoped export inventories, Git history/refs/LFS and applicable metadata/artifacts, integrity checksums, omission/provider-limit disclosures, secret exclusion and independent import validation.
+- Prevent subscription/entitlement expiry from automatically deleting customer assets; define notification, suspension and retrieval safeguards under contract.
+- Establish record-class-specific retention, legal-hold, archival, deletion and backup-expiry policies; verify deletion across primary and derived stores and prevent silent reintroduction from backups.
+- Revoke only the relevant integration credentials on disconnection; do not delete customer-owned external repositories.
+- Enforce agent prohibited-action boundaries and retain lifecycle/transfer/export/deletion audit evidence under HD-REP-09.
+- Complete POC-REP-10-01 through POC-REP-10-15, including negative tenant/authority tests and end-to-end portability/exit exercises.
+
+**Risk assessment:** Likelihood, impact, inherent score and residual score are **Pending formal assessment**. Proposed controls do not reduce residual risk until implemented and evidenced. No numeric score is inferred.
+
+**Risk owner:** Project Owner pending assignment of operational control owners.
+
+**Status:** Identified — assessment and control implementation pending.
+
+**Related decisions:** HD-07, HD-08, HD-REP-05, HD-REP-07, HD-REP-08, HD-REP-09 and HD-REP-10.
