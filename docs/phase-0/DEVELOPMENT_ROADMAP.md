@@ -1328,6 +1328,7 @@ The following decisions have been recorded. Their architectural approval does no
 | HD-07 | Risk authority | Approved — Project Owner is sole initial risk acceptance authority; no delegation |
 | HD-08 | Approval gates | Approved — six independent gates; Project Owner is sole initial approval authority |
 | HD-REP-06 | Database schema and migration governance | Approved — service-owned schemas and independent migration histories across all six backend services; implementation and execution remain separately controlled |
+| HD-REP-12 | Customer identity, authentication, authorisation and access lifecycle governance | Approved — architectural direction only; identity provider selection, connection and production rollout remain separately controlled |
 
 Additional decisions may be added through the Architecture Decision Record process.
 
@@ -1943,3 +1944,14 @@ The workstream must define and validate the two approved hosting modes (Worklexx
 **Delivery sequencing:** During Phase 0, complete architecture, data-flow inventories, classification, role/responsibility mapping, provider due-diligence criteria, privacy threat modelling, retention/legal-hold requirements and POC plans. Phase 1 implementation, test environments, data integrations, key-management configuration and privacy tooling require separate authorisation and applicable HD-08 gates. Live customer/personal-data processing must not begin until legal, security, contractual, regional and technical prerequisites are satisfied.
 
 **Authorisation boundary:** Roadmap inclusion and architectural approval do not authorise live data processing, customer or external provider connections, OAuth/app installation, infrastructure/database/storage provisioning or modification, credentials/keys, paid services, GitHub permission/settings changes, production monitoring/workflow activation, migrations, deletion/restoration, production deployment or Phase 1. Applicable HD-07/HD-08 controls and separate Project Owner approvals remain mandatory.
+
+
+## HD-REP-12 — Customer Identity, Authentication, Authorisation and Access Lifecycle Workstream
+
+**Approved architectural direction (2026-11-20):** plan a centralised managed-identity integration with Worklexx-controlled application authorisation and service-enforced tenant, project and resource boundaries. Preserve HD-01 and HD-08. Authentication establishes identity but does not automatically authorise access. Distinguish human, organisation, membership, project, agent, service, workload and external-integration identities.
+
+**Architecture and planning activities:** define identity mapping and organisation/project membership records; configurable role and permission catalogue; RBAC/ABAC and resource-level policy enforcement; standards-based identity federation/SSO options; MFA/passkey and recovery requirements; service/workload identity; agent delegation; API-key/token lifecycle; privileged and emergency access; session management; access reviews; suspension/deprovisioning; revocation propagation; identity privacy; and audit event coverage. Maintain separation of organisation administration from project ownership under HD-REP-10.
+
+**Prerequisites before operational reliance:** complete POC-REP-12-01 through POC-REP-12-20, including provider portability, multi-organisation and cross-tenant negative tests, service and agent identity boundaries, session/revocation behaviour, recovery, concurrent role changes/cache invalidation, audit attribution, privacy, provider outage and fail-closed approval-gate enforcement. Add RSK-32; formal likelihood, impact and residual scores remain pending.
+
+**Authorisation boundary:** This roadmap entry records an approved architectural workstream only. It does not authorise selecting/connecting an identity provider, creating customer accounts, configuring SSO/OAuth, changing user permissions, issuing live credentials, provisioning infrastructure/databases, purchasing services, changing GitHub permissions, activating production authentication/authorisation, running migrations, deploying production or starting Phase 1. Apply HD-07/HD-08 and obtain separate Project Owner approvals for applicable gates.
