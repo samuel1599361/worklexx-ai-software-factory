@@ -1738,3 +1738,11 @@ Project Owner remains sole initial risk acceptance and approval authority under 
 **Likelihood/impact/inherent/residual score:** Pending formal assessment. Controls do not reduce residual risk until implemented and evidenced.
 **Status:** Identified; assessment and implementation pending.
 **Related decisions:** HD-07, HD-08, HD-REP-05, HD-REP-08, HD-REP-09, HD-REP-10, HD-REP-11, HD-REP-12, HD-REP-13.
+
+
+### RSK-34 — Contract Failure, Interface Drift, Integration Abuse and Communication Integrity
+**Description:** Incompatible, undocumented, insecure or improperly governed API, event, workflow, agent-tool or external integration contracts may cause service failures, data exposure, tenant-isolation violations, financial errors, unsafe agent execution, workflow corruption or operational disruption.
+**Proposed controls:** HD-REP-14 contract ownership and versioning; machine-readable schemas; consumer/provider contract testing; compatibility checks; explicit breaking-change governance; trusted authorization and tenant/project enforcement; idempotency and bounded retries; event replay/duplicate handling; Temporal replay compatibility; webhook authenticity and replay protection; destination/SSRF restrictions; privacy/provider due diligence; financial integrity tests; agent-tool permission controls; audit and release traceability.
+**Likelihood/impact/inherent/residual score:** Pending formal assessment. Proposed or unimplemented controls do not reduce residual risk until implemented and evidenced.
+**Status:** Identified; assessment and implementation pending.
+**Related decisions:** HD-07, HD-08, HD-REP-05, HD-REP-06, HD-REP-08, HD-REP-09, HD-REP-11, HD-REP-12, HD-REP-13 and HD-REP-14.
