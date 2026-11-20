@@ -1595,5 +1595,5 @@ Required test scenarios and retained evidence:
 9. Validate customer-managed hosting responsibility boundaries and the exact scope of customer-authorised Worklexx copies.
 10. Measure actual RPO and RTO for each data class and compare with HD-REP-07 objectives and HD-06/POC-15 requirements.
 
-A successful scheduled backup is not sufficient evidence of recoverability. Record test date, scope, source/recovery point, environment, method, integrity results, measured RPO/RTO, defects, limitations, reviewer and remediation. Tests must not use production data or perform consequential production restoration without the applicable approvals.
+This strategy records architectural test requirements only; it does not authorise backup configuration, infrastructure provisioning, spending, repository permission changes, customer account connections, backup/restore/migration execution, CI/CD activation, production implementation or Phase 1. Applicable HD-08 approvals remain mandatory.\n\nA successful scheduled backup is not sufficient evidence of recoverability. Record test date, scope, source/recovery point, environment, method, integrity results, measured RPO/RTO, defects, limitations, reviewer and remediation. Tests must not use production data or perform consequential production restoration without the applicable approvals.
 
