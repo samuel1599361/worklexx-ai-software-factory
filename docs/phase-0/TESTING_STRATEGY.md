@@ -1890,3 +1890,38 @@ Track the following acceptance requirements individually. All are **unexecuted**
 | POC-REP-18-24 | Independent security review and adversarial configuration testing |
 
 Test records must identify owner, scope, environment, preconditions, expected result, evidence, outcome, defects and retest. Align testing with HD-REP-08 through HD-REP-17 and preserve the rule that automated validation is not independent security assurance.
+
+## HD-REP-19 — Application Deployment, Release Promotion and Rollback Validation
+
+The following validation requirements are mandatory acceptance criteria for the approved architecture. All are currently **unexecuted**; no pass status is implied.
+
+| ID | Required validation |
+|---|---|
+| POC-REP-19-01 | Release identity and independent component versioning |
+| POC-REP-19-02 | Source-to-artifact traceability |
+| POC-REP-19-03 | Immutable artifact identity and checksum verification |
+| POC-REP-19-04 | Artifact signature and provenance verification |
+| POC-REP-19-05 | SBOM and dependency evidence completeness |
+| POC-REP-19-06 | Release readiness and mandatory check enforcement |
+| POC-REP-19-07 | Environment promotion and separation |
+| POC-REP-19-08 | Promotion of the same verified artifact across environments |
+| POC-REP-19-09 | Rebuild and revalidation when artifact identity changes |
+| POC-REP-19-10 | Independent build, release and deployment permissions |
+| POC-REP-19-11 | Approval binding to exact artifact, scope and environment |
+| POC-REP-19-12 | Approval expiry and revocation enforcement |
+| POC-REP-19-13 | Production deployment gate enforcement |
+| POC-REP-19-14 | Deployment identity and least-privilege enforcement |
+| POC-REP-19-15 | Deployment workflow integrity and untrusted-code isolation |
+| POC-REP-19-16 | API, event, service and workflow compatibility |
+| POC-REP-19-17 | Database migration compatibility and GATE-05 enforcement |
+| POC-REP-19-18 | Configuration version and deployment traceability |
+| POC-REP-19-19 | Blue-green, canary and rolling deployment safety |
+| POC-REP-19-20 | Post-deployment health and functional verification |
+| POC-REP-19-21 | Deployment failure and partial-failure handling |
+| POC-REP-19-22 | Rollback safety and forward-fix decision correctness |
+| POC-REP-19-23 | Data, ledger and workflow integrity during recovery |
+| POC-REP-19-24 | Emergency release controls and post-incident evidence |
+| POC-REP-19-25 | Customer project deployment isolation and authorization |
+| POC-REP-19-26 | Independent adversarial deployment and recovery review |
+
+Each test record must identify owner, scope, environment, preconditions, expected result, evidence, outcome, defects and retest. Align with HD-REP-08 through HD-REP-18. Automated checks do not replace independent human approval or security assurance.
