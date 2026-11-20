@@ -1274,3 +1274,12 @@ Trusted artifacts require cryptographic checksums, integrity verification and tr
 The six deployable backend units remain unchanged. The sandbox-runner does not acquire unrestricted build-release or publication authority. Factory source, Worklexx-managed customer repositories and customer-managed repositories remain distinct security boundaries under HD-REP-05.
 
 **Governance:** A successful CI run is not release approval; artifact verification is not publication authority; publication is not production deployment authority. Apply HD-08 and HD-07. No workflow activation, repository settings change, credentials/signing-key creation, paid service, infrastructure provisioning, production build, publication, release or deployment is authorised by this architectural decision.
+
+
+## Repository Observability and Audit Technology Requirements — HD-REP-09
+
+The architecture is provider-independent; no specific SIEM, logging vendor, telemetry product or storage service is selected or authorised. Candidate technologies must be evaluated against event ingestion reliability, versioned schema support, identity and tenant context, correlation, query and alert capabilities, tamper-evident/append-only retention, cryptographic integrity, encryption, access separation, legal holds, export/portability, backup/recovery, cost and provider limitations.
+
+The logical capability set comprises event producers, collection/normalisation, privacy/redaction, protected audit storage, security-event correlation/detection, alerting/investigation and governed response. It is a logical architecture, not an additional backend deployable; the six deployable service units remain unchanged. Event schemas and collection interfaces should be provider-independent where practicable. Operational telemetry must remain distinguishable from authoritative security audit evidence.
+
+No product selection, subscription, infrastructure provisioning, telemetry activation, credentials or production integration is authorised by HD-REP-09. Selection and adoption require evaluation, POC-REP-09-01 through POC-REP-09-12, applicable HD-08 approvals and separate implementation authorisation.
