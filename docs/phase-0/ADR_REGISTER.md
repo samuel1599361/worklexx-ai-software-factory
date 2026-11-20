@@ -1807,3 +1807,29 @@ Integrate credential/key events with HD-REP-09 audit and monitoring. Detect secr
 Require POC-REP-16-01 through -26 in TESTING_STRATEGY.md; all remain unexecuted. Add RSK-36 — Credential Exposure, Cryptographic Compromise and Unauthorised API Access; likelihood, impact, inherent and residual scores remain pending formal assessment. Align HD-01/03/06/07/08 and HD-REP-05/07/08/09/11/12/13/14/15.
 
 This is architectural/documentation approval only. No provider selection/connection, live credential/key/certificate creation or distribution, GitHub permission/configuration changes, CI/CD activation, infrastructure or paid-service provisioning, external integration, live customer-data processing, database modification/migration, production security configuration, production deployment or Phase 1 is authorised.
+
+
+
+## HD-REP-17 — Application Security Architecture, Secure Development Lifecycle and Vulnerability Management Governance (Approved 2026-11-20)
+
+**Decision:** Adopt a security-by-design, secure-by-default application engineering framework for Worklexx-owned applications, six backend deployables, five frontend applications, shared packages, 23 logical agent modules and generated customer projects. Security requirements must be considered throughout requirements, architecture, threat modelling, coding, review, testing, dependency management, release, operation, maintenance and retirement. This is an architectural governance decision; it does not approve implementation or deployment.
+
+**Secure SDLC:** Classify changes by data sensitivity, business criticality, exposure, privilege, tenant/project impact and applicable legal/contractual obligations. Maintain traceability from security requirements through design, implementation, testing, findings, remediation and release evidence. Threat-model new applications, significant changes, high-risk features and material external integrations. Consider trust boundaries, authentication/authorisation, tenant isolation, injection, data leakage, secrets, multimodal uploads, agent/tool abuse, supply-chain compromise, denial of service and financial integrity.
+
+**Secure engineering:** Apply language/framework-appropriate secure coding standards, server-side input validation, context-aware output encoding, parameterised queries, safe file handling, explicit resource authorisation, secure sessions, safe errors, restrictive defaults and protections against applicable injection, XSS, CSRF, SSRF, path traversal, unsafe deserialisation and request manipulation. OWASP ASVS and relevant OWASP Top 10 guidance are assessment references subject to version/applicability review; no commercial tool or vendor is selected.
+
+**Security testing:** Adopt risk-proportionate SAST, software composition analysis, secret scanning, DAST where appropriate, API and frontend security testing, configuration assessment, manual review and independently scoped penetration testing where warranted. Automated scanner output is not proof of security. Testing requires appropriate authorisation and scope.
+
+**Vulnerability lifecycle:** Discover, record, classify, prioritise, remediate/mitigate, independently verify, close and retain evidence. Assess severity alongside exploitability, active exploitation, exposure, business impact, data sensitivity and affected assets. Proposed internal remediation/mitigation objectives (not SLAs): Critical 24 hours; High 7 calendar days; Medium 30 calendar days; Low 90 calendar days. Where targets cannot be met, document reason, exposure, compensating controls, accountable owner, target date, review/expiry and residual risk; apply HD-07 acceptance. Critical issues require immediate escalation and consideration of stopping/suspending affected activity. Do not downgrade severity to meet targets.
+
+**Customer-generated projects:** Provide proportionate project security requirements, threat-model summaries where warranted, dependency/vulnerability reports, test reports, SBOM, findings/remediation records and release-security summaries. Generation does not guarantee security. Disclose material known limitations, unresolved vulnerabilities, dependencies and customer responsibilities; evidence is not a security certification or guarantee.
+
+**AI and authority:** Treat prompts, uploads, retrieved documents and tool outputs as untrusted. Prompt injection cannot override policy, permissions or approval gates. Validate generated code and commands before execution. Agents may discover/analyse findings and prepare remediation PRs within scope but cannot approve their own changes, accept risk, waive mandatory obligations, authorise external testing or deploy production fixes. HD-07/HD-08 and HD-REP-08 through -16 remain authoritative.
+
+**Evidence and records:** Maintain security requirements, coding standards, threat models, test strategy/results, vulnerability register, remediation/verification evidence, exception/risk acceptance, security reviews, testing authorisations and release-security evidence. Protect records under HD-REP-09.
+
+**Validation:** Require POC-REP-17-01 through POC-REP-17-24 as recorded in TESTING_STRATEGY.md. All remain unexecuted; no control effectiveness or risk reduction is claimed.
+
+**Risk:** Add RSK-37 — Application Vulnerabilities, Insecure Development and Delayed Remediation. Likelihood, impact, inherent and residual scores remain pending formal assessment.
+
+**Boundary:** Project Owner approval under HD-07/HD-08. Documentation and architecture only. No source-code/dependency changes, security-tool installation or activation, subscriptions, external service connections, CI/CD activation, GitHub settings, live penetration testing, live customer data processing, infrastructure, credentials, database changes, production deployment or Phase 1 is authorised.
