@@ -1900,3 +1900,14 @@ Initial objectives include daily full plus incremental/event-based Factory sourc
 
 **Scope limitation:** Architectural direction only. No backup configuration, infrastructure provisioning, subscriptions/spending, repository settings/permission changes, customer account connections, backup/restore/migration execution, CI/CD activation, production implementation or Phase 1 is authorised. Applicable HD-08 gates remain in force.
 
+## HD-REP-08 — Approved Build Integrity and Supply-Chain Security Direction (2026-11-20)
+
+The Project Owner approved a policy-controlled, least-privilege and verifiable automation architecture. Future implementation planning must separate untrusted PR validation from trusted release builds; default workflows to read-only permissions; scope write permissions per job; prefer short-lived credentials; pin third-party actions to immutable commit SHAs; protect workflow definitions; and prevent untrusted code from accessing privileged secrets.
+
+The supply-chain baseline includes lockfile and tool-version enforcement, dependency integrity checks, direct/transitive vulnerability and licence scanning, secret scanning, dependency review, SAST and applicable DAST, and machine-readable SBOM generation. Builds must run in isolated environments, with tenant/project-specific credential, cache, job and artifact boundaries. Trusted release artifacts require checksums, integrity verification, source-to-artifact provenance and protected signing-key management. SLSA and Sigstore are candidates for evaluation, not final product selections.
+
+The Factory platform repository, Worklexx-managed customer projects and customer-managed repositories remain separate trust boundaries. AI agents may assist with authorised validation, tests, scanning and evidence generation but cannot approve their own PRs/releases, grant themselves access or bypass protected operations. Build, verification, release approval, publication and production deployment remain separate activities under HD-08.
+
+**Required POCs:** POC-REP-08-01 through POC-REP-08-12 cover workflow permissions, untrusted PR isolation, dependency integrity, scanning, SBOMs, artifact integrity/provenance, build/cache isolation, tenant isolation, credential protection, release/publication separation, compromised dependency/workflow scenarios and audit traceability.
+
+**Scope limitation:** Architectural direction only. No CI/CD activation, repository configuration, credentials, signing keys, paid services, infrastructure, production builds, artifact publication, releases, deployments or Phase 1 work is authorised. Applicable HD-08 gates remain mandatory.
