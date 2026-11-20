@@ -1833,3 +1833,27 @@ Project Owner remains sole initial risk acceptance and approval authority under 
 **Assessment status:** Likelihood, impact, inherent risk and residual risk scores are pending formal assessment. Proposed or unimplemented controls do not reduce residual risk. POC-REP-21-01 through POC-REP-21-28 remain unexecuted. Risk acceptance remains subject to HD-07; consequential actions remain subject to HD-08. This entry authorises no support operation or implementation.
 
 **Architecture traceability:** RSK-41 is introduced by the approved HD-REP-21 — Customer Support, Service Desk, Customer Communications and Service Escalation Governance decision. Associated validation requirements are recorded in TESTING_STRATEGY.md.
+
+
+
+## RSK-42 — Customer Account Compromise, Organisation Ownership Dispute and Subscription/Entitlement Integrity Failure
+
+**Risk statement:** Inadequate onboarding, identity verification, organisation membership governance, subscription lifecycle management, entitlement enforcement, usage metering or financial integration may cause account takeover, unauthorised access, ownership disputes, cross-organisation data exposure, incorrect service access, billing errors, financial loss, loss of customer resources or legal/regulatory breach.
+
+**Potential causes and threat scenarios:**
+- Fraudulent individual or organisation registration; misleading or unverified organisation claims.
+- Compromised owner/administrator identity, invitation abuse or excessive privileges.
+- Unauthorised organisation ownership succession or transfer.
+- Cross-organisation/workspace/project authorisation failure.
+- Subscription state or entitlement manipulation, stale entitlement caches or inconsistent enforcement between services.
+- Inaccurate usage metering, duplicate events, forged/replayed payment notifications or provider reconciliation failure.
+- Incorrect cancellation, suspension, downgrade, expiry, closure or recovery action.
+- Loss, exposure or improper retention of identity, verification, subscription or payment-reference data.
+
+**Potential consequences:** Customer-data exposure; unauthorised project/repository access; financial loss or duplicate charging; incorrect service availability; customer lockout; ownership disputes; loss of customer source/data; privacy, consumer, tax, payment or contractual breach; reputational damage.
+
+**Proposed controls:** Verified and purpose-limited identity/organisation checks; explicit ownership and succession governance; scoped role-based and resource-level authorisation; tenant/workspace/project isolation; secure invitation and membership lifecycle; server-side, versioned entitlement enforcement; idempotent usage/payment processing; authenticated provider notifications; independent billing-ledger reconciliation; clear customer-facing commercial terms and consumption; controlled subscription/account transitions; project preservation and export; secure recovery; protected audit; human approval for consequential actions; jurisdictional legal/privacy assessment.
+
+**Assessment status:** Likelihood, impact, inherent risk and residual risk scores are pending formal assessment. Proposed or unimplemented controls do not reduce residual risk. POC-REP-22-01 through POC-REP-22-30 remain unexecuted. Risk acceptance remains subject to HD-07; consequential operations remain subject to HD-08. This entry authorises no account, payment or commercial operation.
+
+**Architecture traceability:** RSK-42 is introduced by HD-REP-22 — Customer Onboarding, Organisation Management, Subscription Entitlements and Account Lifecycle Governance. Associated validation requirements are recorded in TESTING_STRATEGY.md.
