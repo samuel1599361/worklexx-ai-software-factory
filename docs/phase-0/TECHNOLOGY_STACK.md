@@ -1261,3 +1261,16 @@ Initial backup/retention objectives: daily full plus incremental/event-based cap
 
 Restoration must use incident declaration, containment, verified recovery-point selection, isolated restoration, integrity/security/tenant checks, authorised reconnection, reconciliation and retained evidence. Validate Git/LFS, metadata, artifacts, tenant isolation, deletion/ransomware, provider portability, key recovery, retention/legal holds, export and measured RPO/RTO. No backup configuration, provisioning, spending, repository permission changes, customer connections, restore execution, CI/CD or production implementation is authorised by the decision.
 
+## 20. HD-REP-08 — Build Integrity and Software Supply-Chain Governance
+
+The approved architectural direction is a policy-controlled, least-privilege, verifiable automation architecture. GitHub Actions remains a candidate automation platform; HD-REP-08 does not activate workflows or select a final CI/CD implementation.
+
+Workflow permissions default to read-only. Write permissions must be narrowly scoped to the job that requires them. Prefer short-lived credentials, pin third-party actions to immutable commit SHAs, review workflow definitions before activation, protect workflow files, and isolate untrusted pull-request execution from trusted release workflows and secrets. Validation, build, signing, publication and deployment are separate stages and permissions.
+
+Preserve the approved pnpm/Turborepo and uv decisions. Enforce lockfiles and pinned tooling; verify dependencies; scan direct and transitive dependencies for vulnerabilities and licence issues; scan for secrets; apply SAST and applicable DAST; review dependency changes; and generate machine-readable SBOMs using SPDX or CycloneDX. Build environments and caches must be isolated by trust boundary, tenant and project. Untrusted code must not access Factory secrets, signing credentials or unrelated customer data.
+
+Trusted artifacts require cryptographic checksums, integrity verification and traceable provenance linking repository/project, source commit, dependency/lockfile state, build tools, workflow identity, execution, SBOM and artifact. Evaluate SLSA provenance and Sigstore subject to POC, security, compatibility, operational and cost validation. Signing keys must be held in approved key-management systems, not source repositories or ordinary workflow configuration.
+
+The six deployable backend units remain unchanged. The sandbox-runner does not acquire unrestricted build-release or publication authority. Factory source, Worklexx-managed customer repositories and customer-managed repositories remain distinct security boundaries under HD-REP-05.
+
+**Governance:** A successful CI run is not release approval; artifact verification is not publication authority; publication is not production deployment authority. Apply HD-08 and HD-07. No workflow activation, repository settings change, credentials/signing-key creation, paid service, infrastructure provisioning, production build, publication, release or deployment is authorised by this architectural decision.
