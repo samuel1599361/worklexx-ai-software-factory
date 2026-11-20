@@ -849,3 +849,8 @@ The correction pass addresses:
 The addendum records intended corrections, not proof that the full architecture is technically correct or that security, performance, deployment, or operational testing has occurred. The correction branch has been compared against `main`, and targeted document-structure, placeholder, encoding, and cross-document consistency scans have been run across the 16-document set. The draft pull request remains subject to detailed human review and Project Owner approval. Phase 0 acceptance and Phase 1 authorization remain pending.
 
 **End of Document.**
+
+
+## HD-REP-04 Decision Update — 20 November 2026
+
+HD-REP-04, repository ownership and approval rules for protected repositories, was explicitly approved by the Project Owner as architectural direction. The decision adopts future organisation-owned repository stewardship, least-privilege access, minimum necessary administrators, scoped automation, protected `main`, PR-based review, designated CODEOWNERS review, mandatory CI checks when implemented, and prohibition of routine bypasses. This approval does not authorise repository transfer, GitHub configuration, access changes, CI/CD implementation, or Phase 1. The decision remains subject to controlled documentation review and separate implementation authorisations.
