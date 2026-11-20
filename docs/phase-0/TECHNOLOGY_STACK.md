@@ -1283,3 +1283,20 @@ The architecture is provider-independent; no specific SIEM, logging vendor, tele
 The logical capability set comprises event producers, collection/normalisation, privacy/redaction, protected audit storage, security-event correlation/detection, alerting/investigation and governed response. It is a logical architecture, not an additional backend deployable; the six deployable service units remain unchanged. Event schemas and collection interfaces should be provider-independent where practicable. Operational telemetry must remain distinguishable from authoritative security audit evidence.
 
 No product selection, subscription, infrastructure provisioning, telemetry activation, credentials or production integration is authorised by HD-REP-09. Selection and adoption require evaluation, POC-REP-09-01 through POC-REP-09-12, applicable HD-08 approvals and separate implementation authorisation.
+
+
+## HD-REP-10 — Customer Project Lifecycle, Portability and Exit Architecture
+
+**Approved architectural direction (2026-11-20):** implement a customer-centred lifecycle and portability control plane consistent with HD-REP-05. The logical project lifecycle must represent creation, provisioning, active use, suspension, archival, export/transfer, disconnection, deletion pending and deletion, with authenticated and auditable state transitions. The project identity, customer/tenant mapping, owner/controller, hosting mode and repository mapping must remain explicit and immutable where identity is concerned.
+
+The architecture must support both Worklexx-managed private repositories and customer-managed supported Git hosting integrations. Ownership and hosting administration are separate concepts. Customer project content, generated code, Worklexx proprietary platform/reusable components and third-party licensed materials must be separately identifiable under the applicable customer agreements and licences.
+
+Provide customer-scoped source and history export, including Git refs and Git LFS where used, relevant documentation, non-secret configuration templates, dependency manifests/lockfiles, entitled artifacts, SBOM/provenance, metadata and customer-entitled audit records. Export packages require inventories, format/version metadata and integrity checksums. Exclude secrets and private keys; use secure credential re-establishment. Validate independent import and portability. Transfer, disconnection and deletion require distinct workflows and approvals.
+
+Retention, archival, legal hold and deletion must be policy-driven by record class and validated against applicable legal, regulatory and contractual obligations. Do not assume a universal retention duration or grace period. Backup expiry and restore controls must prevent deleted data from silently returning to active systems. Entitlement expiry may restrict premium features but must not automatically destroy customer assets.
+
+Agents may prepare inventories, exports and recommendations but cannot transfer ownership, alter visibility, disconnect integrations, revoke customer access, delete repositories/data/backups, change retention, override legal holds or approve exit actions. Apply HD-07 and HD-08, including GATE-02/03/04/05/06 where applicable.
+
+**Required validation:** POC-REP-10-01 through POC-REP-10-15. Do not treat any unexecuted validation as passed. RSK-30 covers ownership disputes, incomplete portability and improper suspension, transfer or deletion; formal risk scores remain pending.
+
+**Authorisation boundary:** This is an architectural decision only. No customer provisioning, live account/repository connection, OAuth installation, transfer, live project suspension/deletion, production migration, backup/retention configuration, infrastructure, paid services, GitHub permission/settings changes, CI/CD activation, production deployment or Phase 1 is authorised.

@@ -1641,3 +1641,30 @@ The following proof-of-concept validations are required before operational relia
 | POC-REP-09-12 | Demonstrate end-to-end traceability from initiating action through identity, repository, workflow, artifact and incident evidence |
 
 Tests must cover Factory source, Worklexx-managed customer projects and customer-managed repositories only within authorised scope. Use synthetic or appropriately controlled test data. Do not activate production telemetry, change provider settings, connect customer accounts or perform consequential production actions as part of these specifications without separate approval. Applicable HD-08 gates remain mandatory.
+
+
+## 37. Customer Project Lifecycle, Ownership, Portability and Exit Validation — HD-REP-10
+
+The following proof-of-concept validations are required before operational reliance on the approved HD-REP-10 architecture. Each test must record scope, environment, method, expected and actual results, evidence, limitations, defects, remediation and reviewer. A listed validation is a requirement, not evidence that the test has been executed or passed. Use synthetic or appropriately controlled data; do not perform consequential live-customer operations without separate authorisation.
+
+| Validation ID | Required validation |
+|---|---|
+| POC-REP-10-01 | Verify unique immutable project identity and correct customer/tenant/owner/controller/repository mapping |
+| POC-REP-10-02 | Test tenant/project isolation, including negative cross-tenant access to source, metadata, exports, jobs, caches and artifacts |
+| POC-REP-10-03 | Verify Worklexx-managed versus customer-managed hosting responsibility, permission and recovery boundaries |
+| POC-REP-10-04 | Test all lifecycle state transitions, invalid transitions, authorisation, audit history and recovery behaviour |
+| POC-REP-10-05 | Verify owner, collaborator, administrator and transfer authority, including required-party approval and rejection of unauthorised requests |
+| POC-REP-10-06 | Verify export completeness for source, Git history, branches, tags, refs, Git LFS and applicable project metadata |
+| POC-REP-10-07 | Import an exported project into an independent supported Git environment and verify integrity and usability |
+| POC-REP-10-08 | Verify that passwords, tokens, private/signing keys and other secrets are excluded from ordinary exports and can be securely re-established |
+| POC-REP-10-09 | Test subscription/entitlement expiry, notification, suspension and retrieval safeguards; prove that expiry does not automatically delete customer assets |
+| POC-REP-10-10 | Test record-class retention, archival, legal holds, authorised deletion and verification across primary, derived and provider-controlled stores |
+| POC-REP-10-11 | Verify backup expiry and restore controls prevent deleted information from being silently reintroduced into active systems |
+| POC-REP-10-12 | Disconnect a test external integration and verify scoped credential revocation without deletion of customer-owned repositories |
+| POC-REP-10-13 | Exercise customer exit, export/transfer completion, ownership confirmation, notification and audit evidence end to end |
+| POC-REP-10-14 | Test agent prohibited actions, including ownership transfer, visibility changes, disconnection, access revocation, deletion, retention changes and legal-hold override |
+| POC-REP-10-15 | Demonstrate end-to-end lifecycle traceability, failure recovery, integrity verification and customer-scoped evidence retrieval |
+
+Tests must distinguish export from ownership transfer, suspension from deletion, and repository hosting administration from project ownership. Provider/API limitations and customer-managed responsibility boundaries must be documented. Retention periods and legal-hold behaviour must be validated against approved legal, regulatory and contractual requirements; no universal duration is assumed.
+
+**Governance and scope:** Apply HD-07 and HD-08, including GATE-02, GATE-03, GATE-04, GATE-05 and GATE-06 according to the operation. These are validation requirements only; they do not authorise customer provisioning, account connections, OAuth installation, repository/ownership transfer, live customer suspension/deletion, production migration, backup/retention configuration, infrastructure, spending, CI/CD activation, production deployment or Phase 1.
