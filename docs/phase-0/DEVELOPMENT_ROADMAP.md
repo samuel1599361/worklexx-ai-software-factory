@@ -1911,3 +1911,12 @@ The Factory platform repository, Worklexx-managed customer projects and customer
 **Required POCs:** POC-REP-08-01 through POC-REP-08-12 cover workflow permissions, untrusted PR isolation, dependency integrity, scanning, SBOMs, artifact integrity/provenance, build/cache isolation, tenant isolation, credential protection, release/publication separation, compromised dependency/workflow scenarios and audit traceability.
 
 **Scope limitation:** Architectural direction only. No CI/CD activation, repository configuration, credentials, signing keys, paid services, infrastructure, production builds, artifact publication, releases, deployments or Phase 1 work is authorised. Applicable HD-08 gates remain mandatory.
+
+
+## HD-REP-09 — Observability and Audit Governance Workstream
+
+**Approved architectural direction (2026-11-20):** establish provider-independent repository and platform audit coverage, protected evidence storage, privacy-aware event handling, security-event monitoring, alert escalation, investigation and customer-scoped audit access. Preserve the distinction between Worklexx-managed and customer-managed repositories. This workstream does not add a seventh backend deployable.
+
+**Prerequisites before operational reliance:** define event schemas and source coverage; assess provider audit APIs and gaps; specify event retention and legal-hold rules; establish privacy/redaction requirements; validate tenant/project isolation; define detection, severity and incident workflows; and complete POC-REP-09-01 through POC-REP-09-12 with retained evidence and remediation. Tool selection and operational design remain subject to separate review.
+
+**Authorisation boundary:** roadmap inclusion is not implementation authority. No telemetry/webhook activation, GitHub audit configuration, SIEM subscription, spending, infrastructure, credentials, customer connections, production integration, automated incident response or Phase 1 activity is authorised. Applicable HD-08 gates and separate Project Owner approvals remain mandatory.

@@ -1594,3 +1594,30 @@ The Risk Register is intended to provide a traceable foundation for risk assessm
 
 **Risk status:** Identified — likelihood, impact and residual score require formal assessment. Proposed controls do not reduce residual risk until implemented and evidenced. Risk acceptance remains exclusively with the Project Owner under HD-07.
 undefined
+
+### RSK-29 — Incomplete, Altered, Exposed or Inadequately Monitored Audit Evidence
+
+**Category:** Security, Governance, Privacy, Operational Resilience and Customer Trust
+
+**Risk statement:** Audit events may be missing, inaccurate, delayed, altered, exposed, improperly retained or unavailable during an investigation because event sources are incomplete, identities or timestamps are unreliable, provider audit capabilities are limited, audit storage is insufficiently protected, monitoring is ineffective, or tenant boundaries are not enforced.
+
+**Potential causes:** Incomplete event-source coverage; inconsistent schemas; clock drift; shared or overprivileged audit administration; mutable/deletable logs; inadequate integrity verification; secrets or sensitive content in logs; missing provider events; alert fatigue or detection gaps; weak retention/legal-hold processes; compromised credentials; insufficient backup/restore testing; or cross-tenant access defects.
+
+**Potential consequences:** Inability to attribute consequential actions; delayed or missed detection of compromise; loss of evidence for incident response, disputes, legal or regulatory inquiries; exposure of customer or personal information; unauthorised cross-tenant disclosure; ineffective governance assurance; and reduced customer trust.
+
+**Proposed controls:**
+- Implement approved HD-REP-09 event coverage and a versioned event envelope with reliable actor, scope, action, outcome, timestamp and correlation metadata.
+- Use independently protected append-only or tamper-evident audit storage, cryptographic integrity checks, encryption, least privilege, separation of duties and audit-store access logging.
+- Minimise collected data; redact secrets and sensitive content; separate operational telemetry from security audit evidence.
+- Enforce tenant/project isolation and customer-scoped visibility/export; document customer-managed provider visibility and responsibility limitations.
+- Establish risk-based detection, severity, escalation, incident investigation, evidence preservation, retention, legal hold and controlled disposal.
+- Protect audit evidence through HD-REP-07 backup/recovery and validate restoration and integrity.
+- Complete POC-REP-09-01 through POC-REP-09-12, including negative tenant-access tests and AI-agent prohibited-action tests.
+
+**Risk assessment:** Likelihood, impact, inherent score and residual score are **Pending formal assessment**. Do not infer a numeric score or claim that proposed controls reduce residual risk before implementation and evidence.
+
+**Risk owner:** Project Owner pending assignment of operational control owners.
+
+**Status:** Identified — assessment and control implementation pending.
+
+**Related decisions:** HD-07, HD-08, HD-REP-05, HD-REP-07, HD-REP-08 and HD-REP-09.
