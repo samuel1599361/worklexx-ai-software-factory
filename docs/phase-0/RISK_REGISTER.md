@@ -1754,3 +1754,12 @@ Project Owner remains sole initial risk acceptance and approval authority under 
 **Likelihood/impact/inherent/residual score:** Pending formal assessment. Proposed or unimplemented controls do not reduce residual risk until implemented and evidenced.
 **Status:** Identified; assessment and implementation pending.
 **Related decisions:** HD-07, HD-08, HD-03, HD-04, HD-06, HD-REP-08, HD-REP-09, HD-REP-11, HD-REP-12, HD-REP-13, HD-REP-14 and HD-REP-15.
+
+
+### RSK-36 — Credential Exposure, Cryptographic Compromise and Unauthorised API Access
+**Description:** Exposure, theft, misuse, weak lifecycle management or compromise of API credentials, tokens, service identities, secrets, encryption/signing keys or certificates may enable unauthorised API access, cross-tenant/customer data exposure, fraudulent webhook processing, agent privilege escalation, artifact/provenance tampering, service disruption, financial loss and legal or regulatory consequences.
+**Proposed controls:** Centralised controlled secrets/key lifecycle; least privilege and short-lived scoped credentials; workload identity; token validation and revocation; purpose-separated keys; protected private/signing keys; encryption in transit/at rest; secure certificate lifecycle; secret scanning; service-side authorisation and tenant/project isolation; webhook authenticity/replay protection; log redaction; independent signature verification; compromise containment, rotation and recovery; audit/monitoring; adversarial POC validation.
+**Likelihood/impact/inherent/residual score:** Pending formal assessment. Proposed or unimplemented controls do not reduce residual risk until implemented and evidenced.
+**Status:** Identified; assessment and implementation pending.
+**Related decisions:** HD-07, HD-08, HD-REP-05, HD-REP-07, HD-REP-08, HD-REP-09, HD-REP-11, HD-REP-12, HD-REP-13, HD-REP-14, HD-REP-15 and HD-REP-16.
+
