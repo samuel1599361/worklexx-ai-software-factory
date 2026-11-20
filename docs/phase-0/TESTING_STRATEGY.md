@@ -487,9 +487,20 @@ Migration testing should cover:
 - Rollback or recovery procedures.
 - Expand-and-contract migrations.
 - Data integrity.
-- Migration execution permissions.
+- Migration execution permissions and service-owned schema boundaries.
+- Independent migration-history integrity, immutable identifiers and checksum verification.
+- Least-privilege migration identities and absence of DDL privileges in runtime credentials.
+- Attempts to modify another service's schema must be denied.
+- Concurrent migration attempts, migration locks, bounded timeouts and interrupted execution.
+- Fresh installation and upgrade from every supported prior schema version.
+- Rolling-deployment compatibility while old and new application versions coexist.
+- Transactional behavior where supported and forward-fix recovery where rollback is unsafe.
+- Backup/PITR readiness, restoration, and post-recovery integrity checks.
+- Tenant RLS policy preservation and adversarial cross-tenant tests before, during, and after migration.
+- `billing-ledger` double-entry integrity, immutable history, idempotency, and reconciliation after migration.
+- Migration audit evidence, including approval references, actor, target, versions, checksum, result and recovery actions.
 
-Destructive database operations must require GATE-05.
+Destructive database operations must require GATE-05. Production migration activity also requires applicable GATE-03 authorization. Test execution does not authorize production migration execution.
 
 ## 11. Financial Integrity and Payment Testing
 

@@ -1315,22 +1315,23 @@ Delays in these dependencies may affect multiple downstream phases.
 
 ## 17. Human Decisions Required Before or During Implementation
 
-The following decisions remain unresolved and must be formally recorded.
+The following decisions have been recorded. Their architectural approval does not remove implementation validation, separate operational approvals, or phase-gate requirements.
 
-| Decision ID | Decision | Required Outcome |
+| Decision ID | Decision | Recorded outcome |
 |---|---|---|
-| HD-01 | Identity provider | Select managed or internally operated IdP |
-| HD-02 | Workflow engine | Select Temporal Cloud, self-hosted Temporal, or approved alternative |
-| HD-03 | Cloud regions | Approve primary and disaster recovery regions |
-| HD-04 | Backend topology | Confirm the six deployable service units |
-| HD-05 | Vector dimensions | Validate and approve embedding dimension, including the proposed 3072 baseline |
-| HD-06 | Recovery objectives | Approve RPO and RTO |
-| HD-07 | Risk authority | Identify risk acceptance authority and delegation |
-| HD-08 | Approval gates | Define GATE-01 through GATE-06 and their enforcement |
+| HD-01 | Identity provider | Approved — managed identity-provider approach; provider and implementation validation remain required |
+| HD-02 | Workflow engine | Approved — Temporal Cloud preferred initially, conditional on POC and due diligence |
+| HD-03 | Cloud regions | Approved architectural direction — AWS Cape Town primary and Ireland DR; legal, security, POC and operational validation remain required |
+| HD-04 | Backend topology | Approved — six logical deployable backend services; physical topology validation remains required |
+| HD-05 | Vector storage | Approved — PostgreSQL with pgvector preferred initially; model/use-case-specific dimensions and POC-05 required |
+| HD-06 | Recovery objectives | Approved — tiered RPO/RTO architectural objectives; POC-15 and operational validation required |
+| HD-07 | Risk authority | Approved — Project Owner is sole initial risk acceptance authority; no delegation |
+| HD-08 | Approval gates | Approved — six independent gates; Project Owner is sole initial approval authority |
+| HD-REP-06 | Database schema and migration governance | Approved — service-owned schemas and independent migration histories across all six backend services; implementation and execution remain separately controlled |
 
 Additional decisions may be added through the Architecture Decision Record process.
 
-No unresolved decision should be silently converted into an approved implementation assumption.
+Any remaining decisions, implementation details, or validation conditions must be recorded explicitly; approval of an architectural direction must not be silently converted into implementation or execution authorization.
 
 ---
 

@@ -1016,60 +1016,72 @@ The database must track the lifecycle sufficiently to prevent deleted or unautho
 
 ## 17. Database Migrations and Schema Evolution
 
-### 17.1 Migration ownership
+### 17.1 Service ownership and independent migration histories
 
-Each service must own or explicitly coordinate its schema migrations.
+Each of the six deployable backend services owns its authoritative schema, migration scripts, migration metadata/version history, and migration lifecycle:
 
-### 17.2 Migration review
+- `api-gateway`
+- `agent-orchestrator`
+- `multimodal-service`
+- `sandbox-runner`
+- `billing-ledger`
+- `adtech-service`
+
+Each service maintains an independent, ordered migration history with immutable migration identifiers and checksums. A service must not independently modify another service's authoritative schema. No global migration history or unrestricted central migration runner is adopted by this decision.
+
+This is a logical ownership boundary, not a physical topology decision. A shared PostgreSQL cluster or database remains possible if restricted schemas, service-specific roles, tenant isolation, and controlled interfaces are enforced. Six physical databases are not required.
+
+### 17.2 Migration review and compatibility
 
 Migrations must be reviewed for:
 
-- Data integrity.
-- Tenant isolation.
-- Backward compatibility.
-- Locking and downtime risk.
-- Index creation impact.
-- Data volume.
-- Rollback or recovery.
-- Security consequences.
-- Financial-history preservation.
+- Data integrity and tenant isolation.
+- Backward compatibility across supported application versions.
+- Locking, bounded execution time, and downtime risk.
+- Index creation impact and data volume.
+- Transaction boundaries and concurrency.
+- Rollback safety or forward-fix/recovery.
+- Security and privilege consequences.
+- Financial-history preservation and reconciliation.
+- Affected services, API/event consumers, and deployment sequence.
+
+Cross-service data exchange should use authorised APIs, events, or controlled read models rather than direct coupling to another service's authoritative tables.
 
 ### 17.3 Expand-and-contract approach
 
 Where possible, breaking schema changes should follow an expand-and-contract approach:
 
 1. Introduce backward-compatible schema changes.
-2. Deploy compatible application code.
-3. Migrate existing data.
-4. Verify the new representation.
-5. Remove obsolete structures only after dependent versions have been retired.
+2. Deploy application versions that support the old and new representations.
+3. Migrate or backfill existing data in controlled, observable batches where appropriate.
+4. Verify data integrity, application compatibility, and dependent consumers.
+5. Remove obsolete structures only after dependent versions and consumers have been retired and the removal is separately authorised.
 
-### 17.4 Destructive migrations
+Use migration locks and bounded timeouts to prevent conflicting execution. Prefer transactional migrations where supported. Do not assume application-code rollback reverses a schema or data migration.
 
-Destructive migrations require explicit review and authorization.
+### 17.4 Destructive migrations and approval gates
+
+Destructive migrations require impact analysis, explicit review, verified backup/recovery readiness, and authorization under HD-08 GATE-05. Production migration activity also requires applicable GATE-03 authorization. A migration design approval, code review, or PR merge is not execution authorization.
 
 They must not be executed merely because a development tool or AI agent recommends them.
 
-### 17.5 Migration credentials
+### 17.5 Migration credentials and privileges
 
-Migration credentials must be separate from ordinary application credentials.
+Migration credentials must be separate from ordinary application credentials. Each service's migration identity must be restricted to its owned schema. Runtime application credentials must not have DDL/schema-changing privileges. Credentials must be protected and used only through separately approved deployment or maintenance procedures.
 
-They must be restricted, protected, and used only through approved deployment or maintenance procedures.
+### 17.6 Migration evidence and recovery
 
-### 17.6 Migration evidence
+Migration execution, when separately authorized, must record:
 
-Migration execution must record:
+- Service and migration identifier/checksum.
+- Target environment and database/schema.
+- Source and target application/schema versions.
+- Execution time, duration, and authorised actor/service.
+- Approval references and execution result.
+- Integrity/compatibility verification.
+- Errors, lock/timeout events, and recovery or forward-fix action.
 
-- Migration identifier.
-- Target database.
-- Execution time.
-- Authorized actor or service.
-- Result.
-- Relevant version.
-- Error details.
-- Recovery action where necessary.
-
-No migration is authorized by this Phase 0 document.
+Plans must address backup/PITR readiness, restoration dependencies, data integrity, and safe forward recovery. No migration is authorised by this Phase 0 document.
 
 ## 18. Indexing and Query Performance
 
@@ -1520,14 +1532,14 @@ The architecture defines:
 - Protected audit history.
 - pgvector as a candidate vector-storage extension.
 - Object-storage metadata and quarantine requirements.
-- Controlled migrations.
+- Service-owned migration histories and controlled schema evolution.
 - Backup, restoration, retention, and deletion requirements.
 
 The following remain unresolved:
 
 - PostgreSQL version and hosting.
 - Physical database topology.
-- Final service schema ownership.
+- Final physical database/schema topology and service deployment connectivity.
 - pgvector version and configuration.
 - Embedding model and dimension.
 - Database regions.

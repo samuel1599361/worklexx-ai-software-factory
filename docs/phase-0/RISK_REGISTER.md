@@ -1257,6 +1257,46 @@ The initial priority column is a planning classification, not a completed risk a
 
 ---
 
+### RSK-26 — Schema Migration Drift, Cross-Service Modification, or Unsafe Migration Execution
+
+**Category:** Data Integrity, Security, and Operational Resilience
+
+**Risk statement:** A service migration may alter another service's authoritative schema, execute with excessive privileges, conflict with another migration, break rolling-version compatibility, or cause data loss/inconsistency.
+
+**Potential causes:**
+- Shared or unrestricted migration credentials.
+- A global migration history that obscures service ownership.
+- Runtime credentials with DDL privileges.
+- Concurrent migrations without effective locking.
+- Unreviewed destructive changes or incomplete impact analysis.
+- Incompatible schema and application release sequencing.
+- Missing backup, PITR, integrity checks, or forward-fix planning.
+- Tenant RLS or financial invariants unintentionally weakened during schema evolution.
+
+**Potential consequences:**
+- Cross-service data corruption or outage.
+- Tenant-isolation failure or unauthorised data access.
+- Failed releases and prolonged recovery.
+- Lost, duplicated, or inconsistent financial records.
+- Incomplete audit history and regulatory/contractual exposure.
+
+**Proposed controls:**
+- Enforce HD-REP-06 service-owned schemas and independent migration histories for all six backend services.
+- Restrict each migration identity to its owned schema; remove DDL privileges from runtime identities.
+- Use immutable migration identifiers/checksums, review, migration locks, bounded timeouts, and transactional execution where supported.
+- Use expand-and-contract changes and validate compatibility across supported rolling application versions.
+- Require impact analysis, backup/PITR readiness, integrity checks, and forward-fix/recovery plans.
+- Apply GATE-05 to destructive migrations and applicable GATE-03 approval to production migration activity.
+- Test cross-service schema boundaries, tenant RLS, failure recovery, and `billing-ledger` reconciliation.
+
+**Monitoring indicators:** Migration checksum mismatch, migration lock conflicts, DDL attempts by runtime identities, cross-schema DDL attempts, failed migration rate, schema/application version incompatibility, restore-test failures, and ledger reconciliation differences.
+
+**Accountability:** Database and service owners to be designated.
+
+**Status:** Open — mitigation planned; controls are architectural requirements and are not yet implemented or validated.
+
+**Assessment:** Formal likelihood, impact, and residual scoring pending.
+
 ## 10. Cross-Cutting Risk Controls
 
 The following control areas apply across multiple risks and must be treated as platform-wide requirements.
@@ -1406,14 +1446,15 @@ The following decisions remain unresolved and must be addressed by the appropria
 
 | Decision ID | Decision Required | Why It Matters | Status |
 |---|---|---|---|
-| HD-01 | Select the identity-provider approach | Determines identity ownership, MFA, session, and recovery architecture | Pending |
+| HD-01 | Select the identity-provider approach | Determines identity ownership, MFA, session, and recovery architecture | Approved — managed identity-provider approach; validation remains required |
 | HD-02 | Select Temporal Cloud or self-hosted deployment | Determines workflow operations, availability, cost, and recovery | Approved — Temporal Cloud preferred initially, conditional |
 | HD-03 | Approve primary and disaster-recovery regions | Determines data residency, latency, and recovery design | Approved architectural direction — AWS Cape Town primary, Ireland DR; validations pending |
-| HD-04 | Confirm the six-deployable backend topology | Establishes the approved deployment boundary | Pending |
-| HD-05 | Validate pgvector embedding dimension and configuration | Affects storage, indexing, retrieval, and compatibility | Pending |
-| HD-06 | Approve platform RPO and RTO | Determines backup and disaster-recovery requirements | Pending |
-| HD-07 | Designate risk acceptance authority | Establishes who may accept residual risk and under what conditions | Pending |
-| HD-08 | Define GATE-01 through GATE-06 | Establishes approval requirements and separation of duties | Pending |
+| HD-04 | Confirm the six-deployable backend topology | Establishes the approved deployment boundary | Approved — six logical deployables; physical topology validation remains required |
+| HD-05 | Validate pgvector embedding dimension and configuration | Affects storage, indexing, retrieval, and compatibility | Approved — PostgreSQL/pgvector preferred initially; model-specific dimensions and POC-05 required |
+| HD-06 | Approve platform RPO and RTO | Determines backup and disaster-recovery requirements | Approved — tiered architectural objectives; POC-15 and operational validation required |
+| HD-07 | Designate risk acceptance authority | Establishes who may accept residual risk and under what conditions | Approved — Project Owner is sole initial risk acceptance authority; no delegation |
+| HD-08 | Define GATE-01 through GATE-06 | Establishes approval requirements and separation of duties | Approved — six independent gates; Project Owner is sole initial approval authority |
+| HD-REP-06 | Establish service-owned schema and migration governance | Prevents schema drift, cross-service privilege, and unsafe migration execution | Approved — independent schema ownership and migration histories for all six services; implementation validation and GATE-03/GATE-05 controls remain required |
 
 These decisions must be recorded through the appropriate governance process and, where applicable, the ADR Register.
 
@@ -1486,9 +1527,9 @@ The existence of this register does not establish that the platform is secure, c
 
 **Version:** 1.0.
 
-**Risk baseline:** 25 identified risks, RSK-01 through RSK-25.
+**Risk baseline:** 26 identified risks, RSK-01 through RSK-26.
 
-**Risk acceptance authority:** Pending explicit designation.
+**Risk acceptance authority:** Project Owner — sole risk acceptance authority during the initial governance phase under HD-07; no delegation.
 
 **Formal risk assessment:** Outstanding for risks not assigned a validated score.
 
