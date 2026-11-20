@@ -1232,3 +1232,14 @@ Agents may perform authorised inspection, tests, scanning, SBOM/provenance prepa
 **Required validation:** POC-REP-08-01 through POC-REP-08-12 must test workflow least privilege, untrusted PR isolation, lockfile integrity, security scanning, SBOMs, checksums/signatures/provenance, build/cache isolation, tenant isolation, credential protection, release/publication separation, compromised dependency/workflow scenarios and audit/recovery traceability.
 
 **Scope limitation:** Architectural approval only. No workflow activation, GitHub settings change, app installation, credential/signing-key creation, paid service, infrastructure provisioning, production build, artifact publication, release, deployment, customer Git-account connection, migration execution or Phase 1 is authorised. Applicable validation and separate HD-08 approvals remain mandatory.
+
+
+## HD-REP-09 — Repository Observability, Audit Logging and Security-Event Monitoring Governance
+
+The Project Owner approved a provider-independent, privacy-aware observability and audit architecture on 2026-11-20. It covers Factory source and customer-generated repositories, with distinct responsibility for Worklexx-managed and customer-managed hosting. Required event domains include identity/access, repository and Git activity, pull requests and reviews, workflows, AI-agent actions, supply-chain and artifact events, releases, integrations, backup/recovery, deletion/retention and governance decisions.
+
+Use a versioned event envelope with actor, tenant/project/repository scope, action/resource/outcome, timestamps and time-source metadata, originating service/workflow, correlation identifiers, authorisation/approval references and relevant commit/artifact references. Protect audit evidence through independently protected append-only or tamper-evident storage, integrity verification, encryption, least privilege, separation of duties, access auditing and HD-REP-07 recovery controls. Minimise data and redact secrets and sensitive content.
+
+Define security detection, severity, escalation, investigation and evidence-preservation procedures. Customers may inspect/export only their own available project history. Worklexx records customer-managed provider events only within authorised integration visibility; provider-side audit responsibility remains with the customer. AI agents may analyse and prepare evidence but cannot approve gated actions, accept risks, alter protected evidence, change retention or bypass controls.
+
+Validation is required under POC-REP-09-01 through POC-REP-09-12. RSK-29 records the risk of incomplete, altered, exposed or inadequately monitored audit evidence. HD-07 and HD-08 remain controlling. This is architectural approval only: no monitoring activation, provider configuration, SIEM purchase, infrastructure, credentials, customer connections, production integration or Phase 1 is authorised.
