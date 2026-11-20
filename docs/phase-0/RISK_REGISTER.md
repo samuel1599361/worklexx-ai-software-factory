@@ -1455,6 +1455,7 @@ The following decisions remain unresolved and must be addressed by the appropria
 | HD-07 | Designate risk acceptance authority | Establishes who may accept residual risk and under what conditions | Approved — Project Owner is sole initial risk acceptance authority; no delegation |
 | HD-08 | Define GATE-01 through GATE-06 | Establishes approval requirements and separation of duties | Approved — six independent gates; Project Owner is sole initial approval authority |
 | HD-REP-06 | Establish service-owned schema and migration governance | Prevents schema drift, cross-service privilege, and unsafe migration execution | Approved — independent schema ownership and migration histories for all six services; implementation validation and GATE-03/GATE-05 controls remain required |
+| HD-REP-07 | Establish repository backup, disaster recovery and restoration governance | Reduces repository/data loss, incomplete recovery, provider dependency and cross-tenant restore exposure | Approved — layered provider-independent architecture; implementation and recovery testing remain required |
 
 These decisions must be recorded through the appropriate governance process and, where applicable, the ADR Register.
 
@@ -1527,7 +1528,7 @@ The existence of this register does not establish that the platform is secure, c
 
 **Version:** 1.0.
 
-**Risk baseline:** 26 identified risks, RSK-01 through RSK-26.
+**Risk baseline:** 27 identified risks, RSK-01 through RSK-27.
 
 **Risk acceptance authority:** Project Owner — sole risk acceptance authority during the initial governance phase under HD-07; no delegation.
 
@@ -1540,3 +1541,28 @@ The existence of this register does not establish that the platform is secure, c
 **Implementation authority:** This document does not authorise Phase 1 or any production activity.
 
 The Risk Register is intended to provide a traceable foundation for risk assessment, mitigation planning, governance decisions, and future operational assurance.
+
+### RSK-27 — Repository Backup Failure, Incomplete Recovery, or Cross-Tenant Restoration
+
+**Category:** Operational Resilience, Security, Data Protection and Customer Trust
+
+**Risk statement:** Repository content, Git LFS objects, development metadata, release artifacts or associated project records may be lost, corrupted, exposed or incompletely restored because backups are absent, inconsistent, inaccessible, compromised, provider-dependent or insufficiently tested. A restore may also overwrite newer work or breach tenant/project boundaries.
+
+**Potential causes:** Reliance on Git hosting alone; incomplete capture of metadata/LFS/artifacts; shared backup credentials; mutable or same-account-only copies; unverified encryption-key recovery; unclear customer-managed hosting responsibilities; inadequate retention/legal-hold handling; untested restore procedures; inconsistent snapshots; or insufficient tenant-aware restore controls.
+
+**Potential consequences:** Permanent source/history or metadata loss, prolonged Factory/customer-project outage, supply-chain compromise, unauthorised cross-tenant disclosure, failed customer export, contractual/privacy exposure, and inability to establish trustworthy release provenance.
+
+**Proposed controls:**
+- Apply approved HD-REP-07 protection classes, backup scope, retention and recovery objectives.
+- Maintain multiple independently controlled copies, including off-site and immutable/deletion-resistant protection.
+- Separate backup identities, encryption keys and administrative duties from ordinary repository accounts.
+- Verify Git refs/objects, Git LFS, supported metadata, artifacts, checksums and project mappings independently.
+- Enforce tenant/project isolation in backup storage, restore workflows, credentials, jobs and artifact delivery; run negative cross-tenant tests.
+- Document Worklexx-managed versus customer-managed hosting responsibilities, export, disconnection and provider limitations.
+- Exercise isolated restoration, ransomware/deletion scenarios, portability, retention/legal holds and measured RPO/RTO; retain evidence and remediate failures.
+- Prevent silent overwrite of newer customer work; use controlled reconciliation.
+
+**Validation evidence required:** Successful restore exercises for each repository class; integrity/checksum reports; LFS and metadata recovery evidence; tenant-isolation tests; key-recovery evidence; provider-outage/export test; retention/legal-hold tests; measured RPO/RTO; and approved customer responsibility terms.
+
+**Risk status:** Identified — residual likelihood, impact and score require formal assessment. Proposed controls do not reduce residual risk until implemented and evidenced. Risk acceptance remains exclusively with the Project Owner under HD-07.
+
