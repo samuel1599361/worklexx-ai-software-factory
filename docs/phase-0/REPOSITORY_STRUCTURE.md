@@ -1101,7 +1101,7 @@ The following table records the approval status of repository architecture decis
 | HD-REP-01 | Final monorepo tooling and workspace strategy | Approved — architectural direction only (2026-11-19) |
 | HD-REP-02 | Final Python dependency and lockfile tooling | Approved — architectural direction only (2026-11-19) |
 | HD-REP-03 | Branching, integration and release strategy | Approved — architectural direction only (2026-11-20) |
-| HD-REP-04 | Final ownership and approval rules for protected repositories | Pending |
+| HD-REP-04 | Final ownership and approval rules for protected repositories | Approved — architectural direction only (2026-11-20) |
 | HD-REP-05 | Final generated-project repository isolation model | Pending |
 | HD-REP-06 | Final service-owned migration organization | Pending |
 | HD-REP-07 | Final repository backup and recovery strategy | Pending |
@@ -1182,3 +1182,8 @@ The proposed directory structure is an architectural target, not evidence that t
 - **Release strategy:** Independently version the six backend deployable services and five frontend applications. Use component-specific release tags, release notes, artifact provenance and compatibility controls. Apply Semantic Versioning where applicable.
 - **Release branches:** Temporary only, justified by stabilisation, certification, coordinated releases or maintenance. Hotfixes must be reconciled back into `main`.
 - **Scope limitation:** This architectural direction does not authorise GitHub branch-protection configuration, CI/CD implementation, release automation/tool selection, release creation, deployment, infrastructure provisioning or Phase 1. These require validation and separate approval.
+
+
+## HD-REP-04 — Approved Repository Ownership and Governance Direction (2026-11-20)
+
+The Project Owner approved the organisation-owned repository model when Worklexx's GitHub organisation is established and repository transfer is separately authorised. Until then, the repository remains in its current location. Access shall follow least privilege, with minimum necessary administrators, scoped collaborators and automation, no shared credentials, and periodic access review. Protect `main` from direct routine pushes, force pushes and deletion; require PRs, independent human review, designated CODEOWNERS review for critical paths and mandatory CI checks once implemented. Prefer squash merging and dismiss stale approvals after material changes. AI agents cannot approve their own changes, accept risks, modify governance settings, grant access or bypass protections. Project Owner remains sole initial governance approval authority, subject to HD-08. This is architectural approval only and does not authorise organisation creation, repository transfer, settings changes, invitations, CI/CD, production deployment or Phase 1.
