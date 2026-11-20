@@ -512,25 +512,26 @@ It may contain:
 
 ### 10.1 Service ownership
 
-Each service must own its data model and migration responsibilities.
+Each of the six deployable backend services must own its authoritative schema, migration scripts, migration metadata/version history, and migration lifecycle:
 
-The repository must make service ownership explicit.
+- `api-gateway`
+- `agent-orchestrator`
+- `multimodal-service`
+- `sandbox-runner`
+- `billing-ledger`
+- `adtech-service`
 
-A central directory does not grant every service permission to modify every schema.
+A service must not independently modify another service's authoritative schema. The repository must make ownership explicit. A shared PostgreSQL cluster or database remains possible; service ownership does not require six physical database servers. A central coordination mechanism, if later introduced, must not have unrestricted authority over every schema.
 
 ### 10.2 Migration governance
 
-Migrations must be:
+Each service maintains an independent, ordered and auditable migration history with immutable migration identifiers and checksums. Migrations must be version-controlled, reviewed, reproducible, tested against supported application versions, and compatible with rolling deployment.
 
-- Version-controlled.
-- Reviewed.
-- Tested.
-- Ordered.
-- Reproducible.
-- Auditable.
-- Compatible with the deployment strategy.
+Use expand-and-contract changes where practicable. Use migration locks, bounded timeouts, and transactional execution where supported. Separate migration identities from runtime credentials; each migration identity is restricted to its owned schema, and runtime credentials have no DDL privileges. A code rollback must not be assumed to reverse a schema or data migration.
 
-Destructive changes require an explicit migration and recovery plan.
+Cross-service changes must identify affected services, API/event consumers, compatibility windows, and deployment sequence. Prefer authorised APIs, events, or controlled read models over direct cross-service schema coupling.
+
+Destructive changes require impact analysis, explicit authorization under GATE-05, and a documented backup/recovery or forward-fix plan. Production execution additionally requires applicable GATE-03 authorization. Approval of a migration design or PR is not execution authorization.
 
 ### 10.3 Tenant isolation
 
@@ -1103,7 +1104,7 @@ The following table records the approval status of repository architecture decis
 | HD-REP-03 | Branching, integration and release strategy | Approved — architectural direction only (2026-11-20) |
 | HD-REP-04 | Final ownership and approval rules for protected repositories | Approved — architectural direction only (2026-11-20) |
 | HD-REP-05 | Final generated-project repository isolation model | Approved — architectural direction only (2026-11-20) |
-| HD-REP-06 | Final service-owned migration organization | Pending |
+| HD-REP-06 | Service-owned schema and migration governance across six deployable services | Approved — architectural direction only (2026-11-20) |
 | HD-REP-07 | Final repository backup and recovery strategy | Pending |
 
 These repository-specific decisions use the `HD-REP-` prefix to distinguish them from platform-wide `HD-01` through `HD-08`, which are maintained in the architecture documents and ADR register. Platform-wide `HD-08` remains the authoritative decision for final approval-gate definitions and approval authority.
@@ -1200,3 +1201,8 @@ Repository access is mediated by a permission-controlled layer. Agents receive o
 Generated customer software must be distinguished from Worklexx proprietary platform source, reusable platform components/templates, and third-party licensed components. Customer export, hosting connection/transfer, disconnection, and revocation must be authenticated, authorized, audited, and validated.
 
 **Scope limitation:** Architectural approval only. No repository provisioning, customer-account connection, OAuth/app installation, subscription/spending, migration, production implementation, Factory repository change beyond this controlled documentation update, or Phase 1 execution is authorized. Provider integration, isolation, permissions, security, portability, legal/licensing, backup and recovery controls require validation and applicable separate approvals.
+
+
+## HD-REP-06 — Approved Service-Owned Schema and Migration Direction (2026-11-20)
+
+The Project Owner approved independent schema ownership and migration histories for all six deployable backend services. Each service owns its authoritative schema, migration scripts, migration metadata and lifecycle. Runtime credentials must not have DDL privileges; migration identities must be separately scoped to the service-owned schema. Expand-and-contract changes, compatibility across rolling releases, migration locks, immutable identifiers/checksums, audit evidence, backup/recovery and forward-fix planning are required architectural controls. A shared PostgreSQL cluster remains possible; six physical databases are not mandated. Cross-service changes must be coordinated through explicit compatibility and deployment planning, with APIs/events/read models preferred over direct schema coupling. `billing-ledger` requires additional financial-integrity and reconciliation validation. GATE-05 governs destructive migrations and GATE-03 applies to production deployment; neither documentation approval nor PR review authorises execution. This decision does not authorise schema changes, credential or permission changes, migration execution, CI/CD activation, infrastructure provisioning, production deployment or Phase 1.
