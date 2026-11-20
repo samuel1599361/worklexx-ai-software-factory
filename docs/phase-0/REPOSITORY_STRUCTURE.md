@@ -1100,7 +1100,7 @@ The following table records the approval status of repository architecture decis
 |---|---|---|
 | HD-REP-01 | Final monorepo tooling and workspace strategy | Approved — architectural direction only (2026-11-19) |
 | HD-REP-02 | Final Python dependency and lockfile tooling | Approved — architectural direction only (2026-11-19) |
-| HD-REP-03 | Final five-tier branching and release strategy | Pending |
+| HD-REP-03 | Branching, integration and release strategy | Approved — architectural direction only (2026-11-20) |
 | HD-REP-04 | Final ownership and approval rules for protected repositories | Pending |
 | HD-REP-05 | Final generated-project repository isolation model | Pending |
 | HD-REP-06 | Final service-owned migration organization | Pending |
@@ -1175,3 +1175,10 @@ It also defines repository security, tenant isolation, dependency management, ge
 The proposed directory structure is an architectural target, not evidence that the directories have been created or validated.
 
 **Phase 0 remains subject to final document verification and explicit Project Owner approval. Phase 1 is not authorized by this document.**
+
+### HD-REP-03 — Approved Branching and Release Direction (2026-11-20)
+
+- **Decision:** Adopt trunk-based development using `main` as the permanent protected integration branch and short-lived feature, fix, and hotfix branches. Require PRs, automated validation and independent human review. Prohibit direct pushes, force pushes and routine bypasses. Prefer squash merging.
+- **Release strategy:** Independently version the six backend deployable services and five frontend applications. Use component-specific release tags, release notes, artifact provenance and compatibility controls. Apply Semantic Versioning where applicable.
+- **Release branches:** Temporary only, justified by stabilisation, certification, coordinated releases or maintenance. Hotfixes must be reconciled back into `main`.
+- **Scope limitation:** This architectural direction does not authorise GitHub branch-protection configuration, CI/CD implementation, release automation/tool selection, release creation, deployment, infrastructure provisioning or Phase 1. These require validation and separate approval.
