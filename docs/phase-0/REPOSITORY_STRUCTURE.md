@@ -1401,3 +1401,15 @@ Business continuity retains HD-06 RPO/RTO targets; no new target supersedes them
 Production agents may analyse authorised telemetry and prepare recommendations, but cannot self-approve, accept risk, alter audit evidence, grant access, perform destructive operations or bypass HD-08. Monitoring, automated remediation and production changes remain separately authorised activities.
 
 Require POC-REP-20-01 through -28 (unexecuted). Add RSK-40; formal risk scores pending. This decision is documentation-only and authorises no production activation, staffing, SLA, infrastructure, subscription/spend, database/configuration change, external integration, live customer-data processing, recovery execution or Phase 1.
+
+
+
+## HD-REP-21 — Customer Support and Service Desk Governance
+
+Record a unified logical customer-support capability covering customer portal/in-app/email intake, governed knowledge base, request/ticket lifecycle, identity and authority verification, classification, assignment, support investigation, escalation, complaints, communications, service-status notices and feedback. These are logical capabilities, not new deployable services; preserve the six approved backend deployables and 23 logical agent modules.
+
+Support records, attachments, diagnostics and communication history must be tenant/project scoped and protected under HD-REP-11. Apply HD-REP-12 identity/resource authorisation, HD-REP-09 audit, HD-REP-13 bounded AI authority, HD-REP-20 incident escalation and HD-REP-10 customer ownership/exit rules. Support access is least-privilege, purpose-bound, time-limited and revocable. No support access implies project ownership or permission to modify customer resources.
+
+Support requests require unique identifiers, accountable ownership, classification, auditable lifecycle and preserved evidence. Security, privacy, financial-integrity, cross-tenant and critical availability concerns escalate to the appropriate specialist and HD-REP-20 incident process. Customer communications must distinguish verified facts from hypotheses and restoration notices require verification. AI may assist intake, knowledge search, classification, summarisation and response drafting within approved scope; it cannot approve gated or consequential actions.
+
+No support platform/vendor, additional backend deployable, staffing model, contractual SLA or production capability is selected or activated by HD-REP-21. Documentation-only; no customer data access, integrations, production changes or Phase 1 authorised.

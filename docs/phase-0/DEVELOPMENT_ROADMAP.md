@@ -2029,3 +2029,13 @@ Add a Phase 0/forward-validation workstream defining service ownership, service-
 Preserve HD-06 RPO/RTO targets; do not represent them as achieved or contractual. Proposed availability and incident-response targets remain unverified planning assumptions. Define evidence requirements and owners for POC-REP-20-01 through POC-REP-20-28. All tests remain unexecuted. Add RSK-40, with formal likelihood, impact, inherent and residual scores pending.
 
 This roadmap entry authorises documentation and future validation planning only. It does not authorise production activation, monitoring, staffing/on-call commitments, SLAs, infrastructure, subscriptions/spending, database/configuration changes, automated remediation, recovery execution or Phase 1.
+
+
+
+## HD-REP-21 — Customer Support and Service Desk Governance Workstream
+
+Add a customer-support workstream covering approved support channels, unified request intake, ticket identifiers and lifecycle, customer identity/authority verification, request classification, ownership, support entitlements, response-target measurement, technical and specialist escalation, formal complaints, customer communications, planned maintenance/service disruption notices, knowledge-base governance, multilingual/accessibility requirements, feedback and support continuity.
+
+Define least-privilege and time-limited support access, tenant/project isolation, attachment security, privacy/retention controls and auditable customer communications. Integrate security/privacy/financial-integrity and critical service cases with HD-REP-20 incident management. AI-assisted support remains permission-controlled and may prepare recommendations/responses but cannot approve gated actions or perform consequential account, financial, project or production operations.
+
+Track POC-REP-21-01 through POC-REP-21-28 as unexecuted requirements. Assign owners, scope, environment, preconditions, expected outcomes, evidence, result, defects and retest before claiming validation. Add RSK-41; formal likelihood, impact, inherent and residual scores pending. Proposed support response targets are unverified planning assumptions, not SLAs. This roadmap entry authorises documentation and future validation planning only; no service desk, vendor, staffing, SLA, integration, live customer-data processing, infrastructure, spending, production change or Phase 1 is authorised.

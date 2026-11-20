@@ -1421,3 +1421,13 @@ Operational telemetry must correlate metrics, logs and traces while respecting H
 The operational architecture must support incident lifecycle/severity management, role assignment, escalation, authorised containment, post-incident reviews, capacity forecasting, controlled runbooks, dependency records and continuity exercises. Preserve HD-06 recovery objectives and verify them through tests before claiming operational capability. No specific monitoring, alerting, paging, incident-management, SIEM or observability technology is selected by HD-REP-20.
 
 Require POC-REP-20-01 through -28; all unexecuted. This decision does not activate monitoring, select or procure tools, create infrastructure, establish staffing/on-call commitments, establish SLAs, change production configuration, or authorise production deployment or Phase 1.
+
+
+
+## HD-REP-21 — Customer Support, Knowledge and Communications Capabilities
+
+The target architecture requires logical capabilities for support request intake and ticket lifecycle, customer identity/authority verification, case classification and routing, support communications, complaints management, governed knowledge-base publishing/search, service-status notices, customer feedback and auditable escalation. Candidate channels include in-app help, customer portal, email, technical documentation and approved urgent escalation routes.
+
+No ticketing/help-desk, CRM, knowledge-base, messaging, email-delivery, translation, status-page or customer-communications vendor/tool is selected. Do not add a seventh backend deployable: support functions must be allocated within existing approved service boundaries through a separately documented design. Any future external provider must undergo HD-REP-11/14/16/18/20 due diligence, data-location and subprocessor review, access-scope assessment, contract review and applicable HD-08 approvals.
+
+AI support may use approved knowledge retrieval, classification, summarisation, response drafting and bounded troubleshooting, subject to HD-REP-13, tenant isolation, human review and auditable tool permissions. Support data must not be placed in unapproved external model contexts. All support and knowledge capabilities remain architectural requirements only; no tooling, accounts, integrations, procurement, production activation or Phase 1 is authorised.

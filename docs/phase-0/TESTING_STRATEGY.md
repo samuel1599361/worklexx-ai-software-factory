@@ -1964,3 +1964,42 @@ The following are required validation cases, not evidence of completed tests. Al
 | POC-REP-20-28 | Independent adversarial operational resilience review |
 
 Each test record must identify owner, scope, environment, preconditions, expected result, evidence, outcome, defects and retest. Preserve HD-06 recovery objectives and align tests with HD-REP-07 through HD-REP-19. Automated monitoring or recovery checks do not replace independent human approval.
+
+
+
+## HD-REP-21 — Customer Support, Service Desk and Customer Communications Validation
+
+The following acceptance requirements are mandatory for future validation. All remain unexecuted; no support capability is considered operationally validated.
+
+| ID | Required validation |
+|---|---|
+| POC-REP-21-01 | Customer support channel identity and integrity |
+| POC-REP-21-02 | Support request creation and unique identification |
+| POC-REP-21-03 | Request classification and routing |
+| POC-REP-21-04 | Ticket lifecycle and state-transition controls |
+| POC-REP-21-05 | Customer identity and request authority verification |
+| POC-REP-21-06 | Tenant and project isolation in support records |
+| POC-REP-21-07 | Least-privilege support access |
+| POC-REP-21-08 | Time-limited support access and revocation |
+| POC-REP-21-09 | Restricted data access and customer authorisation |
+| POC-REP-21-10 | Support attachment security and malware handling |
+| POC-REP-21-11 | Support response-target measurement |
+| POC-REP-21-12 | Priority and production incident classification separation |
+| POC-REP-21-13 | Escalation routing and preservation of ticket evidence |
+| POC-REP-21-14 | Security and privacy incident escalation |
+| POC-REP-21-15 | Financial and billing dispute escalation |
+| POC-REP-21-16 | Customer complaint independence and review |
+| POC-REP-21-17 | Customer communication accuracy and auditability |
+| POC-REP-21-18 | Planned maintenance and disruption notification |
+| POC-REP-21-19 | Incident communication and verified restoration notices |
+| POC-REP-21-20 | AI-assisted support permission enforcement |
+| POC-REP-21-21 | AI response accuracy and unsupported-claim prevention |
+| POC-REP-21-22 | Prompt injection and malicious support attachment resistance |
+| POC-REP-21-23 | Knowledge-base ownership, versioning and retirement |
+| POC-REP-21-24 | Multilingual and accessibility validation |
+| POC-REP-21-25 | Support data privacy, retention and deletion |
+| POC-REP-21-26 | Customer feedback minimisation and analytics |
+| POC-REP-21-27 | Support continuity and service desk recovery |
+| POC-REP-21-28 | Independent adversarial customer-support security review |
+
+Each test record must identify owner, scope, environment, preconditions, expected result, evidence, outcome, defects and retest. Align with HD-REP-05 and HD-REP-07 through HD-REP-20. Support priority must not be conflated with HD-REP-20 incident severity. Automated support responses do not replace independent human approval for consequential actions.
