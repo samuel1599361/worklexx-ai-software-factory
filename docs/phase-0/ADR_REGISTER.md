@@ -1349,6 +1349,7 @@ The following decisions require explicit human resolution.
 | HD-06 | Approve platform RPO and RTO targets | ADR-007, ADR-008, ADR-012 | **Approved — tiered architectural recovery objectives; POC-15 and operational validation required (2026-11-19)** |
 | HD-07 | Designate risk acceptance authority and approval delegation | ADR-011 | **Approved — Project Owner is sole risk acceptance authority during the initial governance phase; no delegation (2026-11-19)** |
 | HD-08 | Define GATE-01 through GATE-06 and their approval requirements | ADR-011 | **Approved — six-gate human approval framework; Project Owner sole approval authority during initial governance phase (2026-11-19)** |
+| HD-REP-06 | Service-owned database schema and migration governance | ADR-003, ADR-007 | **Approved — independent schema ownership and migration histories for all six deployable services; implementation and execution remain separately controlled (2026-11-20)** |
 
 ### HD-01 — Managed Identity-Provider Approach
 
@@ -1603,3 +1604,20 @@ The ADR Register provides the traceable foundation for recording, reviewing, app
 - **Validation conditions:** Before implementation, validate provider integration and API scopes, tenant/project authorization, credential isolation, cross-tenant negative tests, background-job and cache isolation, agent permission enforcement, secret handling, audit completeness, backup/restore, deletion/retention, export/import integrity, customer disconnection/revocation, and applicable legal/licensing terms.
 - **Scope limitation:** This is an architectural decision only. It does not authorise repository provisioning, customer-account connection, OAuth/app installation, provider subscriptions or spending, migration of existing projects, production implementation, changes to the Factory platform repository, or Phase 1 execution. Each consequential operation remains subject to the applicable approval gate and separate authorization.
 - **Approval:** Project Owner explicitly approved this decision on 2026-11-20.
+
+
+## HD-REP-06 — Approved Service-Owned Database Schema and Migration Governance (2026-11-20)
+
+- **Decision:** Approved — adopt service-owned database schema and migration management across all six independently deployable backend services: `api-gateway`, `agent-orchestrator`, `multimodal-service`, `sandbox-runner`, `billing-ledger`, and `adtech-service`.
+- **Ownership:** Each service owns its authoritative schema, migration scripts, migration metadata/version history, and migration lifecycle. A service must not independently modify another service's authoritative schema. No single global migration history or unrestricted central migration runner shall control all service schemas.
+- **Physical topology:** This decision does not require six physical databases or database servers. A shared PostgreSQL cluster or database remains possible, provided schema ownership, restricted roles, service boundaries, tenant isolation, and controlled interfaces are enforced. Final physical database topology remains a separate matter.
+- **Credentials:** Each service's migration identity must be limited to its owned schema. Runtime application credentials must not have DDL/schema-changing privileges. Migration credentials must be separate, protected, narrowly scoped, and used only through separately authorised procedures.
+- **Migration safety:** Use backward-compatible expand-and-contract changes where practicable; sequence schema and application changes to support rolling deployment; use migration locks and controlled timeouts; use transactional migrations where supported; retain immutable migration identifiers/checksums and auditable execution evidence. A code rollback must not be assumed to reverse a schema or data migration.
+- **Recovery:** Every migration plan must address integrity checks, backup/PITR readiness, rollback where safe, forward-fix where rollback is unsafe, and recovery of dependent services. Destructive changes require impact analysis and a documented recovery plan.
+- **Cross-service data:** Prefer authorised APIs, events, and controlled read models over direct cross-service schema coupling. Coordinated changes must identify affected producers, consumers, compatibility windows, and deployment order.
+- **Billing and tenant controls:** `billing-ledger` migrations require additional verification of immutable financial history, double-entry integrity, idempotency, reconciliation, and audit continuity. Tenant relationships, RLS policies, and cross-tenant isolation must remain effective throughout migrations.
+- **Validation:** Validate clean installation, upgrade paths, migration ordering, compatibility across rolling versions, concurrent execution/locking, failure injection, recovery/forward-fix, least-privilege credentials, schema-boundary enforcement, tenant/RLS controls, ledger reconciliation, backup/restore, and audit/checksum integrity.
+- **Governance:** GATE-05 applies to destructive database operations and migrations within its approved scope. Production migration activity also requires GATE-03. A documentation approval, code review, or migration PR does not itself authorise execution. The Project Owner remains sole initial gate approval authority under HD-08.
+- **Scope limitation:** Architectural decision only. No database or schema creation/modification, credential creation, permission changes, migration execution, CI/CD activation, infrastructure provisioning, spending, production deployment, or Phase 1 implementation is authorised.
+- **Decision-maker:** Project Owner.
+- **Decision date:** 2026-11-20.
