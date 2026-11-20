@@ -2005,3 +2005,9 @@ Add a Phase 0 architecture and validation workstream for application security ac
 Proposed internal vulnerability remediation/mitigation objectives are Critical 24 hours, High 7 calendar days, Medium 30 calendar days and Low 90 calendar days. These are not SLAs; contextual severity, active exploitation and exposure may require faster action. Exceptions require documented compensating controls, owner, expiry/review and Project Owner risk acceptance under HD-07. Critical findings require immediate escalation and assessment of whether affected activity must stop or be suspended.
 
 Track POC-REP-17-01 through POC-REP-17-24 in TESTING_STRATEGY.md. All remain unexecuted and must not be reported as passed. Add RSK-37 to RISK_REGISTER.md; formal scores remain pending. This roadmap entry is documentation/planning only and does not authorise tool installation, CI/CD activation, source changes, external testing, infrastructure, spending, live data processing, production deployment or Phase 1.
+
+---
+
+## HD-REP-18 — Configuration and Environment Governance (Approved 2026-11-21)
+
+Add configuration and environment governance as a Phase 0 architecture validation workstream. The intended logical environments are Development, Testing, Staging and Production, with independent configuration and access boundaries. Before Phase 1, define configuration ownership/contracts, classification, schema validation, secret references, feature-flag controls, deployment provenance, drift detection, rollback/recovery and customer-project isolation. Track POC-REP-18-01 through POC-REP-18-24 as unexecuted acceptance requirements, with owners, scope, preconditions, expected results, evidence, outcomes, defects and retest records. No environment provisioning, configuration application, CI/CD activation, paid service, production deployment or Phase 1 implementation is authorised by this decision.

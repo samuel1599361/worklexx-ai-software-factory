@@ -1782,3 +1782,15 @@ Project Owner remains sole initial risk acceptance and approval authority under 
 **Validation:** POC-REP-17-01 through POC-REP-17-24; all unexecuted. **Owner:** Project Owner to assign accountable operational/security owners when implementation is separately authorised. **Status:** Open — assessment and implementation pending.
 
 **Governance boundary:** This risk entry and HD-REP-17 do not authorise source changes, security-tool activation, CI/CD, external testing, infrastructure, spending, credentials, live customer-data processing, production deployment or Phase 1. HD-07/HD-08 apply.
+
+---
+
+## RSK-38 — Configuration Exposure, Environment Contamination and Deployment Misconfiguration
+
+**Risk statement:** Insecure, incorrect, inconsistent or unauthorised configuration may expose sensitive information, weaken security controls, connect applications to incorrect services, compromise environment isolation or cause operational failures.
+
+**Potential consequences:** Production credential leakage; cross-environment or cross-tenant exposure; unauthorised service access; insecure API/deployment exposure; financial processing errors; agent execution outside approved limits; service disruption; and legal, regulatory or contractual consequences.
+
+**Proposed controls:** Logical environment isolation; configuration classification and ownership; schema validation and safe failure; configuration-as-code review and integrity; secret/reference separation; controlled feature flags; deployment provenance; drift detection; recoverable versions; audit/redaction; tenant/project isolation; independent review.
+
+**Assessment status:** Likelihood, impact, inherent risk and residual risk scores are pending formal assessment. Proposed or unimplemented controls do not reduce residual risk. Exceptions remain subject to HD-07; actions remain subject to HD-08. No implementation is authorised by this risk-register entry.
