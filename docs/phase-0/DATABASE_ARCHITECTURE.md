@@ -1690,3 +1690,15 @@ Billing-ledger operations require additional monitoring for transaction durabili
 Database continuity and recovery must preserve the HD-06 RPO/RTO objectives, service-owned schema boundaries, migration compatibility, tenant isolation, deletion/legal-hold obligations, key availability and workflow/event consistency. A successful backup job is not proof of recoverability; restoration and reconciliation require independent evidence. Destructive database actions and migrations remain subject to GATE-05; production deployment/recovery actions also require applicable GATE-03 and other HD-08 gates.
 
 Require database-relevant validation POC-REP-20-02, -03, -05, -06, -16, -18, -19, -20, -22, -23, -25 and -28 alongside HD-REP-06/07/11/16/19 tests. All remain unexecuted. This decision authorises no schema, database, role, index, backup, restore, migration, credential or production configuration change.
+
+
+
+## HD-REP-21 — Customer Support Data and Isolation Requirements
+
+Support request records, ticket metadata, customer communications, complaint records, attachments, diagnostic evidence, knowledge feedback and escalation references must have explicit data ownership, classification, tenant/project scope, access policy, retention basis and audit requirements. Support records must not become an uncontrolled secondary store for customer source code, credentials, private keys, prompts, media or other restricted content.
+
+Enforce trusted tenant/project context at the service layer for every support record and attachment. Client-supplied tenant/project identifiers are not authority. Apply least-privilege access for customer, support, specialist, service and agent identities; record access purpose and scope; time-limit and revoke exceptional support access. Do not grant support identities unrestricted schema or cross-service database privileges. Preserve service-owned schema and migration boundaries under HD-REP-06; runtime identities remain least-privileged.
+
+Minimise diagnostic and communication content; redact credentials, tokens, private keys and unnecessary sensitive data from logs. Attachments require controlled storage, access checks, safe handling and malware/content scanning where appropriate. Support audit events align with HD-REP-09; privacy, retention, deletion, legal holds, backups and customer rights align with HD-REP-07/10/11. AI support retrieval must be tenant-scoped and must not expose one customer's support records to another customer or an unauthorised model provider.
+
+Database-related validation includes POC-REP-21-02, -05 through -10, -13, -17, -25 and -27, alongside HD-REP-06/07/09/11/12/13/20 tests. All remain unexecuted. This decision authorises no schema/table/index/role/permission change, support-record ingestion, live customer-data processing, retention configuration, migration, backup/restore execution or production database change.
