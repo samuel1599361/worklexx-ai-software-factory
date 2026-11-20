@@ -1355,3 +1355,15 @@ Centralise controlled secret/key lifecycle management. Separate encryption, toke
 Automation must not expose privileged secrets to untrusted PR code, customer builds or agent contexts. Workflow identities and credentials must be narrowly scoped and separated between untrusted validation and trusted release activities. Agents may detect and prepare remediation but cannot grant themselves credentials, extract unrelated secrets, export private keys, weaken controls or bypass HD-08.
 
 Require POC-REP-16-01 through -26; all remain unexecuted. Add RSK-36; formal risk scores pending. Documentation approval does not authorise provider connection, credential/key creation, GitHub configuration, CI/CD activation, subscriptions, infrastructure, customer integration, production changes or Phase 1.
+
+
+
+## HD-REP-17 — Secure Development and Application Security Governance (Approved 2026-11-20)
+
+The repository governance model includes a risk-based Secure SDLC for Factory source, five frontend applications, six backend deployables, shared packages, 23 logical agent modules and generated customer projects. Security evidence is maintained as controlled documentation and linked to relevant source changes, tests, vulnerability findings, remediation and release records.
+
+Security-sensitive changes require appropriate threat modelling, independent review, security testing and traceable evidence. SAST, dependency analysis, secret scanning, DAST where appropriate, API/frontend testing and manual review are architectural requirements, not currently activated workflows or installed tools. Generated customer projects require proportionate security profiles and clear disclosure of known limitations; Factory generation is not a security guarantee.
+
+Vulnerability findings follow a recorded discover/classify/prioritise/remediate/verify/close lifecycle. Proposed internal objectives are Critical 24 hours, High 7 calendar days, Medium 30 calendar days and Low 90 calendar days, subject to contextual escalation and documented exceptions. HD-07/HD-08 remain authoritative. Agents may analyse findings and prepare scoped remediation changes but cannot self-approve, accept risk or deploy production fixes.
+
+Required validation POC-REP-17-01 through -24 is defined in TESTING_STRATEGY.md and remains unexecuted. RSK-37 is added to RISK_REGISTER.md with formal scoring pending. This decision authorises documentation only; no security tooling, CI/CD, source changes, credentials, infrastructure, live testing, production activity or Phase 1 is authorised.

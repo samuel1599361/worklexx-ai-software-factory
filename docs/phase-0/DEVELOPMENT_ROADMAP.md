@@ -1995,3 +1995,13 @@ Complete POC-REP-15-01 through -24 before operational reliance and formally asse
 Approved workstream: define controlled secrets and key lifecycle; human/service/agent/integration credential boundaries; short-lived workload identity; token and API-key validation/revocation; purpose-separated encryption, token-signing, artifact-signing, webhook and transport keys; certificate lifecycle; encryption in transit/at rest; secure service-to-service communication; webhook authenticity/replay protection; secret scanning/redaction; key compromise response; agent restrictions; and audit/monitoring.
 
 Do not select a vendor, KMS/HSM, certificate authority, secrets product, cryptographic hardware provider or paid security service in this decision. Require POC-REP-16-01 through -26 and formal RSK-36 assessment before operational reliance. Preserve HD-08 approval gates and all existing deployment/implementation boundaries. This workstream authorises documentation only, not credentials, keys, infrastructure, integrations, spending, CI/CD, production changes or Phase 1.
+
+
+
+## HD-REP-17 — Secure SDLC and Vulnerability Management Workstream (Approved 2026-11-20)
+
+Add a Phase 0 architecture and validation workstream for application security across five frontend applications, six backend deployables, shared packages, 23 logical agent modules and generated customer projects. Define security requirements and classification, threat-modelling triggers, secure coding standards, independent review, risk-based SAST/SCA/secret scanning/DAST, API and frontend security testing, authorised penetration-testing criteria, vulnerability triage and remediation verification, customer-project security disclosures and release-security evidence.
+
+Proposed internal vulnerability remediation/mitigation objectives are Critical 24 hours, High 7 calendar days, Medium 30 calendar days and Low 90 calendar days. These are not SLAs; contextual severity, active exploitation and exposure may require faster action. Exceptions require documented compensating controls, owner, expiry/review and Project Owner risk acceptance under HD-07. Critical findings require immediate escalation and assessment of whether affected activity must stop or be suspended.
+
+Track POC-REP-17-01 through POC-REP-17-24 in TESTING_STRATEGY.md. All remain unexecuted and must not be reported as passed. Add RSK-37 to RISK_REGISTER.md; formal scores remain pending. This roadmap entry is documentation/planning only and does not authorise tool installation, CI/CD activation, source changes, external testing, infrastructure, spending, live data processing, production deployment or Phase 1.

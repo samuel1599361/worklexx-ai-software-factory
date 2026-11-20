@@ -1763,3 +1763,22 @@ Project Owner remains sole initial risk acceptance and approval authority under 
 **Status:** Identified; assessment and implementation pending.
 **Related decisions:** HD-07, HD-08, HD-REP-05, HD-REP-07, HD-REP-08, HD-REP-09, HD-REP-11, HD-REP-12, HD-REP-13, HD-REP-14, HD-REP-15 and HD-REP-16.
 
+
+
+## RSK-37 — Application Vulnerabilities, Insecure Development and Delayed Remediation
+
+**Risk statement:** Worklexx applications or generated customer projects may contain exploitable weaknesses due to insecure design, coding defects, vulnerable dependencies, inadequate security testing, incomplete vulnerability monitoring or delayed remediation.
+
+**Potential consequences:** Unauthorised account/resource access; cross-tenant or cross-project data exposure; service or agent-execution compromise; financial manipulation or loss; service disruption; reputational damage; and legal, regulatory or contractual consequences.
+
+**Affected scope:** Five frontend applications, six backend deployables, shared packages, 23 logical agent modules, build/release workflows and generated customer projects.
+
+**Proposed controls:** Risk-based Secure SDLC; security requirements and threat modelling; secure coding and independent review; SAST, SCA, secret scanning, DAST where appropriate, API/frontend testing and manual assessment; vulnerability classification and remediation objectives; independent retesting; documented exceptions and compensating controls; SBOM/release evidence; and security disclosures for generated projects. Align with HD-REP-08 through -16 and HD-REP-17.
+
+**Response expectations:** Proposed internal remediation/mitigation objectives are Critical 24 hours, High 7 calendar days, Medium 30 calendar days and Low 90 calendar days. These are not SLAs. Active exploitation, exposure, sensitive data and business impact may require accelerated response. Critical findings require immediate escalation and assessment of whether affected activity should stop or be suspended. Exceptions require owner, rationale, controls, expiry/review and Project Owner risk acceptance under HD-07. Mandatory obligations cannot be waived.
+
+**Risk scoring:** Likelihood, impact, inherent risk and residual risk are pending formal assessment. No reduction is claimed for controls that have not been implemented and evidenced.
+
+**Validation:** POC-REP-17-01 through POC-REP-17-24; all unexecuted. **Owner:** Project Owner to assign accountable operational/security owners when implementation is separately authorised. **Status:** Open — assessment and implementation pending.
+
+**Governance boundary:** This risk entry and HD-REP-17 do not authorise source changes, security-tool activation, CI/CD, external testing, infrastructure, spending, credentials, live customer-data processing, production deployment or Phase 1. HD-07/HD-08 apply.

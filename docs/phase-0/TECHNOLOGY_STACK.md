@@ -1379,3 +1379,13 @@ Require short-lived scoped credentials where practicable; secure token validatio
 Services independently authenticate and authorise internal calls. The gateway does not replace receiving-service authorization. Frontend applications contain no privileged backend credentials. Customer project and build credentials remain isolated. Agents cannot retrieve unrelated secret values or change key policy. Integrate secret scanning, redaction, integrity verification and compromise monitoring with HD-REP-08/09/11/12/13/14/15.
 
 Require POC-REP-16-01 through -26 before operational reliance; all remain unexecuted. Add RSK-36; formal risk scoring pending. No provider selection, credential/key provisioning, infrastructure, paid tools, integration or production activation is authorised.
+
+
+
+## Application Security and Secure Development Lifecycle — HD-REP-17 (Approved 2026-11-20)
+
+Adopt a vendor-independent application security engineering baseline across all frontend applications, backend deployables, shared packages, agent modules and generated customer projects. Use risk-based threat modelling, secure coding standards, independent code review, SAST, software composition analysis, secret scanning, DAST where appropriate, API/frontend security tests, configuration assessment and manual security review. Independent penetration testing may be required for high-risk releases or integrations, subject to explicit scope and authorisation.
+
+OWASP ASVS and applicable OWASP Top 10 guidance are candidate assessment references; confirm current versions and applicability during implementation planning. Maintain dependency and runtime support review, vulnerability tracking, remediation verification and SBOM/provenance alignment with HD-REP-08. Automated findings require contextual triage; scanner success does not establish security.
+
+No specific security scanner, SAST/DAST platform, penetration-testing provider, commercial product, subscription or vendor is selected by this decision. No tools are installed or activated. Proposed vulnerability remediation objectives and exception rules are recorded in HD-REP-17 in ADR_REGISTER.md. All POC-REP-17 validations remain unexecuted. No CI/CD activation, infrastructure, spending, source changes or production deployment is authorised.

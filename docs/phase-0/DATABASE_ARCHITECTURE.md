@@ -1648,3 +1648,15 @@ Protect PostgreSQL, pgvector, object/multimodal storage, backups, exports and re
 Tenant/project authorization remains service-enforced and RLS remains a supplementary control. Secret/key metadata, access events and cryptographic failures must align with HD-REP-09 audit and HD-REP-11 data minimisation/redaction; do not log secret values, tokens, private keys or sensitive payloads. Webhook/event replay and retries must preserve idempotency, credential revocation, deletion and billing-ledger integrity. The gateway must not connect directly to PostgreSQL/pgvector or service-owned schemas.
 
 Require POC-REP-16-01 through -26; all remain unexecuted. No schema, database, role, credential, key, migration or production configuration change is authorised by this decision.
+
+
+
+## HD-REP-17 — Application Security and Secure SDLC Data-Access Implications (Approved 2026-11-20)
+
+Application security controls must preserve service-owned schema and migration boundaries under HD-REP-06. Application and API layers must validate untrusted input, use parameterised database access, enforce resource-level authorisation and apply least-privileged runtime database identities. Runtime application roles must not gain migration/DDL authority merely to support security checks. Database constraints and RLS provide defence in depth and do not replace service-layer authorisation.
+
+Security testing must include tenant/project isolation, indirect object references, alternate query paths, background jobs, caches, vector retrieval and administrative access. Findings involving database access, query construction, data exposure, privilege escalation or unsafe migrations must be tracked through the HD-REP-17 vulnerability lifecycle and independently verified. Security scanning or testing must not run destructive database operations or alter live data without separate authorisation and applicable GATE-05/GATE-03 controls.
+
+Protect database errors and diagnostic records from leaking SQL details, credentials, tokens, personal information or sensitive payloads. Align database audit, redaction, retention, deletion and incident evidence with HD-REP-09, HD-REP-11 and HD-REP-16. Do not store scanner credentials, database passwords, private keys or other secrets in application tables or ordinary logs.
+
+Require POC-REP-17-08, -10, -11, -17 and -22 with relevant database-specific scenarios, in addition to the complete POC-REP-17-01 through -24 suite. All remain unexecuted. This decision authorises no schema/role/permission change, database configuration, migration, live security testing, credential creation, production data processing or Phase 1.
