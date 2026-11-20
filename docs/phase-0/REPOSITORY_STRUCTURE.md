@@ -1106,6 +1106,8 @@ The following table records the approval status of repository architecture decis
 | HD-REP-05 | Final generated-project repository isolation model | Approved — architectural direction only (2026-11-20) |
 | HD-REP-06 | Service-owned schema and migration governance across six deployable services | Approved — architectural direction only (2026-11-20) |
 | HD-REP-07 | Final repository backup and recovery strategy | Approved — architectural direction only (2026-11-20) |
+| HD-REP-08 | Repository automation, build integrity and software supply-chain security governance | Approved — architectural direction only (2026-11-20) |
+| HD-REP-09 | Repository observability, audit logging and security-event monitoring governance | Approved — architectural direction only (2026-11-20) |
 
 These repository-specific decisions use the `HD-REP-` prefix to distinguish them from platform-wide `HD-01` through `HD-08`, which are maintained in the architecture documents and ADR register. Platform-wide `HD-08` remains the authoritative decision for final approval-gate definitions and approval authority.
 
@@ -1232,3 +1234,27 @@ Agents may perform authorised inspection, tests, scanning, SBOM/provenance prepa
 **Required validation:** POC-REP-08-01 through POC-REP-08-12 must test workflow least privilege, untrusted PR isolation, lockfile integrity, security scanning, SBOMs, checksums/signatures/provenance, build/cache isolation, tenant isolation, credential protection, release/publication separation, compromised dependency/workflow scenarios and audit/recovery traceability.
 
 **Scope limitation:** Architectural approval only. No workflow activation, GitHub settings change, app installation, credential/signing-key creation, paid service, infrastructure provisioning, production build, artifact publication, release, deployment, customer Git-account connection, migration execution or Phase 1 is authorised. Applicable validation and separate HD-08 approvals remain mandatory.
+
+## HD-REP-09 — Approved Repository Observability, Audit Logging and Security-Event Monitoring Governance (2026-11-20)
+
+The Project Owner approved a provider-independent, policy-controlled observability and audit architecture for Factory source and generated customer projects. Consequential activity must be attributable, auditable, detectable and investigable. Audit visibility and monitoring do not grant approval authority.
+
+Record events across identity/authentication and access changes; repository lifecycle, access and Git operations; pull-request reviews and merges; workflow/build execution; AI-agent identity, task, authorised scope, tools/actions and outcomes; dependency/security scanning, SBOMs, artifacts and provenance; releases/publication/deployment; integrations; backup/restore; approval gates, risk acceptance, exceptions and policy changes. Where providers do not expose events, document the coverage limitation.
+
+Use a common versioned event envelope with unique event ID, event/ingestion timestamps and time-source metadata, actor identity/type, tenant/project/repository identifiers, action/resource/outcome, originating service/workflow, correlation/trace IDs, authorisation and approval references, and relevant commit/artifact/workflow references. Minimise payload capture.
+
+Protect audit records through independently controlled append-only or tamper-evident storage, cryptographic integrity verification, restricted modification/deletion, separation of audit administration, encryption, independent audit of audit-system access, protected time synchronisation and HD-REP-07 backup/recovery. No actor may silently erase or rewrite its own consequential activity history.
+
+Define security detection and escalation for suspicious authentication, privilege escalation, cross-tenant access, unusual export/deletion, unauthorised workflow changes, credential/secret compromise, untrusted code reaching privileged build environments, artifact provenance/signature failures, backup/integrity failures and approval-gate bypass attempts. Establish severity, alert ownership, investigation and closure evidence.
+
+Preserve Factory, Worklexx-managed customer and customer-managed repository trust boundaries. Worklexx protects its Factory records and platform-side evidence for Worklexx-managed projects subject to agreements. For customer-managed hosting, Worklexx records only events available through authorised integrations; customers remain responsible for provider-side records. Customer audit views/exports must be tenant/project-scoped.
+
+Apply privacy-by-design: redact secrets, credentials, private keys, sensitive prompts, source fragments and personal information; separate operational telemetry from security evidence; define category-specific retention, legal holds, controlled disposal, customer export/deletion responsibilities and retention-change audit. Retention periods remain subject to legal, regulatory, contractual and operational assessment.
+
+AI agents may analyse authorised events, identify anomalies and prepare evidence or recommendations. They may not approve gated actions, grant access, alter/delete protected evidence, change retention/legal holds, disable monitoring or bypass controls. HD-07 and HD-08 remain authoritative.
+
+**Required validation:** POC-REP-09-01 through POC-REP-09-12 cover event completeness; schema, identity and time; tamper detection; tenant isolation; privacy/redaction; detection effectiveness; alert escalation; retention/legal holds/export/deletion; audit backup/restore; customer-managed provider visibility; agent permission boundaries; and end-to-end traceability. Specification alone is not a passed test.
+
+**Risk:** RSK-29 — Incomplete, altered, exposed or inadequately monitored audit evidence. Likelihood, impact and residual score require formal assessment; controls do not reduce residual risk until implemented and evidenced.
+
+**Governance and scope:** Project Owner remains sole initial approval and risk-acceptance authority under HD-07/HD-08. GATE-02, GATE-03, GATE-04 and GATE-06 apply as relevant. Architectural approval only: no audit settings/webhooks/monitoring activation, SIEM subscription, infrastructure, credentials, customer hosting connection, GitHub App, repository setting/permission change, CI/CD, production telemetry or integration, incident-response automation, production change or Phase 1 is authorised.

@@ -203,7 +203,7 @@ AI agents may identify, assess, summarise, recommend, monitor, and prepare risk 
 
 ## 8. Risk Register Summary
 
-The following 28 risks form the current Phase 0 register, including subsequent additions RSK-26 through RSK-28.
+The following 29 risks form the current Phase 0 register, including subsequent additions RSK-26 through RSK-29.
 
 | ID | Risk | Category | Initial Priority |
 |---|---|---|---|
@@ -235,6 +235,7 @@ The following 28 risks form the current Phase 0 register, including subsequent a
 | RSK-26 | Uncontrolled or unsafe database schema migration | Data Integrity and Operational | To be assessed |
 | RSK-27 | Repository backup failure, incomplete recovery, or cross-tenant restoration | Operational Resilience and Security | To be assessed |
 | RSK-28 | Compromised build workflow, dependency, credential or untrusted artifact | Supply Chain and Security | To be assessed |
+| RSK-29 | Incomplete, altered, exposed or inadequately monitored audit evidence | Security, Audit and Operational Governance | To be assessed |
 
 The initial priority column is a planning classification, not a completed risk assessment. RSK-15 retains its previously identified score of 10, which maps to Medium under the scoring method in Section 5. Any decision to apply a higher severity override must be explicitly documented and approved.
 
@@ -1459,6 +1460,8 @@ The following decisions remain unresolved and must be addressed by the appropria
 | HD-08 | Define GATE-01 through GATE-06 | Establishes approval requirements and separation of duties | Approved — six independent gates; Project Owner is sole initial approval authority |
 | HD-REP-06 | Establish service-owned schema and migration governance | Prevents schema drift, cross-service privilege, and unsafe migration execution | Approved — independent schema ownership and migration histories for all six services; implementation validation and GATE-03/GATE-05 controls remain required |
 | HD-REP-07 | Establish repository backup, disaster recovery and restoration governance | Reduces repository/data loss, incomplete recovery, provider dependency and cross-tenant restore exposure | Approved — layered provider-independent architecture; implementation and recovery testing remain required |
+| HD-REP-08 | Establish repository automation, build integrity and software supply-chain security governance | Reduces workflow, dependency, credential and untrusted-artifact compromise | Approved — policy-controlled, least-privilege architecture; implementation validation remains required |
+| HD-REP-09 | Establish repository observability, audit logging and security-event monitoring governance | Reduces undetected compromise, incomplete attribution, evidence loss and cross-tenant audit exposure | Approved — provider-independent architecture; implementation and POC validation remain required |
 
 These decisions must be recorded through the appropriate governance process and, where applicable, the ADR Register.
 
@@ -1531,7 +1534,7 @@ The existence of this register does not establish that the platform is secure, c
 
 **Version:** 1.0.
 
-**Risk baseline:** 28 identified risks, RSK-01 through RSK-28.
+**Risk baseline:** 29 identified risks, RSK-01 through RSK-29.
 
 **Risk acceptance authority:** Project Owner — sole risk acceptance authority during the initial governance phase under HD-07; no delegation.
 
@@ -1593,4 +1596,28 @@ The Risk Register is intended to provide a traceable foundation for risk assessm
 **Validation evidence required:** Workflow permission tests; untrusted PR isolation results; dependency/action pinning and integrity evidence; vulnerability/secret/licence scan results; SBOM validation; artifact checksum/signature/provenance verification; build/cache/tenant isolation negative tests; credential revocation evidence; compromised dependency/workflow exercises; and audit/recovery traceability.
 
 **Risk status:** Identified — likelihood, impact and residual score require formal assessment. Proposed controls do not reduce residual risk until implemented and evidenced. Risk acceptance remains exclusively with the Project Owner under HD-07.
-undefined
+
+### RSK-29 — Incomplete, Altered, Exposed or Inadequately Monitored Audit Evidence
+
+**Category:** Security, Audit, Privacy and Operational Governance
+
+**Risk statement:** Repository, identity, workflow, agent, integration, artifact, backup or approval activity may not be recorded completely or accurately; audit evidence may be altered, deleted, exposed or inaccessible; or monitoring may fail to detect suspicious activity. This may prevent reliable attribution, delay incident response, permit undetected compromise or expose another tenant's/customer's audit information.
+
+**Potential causes:** Missing or inconsistent event sources; incomplete provider audit APIs; incorrect actor attribution or timestamps; weak event correlation; mutable or over-privileged log storage; shared audit administration; inadequate integrity checks; cross-tenant query/export flaws; secret or personal-data leakage in logs; unsuitable retention/legal-hold controls; ineffective detection rules; alert fatigue; untested backup/restore; or AI agents receiving excessive audit privileges.
+
+**Potential consequences:** Undetected security incidents, inability to investigate or establish accountability, cross-tenant disclosure, loss of legal/regulatory/customer evidence, prolonged recovery, contractual exposure, reputational damage and loss of trust.
+
+**Proposed controls:**
+- Apply HD-REP-09 common event schema, event-source coverage inventory, actor attribution, correlation and time-source validation.
+- Use independently controlled append-only or tamper-evident storage, cryptographic integrity verification, restricted deletion, encryption and separation of audit administration.
+- Enforce tenant/project-scoped audit access and negative cross-tenant tests; document customer-managed provider visibility and responsibility boundaries.
+- Minimise and redact secrets, credentials, sensitive prompts, source fragments and personal information; separate operational telemetry from security evidence.
+- Define category-specific retention, legal holds, export and controlled deletion with auditable policy changes.
+- Establish risk-based detection, severity, alert ownership, escalation, investigation and closure evidence; measure false positives and missed events.
+- Back up and restore audit evidence under HD-REP-07; verify integrity and accessibility after recovery.
+- Restrict AI agents to authorised analysis and evidence preparation; prohibit self-approval, evidence alteration/deletion, retention changes and monitoring disablement.
+- Complete POC-REP-09-01 through POC-REP-09-12 and retain reproducible evidence before production reliance.
+
+**Validation evidence required:** Event-source coverage matrix; event schema and identity/time tests; tamper/deletion simulations; tenant-isolation negative tests; redaction/privacy tests; detection precision/recall and missed-event scenarios; alert escalation exercises; retention/legal-hold/export/deletion evidence; audit backup/restore integrity results; customer-provider visibility assessment; agent permission tests; and end-to-end traceability records.
+
+**Risk status:** Identified — likelihood, impact and residual score require formal assessment. Proposed controls do not reduce residual risk until implemented and evidenced. Risk acceptance remains exclusively with the Project Owner under HD-07.

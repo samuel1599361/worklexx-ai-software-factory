@@ -1274,3 +1274,19 @@ Trusted artifacts require cryptographic checksums, integrity verification and tr
 The six deployable backend units remain unchanged. The sandbox-runner does not acquire unrestricted build-release or publication authority. Factory source, Worklexx-managed customer repositories and customer-managed repositories remain distinct security boundaries under HD-REP-05.
 
 **Governance:** A successful CI run is not release approval; artifact verification is not publication authority; publication is not production deployment authority. Apply HD-08 and HD-07. No workflow activation, repository settings change, credentials/signing-key creation, paid service, infrastructure provisioning, production build, publication, release or deployment is authorised by this architectural decision.
+
+## HD-REP-09 — Approved Observability, Audit Logging and Security-Monitoring Direction (2026-11-20)
+
+The Project Owner approved a provider-independent logical architecture for collecting, normalising, protecting and monitoring audit/security events across Worklexx Factory source and generated customer projects. This decision does not select a specific SIEM, observability vendor, logging product, storage service or telemetry implementation.
+
+The logical capabilities are: (1) event sources across GitHub, Worklexx services, agents, CI/build workflows, integrations and backup systems; (2) collection and normalisation with schema validation, identity attribution, correlation, redaction and time validation; (3) protected audit storage with integrity verification, retention and legal-hold controls; (4) security monitoring with correlation, detection, severity and escalation; and (5) governed dashboards, investigation, evidence export and human-authorised response.
+
+Audit events should use a common versioned envelope and cover identity/access, repository and Git activity, pull requests, workflow/build execution, agent actions, supply-chain controls, artifacts/releases, integrations, backup/restore and governance approvals. Protect records using independently controlled append-only or tamper-evident storage, cryptographic integrity checks, restricted deletion, separation of duties, encryption and backup/recovery aligned with HD-REP-07.
+
+Operational telemetry and security audit evidence must be distinguished. Apply data minimisation, secret redaction, tenant/project isolation, category-specific retention, legal holds and controlled deletion/export. Customer-managed provider visibility is limited to authorised and technically supported integration events; provider-side audit responsibility remains with the customer.
+
+Monitoring should detect suspicious authentication and privilege activity, cross-tenant access attempts, unusual exports/deletions, unapproved workflow changes, secret/credential compromise, untrusted build execution, artifact integrity/provenance failures, backup failures and approval-gate bypass attempts. AI agents may analyse and prepare evidence but cannot approve actions, alter protected records, change retention or disable controls.
+
+Required validation is POC-REP-09-01 through POC-REP-09-12 as defined in the ADR Register and Testing Strategy. No provider/product selection or control effectiveness is implied until evaluated and evidenced.
+
+**Scope limitation:** Architectural direction only. No audit-log configuration, telemetry activation, SIEM/observability purchase, infrastructure/storage provisioning, credentials, customer account connection, GitHub App installation, repository settings, CI/CD activation, production integration or Phase 1 is authorised. Apply HD-07/HD-08 and separate approvals.

@@ -1619,3 +1619,26 @@ The following proof-of-concept validations are required before production relian
 Tests must cover Worklexx platform source, Worklexx-managed customer projects and customer-managed repositories within authorised scope. Build caches, artifacts, credentials and execution jobs must be checked for tenant/project isolation. Signing-key custody and recovery must be tested without exposing private keys in source or ordinary workflow configuration.
 
 These are validation requirements only. They do not authorise CI/CD activation, repository setting changes, credential creation, paid services, production builds, publication, release creation, deployment or Phase 1. Applicable HD-08 gates remain mandatory.
+
+## 36. Repository Observability, Audit Logging and Security-Monitoring Validation — HD-REP-09
+
+The following proof-of-concept validations are required before production reliance on the approved HD-REP-09 architecture. Each test must record scope, environment, method, expected result, actual result, evidence, limitations, defects, remediation and reviewer. A defined test is not a passed test.
+
+| Validation ID | Required validation |
+|---|---|
+| POC-REP-09-01 | Verify audit-event coverage and completeness across identified event sources; document provider/API visibility gaps |
+| POC-REP-09-02 | Validate common event schema, actor attribution, tenant/project context, correlation and timestamp/time-source accuracy |
+| POC-REP-09-03 | Demonstrate tamper detection, cryptographic integrity verification and restricted modification/deletion |
+| POC-REP-09-04 | Test tenant/project isolation, including negative access, query, search, export and investigation scenarios |
+| POC-REP-09-05 | Validate secret redaction, personal-data minimisation, sensitive prompt/source-content handling and separation of telemetry from audit evidence |
+| POC-REP-09-06 | Measure security-detection effectiveness, false positives, false negatives and missed-event behaviour against representative scenarios |
+| POC-REP-09-07 | Exercise severity classification, alert ownership, escalation, investigation, evidence preservation and incident closure |
+| POC-REP-09-08 | Validate retention schedules, legal holds, customer export, controlled deletion and auditable retention-policy changes |
+| POC-REP-09-09 | Demonstrate audit-store backup and restoration, evidence integrity and availability after recovery under HD-REP-07 |
+| POC-REP-09-10 | Assess customer-managed provider audit coverage, authorised integration scope, visibility limitations and responsibility boundaries |
+| POC-REP-09-11 | Test AI-agent audit permissions, including prohibited evidence alteration/deletion, access grants, retention changes and monitoring disablement |
+| POC-REP-09-12 | Demonstrate end-to-end traceability from initiating user/service/agent action through repository, workflow, artifact, approval and relevant audit evidence |
+
+Tests must cover the Factory platform repository, Worklexx-managed customer projects and customer-managed repositories only within expressly authorised integration scope. Include cross-tenant negative tests, compromised credentials, privileged administrator misuse, provider event gaps, clock skew, event loss/duplication, log-storage tampering, alert fatigue, backup recovery and legal-hold scenarios. Do not use production data or perform consequential production operations without applicable authorisation.
+
+**Scope limitation:** These are validation requirements only. They do not authorise audit-log configuration, webhook or telemetry activation, SIEM/observability subscriptions, infrastructure/storage provisioning, credential creation, customer account connections, GitHub App installation, repository permission/settings changes, CI/CD activation, production monitoring or incident-response automation, or Phase 1. HD-07 and applicable HD-08 gates remain mandatory.
