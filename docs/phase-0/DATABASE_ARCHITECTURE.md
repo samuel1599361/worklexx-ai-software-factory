@@ -1676,3 +1676,17 @@ Use expand-and-contract migration patterns where appropriate. Assess rolling-dep
 Recovery planning must preserve billing-ledger integrity, immutable financial history, idempotency and reconciliation. Never silently erase or rewrite financial transactions to make an application rollback appear successful. Assess backups, restore points, deletion/retention obligations, tenant isolation and key revocation under HD-REP-07, HD-REP-10, HD-REP-11 and HD-REP-16. Validate restored data before reconnecting services.
 
 Require POC-REP-19-16, -17, -21, -22 and -23 alongside applicable HD-REP-06/07 tests. All remain unexecuted. This decision authorises no database, schema, role, migration, backup, restore or production change.
+
+
+
+## HD-REP-20 — Production Operations and Database Reliability Implications (Approved 2026-11-21)
+
+Database operations must provide service-owned visibility into availability, connection saturation, query latency, locks, transaction failures, storage capacity, replication/backup status, restore readiness and integrity without violating HD-REP-06 schema/migration ownership. Runtime identities remain least-privileged; operational observability does not grant DDL, migration or cross-service schema authority.
+
+PostgreSQL and pgvector monitoring must include tenant-aware query behaviour, index health/performance, resource consumption, backup consistency and recovery validation. RLS remains defence in depth and does not replace service-layer authorisation. Operational logs and diagnostics must redact credentials, tokens, private keys, sensitive query parameters and unnecessary customer content under HD-REP-09/11/16.
+
+Billing-ledger operations require additional monitoring for transaction durability, idempotency, immutable financial history, double-entry invariants, reconciliation discrepancies and safe handling of partial failures. Never repair apparent inconsistencies by silently rewriting or deleting financial history. Escalate discrepancies for controlled investigation and authorised correction.
+
+Database continuity and recovery must preserve the HD-06 RPO/RTO objectives, service-owned schema boundaries, migration compatibility, tenant isolation, deletion/legal-hold obligations, key availability and workflow/event consistency. A successful backup job is not proof of recoverability; restoration and reconciliation require independent evidence. Destructive database actions and migrations remain subject to GATE-05; production deployment/recovery actions also require applicable GATE-03 and other HD-08 gates.
+
+Require database-relevant validation POC-REP-20-02, -03, -05, -06, -16, -18, -19, -20, -22, -23, -25 and -28 alongside HD-REP-06/07/11/16/19 tests. All remain unexecuted. This decision authorises no schema, database, role, index, backup, restore, migration, credential or production configuration change.
