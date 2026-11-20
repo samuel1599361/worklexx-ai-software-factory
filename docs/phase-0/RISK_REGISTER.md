@@ -1746,3 +1746,11 @@ Project Owner remains sole initial risk acceptance and approval authority under 
 **Likelihood/impact/inherent/residual score:** Pending formal assessment. Proposed or unimplemented controls do not reduce residual risk until implemented and evidenced.
 **Status:** Identified; assessment and implementation pending.
 **Related decisions:** HD-07, HD-08, HD-REP-05, HD-REP-06, HD-REP-08, HD-REP-09, HD-REP-11, HD-REP-12, HD-REP-13 and HD-REP-14.
+
+
+### RSK-35 — API Gateway Compromise, Misconfiguration, Abuse and Unauthorised Exposure
+**Description:** Gateway compromise, insecure routing, policy/configuration error, inadequate request validation, weak rate limits or edge-control failure may expose internal services or customer data, enable cross-tenant access, permit denial of service or resource exhaustion, leak sensitive information, cause financial loss or bypass intended controls.
+**Proposed controls:** Explicit route inventory and ownership; least-privilege configuration; independent service authorization and tenant/project enforcement; trusted identity-context propagation; layered rate limits/quotas and concurrency/payload bounds; TLS/certificate lifecycle; WAF/DDoS capability; strict request and upload validation; SSRF/destination restrictions; secure CORS; webhook authenticity/replay controls; bounded timeout/retry/idempotency; fail-closed approval checks; safe error/redaction; protected audit and monitoring; configuration review and adversarial POC validation.
+**Likelihood/impact/inherent/residual score:** Pending formal assessment. Proposed or unimplemented controls do not reduce residual risk until implemented and evidenced.
+**Status:** Identified; assessment and implementation pending.
+**Related decisions:** HD-07, HD-08, HD-03, HD-04, HD-06, HD-REP-08, HD-REP-09, HD-REP-11, HD-REP-12, HD-REP-13, HD-REP-14 and HD-REP-15.

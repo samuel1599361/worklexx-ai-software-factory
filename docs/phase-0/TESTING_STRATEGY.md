@@ -1753,3 +1753,34 @@ All 24 tests described in HD-REP-13 are required; test cases are requirements, n
 
 ### POC-REP-14 — API Contracts, Inter-Service Communication and Integration Validation
 All 24 validations required by HD-REP-14 are test requirements, not evidence of completion. Track POC-REP-14-01 through -24 individually with owner, scope, environment, preconditions, expected result, evidence, outcome, defects and retest. Coverage: OpenAPI, JSON Schema, AsyncAPI, consumer/provider conformance, compatibility and breaking-change detection, contract ownership, service boundaries, authentication/authorization, tenant/project isolation, safe errors/redaction, idempotency, event duplication/order/replay, retries/timeouts/failure containment, dead-letter/recovery, Temporal replay and cancellation, agent-tool permissions, independent approval/gate binding, external schema drift/provider failure, webhook authenticity/replay, SSRF/destination/payload security, billing/ledger integrity and end-to-end audit/release traceability. Include negative, adversarial, concurrency and failure-injection cases. All POCs remain unexecuted until evidence is recorded and reviewed.
+
+
+### POC-REP-15 — API Gateway, Routing, Rate Limiting and Edge Security Validation
+All 24 validations required by HD-REP-15 are test requirements, not evidence of completion. Track each test individually with owner, scope, environment, preconditions, expected result, evidence, outcome, defects and retest. Required tests:
+
+- POC-REP-15-01 external ingress and route isolation.
+- POC-REP-15-02 authentication and token validation.
+- POC-REP-15-03 receiving-service authorization enforcement.
+- POC-REP-15-04 tenant/project isolation, including negative tests.
+- POC-REP-15-05 agent identity and delegated-scope propagation.
+- POC-REP-15-06 approval-gate enforcement for consequential operations.
+- POC-REP-15-07 per-user, tenant and project rate limiting.
+- POC-REP-15-08 subscription and entitlement quota enforcement.
+- POC-REP-15-09 concurrent request and resource-exhaustion protection.
+- POC-REP-15-10 payload-size and content-type enforcement.
+- POC-REP-15-11 multimodal upload security and isolation.
+- POC-REP-15-12 WAF, DDoS and malformed-request protection.
+- POC-REP-15-13 SSRF and outbound-destination restrictions.
+- POC-REP-15-14 CORS and browser-origin controls.
+- POC-REP-15-15 webhook authenticity and replay protection.
+- POC-REP-15-16 API-version compatibility and deprecation.
+- POC-REP-15-17 timeout, retry and idempotency behaviour.
+- POC-REP-15-18 circuit breaking and backpressure.
+- POC-REP-15-19 safe errors and sensitive-data redaction.
+- POC-REP-15-20 audit, correlation and trace completeness.
+- POC-REP-15-21 gateway failure and fail-closed security behaviour.
+- POC-REP-15-22 regional resilience and recovery.
+- POC-REP-15-23 performance, latency and capacity under load.
+- POC-REP-15-24 adversarial testing and independent security review.
+
+Include cross-tenant negative tests, race/concurrency tests, failure injection and end-to-end traces. All tests remain unexecuted until results and evidence are recorded and reviewed.
