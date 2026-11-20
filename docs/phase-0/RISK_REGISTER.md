@@ -1816,3 +1816,6 @@ Project Owner remains sole initial risk acceptance and approval authority under 
 **Proposed controls:** Accountable service ownership; measurable SLI/SLO framework; integrated operational and security monitoring; documented incident severity and escalation; authorised containment and recovery; tested continuity plans; capacity and resource governance; controlled runbooks and maintenance; independent recovery validation; post-incident corrective-action tracking; protected audit evidence.
 
 **Assessment status:** Likelihood, impact, inherent risk and residual risk scores are pending formal assessment. Proposed or unimplemented controls do not reduce residual risk. POC-REP-20-01 through -28 remain unexecuted. Risk acceptance remains subject to HD-07; consequential actions remain subject to HD-08. This entry authorises no production operations or implementation.
+
+
+**Architecture traceability:** RSK-40 is introduced by the approved HD-REP-20 — Production Operations, Service Reliability, Incident Management and Business Continuity Governance decision. Associated operational validation requirements are POC-REP-20-01 through POC-REP-20-28 in TESTING_STRATEGY.md.
