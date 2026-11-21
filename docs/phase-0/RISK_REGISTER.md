@@ -1857,3 +1857,16 @@ Project Owner remains sole initial risk acceptance and approval authority under 
 **Assessment status:** Likelihood, impact, inherent risk and residual risk scores are pending formal assessment. Proposed or unimplemented controls do not reduce residual risk. POC-REP-22-01 through POC-REP-22-30 remain unexecuted. Risk acceptance remains subject to HD-07; consequential operations remain subject to HD-08. This entry authorises no account, payment or commercial operation.
 
 **Architecture traceability:** RSK-42 is introduced by HD-REP-22 — Customer Onboarding, Organisation Management, Subscription Entitlements and Account Lifecycle Governance. Associated validation requirements are recorded in TESTING_STRATEGY.md.
+
+
+## RSK-43 — Unsafe Project Generation, Template Supply-Chain Compromise and Development Environment Isolation Failure
+
+**Risk statement:** Inadequate requirements interpretation, template governance, technology compatibility, repository isolation, dependency management, environment configuration or AI-agent execution controls may produce insecure or unusable customer projects, expose customer information, introduce malicious dependencies, compromise repositories or permit unauthorised execution.
+
+**Potential consequences:** insecure/incompatible generated applications; malicious or compromised templates; dependency or licence violations; customer source/data exposure; cross-tenant repository access; secret leakage; unsafe agent-generated code; sandbox escape or unintended network access; irreproducible builds; ownership/portability disputes; unauthorised provisioning or financial commitments; and misleading project-readiness claims.
+
+**Proposed controls:** governed versioned template catalogue; owner/provenance/licence/security metadata; technology and runtime compatibility checks; isolated customer repositories; tenant/project isolation across storage, jobs, caches, agents and artifacts; secure development environments; secret exclusion and authorised secret references; pinned dependencies and lockfiles where supported; vulnerability/licence scans; SBOM/provenance; sandbox limits and network restrictions; explicit customer confirmation; HD-08 approval-gate enforcement; independent validation; readiness evidence; backup/export/recovery controls.
+
+**Assessment status:** Likelihood, impact, inherent risk and residual risk scores are pending formal assessment. Proposed or unimplemented controls do not reduce residual risk. POC-REP-23-01 through POC-REP-23-32 remain unexecuted. Risk acceptance remains subject to HD-07; consequential operations remain subject to HD-08. This entry authorises no project creation, repository provisioning, external Git integration, environment provisioning or production operation.
+
+**Architecture traceability:** RSK-43 is introduced by HD-REP-23 — Customer Project Creation, Templates, Development Environments and Project Configuration Governance. Associated validation requirements are recorded in TESTING_STRATEGY.md.
