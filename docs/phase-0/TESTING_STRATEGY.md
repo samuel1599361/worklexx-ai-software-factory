@@ -2044,3 +2044,45 @@ The following 30 proof-of-concept and validation requirements are introduced by 
 | POC-REP-22-30 | Independent adversarial onboarding and commercial-integrity review |
 
 For every validation, record accountable owner, scope, environment, preconditions, expected result, test data classification, evidence, actual outcome, defects, severity, remediation and retest status. Include negative and adversarial scenarios for cross-tenant access, multi-organisation membership, stale entitlements, forged/replayed payment events, duplicate metering, privileged account recovery and unsafe account closure. All requirements remain unexecuted until evidence is produced and independently reviewed.
+
+
+## HD-REP-23 — Customer Project Creation, Templates, Development Environments and Project Configuration Governance
+
+The following validation requirements are mandatory planning items. All remain unexecuted; none may be reported as passed without recorded evidence and independent review.
+
+| ID | Validation requirement |
+|---|---|
+| POC-REP-23-01 | Project creation identity and ownership |
+| POC-REP-23-02 | Individual and organisation project association |
+| POC-REP-23-03 | Customer requirements capture and structured specification |
+| POC-REP-23-04 | Natural-language requirement interpretation accuracy |
+| POC-REP-23-05 | Multimodal requirement input handling |
+| POC-REP-23-06 | Project category and complexity classification |
+| POC-REP-23-07 | Template catalogue discovery and metadata integrity |
+| POC-REP-23-08 | Template ownership, versioning and provenance |
+| POC-REP-23-09 | Template trust classification and licence checks |
+| POC-REP-23-10 | Technology stack compatibility validation |
+| POC-REP-23-11 | Runtime and framework compatibility |
+| POC-REP-23-12 | Repository isolation and correct project mapping |
+| POC-REP-23-13 | Repository privacy and access-control validation |
+| POC-REP-23-14 | Initial directory and file structure correctness |
+| POC-REP-23-15 | Project configuration schema validation |
+| POC-REP-23-16 | Environment separation and configuration integrity |
+| POC-REP-23-17 | Development sandbox isolation |
+| POC-REP-23-18 | Secret exclusion and credential-boundary validation |
+| POC-REP-23-19 | Dependency resolution and lockfile reproducibility |
+| POC-REP-23-20 | Dependency security and licence scanning |
+| POC-REP-23-21 | SBOM and software provenance generation |
+| POC-REP-23-22 | Agent identity, permission and execution-scope enforcement |
+| POC-REP-23-23 | Prompt injection and untrusted template handling |
+| POC-REP-23-24 | Customer confirmation and approval-gate binding |
+| POC-REP-23-25 | Project initialisation failure and recovery |
+| POC-REP-23-26 | Template upgrade and configuration-change safety |
+| POC-REP-23-27 | Build, test and project-readiness evidence |
+| POC-REP-23-28 | Tenant/project isolation under concurrent creation |
+| POC-REP-23-29 | Customer project export and independent import |
+| POC-REP-23-30 | Customer-managed Git integration boundary |
+| POC-REP-23-31 | Entitlement and resource-limit enforcement |
+| POC-REP-23-32 | Independent adversarial and end-to-end project creation review |
+
+For each validation, record accountable owner, scope, environment, prerequisites, expected result, test data classification, evidence, actual outcome, defects, severity, remediation and retest status. Include negative/adversarial testing for cross-tenant access, malicious templates, incompatible dependencies, secrets in generated files, prompt injection, sandbox/network escape, unauthorised Git operations, stale entitlements, interrupted initialisation and misleading readiness claims. All requirements remain unexecuted until evidence is produced and independently reviewed.
