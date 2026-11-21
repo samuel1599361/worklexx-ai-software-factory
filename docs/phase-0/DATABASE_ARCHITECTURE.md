@@ -1735,3 +1735,12 @@ Project requirements/specification, configuration and environment definitions re
 Repository and project identity mapping must enforce HD-REP-05's one isolated repository per generated project and its Worklexx-managed/customer-managed hosting distinction. Do not infer ownership from repository administration. Project configuration, dependency manifests/lockfiles, SBOM/provenance references, validation evidence and export metadata must remain scoped to the authorised project. Customer project data must not be coupled directly to another service's authoritative schema; service-owned schema and API/event boundaries under HD-REP-06/14 remain authoritative.
 
 Require POC-REP-23-01 through POC-REP-23-32, especially project/tenant ownership, template provenance, configuration versioning, environment isolation, secret exclusion, dependency reproducibility, repository mapping, concurrent project creation, export/import and retention/deletion consistency. All remain unexecuted. This decision authorises no database schema/table/index/role/permission change, migration, project data population, live source-code processing, credentials, provider integration, environment provisioning, backup/restore execution or production database change.
+
+
+## HD-REP-24 — Development Traceability and Data-Governance Implications
+
+The AI-assisted development lifecycle requires logical traceability among customer-confirmed requirements, specification versions, project/task identity, repository and branch references, change sets, source commits, agent/tool execution records, validation results, review decisions, customer acceptance and handover evidence. These are conceptual information requirements, not an approved physical schema or table design.
+
+Any future persistence must preserve service-owned schema and migration boundaries under HD-REP-06, tenant/project isolation under HD-REP-11, identity and authorisation under HD-REP-12, agent scope and audit under HD-REP-13, contract governance under HD-REP-14, and retention/export/deletion controls under HD-REP-07/09/10. Store references and minimal evidence metadata where possible; do not duplicate secrets, private keys, unrestricted source contents or sensitive prompts into ordinary audit/telemetry records.
+
+No database, table, schema, index, migration, credential or production data operation is authorised by HD-REP-24.

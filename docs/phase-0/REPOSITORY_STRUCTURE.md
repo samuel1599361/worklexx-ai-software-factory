@@ -1454,3 +1454,10 @@ Agents may prepare project specifications, template recommendations, initial str
 Project readiness must distinguish generated files, repository initialisation, dependency resolution, successful build, passing tests, security checks, deployment readiness and production approval. Export and portability follow HD-REP-05/10 and exclude secrets, other-tenant data, private keys and unlicensed materials. Marketplace commercialisation is outside this approval.
 
 Require POC-REP-23-01 through -32 (all unexecuted) and add RSK-43 — Unsafe Project Generation, Template Supply-Chain Compromise and Development Environment Isolation Failure (scores pending). No project creation, customer repository provisioning, Git OAuth, environment/infrastructure provisioning, live source processing, credentials, CI/CD, GitHub configuration, database changes, paid tools, production deployment or Phase 1 is authorised.
+
+
+## HD-REP-24 — AI-Assisted Development and Source-Change Boundaries
+
+Customer software development occurs in the isolated customer-project repository model defined by HD-REP-05, never by placing generated customer source in the Factory platform monorepo. Each task must carry trusted tenant/project/repository identity, authorised branch/workspace, task scope, permitted tools, execution limits and attributable actor/agent identity. Preserve separate Worklexx-managed and customer-managed hosting modes.
+
+AI-generated changes are proposed and validated within the authorised project boundary. Agents may inspect, prepare and, when separately permitted, execute bounded changes; they cannot self-approve, bypass protected branches, alter repository ownership/visibility, cross tenants, access unrelated secrets or perform unauthorised consequential operations. Pull requests and independent human review remain required under HD-REP-03/04. The six backend deployables and 23 logical agent modules remain unchanged; sandbox-runner is the controlled execution boundary.
