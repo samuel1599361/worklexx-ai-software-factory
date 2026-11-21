@@ -2086,3 +2086,45 @@ The following validation requirements are mandatory planning items. All remain u
 | POC-REP-23-32 | Independent adversarial and end-to-end project creation review |
 
 For each validation, record accountable owner, scope, environment, prerequisites, expected result, test data classification, evidence, actual outcome, defects, severity, remediation and retest status. Include negative/adversarial testing for cross-tenant access, malicious templates, incompatible dependencies, secrets in generated files, prompt injection, sandbox/network escape, unauthorised Git operations, stale entitlements, interrupted initialisation and misleading readiness claims. All requirements remain unexecuted until evidence is produced and independently reviewed.
+
+
+## POC-REP-24 — AI-Assisted Development, Code Generation and Change Management
+
+Define the following required proof-of-concept validations. All are **unexecuted**; inclusion in this strategy is not evidence of a pass or implementation authorisation.
+
+| ID | Required validation |
+|---|---|
+| POC-REP-24-01 | Requirement-to-code traceability |
+| POC-REP-24-02 | Requirement ambiguity detection |
+| POC-REP-24-03 | Customer confirmation and change control |
+| POC-REP-24-04 | Development plan generation |
+| POC-REP-24-05 | Architecture and design consistency |
+| POC-REP-24-06 | New-project code generation |
+| POC-REP-24-07 | Existing-project inspection and modification |
+| POC-REP-24-08 | Feature development workflow |
+| POC-REP-24-09 | Bug diagnosis and correction |
+| POC-REP-24-10 | Refactoring and regression preservation |
+| POC-REP-24-11 | Unit and integration test generation |
+| POC-REP-24-12 | Contract and end-to-end testing |
+| POC-REP-24-13 | Security testing and vulnerability detection |
+| POC-REP-24-14 | Tenant and project isolation |
+| POC-REP-24-15 | Workspace and sandbox isolation |
+| POC-REP-24-16 | Network and credential restrictions |
+| POC-REP-24-17 | Agent permission-tier enforcement |
+| POC-REP-24-18 | Prompt-injection and malicious repository content |
+| POC-REP-24-19 | Out-of-scope file modification prevention |
+| POC-REP-24-20 | Concurrent agent and conflicting change management |
+| POC-REP-24-21 | Cancellation, retry and recovery |
+| POC-REP-24-22 | Reproducible builds and dependency integrity |
+| POC-REP-24-23 | Code provenance and SBOM traceability |
+| POC-REP-24-24 | Licence compliance and attribution |
+| POC-REP-24-25 | Independent review and approval enforcement |
+| POC-REP-24-26 | Pull-request and protected-branch integration |
+| POC-REP-24-27 | Customer change requests and specification versioning |
+| POC-REP-24-28 | Generated-code quality and defect evaluation |
+| POC-REP-24-29 | Resource, execution-time and cost controls |
+| POC-REP-24-30 | Artifact integrity and authorised export |
+| POC-REP-24-31 | Audit completeness and development history |
+| POC-REP-24-32 | End-to-end lifecycle acceptance and handover |
+
+Each validation record must identify scope, environment, test data, prerequisites, expected result, actual result, evidence, defects, reviewer and disposition. Negative tests must include cross-tenant/project attempts, out-of-scope modifications, secret exposure, prompt injection, unauthorised approvals and protected-branch bypass attempts. Testing requires separate authorisation and must not use live customer data or production systems without applicable approvals.
