@@ -1464,3 +1464,10 @@ Development environments align with HD-REP-18's four logical environments: Devel
 Project configuration is versioned and schema-validated, classified Public/Internal/Confidential/Restricted and linked to approved secret references rather than secret values. No secrets in source, frontend bundles, Git history, images, ordinary logs or customer repositories. Project readiness evidence distinguishes generation, dependency resolution, build, tests, security checks, deployment readiness and production approval.
 
 Require POC-REP-23-01 through -32; all unexecuted. No technology procurement, provider selection/connection, editor subscription, environment provisioning, customer source processing, credential creation, CI/CD activation, production build/deployment or Phase 1 is authorised.
+
+
+## HD-REP-24 — Governed AI Development and Validation Requirements
+
+The Factory development capability must support specification-driven code generation and modification, project-specific toolchains, reproducible dependency resolution, automated quality checks, test execution, security analysis, artifact integrity and provenance. Technology choices must remain compatible with each customer project's approved stack; no universal language, framework, editor, model provider, code-generation framework or commercial scanning product is selected by this decision.
+
+Execute untrusted or customer-project code only in isolated, policy-controlled workspaces associated with sandbox-runner and bounded by tenant/project/task identity, filesystem/process/network controls, resource/time limits and task-scoped credentials. Preserve the six-deployable topology. Use project-appropriate formatters, linters, type checkers, unit/integration/contract/end-to-end tests and applicable SAST/SCA/secret/licence checks. Record tool versions, dependency lockfiles, test outcomes, SBOM and provenance where applicable. No tool installation, environment provisioning, CI/CD activation, provider connection or expenditure is authorised.
