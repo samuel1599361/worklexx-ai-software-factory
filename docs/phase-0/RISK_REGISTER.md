@@ -1870,3 +1870,16 @@ Project Owner remains sole initial risk acceptance and approval authority under 
 **Assessment status:** Likelihood, impact, inherent risk and residual risk scores are pending formal assessment. Proposed or unimplemented controls do not reduce residual risk. POC-REP-23-01 through POC-REP-23-32 remain unexecuted. Risk acceptance remains subject to HD-07; consequential operations remain subject to HD-08. This entry authorises no project creation, repository provisioning, external Git integration, environment provisioning or production operation.
 
 **Architecture traceability:** RSK-43 is introduced by HD-REP-23 — Customer Project Creation, Templates, Development Environments and Project Configuration Governance. Associated validation requirements are recorded in TESTING_STRATEGY.md.
+
+
+## RSK-44 — Unsafe AI-Generated Code, Unauthorised Source Modification and Development Lifecycle Integrity Failure
+
+**Risk statement:** AI-assisted development may introduce incorrect, insecure, incompatible, unlicensed or poorly tested code; misunderstand customer requirements; modify files outside authorised scope; mishandle malicious repository content; or produce incomplete/inaccurate provenance and validation evidence.
+
+**Potential causes:** ambiguous specifications; model limitations; prompt injection in project files or dependencies; compromised templates/tools; insufficient workspace isolation; excessive agent permissions; inadequate testing or review; dependency/licence failures; concurrent conflicting changes; false claims of test/build/security success.
+
+**Potential consequences:** customer source or data exposure, security vulnerabilities, service disruption, loss of customer work, intellectual-property disputes, unsafe releases, financial or reputational harm and failure to meet contractual or legal obligations.
+
+**Proposed controls:** confirmed requirements and versioned specifications; tenant/project/task-scoped permissions; isolated execution; bounded network, credentials and resources; protected branches and independent human review; risk-based automated/manual testing; dependency, secret and licence analysis; SBOM/provenance; change traceability; explicit readiness states; customer review and controlled integration; audit and recovery.
+
+**Risk owner:** Pending formal assignment. **Likelihood, impact, inherent risk and residual risk:** Pending formal assessment. No residual-risk reduction is claimed before implementation and validation. Require POC-REP-24-01 through -32; all unexecuted. HD-07/HD-08 remain authoritative.
