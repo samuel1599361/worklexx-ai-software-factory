@@ -2097,3 +2097,22 @@ The roadmap includes a future governed dependency-maintenance capability followi
 Future capability planning must cover the Factory monorepo and isolated generated customer repositories, customer-specific maintenance policies, exception/deferral records, package ecosystem support, verified registries, lockfile reproducibility, patch availability, deprecated/abandoned dependencies, breaking changes, rollback/forward-fix planning and evidence retention. The existing 23-agent ecosystem may provide bounded assistance; no additional deployable service or agent-count expansion is approved. Commercial maintenance offerings are possibilities only, not current commitments or SLAs.
 
 POC-REP-28-01 through POC-REP-28-32 are required before implementation readiness and remain unexecuted. RSK-48 has been identified but is not scored or accepted. Documentation approval does not authorise implementation, dependency operations, scanning activation, customer repository changes, CI/CD, infrastructure, production operations or Phase 1.
+
+
+
+## HD-REP-29 — Build Engineering, Artifact Management and Delivery Workstream
+
+**Status:** Architecture approved for documentation; implementation and Phase 1 not authorised.
+
+The roadmap shall include a governed build-and-delivery capability after its prerequisites are validated. Its planned stages are:
+
+1. Define build request/specification contracts, project and tenant scope, source revision identity and approval boundaries.
+2. Evaluate isolated build execution, toolchain pinning, dependency inputs, resource/network controls and safe handling of untrusted build scripts.
+3. Define artifact identity, digest, metadata, provenance, SBOM, signature and verification requirements.
+4. Evaluate controlled artifact storage, immutability, access separation, retention, backup/recovery, export and deletion.
+5. Define build validation, security/QA evidence, reproducibility testing, failure diagnostics and exception handling.
+6. Define promotion of the same verified artifact across Development, Testing, Staging and Production, with environment-specific approvals and no implicit rebuild.
+7. Define customer delivery packages, release notes, evidence, known limitations and handover.
+8. Execute POC-REP-29-01 through -32 and obtain documented review and separate implementation authorization before any build service or pipeline is activated.
+
+Dependencies include HD-REP-05, -06, -07, -08, -09, -10, -11, -13, -14, -16, -18, -19, -23, -24, -26, -27 and -28. RSK-49 requires assessment and treatment. No milestone in this entry authorises infrastructure provisioning, registry creation, tool installation, CI/CD activation, customer builds, artifact publication, production deployment, spending or Phase 1.
