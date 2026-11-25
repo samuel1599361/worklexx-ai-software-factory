@@ -1762,3 +1762,13 @@ The debugging/remediation capability may require logical records for defect inta
 All records and artefacts inherit tenant isolation, data classification, purpose limitation, access controls, audit, retention, export and deletion obligations under HD-REP-06, HD-REP-11 and HD-REP-12. Store references to source-controlled evidence where appropriate; protect original evidence and maintain integrity/provenance. Logs, stack traces, crash dumps, attachments and prompts may contain secrets or personal data and require minimisation, redaction and scoped access. AI context must be limited to the authorized project and purpose; no unrestricted cross-project or cross-tenant retrieval.
 
 No schema/table/index/role/permission, migration, database operation or implementation is authorized. POC-REP-27-01 through -32 remain unexecuted.
+
+---
+
+## HD-REP-28 — Logical Data and Evidence Requirements
+
+Dependency maintenance may require conceptual records or references for project/repository/commit identity; dependency inventory snapshots; package coordinates and ecosystem; direct/transitive/build/runtime scope; manifest and lockfile digests; registry and provenance/integrity evidence; licence findings; advisory identifiers and source timestamps; applicability, reachability and exploitability assessments; severity and prioritisation rationale; patch/mitigation options; compatibility analysis; update proposals and change references; scan/test execution metadata; regression and security evidence; review/approval/exception records; and maintenance status/report history.
+
+These are logical information requirements only. They do not approve a physical schema, table, index, migration, retention period or change in authoritative service ownership. Preserve HD-REP-06 service-owned schemas and migration histories, HD-REP-11 classification and tenant isolation, HD-REP-09 audit integrity, HD-REP-10 lifecycle/exit requirements and HD-REP-14 contract boundaries. Scope all records and artifacts to the authorized tenant, project and repository. Store minimal metadata and protected evidence references where possible; do not place credentials, tokens, private keys, unrestricted source contents or sensitive customer data in ordinary inventory, audit or telemetry records.
+
+Dependency inventory and maintenance evidence must preserve provenance and reproducibility without creating cross-tenant package-cache or agent-context leakage. Retention, export, deletion, legal hold and backup restoration must remain consistent with customer and platform obligations. POC-REP-28-01 through -32 remain unexecuted. No schema/table/index/role/permission, migration, database operation, data ingestion or implementation is authorised.
