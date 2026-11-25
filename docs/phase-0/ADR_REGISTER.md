@@ -123,7 +123,7 @@ The register contains 14 initial ADR identifiers. Repository-level decisions HD-
 
 Identifiers must not be reused, even when an ADR is deprecated or superseded.
 
-Future decisions must receive new sequential identifiers.
+Future decisions must receive new sequential identifiers.\n\nRepository decisions HD-REP-01 through HD-REP-25 are tracked in their separate controlled series; HD-REP-25 is approved for documentation.
 
 ## 6. ADR Register Summary
 
@@ -2029,3 +2029,22 @@ Require specification and change traceability, scoped patches, protected reposit
 Changes outside task scope, destructive refactoring, requirement changes, ownership/visibility changes, external integrations, expenditure and production actions require their own authorisation. Preserve HD-REP-03/04 protected-branch and PR review controls; agents cannot bypass them. Record task/specification versions, repository and commit identity, changed files, tests, findings, limitations, agent/tool execution, human reviews and approval references. Preserve customer and Worklexx intellectual-property boundaries and third-party licence attribution under HD-REP-05/10.
 
 Require POC-REP-24-01 through POC-REP-24-32; all remain unexecuted. Add RSK-44 — Unsafe AI-Generated Code, Unauthorised Source Modification and Development Lifecycle Integrity Failure; likelihood, impact, inherent and residual scores pending formal assessment. Align HD-REP-05 through -23, HD-07 and HD-08. This is documentation-only: no source generation/modification, customer project/repository creation, GitHub integration, sandbox/environment provisioning, credentials, CI/CD activation, paid services, live customer-data processing, database changes, release, production deployment or Phase 1 is authorised.
+
+
+## HD-REP-25 — Project Task Orchestration, Progress Tracking, Collaboration and Delivery Management (Approved 2026-11-25)
+
+**Decision:** Adopt a permission-controlled, project-centric orchestration and delivery-management capability. Tasks and work packages must trace to confirmed requirements, milestones, dependencies, assignees, execution records, validations, review and deliverables. This is an architectural direction only; it does not approve implementation.
+
+The logical hierarchy includes project, requirements/features/workstreams, milestones/epics, tasks, subtasks, outputs, tests/evidence and acceptance criteria. Projects may use configurable Agile/Scrum, Kanban, Waterfall, Hybrid, milestone-driven, iterative AI or customer-defined methods. Task records conceptually capture identity, project/parent, description, requirement links, acceptance criteria, priority, status, assignee, task type, dependencies, dates/estimates, risk, work log, deliverables, evidence, review and change history.
+
+Lifecycle states include Backlog, Ready, Assigned, In Progress, Blocked, In Review, Validation, Completed, Cancelled, Deferred, Reopened, Waiting for Customer, Waiting for External Dependency, Failed Validation and Awaiting Approval. State transitions require policy and evidence; labels do not constitute approval or completion evidence.
+
+AI may propose requirement-based plans, decomposition, estimates, assignments, schedules, dependency analysis, progress calculations and replanning. Confirmed requirements must remain distinguishable from assumptions and recommendations. Allocation considers agent capabilities, scope, tier, tools, risk, dependencies, workload, concurrency and cost limits. Coordination must address duplicate work, idempotency, cancellation, retries, reassignment, shared-file/branch conflicts, deadlocks and resource limits.
+
+Human collaboration roles may include project owner, project manager, technical lead, developer, designer, QA/tester, security reviewer, documentation contributor, customer reviewer and external collaborator; role names do not automatically confer authority. Project dashboards may show milestones, tasks, dependencies, schedule, allocation, blockers, risks, issues, validations, reviews, deliverables, usage and change history. Progress must be evidence-based and disclose its calculation; estimates are not commitments. Critical-path analysis and schedules are advisory where used.
+
+Blockers, change requests and notifications must be traceable and tenant scoped. Change-impact assessment identifies affected requirements, tasks, deliverables, dependencies, tests, architecture, effort, cost, risk and schedule; material changes require applicable gates and approvals. Notifications may cover assignment, progress, blockers, review, approvals, milestones, changes and customer actions but never constitute approval themselves.
+
+Agent authority remains bounded under HD-REP-13 and HD-08. Agents may plan and update scoped task records within permitted policy, derive status from evidence and propose replanning; they may not independently change approved scope, accept risk, approve their own work, bypass gates, spend, deploy or perform consequential actions without required authorisation. Tenant isolation, privacy, retention, export and deletion apply to comments, attachments, work logs and context; these materials are not unrestricted AI context. No physical schema is approved.
+
+Require POC-REP-25-01 through -32 for hierarchy/traceability, lifecycle, dependencies and graph integrity, milestone/task management, agent allocation, tier enforcement, collaboration isolation, acceptance, evidence-based progress, schedule/critical path, blockers, change impact, concurrency/conflict prevention, idempotency, retry/cancellation/reassignment, resource limits, dashboard, notifications, tenant isolation, privacy/context, audit, export, closure and end-to-end delivery. All remain unexecuted.

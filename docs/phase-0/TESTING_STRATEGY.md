@@ -2128,3 +2128,8 @@ Define the following required proof-of-concept validations. All are **unexecuted
 | POC-REP-24-32 | End-to-end lifecycle acceptance and handover |
 
 Each validation record must identify scope, environment, test data, prerequisites, expected result, actual result, evidence, defects, reviewer and disposition. Negative tests must include cross-tenant/project attempts, out-of-scope modifications, secret exposure, prompt injection, unauthorised approvals and protected-branch bypass attempts. Testing requires separate authorisation and must not use live customer data or production systems without applicable approvals.
+
+
+## HD-REP-25 — Testing Strategy Requirements
+
+Define and execute POC-REP-25-01 through -32 covering work breakdown and requirement traceability; hierarchy and task lifecycle; dependency graph integrity and milestone handling; assignment and capability-based agent allocation; tier/approval enforcement; collaboration and tenant isolation; acceptance criteria; evidence-based progress and report transparency; scheduling and critical-path analysis; blockers/escalation; change request impact; concurrent work, conflicts and shared-resource protection; idempotency, duplicates, retry, cancellation and reassignment; resource limits; dashboard; actionable notifications; privacy, attachment and AI-context handling; audit, export, closure and end-to-end delivery. Tests must use isolated test fixtures, not live customer data, and must not perform destructive, consequential, production or externally integrated operations without separate authorization. POCs remain unexecuted.

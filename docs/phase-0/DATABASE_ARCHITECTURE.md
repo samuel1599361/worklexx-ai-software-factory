@@ -1744,3 +1744,8 @@ The AI-assisted development lifecycle requires logical traceability among custom
 Any future persistence must preserve service-owned schema and migration boundaries under HD-REP-06, tenant/project isolation under HD-REP-11, identity and authorisation under HD-REP-12, agent scope and audit under HD-REP-13, contract governance under HD-REP-14, and retention/export/deletion controls under HD-REP-07/09/10. Store references and minimal evidence metadata where possible; do not duplicate secrets, private keys, unrestricted source contents or sensitive prompts into ordinary audit/telemetry records.
 
 No database, table, schema, index, migration, credential or production data operation is authorised by HD-REP-24.
+
+
+## HD-REP-25 — Logical Database and Persistence Implications
+
+The project task-orchestration capability requires conceptual records/references for project plans, requirement links, milestones, task/subtask identity, dependencies, assignments, lifecycle history, estimates and actual work, blockers, change requests, validation/review evidence, notification preferences and delivery/acceptance references. This does not approve a physical schema or table design. Preserve authoritative service ownership, versioned contracts, tenant/project scope, idempotency, auditability, minimisation, retention/deletion and export. Avoid storing unnecessary source content, sensitive prompts, credentials or secrets in task, comment, work-log or evidence records; attachments and AI context require explicit access controls. No schema/table/index/role/permission, migration or data operation is authorised.

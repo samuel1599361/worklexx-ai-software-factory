@@ -1883,3 +1883,14 @@ Project Owner remains sole initial risk acceptance and approval authority under 
 **Proposed controls:** confirmed requirements and versioned specifications; tenant/project/task-scoped permissions; isolated execution; bounded network, credentials and resources; protected branches and independent human review; risk-based automated/manual testing; dependency, secret and licence analysis; SBOM/provenance; change traceability; explicit readiness states; customer review and controlled integration; audit and recovery.
 
 **Risk owner:** Pending formal assignment. **Likelihood, impact, inherent risk and residual risk:** Pending formal assessment. No residual-risk reduction is claimed before implementation and validation. Require POC-REP-24-01 through -32; all unexecuted. HD-07/HD-08 remain authoritative.
+
+
+## RSK-45 — AI Project Orchestration, Task Integrity and Delivery Governance Failure
+
+**Risk:** Task or dependency corruption, unbounded agent assignment/execution, inaccurate or misleading progress/schedule, duplicate work, concurrency conflicts, cross-tenant exposure, uncontrolled scope changes, unauthorised approvals or consequential actions, notification leakage, or incomplete delivery/acceptance evidence could undermine customer projects and governance.
+
+**Potential impacts:** Incorrect or incomplete deliverables; lost, duplicated or conflicting work; security/privacy breach; cost overruns; schedule misrepresentation; unintended scope change; failure to meet acceptance requirements; and reputational or regulatory harm.
+
+**Controls proposed/required:** Tenant/project scoping and server-side authorization; explicit task lifecycle and graph integrity; requirement/acceptance traceability; evidence-based status/progress; idempotency and conflict controls; resource, concurrency and retry limits; scoped agent identities and tier enforcement; approval gates and human oversight; change-impact review; privacy/redaction and retention; audit and export; independent validation; fail-closed handling of unavailable authority. Controls remain subject to validation and are not represented as implemented.
+
+**Validation:** POC-REP-25-01 through -32. Risk score and acceptance remain pending assessment; this entry does not accept the risk.

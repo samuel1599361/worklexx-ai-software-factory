@@ -2071,3 +2071,8 @@ The implementation roadmap shall include a governed, specification-driven develo
 Development modes may include new project development, authorised existing-project changes, feature work, bug fixing, refactoring, testing, documentation, maintenance and modernisation. Each task must be bound to an authorised tenant/project/repository/workspace and explicit scope. Agents cannot treat assumptions as customer approval, approve their own code, bypass protected branches or authorise production deployment.
 
 Validation must distinguish generated code, executed tests, passing tests, security checks, successful builds, independent review, customer acceptance, merge and deployment approval. The capability uses the existing six backend deployables and 23 logical agent modules; sandbox-runner remains the controlled execution boundary. Implementation sequencing, resources, tooling, integrations and commencement remain subject to separate approvals and proof-of-concept validation. HD-REP-24 does not authorise Phase 1 or implementation.
+
+
+## HD-REP-25 — Roadmap Addition (Approved 2026-11-25)
+
+Future implementation planning must include project initiation and requirement baselining, work breakdown and milestone planning, task/dependency records, controlled assignment and agent allocation, execution tracking, evidence-based progress, blockers/escalations, schedule analysis, change-impact workflows, collaboration and notifications, validation/review/customer acceptance, delivery/handover and project closure/continuation. These are planning requirements, not commitments or authorisation to begin Phase 1 or implementation. POC-REP-25-01 through -32 remain prerequisites and unexecuted.
