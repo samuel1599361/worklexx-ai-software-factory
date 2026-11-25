@@ -1907,3 +1907,15 @@ Project Owner remains sole initial risk acceptance and approval authority under 
 **Validation:** POC-REP-26-01 through -32, covering traceability, testability, generated tests, planning, orchestration, isolation, test taxonomy, security/privacy, performance/reliability, accessibility/compatibility/data integrity, AI-specific testing, evidence integrity, defects and retesting, checkpoints, independent review, tenant isolation, reporting, exceptions, acceptance and end-to-end readiness. All POCs unexecuted.
 
 **Risk score and acceptance:** Pending assessment; this entry does not accept the risk.
+
+## RSK-47 — AI-Assisted Defect Diagnosis, Remediation and Repair Integrity Failure
+
+**Description:** Incorrect or overconfident diagnosis, unsafe AI-generated repairs, unauthorized modifications, loss or manipulation of diagnostic evidence, inadequate regression validation, or premature closure may introduce defects, security vulnerabilities, data-integrity failures, service disruption or financial harm.
+
+**Causes/threats:** Incomplete or poisoned diagnostic inputs; prompt injection in logs/issues/source; hallucinated root causes; unsafe command execution; cross-tenant context leakage; excessive agent permissions; patch conflicts; inadequate tests; suppressed findings; unverified dependencies; incorrect rollback assumptions.
+
+**Impact:** Confidentiality, integrity, availability, customer trust, legal/regulatory and financial impact.
+
+**Proposed controls:** Tenant/project/commit/environment binding; provenance and immutable original evidence; confidence-labelled findings; isolated reproduction and sandbox execution; command/network/filesystem/resource restrictions; secret and personal-data redaction; scoped agent identities; patch review; HD-REP-26 validation and regression tests; independent human review; risk-based escalation; audit trail; rollback/recovery planning; explicit HD-08 approvals for consequential actions.
+
+**Risk owner:** Project Owner under HD-07, subject to applicable specialist review. **Inherent/residual score:** Pending assessment. **Risk acceptance:** Not accepted by this entry. **Validation:** POC-REP-27-01 through -32 required and unexecuted. Controls are proposed, not demonstrated.
