@@ -1919,3 +1919,19 @@ Project Owner remains sole initial risk acceptance and approval authority under 
 **Proposed controls:** Tenant/project/commit/environment binding; provenance and immutable original evidence; confidence-labelled findings; isolated reproduction and sandbox execution; command/network/filesystem/resource restrictions; secret and personal-data redaction; scoped agent identities; patch review; HD-REP-26 validation and regression tests; independent human review; risk-based escalation; audit trail; rollback/recovery planning; explicit HD-08 approvals for consequential actions.
 
 **Risk owner:** Project Owner under HD-07, subject to applicable specialist review. **Inherent/residual score:** Pending assessment. **Risk acceptance:** Not accepted by this entry. **Validation:** POC-REP-27-01 through -32 required and unexecuted. Controls are proposed, not demonstrated.
+
+---
+
+## RSK-48 — Software Dependency, Vulnerability and Supply-Chain Maintenance Failure
+
+**Risk statement:** The Factory or a generated customer project may retain vulnerable, malicious, compromised, incompatible, unsupported or improperly licensed dependencies because inventories are incomplete, vulnerability intelligence is misapplied, package provenance is not verified, patching is delayed or automated maintenance changes are insufficiently controlled.
+
+**Potential causes:** incomplete direct/transitive/build dependency discovery; stale advisories or false applicability assumptions; exploitation/reachability not assessed; untrusted registries or package sources; typosquatting, dependency confusion or compromised maintainers; licence obligations overlooked; incompatible or breaking updates; lockfile drift; unsafe automated changes; inadequate regression testing; cross-tenant repository/cache/context leakage; suppressed findings or unsupported claims of remediation.
+
+**Potential impacts:** compromise of Factory or customer software, data exposure, service disruption, malicious code execution, supply-chain propagation, licence disputes, failed builds/releases, customer loss, remediation cost and reputational damage.
+
+**Required controls:** complete scoped dependency inventories; reproducible manifests and lockfiles; verified registries and provenance/integrity checks; vulnerability applicability and exploitability assessment; prioritisation using severity, exploitation, reachability, exposure, patch availability and business impact; licence and compatibility review; customer policy and exception controls; isolated update preparation; independent security/regression validation; human review and HD-08 gates for consequential actions; audit evidence, tenant isolation, rollback/forward-fix planning and post-change verification. Agents cannot suppress findings, accept risk, self-approve, silently upgrade or bypass controls.
+
+**Risk owner:** Project Owner / role confirmation pending. **Inherent and residual scores:** Pending formal assessment. **Risk acceptance:** Pending; this architecture approval is not acceptance. **Status:** Open — controls and POCs not yet validated.
+
+**Validation:** POC-REP-28-01 through POC-REP-28-32 are required and remain unexecuted. No live scanning, package changes, registry setup, customer repository operation, CI/CD or implementation is authorised by this entry.

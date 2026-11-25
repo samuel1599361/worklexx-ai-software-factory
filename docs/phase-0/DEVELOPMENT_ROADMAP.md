@@ -2087,3 +2087,13 @@ Future implementation planning shall include requirements and acceptance-criteri
 Add a governed remediation capability after the requirements of HD-REP-24, HD-REP-25 and HD-REP-26 are considered in planning. The logical sequence is: failure intake and classification; evidence capture and redaction; diagnostic investigation and confidence-labelled hypotheses; controlled reproduction; remediation planning and impact analysis; scoped patch preparation/execution; HD-REP-26 functional, security, regression and other applicable validation; independent review; customer acceptance where required; controlled integration under existing gates; evidence-backed closure.
 
 Delivery readiness must distinguish diagnosed, reproduced, patch proposed, patch executed, tests generated, tests executed, tests passed, independently reviewed, customer accepted, merged and deployed. A repair passing tests is not deployment authorization. POC-REP-27-01 through -32 must be planned and executed only under separate authorization; all are currently unexecuted. No Phase 1 commencement or implementation is authorized by this roadmap entry.
+
+---
+
+## HD-REP-28 — Roadmap: Dependency Maintenance Capability (Documentation Approved)
+
+The roadmap includes a future governed dependency-maintenance capability following the existing architecture and authorization gates. Its intended lifecycle is dependency discovery and inventory; continuous or scheduled advisory assessment; applicability, exploitability and impact analysis; licence/provenance/compatibility review; prioritised maintenance planning; isolated update preparation; security, compatibility and regression validation; independent review and explicit approval; controlled integration; and post-change monitoring/reporting.
+
+Future capability planning must cover the Factory monorepo and isolated generated customer repositories, customer-specific maintenance policies, exception/deferral records, package ecosystem support, verified registries, lockfile reproducibility, patch availability, deprecated/abandoned dependencies, breaking changes, rollback/forward-fix planning and evidence retention. The existing 23-agent ecosystem may provide bounded assistance; no additional deployable service or agent-count expansion is approved. Commercial maintenance offerings are possibilities only, not current commitments or SLAs.
+
+POC-REP-28-01 through POC-REP-28-32 are required before implementation readiness and remain unexecuted. RSK-48 has been identified but is not scored or accepted. Documentation approval does not authorise implementation, dependency operations, scanning activation, customer repository changes, CI/CD, infrastructure, production operations or Phase 1.

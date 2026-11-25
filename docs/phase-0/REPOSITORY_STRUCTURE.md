@@ -1479,3 +1479,13 @@ The logical repository architecture supports a governed debugging/remediation wo
 Every work item is bound to tenant, project, repository, branch/commit, environment, defect/task and permitted tools/resources. Preserve repository isolation and customer ownership/hosting choices from HD-REP-05. Proposed patches use the HD-REP-24 change-management path; validation follows HD-REP-26. No direct write to protected branches, shared Factory source or production systems is permitted absent separate authorization. Diagnostic artefacts are tenant-scoped, access-controlled, redacted and subject to retention/export/deletion requirements.
 
 The capability adds no new deployable or repository. RSK-47 and POC-REP-27-01 through -32 remain proposed/unaccepted and unexecuted. This is logical architecture only; no implementation or infrastructure changes are authorized.
+
+---
+
+## HD-REP-28 — Repository and Generated-Project Dependency Governance
+
+The repository architecture must support reproducible dependency inventories and controlled maintenance across the Factory monorepo and each isolated customer project repository. Inventory scope includes direct, transitive, optional, development, build and runtime dependencies, with package ecosystem, owning component, manifest/lockfile version, source registry and provenance references. Customer project repositories remain isolated under HD-REP-05; no cross-tenant dependency cache, credentials, source content or maintenance context may be shared without an explicitly approved safe design.
+
+Dependency changes are prepared as attributable, scoped change sets tied to a repository, branch, commit and project. Preserve existing lockfile ownership and package-manager conventions: pnpm/Turborepo for the JavaScript/TypeScript monorepo and uv with independently managed project files and committed uv.lock for Python services. Do not introduce a new package manager or centralise lockfiles without a separate compatibility decision. Registry access, caches, build artifacts and provenance evidence must be tenant-aware and protected.
+
+Automated proposals must not silently modify main or customer repositories. Updates proceed through isolated preparation, compatibility/security/regression validation, independent review and the governed PR process under HD-REP-03/04/24/26. Customer-managed hosting and Worklexx-managed repositories retain their distinct authorization and access boundaries. RSK-48 is recorded in the Risk Register; score and acceptance are pending. POC-REP-28-01 through -32 remain unexecuted. No dependency operation, repository modification, credential, scan activation, CI/CD or implementation is authorised.

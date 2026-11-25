@@ -2146,3 +2146,13 @@ Validation must establish traceability from defect report to diagnostic evidence
 Test scenarios include malformed/adversarial diagnostic inputs; prompt injection in issues/logs; incomplete and contradictory evidence; non-reproducible failures; deterministic and intermittent defects; cross-tenant access attempts; secret/PII leakage; sandbox escape; unauthorized network or filesystem access; resource exhaustion; patch conflicts; vulnerable dependency changes; security/authentication/authorization defects; payment/ledger/data-integrity defects; migrations and destructive operations; regression; rollback/recovery; cancellation/retry/idempotency; evidence tampering; and premature defect closure.
 
 Repairs must be evaluated using applicable HD-REP-26 test classes and acceptance criteria. Critical security, identity, financial, privacy and data-integrity changes require specialist/independent review as applicable. A successful test suite does not itself constitute customer acceptance, risk acceptance, gate approval, merge approval or deployment authorization. POC-REP-27-01 through -32 remain unexecuted.
+
+---
+
+## HD-REP-28 — Dependency Maintenance Validation Strategy
+
+The validation strategy must establish evidence for dependency inventory completeness across direct, transitive, optional, development, build and runtime dependencies; lockfile reproducibility; advisory freshness and mapping; applicability and reachability assessment; prioritisation; patch/mitigation availability; compatibility and breaking-change detection; deprecated/abandoned package handling; licence obligations; package provenance and malicious/dependency-confusion detection; isolated update preparation; security and regression validation; rollback/forward-fix readiness; multi-agent coordination; tenant/repository/cache/context isolation; customer-specific policies; approval and exception controls; auditability; reporting; and independent closure verification.
+
+Required suite: POC-REP-28-01 through POC-REP-28-32. Each POC must define scope, prerequisites, test data, expected results, evidence, pass/fail criteria, limitations and reviewer. Tests must distinguish generated plans from executed checks and distinguish detected, applicable, exploitable, mitigated, patched and independently verified findings. No result may be claimed without execution evidence. Test environments must be isolated and must not use live customer repositories, production credentials or destructive operations without separate authorisation.
+
+All HD-REP-28 POCs remain unexecuted. This strategy entry authorises no scanner activation, dependency installation/update, registry configuration, customer repository modification, CI/CD execution, production testing or Phase 1.

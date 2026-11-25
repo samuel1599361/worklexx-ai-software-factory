@@ -2067,3 +2067,21 @@ Adopt a permission-controlled, evidence-driven QA and validation orchestration c
 **Controls:** Preserve original defect evidence and provenance; bind every investigation to tenant/project/repository/commit/environment and authorized scope; redact secrets and personal data; constrain commands, network, filesystem, credentials, runtime and cost; require independent review and HD-REP-26 validation; assess regression, security, data integrity and rollback/recovery. Sensitive security, identity, payment, ledger, access-control, destructive and production changes require heightened review and applicable approval gates.
 
 **Risk:** RSK-47 — AI-Assisted Defect Diagnosis, Remediation and Repair Integrity Failure. Score and risk acceptance pending. **Validation:** POC-REP-27-01 through -32 required and unexecuted. No implementation, schema, provisioning, CI/CD, production operation or Phase 1 authorisation is implied.
+
+---
+
+## HD-REP-28 — Software Dependency Management, Vulnerability Intelligence, Patch Governance and Maintenance Automation (Approved for documentation)
+
+This repository decision establishes a governed capability for ongoing dependency discovery, vulnerability intelligence, licence/provenance review, compatibility assessment, patch planning, controlled update preparation, validation, independent review and maintenance reporting for the Factory and generated customer projects. It builds on HD-REP-08, HD-REP-17 and HD-REP-24 through HD-REP-27.
+
+Dependency inventories must distinguish direct, transitive, optional, development and build-time dependencies, identify the owning project/service and package ecosystem, and preserve manifest/lockfile and source provenance. Assessments must distinguish detected, confirmed applicable, reachable/exploitable, mitigated, patched and independently verified findings. Prioritisation considers severity, known exploitation, exploit availability, actual dependency presence and reachability, exposure, sensitive functionality, patch/mitigation availability, compatibility and impact of delay. Licence obligations and package provenance are reviewed alongside security.
+
+The existing 23-agent ecosystem may perform bounded logical responsibilities for discovery, vulnerability intelligence, licence compliance, provenance, compatibility, patch planning, dependency updates, regression validation and reporting. This decision creates no additional deployable service and does not approve an expansion of the agent count. Agents operate under HD-REP-13 tiers: observe and prepare by default; execute scans or updates only when explicitly authorised in an isolated scope; consequential changes require human approval and applicable HD-08 gates. Agents must not silently upgrade dependencies, suppress findings, accept risk, approve their own changes, bypass branch protections or claim that a scan proves security.
+
+Updates preserve reproducible manifests and lockfiles, use verified registries and provenance checks, assess breaking/deprecated/abandoned or potentially malicious packages, and undergo compatibility, regression and security validation under HD-REP-26. Changes remain subject to HD-REP-24 review and controlled integration. Rollback/forward-fix planning must consider data and workflow compatibility; code rollback is not assumed to reverse data changes. Tenant, project and repository isolation, audit, privacy, retention and customer policy controls remain mandatory.
+
+Potential future maintenance offerings may include continuous monitoring, scheduled maintenance, critical vulnerability assessment, patch preparation, compatibility/regression testing and managed maintenance. No service-level commitment, customer maintenance service or operational monitoring is established by this architecture decision.
+
+Risk RSK-48 — Software Dependency, Vulnerability and Supply-Chain Maintenance Failure — is added for assessment. Risk score and acceptance remain pending; this approval is not risk acceptance.
+
+POC-REP-28-01 through POC-REP-28-32 are required and remain unexecuted. This decision authorises documentation only: no dependency installation or upgrade, vulnerability scan activation, registry configuration, customer repository modification, automated maintenance job, CI/CD activation, infrastructure provisioning, production change or Phase 1 implementation.
