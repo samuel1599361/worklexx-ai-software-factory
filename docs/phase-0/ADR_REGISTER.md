@@ -2085,3 +2085,27 @@ Potential future maintenance offerings may include continuous monitoring, schedu
 Risk RSK-48 — Software Dependency, Vulnerability and Supply-Chain Maintenance Failure — is added for assessment. Risk score and acceptance remain pending; this approval is not risk acceptance.
 
 POC-REP-28-01 through POC-REP-28-32 are required and remain unexecuted. This decision authorises documentation only: no dependency installation or upgrade, vulnerability scan activation, registry configuration, customer repository modification, automated maintenance job, CI/CD activation, infrastructure provisioning, production change or Phase 1 implementation.
+
+
+
+## HD-REP-29 — Software Build Engineering, Artifact Management, Reproducible Builds and Build Provenance Governance (Approved for Documentation 2026-11-25)
+
+**Decision status:** Approved architectural direction for Phase 0 documentation; not implementation approval.
+
+The Software Factory shall define a governed build and artifact lifecycle for platform components and isolated customer projects. The lifecycle covers an approved source revision and build specification; scoped build request; isolated build environment; verified toolchain and dependency inputs; build and packaging; unique artifact identity; provenance and integrity evidence; security and QA evidence; readiness review; controlled artifact storage; environment promotion; and customer delivery/handover.
+
+Each artifact must be traceable to its tenant/customer and project, repository, immutable source commit, build request and execution, build specification, toolchain and dependency/lockfile inputs, version, creation time, and validation evidence. Artifact identity and metadata must be tamper-evident. Content digests must be calculated using approved cryptographic algorithms; signatures and attestations require separately governed key custody, verification, rotation and revocation. Provenance must distinguish verified facts from claims that have not been independently validated.
+
+Build execution must be isolated from the control plane and from other tenants/projects. Apply least privilege, ephemeral or resettable execution environments, resource/time/network limits, controlled input/output channels, and explicit treatment of untrusted source, dependencies, build scripts and generated content. Build credentials and signing authority must not be exposed to build jobs or AI agents beyond narrowly scoped, approved needs. Build outputs are untrusted until integrity, provenance, security and required QA checks have passed.
+
+Reproducibility is a target to be demonstrated, not presumed. Pin and record toolchains and dependencies, preserve lockfiles and build configuration, control timestamps and other nondeterministic inputs where feasible, and compare independent rebuild results. Record any justified source of nondeterminism and its impact. A successful build alone does not establish correctness, security, customer acceptance or release readiness.
+
+Artifacts must be stored in a controlled repository with tenant/project access boundaries, immutable identity, retention and deletion rules, backup/recovery controls, export/portability and audit history. Promotion between Development, Testing, Staging and Production must preserve the same artifact digest; rebuilding during promotion creates a new artifact requiring fresh evidence. Production release/deployment remains subject to HD-REP-19 and GATE-03. Protected source operations remain subject to GATE-04; destructive data operations to GATE-05; consequential external actions to GATE-06.
+
+Customer delivery may include artifact references or packages, release notes, SBOM, provenance/attestation, integrity verification instructions, applicable test/security evidence, known limitations and handover records. Customer-specific licensing, ownership, confidentiality and export rights must be respected.
+
+No additional backend deployable is introduced. Build orchestration and artifact management must be assigned within the existing six deployables and approved platform capabilities, with explicit service ownership and contract boundaries. The 23-agent ecosystem remains unchanged. AI agents may prepare and execute bounded build tasks only within HD-REP-13 permissions; they cannot approve their own outputs, sign or publish privileged artifacts without separately authorised controls, approve production releases, bypass protected branches or grant themselves credentials.
+
+**Risk:** RSK-49 — Software Build Integrity, Artifact Provenance and Delivery Failure. Scoring, treatment and acceptance remain pending in the Risk Register.
+
+**Validation:** POC-REP-29-01 through POC-REP-29-32 are required and remain unexecuted. This record authorises documentation only. It does not authorise implementation, dependency/tool installation, infrastructure or artifact-registry creation, CI/CD/build-pipeline activation, customer repository builds, signing or publishing production artifacts, deployment, spending, or Phase 1.
