@@ -1471,3 +1471,11 @@ Project orchestration requires logical traceability among project identity, conf
 ## HD-REP-26 — Repository Quality Assurance Capability
 
 Repository and project delivery workflows shall support requirements-linked test planning, bounded test orchestration, test evidence/provenance, defect records and retesting, independent QA review, transparent readiness reporting and customer acceptance evidence. Validation activities must operate within the repository/project isolation and scoped execution boundaries established in HD-REP-05, HD-REP-13 and HD-REP-24. Preserve traceability from requirement and version/commit to test and result. Do not represent a generated test, test plan, static scan or agent assertion as an executed or passed test. Quality reports disclose coverage methods and limitations, unresolved defects, exceptions, environment and tool details. This is a logical capability requirement; no implementation or CI/CD configuration is authorised.
+
+## HD-REP-27 — Debugging and Remediation Capability
+
+The logical repository architecture supports a governed debugging/remediation workflow coordinated by the existing agent-orchestrator and executed only through sandbox-runner under scoped authorization. It is not a seventh deployable. Inputs may include authorized defect reports, test failures, stack traces, logs, diagnostics and source snapshots. Outputs include evidence-linked diagnosis, hypotheses, reproduction instructions, remediation plans, proposed patches, validation evidence and closure recommendations.
+
+Every work item is bound to tenant, project, repository, branch/commit, environment, defect/task and permitted tools/resources. Preserve repository isolation and customer ownership/hosting choices from HD-REP-05. Proposed patches use the HD-REP-24 change-management path; validation follows HD-REP-26. No direct write to protected branches, shared Factory source or production systems is permitted absent separate authorization. Diagnostic artefacts are tenant-scoped, access-controlled, redacted and subject to retention/export/deletion requirements.
+
+The capability adds no new deployable or repository. RSK-47 and POC-REP-27-01 through -32 remain proposed/unaccepted and unexecuted. This is logical architecture only; no implementation or infrastructure changes are authorized.
