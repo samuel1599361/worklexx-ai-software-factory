@@ -1481,3 +1481,9 @@ The project-centric task, dependency, scheduling, collaboration, evidence, notif
 ## HD-REP-26 — Technology Implications
 
 The QA, test orchestration, defect, evidence and readiness capability is distributed within the existing six backend deployables and approved frontend applications, using the existing controlled sandbox and workflow architecture. This proposal does not select or add a test vendor, framework, service, database or deployable. Candidate testing tools and automation integration require evaluation, scoped authorisation, isolation, supply-chain review and POC validation. Tests may not use live customer data or perform consequential external actions without separate authorisation. POC-REP-26-01 through -32 remain unexecuted.
+
+## HD-REP-27 — Debugging and Remediation Technology Requirements
+
+No new provider, framework, database, diagnostic SaaS or production observability product is selected by this decision. Reuse the approved technology direction and existing six-deployable architecture. Coordinate workflow state through the governed orchestration layer; run authorized diagnostics and repair validation in isolated sandbox-runner environments; use existing contract, identity, secret, audit and telemetry controls.
+
+Diagnostic inputs and outputs must support structured, versioned evidence references, timestamps, commit/environment identity, tool/version provenance, redaction and reproducibility metadata. Tool execution requires allowlists, least privilege, bounded runtime/resources, network restrictions, secret isolation and auditable invocation. Generated patches follow existing repository and supply-chain controls, including dependency/licence/security review and SBOM/provenance requirements where applicable. No additional technology is approved or procured. POC-REP-27-01 through -32 remain unexecuted.

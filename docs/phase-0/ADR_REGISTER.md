@@ -2053,3 +2053,17 @@ Require POC-REP-25-01 through -32 for hierarchy/traceability, lifecycle, depende
 ## HD-REP-26 — Software Quality Assurance and Delivery Readiness Governance (Approved Architecture, Documentation Pending)
 
 Adopt a permission-controlled, evidence-driven QA and validation orchestration capability across the software delivery lifecycle. It shall trace confirmed requirements and acceptance criteria to test plans, controlled execution, evidence, independent review, defect resolution, customer acceptance and delivery-readiness assessment. QA checkpoints QG-01–QG-10 are proposed internal checkpoints, not replacements for HD-08 approval gates or regulatory requirements. Test results and readiness conclusions must accurately distinguish planned, generated, executed, passed, failed, blocked, reviewed and accepted states. Agents may prepare and execute authorised tests and recommend readiness, but may not fabricate/suppress evidence, approve their own findings or exceptions, accept risk, bypass gates or deploy. POC-REP-26-01 through -32 remain required and unexecuted. RSK-46 is proposed; scoring and acceptance pending. No implementation, schema, provisioning, CI/CD activation, production or Phase 1 authorisation is implied.
+
+## HD-REP-27 — AI-Assisted Debugging, Defect Diagnosis, Repair and Remediation Governance
+
+**Status:** Approved architecture; documentation-only integration proposed. **Implementation status:** Not authorised.
+
+**Decision:** Establish a permission-controlled, evidence-driven debugging and remediation capability integrated with HD-REP-24 governed development, HD-REP-25 project/task orchestration and HD-REP-26 QA validation. The lifecycle covers failure intake, classification, diagnostic investigation, root-cause hypotheses, controlled reproduction, remediation planning, bounded repair preparation/execution, validation, independent review and traceable closure.
+
+**Evidence semantics:** Distinguish confirmed root cause, probable root cause, unconfirmed hypothesis, reproduced failure, proposed repair, executed repair, validated repair and accepted closure. AI-generated explanations are hypotheses unless supported by reproducible evidence. Never represent a test as executed or passed without execution evidence.
+
+**Authority:** Tier 0 observe; Tier 1 prepare diagnosis/plans/patches; Tier 2 execute explicitly authorised diagnostics and repairs in isolated, scoped environments; Tier 3 consequential changes require explicit approval and applicable HD-08 gate; Tier 4 prohibited authority. Agents cannot self-approve, suppress evidence, accept risk, bypass gates, alter approved scope or deploy based on their own diagnosis.
+
+**Controls:** Preserve original defect evidence and provenance; bind every investigation to tenant/project/repository/commit/environment and authorized scope; redact secrets and personal data; constrain commands, network, filesystem, credentials, runtime and cost; require independent review and HD-REP-26 validation; assess regression, security, data integrity and rollback/recovery. Sensitive security, identity, payment, ledger, access-control, destructive and production changes require heightened review and applicable approval gates.
+
+**Risk:** RSK-47 — AI-Assisted Defect Diagnosis, Remediation and Repair Integrity Failure. Score and risk acceptance pending. **Validation:** POC-REP-27-01 through -32 required and unexecuted. No implementation, schema, provisioning, CI/CD, production operation or Phase 1 authorisation is implied.
