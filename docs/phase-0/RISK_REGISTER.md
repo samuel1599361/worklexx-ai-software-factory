@@ -1935,3 +1935,26 @@ Project Owner remains sole initial risk acceptance and approval authority under 
 **Risk owner:** Project Owner / role confirmation pending. **Inherent and residual scores:** Pending formal assessment. **Risk acceptance:** Pending; this architecture approval is not acceptance. **Status:** Open — controls and POCs not yet validated.
 
 **Validation:** POC-REP-28-01 through POC-REP-28-32 are required and remain unexecuted. No live scanning, package changes, registry setup, customer repository operation, CI/CD or implementation is authorised by this entry.
+
+
+
+## RSK-49 — Software Build Integrity, Artifact Provenance and Delivery Failure
+
+| Field | Entry |
+|---|---|
+| Risk ID | RSK-49 |
+| Risk Title | Software Build Integrity, Artifact Provenance and Delivery Failure |
+| Affected Areas | Platform and customer-project builds, build workers, dependencies, toolchains, artifact storage, signing/provenance, release promotion and customer delivery |
+| Risk Owner | Pending explicit assignment by the Project Owner |
+| Inherent Likelihood / Impact / Score | Pending assessment |
+| Residual Likelihood / Impact / Score | Pending assessment and control validation |
+| Acceptance | Not accepted; no risk acceptance is implied by HD-REP-29 architectural approval |
+| Status | Open — assessment and treatment pending |
+
+**Risk statement:** A compromised or misconfigured build environment, malicious dependency or build script, cross-tenant isolation failure, untrusted artifact, false or incomplete provenance, compromised signing key, mutable artifact, irreproducible build, failed validation, or incorrect promotion/delivery may produce or distribute altered, insecure, unauthorised or incorrectly attributed software. This could expose customer data or intellectual property, compromise platform/customer systems, undermine release integrity, cause financial or contractual loss, and damage trust.
+
+**Potential controls for evaluation:** Isolated least-privilege build workers; ephemeral/resettable environments; resource and network restrictions; verified and pinned toolchains/dependencies; source-commit and build-spec traceability; artifact digests; signed provenance/attestations; independent signature verification; externalised signing keys and rotation/revocation; SBOM and vulnerability/licence analysis; independent reproducibility checks; tenant-separated caches and artifact access; immutable/versioned storage; controlled promotion of identical digests; QA and security evidence; audit logging; backup/recovery; retention/export/deletion controls; and documented failure/compromise response.
+
+**Required validation:** POC-REP-29-01 through POC-REP-29-32, including tenant isolation, malicious inputs, provenance integrity, signing/key boundaries, reproducibility, artifact immutability, failure recovery, promotion consistency and customer export/delivery. All POCs remain unexecuted. Risk scoring, control effectiveness, residual risk and any acceptance require separate evidence and authorised review under HD-07/HD-08. Architectural approval does not accept RSK-49.
+
+**Authorization boundary:** No build execution, tool/dependency installation, infrastructure or registry provisioning, signing-key creation, pipeline activation, artifact publication, customer repository modification, production deployment or expenditure is authorised.
