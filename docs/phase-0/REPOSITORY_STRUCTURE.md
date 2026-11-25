@@ -1489,3 +1489,15 @@ The repository architecture must support reproducible dependency inventories and
 Dependency changes are prepared as attributable, scoped change sets tied to a repository, branch, commit and project. Preserve existing lockfile ownership and package-manager conventions: pnpm/Turborepo for the JavaScript/TypeScript monorepo and uv with independently managed project files and committed uv.lock for Python services. Do not introduce a new package manager or centralise lockfiles without a separate compatibility decision. Registry access, caches, build artifacts and provenance evidence must be tenant-aware and protected.
 
 Automated proposals must not silently modify main or customer repositories. Updates proceed through isolated preparation, compatibility/security/regression validation, independent review and the governed PR process under HD-REP-03/04/24/26. Customer-managed hosting and Worklexx-managed repositories retain their distinct authorization and access boundaries. RSK-48 is recorded in the Risk Register; score and acceptance are pending. POC-REP-28-01 through -32 remain unexecuted. No dependency operation, repository modification, credential, scan activation, CI/CD or implementation is authorised.
+
+
+
+## HD-REP-29 — Build and Artifact Governance Boundaries
+
+The repository and workspace architecture must support controlled build specifications, project-scoped build definitions, toolchain/dependency manifests and lockfiles, build scripts, validation definitions, SBOM and provenance evidence, artifact metadata, release notes and handover records. These are logical repository responsibilities; this decision does not prescribe an unapproved directory layout or create additional deployables.
+
+Build inputs and outputs must remain scoped to the owning platform component or isolated customer project. A customer project retains its own isolated Git repository under HD-REP-05. Build workspaces, caches, temporary files, logs and artifacts must not become shared cross-tenant channels. Shared build tooling must be versioned, reviewed and access-controlled; customer-specific build configuration must not leak into another project.
+
+Build execution must consume an identified source commit and produce an artifact with immutable identity and digest. Changes to build definitions, toolchains, dependencies or release metadata require normal branch protection, review and traceability. Generated artifacts are not source-of-truth substitutes for repository history. Artifact storage is a controlled delivery boundary, not an unrestricted extension of the source repository.
+
+No new backend deployable or agent is created by HD-REP-29. Existing six deployables, 23-agent ecosystem, service ownership and tenant/project isolation remain unchanged. No build runner, registry, cache, pipeline, repository permission, or infrastructure is configured or activated by this documentation decision.
