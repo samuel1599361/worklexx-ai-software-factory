@@ -1754,3 +1754,11 @@ The project task-orchestration capability requires conceptual records/references
 ## HD-REP-26 — Logical Database and Persistence Implications
 
 QA capability may require conceptual references linking project/requirement and acceptance versions, repository commit/artifact/environment, test plan/case and run, execution state, evidence and provenance, defect and remediation/retest, review and readiness assessment, and acceptance/exception records. This is a logical information requirement only; no physical schema is approved. Preserve service-owned data and migrations, tenant isolation, minimisation, access controls, retention/deletion, audit and evidence integrity. Test evidence must not become a channel for secrets or unrestricted customer data; apply redaction and explicit access controls to logs, attachments and AI context. No schema/table/index/role/permission, migration or data operation is authorised.
+
+## HD-REP-27 — Logical Data and Evidence Requirements
+
+The debugging/remediation capability may require logical records for defect intake, diagnostic sessions, evidence references, hypotheses and confidence, reproduction attempts, remediation plans, patch/change references, tool execution metadata, validation runs, review decisions and closure history. These are conceptual information requirements only; no physical schema, table, index, migration, retention duration or database ownership change is approved.
+
+All records and artefacts inherit tenant isolation, data classification, purpose limitation, access controls, audit, retention, export and deletion obligations under HD-REP-06, HD-REP-11 and HD-REP-12. Store references to source-controlled evidence where appropriate; protect original evidence and maintain integrity/provenance. Logs, stack traces, crash dumps, attachments and prompts may contain secrets or personal data and require minimisation, redaction and scoped access. AI context must be limited to the authorized project and purpose; no unrestricted cross-project or cross-tenant retrieval.
+
+No schema/table/index/role/permission, migration, database operation or implementation is authorized. POC-REP-27-01 through -32 remain unexecuted.
