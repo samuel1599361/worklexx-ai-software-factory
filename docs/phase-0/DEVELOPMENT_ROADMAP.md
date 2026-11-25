@@ -2076,3 +2076,8 @@ Validation must distinguish generated code, executed tests, passing tests, secur
 ## HD-REP-25 — Roadmap Addition (Approved 2026-11-25)
 
 Future implementation planning must include project initiation and requirement baselining, work breakdown and milestone planning, task/dependency records, controlled assignment and agent allocation, execution tracking, evidence-based progress, blockers/escalations, schedule analysis, change-impact workflows, collaboration and notifications, validation/review/customer acceptance, delivery/handover and project closure/continuation. These are planning requirements, not commitments or authorisation to begin Phase 1 or implementation. POC-REP-25-01 through -32 remain prerequisites and unexecuted.
+
+
+## HD-REP-26 — Roadmap Addition (Approved 2026-11-25)
+
+Future implementation planning shall include requirements and acceptance-criterion testability review; QA planning and test inventory; controlled test generation and execution; functional, integration, contract, UI, regression, security, privacy, performance, reliability, compatibility, accessibility, data-integrity, migration and AI-specific testing as applicable; evidence capture; defect triage/remediation/retest; independent review; customer acceptance evidence; and delivery readiness assessment. QG-01–QG-10 are proposed internal checkpoints. They are not substitutes for HD-08 gates, external approvals or certification. POC-REP-26-01 through -32 remain prerequisites and unexecuted. No Phase 1 or implementation commencement is authorised.

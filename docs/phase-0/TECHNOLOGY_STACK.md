@@ -1476,3 +1476,8 @@ Execute untrusted or customer-project code only in isolated, policy-controlled w
 ## HD-REP-25 — Technology Implications
 
 The project-centric task, dependency, scheduling, collaboration, evidence, notification and change-management capability is a logical application capability distributed within the existing six backend deployables and approved frontend applications. This decision introduces no new deployable service, framework, database, workflow provider, notification provider or vendor commitment. Existing contract-first, durable workflow, tenant isolation, audit, resource-control, agent sandbox and approval-gate requirements remain applicable. Specific technology choices and implementation designs require subsequent evaluation and approval.
+
+
+## HD-REP-26 — Technology Implications
+
+The QA, test orchestration, defect, evidence and readiness capability is distributed within the existing six backend deployables and approved frontend applications, using the existing controlled sandbox and workflow architecture. This proposal does not select or add a test vendor, framework, service, database or deployable. Candidate testing tools and automation integration require evaluation, scoped authorisation, isolation, supply-chain review and POC validation. Tests may not use live customer data or perform consequential external actions without separate authorisation. POC-REP-26-01 through -32 remain unexecuted.
